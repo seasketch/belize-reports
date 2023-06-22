@@ -1,0 +1,106 @@
+{
+  "metrics": [
+    {
+      "metricId": "habitatOverlap",
+      "sketchId": "15110",
+      "classId": "coral_degraded",
+      "groupId": null,
+      "geographyId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "ex-mpa"
+      }
+    },
+    {
+      "metricId": "habitatOverlap",
+      "sketchId": "15110",
+      "classId": "coral_healthy",
+      "groupId": null,
+      "geographyId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "ex-mpa"
+      }
+    },
+    {
+      "metricId": "habitatOverlap",
+      "sketchId": "15110",
+      "classId": "mangrove_degraded",
+      "groupId": null,
+      "geographyId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "ex-mpa"
+      }
+    },
+    {
+      "metricId": "habitatOverlap",
+      "sketchId": "15110",
+      "classId": "mangrove_healthy",
+      "groupId": null,
+      "geographyId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "ex-mpa"
+      }
+    }
+  ],
+  "sketch": {
+    "id": 15110,
+    "bbox": [
+      -87.43258,
+      17.158474,
+      -86.78372,
+      17.765127
+    ],
+    "type": "Feature",
+    "properties": {
+      "2931": "Fully Protected",
+      "2932": "ex-mpa",
+      "id": "15110",
+      "name": "ex-mpa",
+      "postId": null,
+      "userId": "128",
+      "authors": null,
+      "comments": null,
+      "userSlug": "Peter",
+      "createdAt": "2023-06-21T18:13:39.278777+00:00",
+      "updatedAt": "2023-06-21T18:33:26.136021+00:00",
+      "designation": "Fully Protected",
+      "collectionId": null,
+      "isCollection": false,
+      "sharedInForum": false,
+      "sketchClassId": "196",
+      "userAttributes": [
+        {
+          "label": "Designation",
+          "value": "Fully Protected",
+          "exportId": "designation",
+          "fieldType": "ComboBox",
+          "valueLabel": null,
+          "formElementId": 2931,
+          "alternateLanguages": {}
+        },
+        {
+          "label": "Comments",
+          "value": null,
+          "exportId": "comments",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 2933,
+          "alternateLanguages": {}
+        },
+        {
+          "label": "Author(s)",
+          "value": null,
+          "exportId": "authors",
+          "fieldType": "ShortText",
+          "valueLabel": null,
+          "formElementId": 2934,
+          "alternateLanguages": {}
+        }
+      ]
+    },
+    "geometry": null
+  }
+}

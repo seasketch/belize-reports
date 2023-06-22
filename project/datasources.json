@@ -62,22 +62,66 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Mangrove/Mangrove_baselinefootprint_degraded_Belize_clip.shp",
-    "layerName": "Mangrove_baselinefootprint_degraded_Belize_clip",
-    "geo_type": "vector",
     "datasourceId": "mangrove_degraded",
-    "formats": [
-      "fgb"
-    ],
-    "classKeys": [],
-    "created": "2023-06-22T20:41:26.878Z",
-    "lastUpdated": "2023-06-22T20:41:26.878Z",
+    "geo_type": "vector",
     "keyStats": {
       "total": {
         "total": {
           "count": 6770,
           "sum": null,
           "area": 135333074.38101614
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Mangrove_baselinefootprint_degraded_Belize_clip",
+    "classKeys": [],
+    "created": "2023-06-22T20:41:26.878Z",
+    "lastUpdated": "2023-06-22T20:41:26.878Z",
+    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Mangrove/Mangrove_baselinefootprint_degraded_Belize_clip.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "coral_healthy",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 6324,
+          "sum": null,
+          "area": 2200821918.6417594
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Coral_baselinefootprint_healthy",
+    "classKeys": [],
+    "created": "2023-06-22T21:03:26.162Z",
+    "lastUpdated": "2023-06-22T21:03:26.162Z",
+    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Coral_Reef/Coral_baselinefootprint_healthy.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Coral_Reef/Coral_baselinefootprint_degraded.shp",
+    "layerName": "Coral_baselinefootprint_degraded",
+    "geo_type": "vector",
+    "datasourceId": "coral_degraded",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [],
+    "created": "2023-06-22T21:06:20.980Z",
+    "lastUpdated": "2023-06-22T21:06:20.980Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 5129,
+          "sum": null,
+          "area": 416140512.9887638
         }
       }
     },

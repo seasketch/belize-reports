@@ -1,0 +1,96 @@
+{
+  "title": "belize-report-test",
+  "author": "petermenzies",
+  "region": "us-west-1",
+  "apiVersion": "3.0.0",
+  "version": "3.0.0",
+  "relatedUri": "https://github.com/mcclintock-lab/belize-report-test#readme",
+  "sourceUri": "git+https://github.com/mcclintock-lab/belize-report-test.git",
+  "published": "2023-06-22T22:14:51.003Z",
+  "clients": [
+    {
+      "title": "MpaTabReport",
+      "uri": "https://test.com/MpaTabReport",
+      "bundleSize": 0,
+      "apiVersion": "",
+      "tabs": []
+    },
+    {
+      "title": "SizeReport",
+      "uri": "https://test.com/SizeReport",
+      "bundleSize": 0,
+      "apiVersion": "",
+      "tabs": []
+    }
+  ],
+  "feedbackClients": [],
+  "preprocessingFunctions": [
+    {
+      "purpose": "preprocessing",
+      "memory": 4096,
+      "title": "clipToOceanEez",
+      "description": "Example-description",
+      "timeout": 40,
+      "requiresProperties": [],
+      "handlerFilename": "clipToOceanEez.ts",
+      "vectorDataSources": [],
+      "rateLimited": false,
+      "rateLimit": 0,
+      "rateLimitPeriod": "daily",
+      "rateLimitConsumed": 0,
+      "medianDuration": 0,
+      "medianCost": 0,
+      "type": "javascript",
+      "issAllowList": [
+        "*"
+      ]
+    }
+  ],
+  "geoprocessingFunctions": [
+    {
+      "purpose": "geoprocessing",
+      "memory": 10240,
+      "title": "boundaryAreaOverlap",
+      "description": "Calculate sketch overlap with boundary polygons",
+      "executionMode": "async",
+      "timeout": 40,
+      "requiresProperties": [],
+      "handlerFilename": "boundaryAreaOverlap.ts",
+      "vectorDataSources": [],
+      "rateLimited": false,
+      "rateLimit": 0,
+      "rateLimitPeriod": "daily",
+      "rateLimitConsumed": 0,
+      "medianDuration": 0,
+      "medianCost": 0,
+      "type": "javascript",
+      "issAllowList": [
+        "*"
+      ]
+    },
+    {
+      "purpose": "geoprocessing",
+      "memory": 8192,
+      "title": "habitatOverlap",
+      "description": "Calculate sketch overlap with habitat area polygons",
+      "executionMode": "async",
+      "timeout": 60,
+      "requiresProperties": [],
+      "handlerFilename": "habitatOverlap.ts",
+      "vectorDataSources": [],
+      "rateLimited": false,
+      "rateLimit": 0,
+      "rateLimitPeriod": "daily",
+      "rateLimitConsumed": 0,
+      "medianDuration": 0,
+      "medianCost": 0,
+      "type": "javascript",
+      "issAllowList": [
+        "*"
+      ]
+    }
+  ],
+  "preprocessingServices": [],
+  "geoprocessingServices": [],
+  "uri": ""
+}

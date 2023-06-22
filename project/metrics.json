@@ -13,23 +13,36 @@
 },
 
 {
-  "metricId": "mangroveOverlap",
+  "metricId": "habitatOverlap",
   "type": "areaOverlap",
   "classes": [
       {
           "classId": "mangrove_healthy",
-          "display": "Healthy Mangrove Area",
+          "display": "Healthy Mangrove",
           "datasourceId": "mangrove_healthy",
           "objectiveId": "eez",
           "layerId": "60d37c22b4c604aa56927704"
       },
-
       {
         "classId": "mangrove_degraded",
-        "display": "Degraded Mangrove Area",
+        "display": "Degraded Mangrove",
         "datasourceId": "mangrove_degraded",
         "objectiveId": "eez",
         "layerId": "60d37c22b4c604aa56927704"
-    }
+    },
+    {
+      "classId": "coral_healthy",
+      "display": "Healthy Coral",
+      "datasourceId": "coral_healthy",
+      "objectiveId": "eez",
+      "layerId": "60d37c22b4c604aa56927704"
+  },
+  {
+    "classId": "coral_degraded",
+    "display": "Degraded Coral",
+    "datasourceId": "coral_degraded",
+    "objectiveId": "eez",
+    "layerId": "60d37c22b4c604aa56927704"
+}
   ]
 }]

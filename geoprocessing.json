@@ -19,6 +19,6 @@
   ],
   "geoprocessingFunctions": [
     "src/functions/boundaryAreaOverlap.ts",
-    "src/functions/mangroveOverlap.ts"
+    "src/functions/habitatOverlap.ts"
   ]
 }
