@@ -1,0 +1,86 @@
+[
+  {
+    "datasourceId": "global-clipping-osm-land",
+    "geo_type": "vector",
+    "formats": [
+      "subdivided"
+    ],
+    "classKeys": [],
+    "url": "https://d3p1dsef9f0gjr.cloudfront.net/"
+  },
+  {
+    "datasourceId": "global-clipping-eez-land-union",
+    "geo_type": "vector",
+    "formats": [
+      "subdivided"
+    ],
+    "classKeys": [],
+    "url": "https://d3muy0hbwp5qkl.cloudfront.net"
+  },
+  {
+    "datasourceId": "eez",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 1,
+          "sum": null,
+          "area": 34500830720.44984
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "belize-eez",
+    "classKeys": [],
+    "created": "2023-06-20T19:40:29.307Z",
+    "lastUpdated": "2023-06-20T19:40:29.307Z",
+    "src": "data/src/Belize/Data_Products/belize-eez.json",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "mangrove_healthy",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 6301,
+          "sum": null,
+          "area": 636313290.6613743
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Mangrove_baselinefootprint_healthy_Belize_clip",
+    "classKeys": [],
+    "created": "2023-06-22T20:39:27.630Z",
+    "lastUpdated": "2023-06-22T20:39:27.630Z",
+    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Mangrove/Mangrove_baselinefootprint_healthy_Belize_clip.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Mangrove/Mangrove_baselinefootprint_degraded_Belize_clip.shp",
+    "layerName": "Mangrove_baselinefootprint_degraded_Belize_clip",
+    "geo_type": "vector",
+    "datasourceId": "mangrove_degraded",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [],
+    "created": "2023-06-22T20:41:26.878Z",
+    "lastUpdated": "2023-06-22T20:41:26.878Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 6770,
+          "sum": null,
+          "area": 135333074.38101614
+        }
+      }
+    },
+    "propertiesToKeep": []
+  }
+]
