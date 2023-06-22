@@ -1,5 +1,5 @@
 {
-  "name": "belize-report-test",
+  "name": "belize-reports",
   "version": "3.0.0",
   "description": "Test drive",
   "main": "src/index.js",
@@ -65,15 +65,15 @@
     "babel-plugin-i18next-extract": "^0.9.0",
     "request": "^2.88.2"
   },
-  "repositoryUrl": "https://github.com/mcclintock-lab/belize-report-test",
+  "repositoryUrl": "https://github.com/seasketch/belize-reports",
   "author": "petermenzies",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcclintock-lab/belize-report-test.git"
+    "url": "git+https://github.com/seasketch/belize-reports.git"
   },
-  "homepage": "https://github.com/mcclintock-lab/belize-report-test#readme",
+  "homepage": "https://github.com/seasketch/belize-reports#readme",
   "bugs": {
-    "url": "https://github.com/mcclintock-lab/belize-report-test/issues"
+    "url": "https://github.com/seasketch/belize-reports/issues"
   }
 }

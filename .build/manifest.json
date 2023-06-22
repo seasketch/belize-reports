@@ -1,12 +1,12 @@
 {
-  "title": "belize-report-test",
+  "title": "belize-reports",
   "author": "petermenzies",
   "region": "us-west-1",
   "apiVersion": "3.0.0",
   "version": "3.0.0",
-  "relatedUri": "https://github.com/mcclintock-lab/belize-report-test#readme",
-  "sourceUri": "git+https://github.com/mcclintock-lab/belize-report-test.git",
-  "published": "2023-06-22T22:14:51.003Z",
+  "relatedUri": "https://github.com/seasketch/belize-reports#readme",
+  "sourceUri": "git+https://github.com/seasketch/belize-reports.git",
+  "published": "2023-06-22T22:29:25.527Z",
   "clients": [
     {
       "title": "MpaTabReport",
