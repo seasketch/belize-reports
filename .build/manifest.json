@@ -2,11 +2,11 @@
   "title": "belize-reports",
   "author": "petermenzies",
   "region": "us-west-1",
-  "apiVersion": "3.0.0",
+  "apiVersion": "3.0.1-alpha.0+91eedc8",
   "version": "3.0.0",
   "relatedUri": "https://github.com/seasketch/belize-reports#readme",
   "sourceUri": "git+https://github.com/seasketch/belize-reports.git",
-  "published": "2023-06-22T22:29:25.527Z",
+  "published": "2023-06-23T16:58:48.937Z",
   "clients": [
     {
       "title": "MpaTabReport",

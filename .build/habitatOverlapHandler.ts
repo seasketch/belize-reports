@@ -1,6 +1,6 @@
 
     import { VectorDataSource } from "@seasketch/geoprocessing";
-    import Handler from "/Users/menzies/Projects/geoprocessing/belize-reports/src/functions/habitatOverlap";
+    import Handler from "/Users/petermenzies/Projects/geoprocessing/belize-reports/src/functions/habitatOverlap";
     import { Context, APIGatewayProxyResult, APIGatewayProxyEvent } from "aws-lambda";
     export const handler = async (event:APIGatewayProxyEvent, context:Context): Promise<APIGatewayProxyResult> => {
       return await Handler.lambdaHandler(event, context);
