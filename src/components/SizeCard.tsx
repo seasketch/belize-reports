@@ -8,8 +8,9 @@ import {
   valueFormatter,
   toPercentMetric,
   sortMetricsDisplayOrder,
-  isSketchCollection,
   MetricGroup,
+  Metric,
+  squareMeterToKilometer
 } from "@seasketch/geoprocessing/client-core";
 import {
   ClassTable,
@@ -24,7 +25,6 @@ import {
 } from "@seasketch/geoprocessing/client-ui";
 import styled from "styled-components";
 import project from "../../project";
-import { Metric, squareMeterToKilometer } from "@seasketch/geoprocessing";
 import Translator from "../components/TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
