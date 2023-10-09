@@ -3,10 +3,10 @@
   "type": "areaOverlap",
   "classes": [
       {
-          "classId": "eez",
-          "display": "EEZ",
-          "datasourceId": "global-clipping-eez-land-union",
-          "objectiveId": "eez",
+          "classId": "belize_eez",
+          "display": "Ocean Space",
+          "datasourceId": "belize_eez",
+          "objectiveId": "ocean_space_protected",
           "layerId": ""
       }
   ]

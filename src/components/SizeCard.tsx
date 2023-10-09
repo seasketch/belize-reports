@@ -10,7 +10,8 @@ import {
   sortMetricsDisplayOrder,
   MetricGroup,
   Metric,
-  squareMeterToKilometer
+  squareMeterToKilometer,
+  firstMatchingMetric
 } from "@seasketch/geoprocessing/client-core";
 import {
   ClassTable,
@@ -28,18 +29,6 @@ import project from "../../project";
 import Translator from "../components/TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
-
-// Hard code total area of eez
-const boundaryTotalMetrics: Metric[] = [
-  {
-    classId: "eez",
-    metricId: "boundaryAreaOverlap",
-    sketchId: null,
-    groupId: null,
-    geographyId: null,
-    value: 34425667117,
-  },
-];
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
@@ -81,6 +70,11 @@ export const SizeCard = () => {
   const { t } = useTranslation();
   const metricGroup = project.getMetricGroup("boundaryAreaOverlap", t);
 
+  const boundaryTotalMetrics = project.getPrecalcMetrics(
+    metricGroup,
+    "area"
+  );
+
   const notFoundString = t("Results not found");
 
   /* i18next-extract-disable-next-line */
@@ -119,10 +113,10 @@ export const SizeCard = () => {
                   targets for each boundary.
                 </Trans>
               </p>
-              {genSingleSizeTable(data, metricGroup, t)}
+              {genSingleSizeTable(data, metricGroup, boundaryTotalMetrics, t)}
               {isCollection && (
                 <Collapse title={t("Show by MPA")}>
-                  {genNetworkSizeTable(data, metricGroup, t)}
+                  {genNetworkSizeTable(data, metricGroup, boundaryTotalMetrics, t)}
                 </Collapse>
               )}
               <Collapse title={t("Learn more")}>
@@ -163,6 +157,7 @@ export const SizeCard = () => {
 const genSingleSizeTable = (
   data: ReportResult,
   mg: MetricGroup,
+  boundaryTotalMetrics: Metric[],
   t: TFunction
 ) => {
   const boundaryLabel = t("Boundary");
@@ -187,7 +182,7 @@ const genSingleSizeTable = (
       ),
     ],
     "classId",
-    ["eez", "offshore", "contiguous"]
+    ["belize-eez", "offshore", "contiguous"]
   );
 
   return (
@@ -260,6 +255,7 @@ const genSingleSizeTable = (
 const genNetworkSizeTable = (
   data: ReportResult,
   mg: MetricGroup,
+  boundaryTotalMetrics: Metric[],
   t: TFunction
 ) => {
   const sketches = toNullSketchArray(data.sketch);

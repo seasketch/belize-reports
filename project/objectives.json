@@ -1,8 +1,9 @@
 [{
-  "objectiveId": "eez",
-  "shortDesc": "EEZ Objective",
-  "target": 0.2,
+  "objectiveId": "ocean_space_protected",
+  "shortDesc": "Ocean Space Objective",
+  "target": 0.25,
   "countsToward": {
-      "Fully Protected Area": "yes"
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "yes"
   }
 }]

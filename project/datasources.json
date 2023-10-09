@@ -18,28 +18,6 @@
     "url": "https://d3muy0hbwp5qkl.cloudfront.net"
   },
   {
-    "datasourceId": "eez",
-    "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 34500830720.44984
-        }
-      }
-    },
-    "formats": [
-      "fgb"
-    ],
-    "layerName": "belize-eez",
-    "classKeys": [],
-    "created": "2023-06-20T19:40:29.307Z",
-    "lastUpdated": "2023-06-20T19:40:29.307Z",
-    "src": "data/src/Belize/Data_Products/belize-eez.json",
-    "propertiesToKeep": []
-  },
-  {
     "datasourceId": "mangrove_healthy",
     "geo_type": "vector",
     "keyStats": {
@@ -106,22 +84,66 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Coral_Reef/Coral_baselinefootprint_degraded.shp",
-    "layerName": "Coral_baselinefootprint_degraded",
-    "geo_type": "vector",
     "datasourceId": "coral_degraded",
-    "formats": [
-      "fgb"
-    ],
-    "classKeys": [],
-    "created": "2023-06-22T21:06:20.980Z",
-    "lastUpdated": "2023-06-22T21:06:20.980Z",
+    "geo_type": "vector",
     "keyStats": {
       "total": {
         "total": {
           "count": 5129,
           "sum": null,
           "area": 416140512.9887638
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Coral_baselinefootprint_degraded",
+    "classKeys": [],
+    "created": "2023-06-22T21:06:20.980Z",
+    "lastUpdated": "2023-06-22T21:06:20.980Z",
+    "src": "data/src/Belize/Data_Received/WWF_Smart_Coasts/Natural_Habitats/Coral_Reef/Coral_baselinefootprint_degraded.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "belize_ocean_space",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 4,
+          "sum": null,
+          "area": 33921603777.750183
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Belize Maritime Areas",
+    "classKeys": [],
+    "created": "2023-08-30T23:51:55.809Z",
+    "lastUpdated": "2023-08-30T23:51:55.809Z",
+    "src": "data/src/Data_Received/Belize Maritime Areas/Belize Maritime Areas.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Data_Products/belize-eez.json",
+    "layerName": "belize-eez",
+    "geo_type": "vector",
+    "datasourceId": "belize_eez",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [],
+    "created": "2023-10-09T23:01:30.856Z",
+    "lastUpdated": "2023-10-09T23:01:30.856Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 1,
+          "sum": null,
+          "area": 34500830720.44984
         }
       }
     },
