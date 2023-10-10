@@ -19,7 +19,7 @@
   ],
   "geoprocessingFunctions": [
     "src/functions/boundaryAreaOverlap.ts",
-    "src/functions/protectionCountOverlap.ts",
+    "src/functions/protection.ts",
     "src/functions/habitatOverlap.ts"
   ]
 }
