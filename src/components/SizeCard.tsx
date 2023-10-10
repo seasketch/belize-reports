@@ -172,7 +172,7 @@ const genSingleSizeTable = (
     (m) => m.sketchId === data.sketch.properties.id
   );
 
-  const finalMetrics = sortMetricsDisplayOrder(
+  const finalMetrics =
     [
       ...singleMetrics,
       ...toPercentMetric(
@@ -180,10 +180,7 @@ const genSingleSizeTable = (
         boundaryTotalMetrics,
         project.getMetricGroupPercId(mg)
       ),
-    ],
-    "classId",
-    ["belize-eez", "offshore", "contiguous"]
-  );
+    ];
 
   return (
     <>

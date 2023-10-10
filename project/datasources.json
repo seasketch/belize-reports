@@ -106,28 +106,6 @@
     "propertiesToKeep": []
   },
   {
-    "datasourceId": "belize_ocean_space",
-    "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 4,
-          "sum": null,
-          "area": 33921603777.750183
-        }
-      }
-    },
-    "formats": [
-      "fgb"
-    ],
-    "layerName": "Belize Maritime Areas",
-    "classKeys": [],
-    "created": "2023-08-30T23:51:55.809Z",
-    "lastUpdated": "2023-08-30T23:51:55.809Z",
-    "src": "data/src/Data_Received/Belize Maritime Areas/Belize Maritime Areas.shp",
-    "propertiesToKeep": []
-  },
-  {
     "src": "data/src/Data_Products/belize-eez.json",
     "layerName": "belize-eez",
     "geo_type": "vector",
