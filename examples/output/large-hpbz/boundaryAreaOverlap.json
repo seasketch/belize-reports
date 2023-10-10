@@ -2,60 +2,61 @@
   "metrics": [
     {
       "metricId": "boundaryAreaOverlap",
-      "sketchId": "15122",
+      "sketchId": "20652",
       "classId": "belize_eez",
       "groupId": null,
       "geographyId": null,
-      "value": 3063068438.765963,
+      "value": 16193367344.341074,
       "extra": {
-        "sketchName": "test"
+        "sketchName": "large-hpbz"
       }
     },
     {
       "metricId": "boundaryAreaOverlap",
-      "sketchId": "15122",
+      "sketchId": "20652",
       "classId": "belize_eez",
       "groupId": "HIGH_PROTECTION",
       "geographyId": null,
-      "value": 0,
+      "value": 16193367344.341074,
       "extra": {
-        "sketchName": "test"
+        "sketchName": "large-hpbz"
       }
     },
     {
       "metricId": "boundaryAreaOverlap",
-      "sketchId": "15122",
+      "sketchId": "20652",
       "classId": "belize_eez",
       "groupId": "MEDIUM_PROTECTION",
       "geographyId": null,
       "value": 0,
       "extra": {
-        "sketchName": "test"
+        "sketchName": "large-hpbz"
       }
     }
   ],
   "sketch": {
-    "id": 15122,
+    "id": 20652,
     "bbox": [
-      -87.8685,
-      17.02496,
-      -87.13025,
-      17.471321
+      -88.023674,
+      16.775734,
+      -85.97308,
+      17.890213
     ],
     "type": "Feature",
     "properties": {
-      "2931": "Fully Protected",
-      "2932": "test",
-      "id": "15122",
-      "name": "test",
+      "2931": "HIGH_PROTECTION",
+      "2932": "large-hpbz",
+      "2934": "abby",
+      "id": "20652",
+      "name": "large-hpbz",
       "postId": null,
       "userId": "531",
-      "authors": null,
+      "authors": "abby",
       "comments": null,
       "userSlug": "Abby",
-      "createdAt": "2023-06-23T18:09:34.096326+00:00",
-      "updatedAt": "2023-06-23T18:09:34.096326+00:00",
-      "designation": "Fully Protected",
+      "createdAt": "2023-10-10T22:16:30.080299+00:00",
+      "updatedAt": "2023-10-10T22:16:30.080299+00:00",
+      "designation": "HIGH_PROTECTION",
       "collectionId": null,
       "isCollection": false,
       "sharedInForum": false,
@@ -72,7 +73,7 @@
         },
         {
           "label": "Author(s)",
-          "value": null,
+          "value": "abby",
           "exportId": "authors",
           "fieldType": "ShortText",
           "valueLabel": null,
@@ -81,10 +82,10 @@
         },
         {
           "label": "Designation",
-          "value": "Fully Protected",
+          "value": "HIGH_PROTECTION",
           "exportId": "designation",
           "fieldType": "ComboBox",
-          "valueLabel": null,
+          "valueLabel": "High Protection",
           "formElementId": 2931,
           "alternateLanguages": {}
         }

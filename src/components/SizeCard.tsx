@@ -1,382 +1,649 @@
 import React from "react";
 import {
-  ReportResult,
-  percentWithEdge,
-  keyBy,
-  toNullSketchArray,
-  nestMetrics,
-  valueFormatter,
-  toPercentMetric,
-  sortMetricsDisplayOrder,
-  MetricGroup,
-  Metric,
-  squareMeterToKilometer,
-  firstMatchingMetric
-} from "@seasketch/geoprocessing/client-core";
-import {
-  ClassTable,
+  ResultsCard,
+  ReportError,
   Collapse,
   Column,
-  ReportTableStyled,
-  ResultsCard,
   Table,
+  ReportTableStyled,
+  GroupCircleRow,
+  GroupPill,
+  KeySection,
+  HorizontalStackedBar,
+  ReportChartFigure,
+  ObjectiveStatus,
   useSketchProperties,
-  ToolbarCard,
-  DataDownload,
-  WatersDiagram,
+  VerticalSpacer,
 } from "@seasketch/geoprocessing/client-ui";
+import {
+  ReportResult,
+  NullSketch,
+  Metric,
+  firstMatchingMetric,
+  keyBy,
+  toNullSketchArray,
+  percentWithEdge,
+  GroupMetricAgg,
+  roundLower,
+  squareMeterToKilometer,
+  OBJECTIVE_NO,
+  OBJECTIVE_YES,
+  getKeys,
+  Objective,
+  getUserAttribute,
+  ObjectiveAnswer,
+  toPercentMetric,
+  genSketchCollection,
+} from "@seasketch/geoprocessing/client-core";
+import {
+  getMetricGroupObjectiveIds,
+  getMinYesCountMap,
+  getObjectiveById,
+  isSketchCollection,
+} from "@seasketch/geoprocessing";
+import { Trans, useTranslation } from "react-i18next";
 import styled from "styled-components";
 import project from "../../project";
-import Translator from "../components/TranslatorAsync";
-import { Trans, useTranslation } from "react-i18next";
-import { TFunction } from "i18next";
-import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
+import { flattenByGroupAllClass } from "../util/flattenByGroupAllClass";
 
-const Number = new Intl.NumberFormat("en", { style: "decimal" });
+// Mapping groupIds to colors
+const groupColorMap: Record<string, string> = {
+  HIGH_PROTECTION: "#BEE4BE",
+  MEDIUM_PROTECTION: "#FFE1A3",
+};
 
-const TableStyled = styled(ReportTableStyled)`
-  font-size: 12px;
-  td {
-    text-align: right;
-  }
+// Mapping groupIds to display names
+const groupDisplayMap: Record<string, string> = {
+  HIGH_PROTECTION: "High Protection Area",
+  MEDIUM_PROTECTION: "Medium Protection Area",
+};
 
-  tr:nth-child(1) > th:nth-child(n + 1) {
-    text-align: center;
-  }
-
-  tr:nth-child(2) > th:nth-child(n + 1) {
-    text-align: center;
-  }
-
-  tr > td:nth-child(1),
-  tr > th:nth-child(1) {
-    border-right: 1px solid #777;
-  }
-
-  tr:nth-child(1) > th:nth-child(2) {
-    border-right: 1px solid #777;
-  }
-
-  tr > td:nth-child(3),
-  tr > th:nth-child(3) {
-    border-right: 1px solid #777;
-  }
-  tr > td:nth-child(5),
-  tr > th:nth-child(5) {
-    border-right: 1px solid #777;
+// Styling for 'Show by --' tables
+export const SmallReportTableStyled = styled(ReportTableStyled)`
+  .styled {
+    font-size: 13px;
   }
 `;
 
-export const SizeCard = () => {
+/**
+ * Top level SizeCard element
+ * @returns React.FunctionComponent
+ */
+export const SizeCard: React.FunctionComponent = (props) => {
+  const { t, i18n } = useTranslation();
   const [{ isCollection }] = useSketchProperties();
-  const { t } = useTranslation();
-  const metricGroup = project.getMetricGroup("boundaryAreaOverlap", t);
+  const mg = project.getMetricGroup("boundaryAreaOverlap", t);
+  const objectiveIds = getMetricGroupObjectiveIds(mg);
+  const objectives = objectiveIds.map((o) => project.getObjectiveById(o));
 
-  const boundaryTotalMetrics = project.getPrecalcMetrics(
-    metricGroup,
-    "area"
-  );
-
-  const notFoundString = t("Results not found");
-  const landLabel = t("Land");
-  const shorelineLabel = t("Shoreline");
-  const internalWatersLabel = t("Internal Waters\n(Shoreline - Baseline)");
-  const baselineLabel = t("Baseline");
-  const territorialSeasLabel = t("Territorial Seas\n(Baseline - 12nm)");
-  const eezLabel = t("Exclusive Economic Zone\n(12 - 200nm)");
-
-  const labelsFinal: Label[] = [
-    { key: "land", labelText: landLabel, x: 20, y: 640 },
-    { key: "shoreline", labelText: shorelineLabel, x: 230, y: 530 },
-    {
-      key: "internalWaters",
-      labelText: internalWatersLabel,
-      x: 20,
-      y: 430,
-    },
-    {
-      key: "baseline",
-      labelText: baselineLabel,
-      x: 230,
-      y: 400,
-    },
-    {
-      key: "territorialSeas",
-      labelText: territorialSeasLabel,
-      x: 20,
-      y: 310,
-    },
-    {
-      key: "eez",
-      labelText: eezLabel,
-      x: 20,
-      y: 170,
-    },
-  ].map((label) => ({
-    //Adding default style
-    ...label,
-    style: { font: "12pt Helvetica, Arial, sans-serif", whiteSpace: "pre" },
-  }));
-
-  /* i18next-extract-disable-next-line */
-  const planningUnitName = t(project.basic.planningAreaName);
   return (
     <ResultsCard
       title={t("Size")}
       functionName="boundaryAreaOverlap"
-      useChildCard
     >
       {(data: ReportResult) => {
-        if (Object.keys(data).length === 0) throw new Error(notFoundString);
+        // Get overall area of sketch metric
+        const areaMetric = firstMatchingMetric(
+          data.metrics,
+          (m) => m.sketchId === data.sketch.properties.id && m.groupId === null
+        );
+
+        // Get precalcalulated total metrics from precalc.json
+        const boundaryTotalMetrics = project.getPrecalcMetrics(
+          mg,
+          "area"
+        );
+
+        // Grab overall size precalc metric
+        const totalAreaMetric = firstMatchingMetric(
+          boundaryTotalMetrics,
+          (m) => m.groupId === null
+        );
+
+        // Format area metrics for key section display
+        const areaDisplay = roundLower(
+          squareMeterToKilometer(areaMetric.value)
+        );
+        const percDisplay = percentWithEdge(
+          areaMetric.value / totalAreaMetric.value
+        );
+        const areaUnitDisplay = t("sq. km");
 
         return (
-          <>
-            <ToolbarCard
-              title={t("Size")}
-              items={
-                <>
-                  <DataDownload
-                    filename="size"
-                    data={data.metrics}
-                    formats={["csv", "json"]}
-                    placement="left-end"
-                  />
-                </>
-              }
-            >
-              <p>
-                {planningUnitName}{" "}
-                <Trans i18nKey="SizeCard - introduction">
-                  national waters extend from the shoreline out to 200 nautical
-                  miles, known as the Exclusive Economic Zone (EEZ). This report
-                  summarizes offshore plan overlap with the EEZ and other
-                  boundaries within it, measuring progress towards achieving %
-                  targets for each boundary.
-                </Trans>
-              </p>
-              {genSingleSizeTable(data, metricGroup, boundaryTotalMetrics, t)}
-              {isCollection && (
-                <Collapse title={t("Show by MPA")}>
-                  {genNetworkSizeTable(data, metricGroup, boundaryTotalMetrics, t)}
-                </Collapse>
-              )}
-              <Collapse title={t("Learn more")}>
-              <div>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700">
-                    <WatersBackgroundBelize />
+          <ReportError>
+            <>
+              <KeySection>
+                {t("This plan is")}{" "}
+                <b>
+                  {areaDisplay} {areaUnitDisplay}
+                </b>
+                {", "}
+                {t("which is")} <b>{percDisplay}</b> {t("of")}{" "}
+                {t("the Belize Ocean Space")}.
+              </KeySection>
+              {isCollection
+                ? collectionReport(
+                    data,
+                    boundaryTotalMetrics,
+                    objectiveIds,
+                    t
+                  )
+                : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
-                    {labelsFinal.map((label) => (
-                      <text key={label.key} x={label.x} y={label.y} style={label.style}>
-                        {label.labelText}
-                      </text>
-                    ))}
-                  </svg>
-                </div>
-                <Trans i18nKey="SizeCard - learn more">
-                  <p>
-                    {" "}
-                    This report summarizes the size and proportion of this plan
-                    within these boundaries.
-                  </p>
-                  <p>
-                    If sketch boundaries within a plan overlap with each other,
-                    the overlap is only counted once.
-                  </p>
-                </Trans>
+              <Collapse title={t("Learn More")}>
+                {genLearnMore(objectives)}
               </Collapse>
-            </ToolbarCard>
-          </>
+            </>
+          </ReportError>
         );
       }}
     </ResultsCard>
   );
 };
 
-const genSingleSizeTable = (
-  data: ReportResult,
-  mg: MetricGroup,
-  boundaryTotalMetrics: Metric[],
-  t: TFunction
-) => {
-  const boundaryLabel = t("Boundary");
-  const foundWithinLabel = t("Found Within Plan");
-  const areaWithinLabel = t("Area Within Plan");
-  const areaPercWithinLabel = t("% Within Plan");
-  const mapLabel = t("Map");
-  const sqKmLabel = t("km²");
-
-  const classesById = keyBy(mg.classes, (c) => c.classId);
-  let singleMetrics = data.metrics.filter(
-    (m) => m.sketchId === data.sketch.properties.id
+/**
+ * Report protection level for single sketch
+ * @param data ReportResult
+ * @param t TFunction
+ * @returns JSX.Element
+ */
+const sketchReport = (data: ReportResult, 
+  precalcMetrics: Metric[],
+  objectiveIds: string[],
+  t: any) => {
+  const levels = ["HIGH_PROTECTION", "MEDIUM_PROTECTION"];
+  const level = getUserAttribute(
+    data.sketch.properties,
+    "designation"
   );
 
-  const finalMetrics =
-    [
-      ...singleMetrics,
-      ...toPercentMetric(
-        singleMetrics,
-        boundaryTotalMetrics,
-        project.getMetricGroupPercId(mg)
-      ),
-    ];
+  const area = firstMatchingMetric(
+    data.metrics,
+    (m) => m.groupId === null
+  ).value;
+
+  const totalArea = firstMatchingMetric(
+    precalcMetrics,
+    (m) => m.groupId === null
+  ).value;
+
+  const percArea = area/totalArea;
+
+    // Coloring and styling for horizontal bars
+    const groupColors = Object.values(groupColorMap);
+    const blockGroupNames = ["High", "Medium"];
+    const blockGroupStyles = groupColors.map((curBlue) => ({
+      backgroundColor: curBlue,
+    }));
+    const valueFormatter = (value: number) => percentWithEdge(value / 100);
+
+    return (
+      <>
+        {objectiveIds.map((objectiveId: string) => {
+          const objective = project.getObjectiveById(objectiveId);
+          const isMet = percArea >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
+
+          // Create horizontal bar config
+          const config = {
+            rows: [levels.map((l) => l===level ? [percArea * 100] : [0])],
+            rowConfigs: [
+              {
+                title: "",
+              },
+            ],
+            target: objective.target * 100,
+            max: 100,
+          };
+  
+          const targetLabel = t("Target");
+  
+          return (
+            <React.Fragment key={objectiveId}>
+              <CollectionObjectiveStatus
+                objective={objective}
+                objectiveMet={isMet}
+                t={t}
+                renderMsg={collectionMsgs[objectiveId](
+                  objective,
+                  isMet,
+                  t
+                )}
+              />
+              <ReportChartFigure>
+                <HorizontalStackedBar
+                  {...config}
+                  blockGroupNames={blockGroupNames}
+                  blockGroupStyles={blockGroupStyles}
+                  showLegend={true}
+                  valueFormatter={valueFormatter}
+                  targetValueFormatter={(value) =>
+                    targetLabel + ` - ` + value + `%`
+                  }
+                />
+              </ReportChartFigure>
+            </React.Fragment>
+          );
+        })}
+      </>
+    );
+  // return (
+  //   <>
+  //     <SketchObjectives groupId={level} t={t} />
+  //   </>
+  // );
+};
+
+/**
+ * Report protection level for sketch collection
+ * @param data ReportResult
+ * @param precalcMetrics Metric[] from precalc.json
+ * @param t TFunction
+ * @returns JSX.Element
+ */
+const collectionReport = (
+  data: ReportResult,
+  precalcMetrics: Metric[],
+  objectiveIds: string[],
+  t: any
+) => {
+  if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
+  const sketches = toNullSketchArray(data.sketch);
+  const sketchesById = keyBy(sketches, (sk) => sk.properties.id);
+
+  // Filter down to metrics which have groupIds
+  const levelMetrics = data.metrics.filter(
+    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+  );
+
+  const groupLevelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
+    data.sketch,
+    levelMetrics,
+    precalcMetrics
+  );
+
+  // Filter down grouped metrics to ones that count for each objective
+  const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
+    (acc, objectiveId) => {
+      // Protection levels which count for objective
+      const yesAggs: GroupMetricAgg[] = groupLevelAggs.filter((levelAgg) => {
+        const level = levelAgg.groupId;
+        return (
+          project.getObjectiveById(objectiveId).countsToward[level] ===
+          OBJECTIVE_YES
+        );
+      });
+      // Extract percent value from metric
+      const yesValues = yesAggs.map((yesAgg) => yesAgg.percValue);
+      return { ...acc, [objectiveId]: yesValues };
+    },
+    {}
+  );
+
+  // Child sketch table for 'Show By MPA'
+  const childAreaMetrics = levelMetrics.filter(
+    (m) => m.sketchId !== data.sketch.properties.id && m.groupId
+  );
+  const childAreaPercMetrics = toPercentMetric(
+    childAreaMetrics,
+    precalcMetrics
+  );
+
+  // Coloring and styling for horizontal bars
+  const groupColors = Object.values(groupColorMap);
+  const blockGroupNames = ["High", "Medium"];
+  const blockGroupStyles = groupColors.map((curBlue) => ({
+    backgroundColor: curBlue,
+  }));
+  const valueFormatter = (value: number) => percentWithEdge(value / 100);
 
   return (
     <>
-      <ClassTable
-        rows={finalMetrics}
-        metricGroup={mg}
-        objective={project.getMetricGroupObjectives(mg, t)}
-        columnConfig={[
-          {
-            columnLabel: boundaryLabel,
-            type: "class",
-            width: 25,
-          },
-          {
-            columnLabel: foundWithinLabel,
-            type: "metricValue",
-            metricId: mg.metricId,
-            valueFormatter: (val: string | number) =>
-              Number.format(
-                Math.round(
-                  squareMeterToKilometer(
-                    typeof val === "string" ? parseInt(val) : val
-                  )
-                )
-              ),
-            valueLabel: sqKmLabel,
-            width: 20,
-          },
-          {
-            columnLabel: " ",
-            type: "metricChart",
-            metricId: project.getMetricGroupPercId(mg),
-            valueFormatter: "percent",
-            chartOptions: {
-              showTitle: true,
-              showTargetLabel: true,
-              targetLabelPosition: "bottom",
-              targetLabelStyle: "tight",
-              barHeight: 11,
+      {objectiveIds.map((objectiveId: string) => {
+        const objective = project.getObjectiveById(objectiveId);
+
+        // Get total percentage within sketch
+        const percSum = totalsByObjective[objectiveId].reduce(
+          (sum, value) => sum + value,
+          0
+        );
+
+        // Checks if the objective is met
+        const isMet =
+          percSum >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
+
+        // Create horizontal bar config
+        const config = {
+          rows: [totalsByObjective[objectiveId].map((value) => [value * 100])],
+          rowConfigs: [
+            {
+              title: "",
             },
-            width: 40,
-            targetValueFormatter: (
-              value: number,
-              row: number,
-              numRows: number
-            ) => {
-              if (row === 0) {
-                return (value: number) =>
-                  `${valueFormatter(value / 100, "percent0dig")} ${t(
-                    "Target"
-                  )}`;
-              } else {
-                return (value: number) =>
-                  `${valueFormatter(value / 100, "percent0dig")}`;
-              }
-            },
-          },
-          {
-            type: "layerToggle",
-            width: 15,
-            columnLabel: mapLabel,
-          },
-        ]}
-      />
+          ],
+          target: objective.target * 100,
+          max: 100,
+        };
+
+        const targetLabel = t("Target");
+
+        return (
+          <React.Fragment key={objectiveId}>
+            <CollectionObjectiveStatus
+              objective={objective}
+              objectiveMet={isMet}
+              t={t}
+              renderMsg={collectionMsgs[objectiveId](
+                objective,
+                isMet,
+                t
+              )}
+            />
+            <ReportChartFigure>
+              <HorizontalStackedBar
+                {...config}
+                blockGroupNames={blockGroupNames}
+                blockGroupStyles={blockGroupStyles}
+                showLegend={true}
+                valueFormatter={valueFormatter}
+                targetValueFormatter={(value) =>
+                  targetLabel + ` - ` + value + `%`
+                }
+              />
+            </ReportChartFigure>
+          </React.Fragment>
+        );
+      })}
+
+      <Collapse title={t("Show by Protection Level")}>
+        {genGroupLevelTable(groupLevelAggs, t)}
+      </Collapse>
+
+      <Collapse title={t("Show by MPA")}>
+        {genMpaSketchTable(sketchesById, childAreaPercMetrics, t)}
+      </Collapse>
     </>
   );
 };
 
-const genNetworkSizeTable = (
-  data: ReportResult,
-  mg: MetricGroup,
-  boundaryTotalMetrics: Metric[],
-  t: TFunction
-) => {
-  const sketches = toNullSketchArray(data.sketch);
-  const sketchesById = keyBy(sketches, (sk) => sk.properties.id);
-  const sketchIds = sketches.map((sk) => sk.properties.id);
-  const sketchMetrics = data.metrics.filter(
-    (m) => m.sketchId && sketchIds.includes(m.sketchId)
-  );
-  const finalMetrics = [
-    ...sketchMetrics,
-    ...toPercentMetric(
-      sketchMetrics,
-      boundaryTotalMetrics,
-      project.getMetricGroupPercId(mg)
-    ),
-  ];
+// SINGLE SKETCH TYPES AND ELEMENTS
 
-  const aggMetrics = nestMetrics(finalMetrics, [
-    "sketchId",
-    "classId",
-    "metricId",
-  ]);
-  // Use sketch ID for each table row, index into aggMetrics
-  const rows = Object.keys(aggMetrics).map((sketchId) => ({
-    sketchId,
-  }));
+/**
+ * Properties for running SizeCard for single sketch
+ * @param groupId level of protection
+ */
+interface SketchObjectivesProps {
+  groupId: "HIGH_PROTECTION" | "MEDIUM_PROTECTION";
+  t: any;
+}
 
-  const classColumns: Column<{ sketchId: string }>[] = mg.classes.map(
-    (curClass, index) => {
-      /* i18next-extract-disable-next-line */
-      const transString = t(curClass.display);
-      return {
-        Header: transString,
-        style: { color: "#777" },
-        columns: [
-          {
-            Header: t("Area") + " ".repeat(index),
-            accessor: (row) => {
-              const value =
-                aggMetrics[row.sketchId][curClass.classId as string][
-                  mg.metricId
-                ][0].value;
-              return (
-                Number.format(Math.round(squareMeterToKilometer(value))) +
-                " " +
-                t("km²")
-              );
-            },
-          },
-          {
-            Header: t("% Area") + " ".repeat(index),
-            accessor: (row) => {
-              const value =
-                aggMetrics[row.sketchId][curClass.classId as string][
-                  project.getMetricGroupPercId(mg)
-                ][0].value;
-              return percentWithEdge(value);
-            },
-          },
-        ],
-      };
-    }
-  );
-
-  const columns: Column<any>[] = [
-    {
-      Header: " ",
-      accessor: (row) => <b>{sketchesById[row.sketchId].properties.name}</b>,
-    },
-    ...classColumns,
-  ];
-
+/**
+ * Presents objectives for single sketch
+ * @param SketchObjectivesProps containing groupId
+ * @returns
+ */
+const SketchObjectives: React.FunctionComponent<SketchObjectivesProps> = ({
+  groupId,
+  t,
+}) => {
   return (
-    <TableStyled>
-      <Table columns={columns} data={rows} />
-    </TableStyled>
+    <>
+      {getKeys(sketchMsgs).map((objectiveId) => (
+        <SketchObjectiveStatus
+          key={objectiveId}
+          groupId={groupId}
+          objective={project.getObjectiveById(objectiveId)}
+          renderMsg={() =>
+            sketchMsgs[objectiveId](
+              project.getObjectiveById(objectiveId),
+              groupId,
+              t
+            )
+          }
+        />
+      ))}
+    </>
   );
 };
 
 /**
- * SizeCard as a top-level report client
+ * Properties for getting objective status for single sketch
+ * @param groupId level of protection, "FULLY_PROTECTED" or "HIGHLY_PROTECTED"
+ * @param objective Objective
+ * @param renderMsg function that takes (objective, groupId)
  */
-export const SizeCardReportClient = () => {
+interface SketchObjectiveStatusProps {
+  groupId: "HIGH_PROTECTION" | "MEDIUM_PROTECTION";
+  objective: Objective;
+  renderMsg: Function;
+}
+
+/**
+ * Presents objective status for single sketch
+ * @param SketchObjectiveStatusProps containing groupId, objective, renderMsg
+ * @returns ObjectiveStatus JSX.Element
+ */
+const SketchObjectiveStatus: React.FunctionComponent<SketchObjectiveStatusProps> =
+  ({ groupId, objective, renderMsg }) => {
+    return (
+      <ObjectiveStatus
+        key={objective.objectiveId}
+        status={objective.countsToward[groupId]}
+        msg={renderMsg(objective, groupId)}
+      />
+    );
+  };
+
+// SKETCH COLLECTION TYPES AND ELEMENTS
+
+/**
+ * Properties for getting objective status for sketch collection
+ * @param objective Objective
+ * @param objectiveMet ObjectiveAnswer
+ * @param renderMsg function that takes (objective, groupId)
+ */
+interface CollectionObjectiveStatusProps {
+  objective: Objective;
+  objectiveMet: ObjectiveAnswer;
+  t: any;
+  renderMsg: any;
+}
+
+/**
+ * Presents objectives for single sketch
+ * @param CollectionObjectiveStatusProps containing objective, objective
+ */
+const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStatusProps> =
+  ({ objective, objectiveMet, t }) => {
+    const msg = collectionMsgs[objective.objectiveId](
+      objective,
+      objectiveMet,
+      t
+    );
+
+    return <ObjectiveStatus status={objectiveMet} msg={msg} />;
+  };
+
+/**
+ * Renders messages based on objective and if objective is met for single sketches
+ */
+const sketchMsgs: Record<string, any> = {
+  ocean_space_protected: (
+    objective: Objective,
+    level: "HIGH_PROTECTION" | "MEDIUM_PROTECTION",
+    t: any
+  ) => {
+    if (objective.countsToward[level] === OBJECTIVE_YES) {
+      return (
+        <>
+          {t("This MPA counts towards protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
+          {"BSOP waters."}
+        </>
+      );
+    } else if (objective.countsToward[level] === OBJECTIVE_NO) {
+      return (
+        <>
+          {t("This MPA does not count towards protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
+          {"BSOP waters."}
+        </>
+      );
+    }
+  }};
+
+/**
+ * Renders messages beased on objective and if objective is met for sketch collections
+ */
+const collectionMsgs: Record<string, any> = {
+  ocean_space_protected: (
+    objective: Objective,
+    objectiveMet: ObjectiveAnswer,
+    t: any
+  ) => {
+    if (objectiveMet === OBJECTIVE_YES) {
+      return (
+        <>
+          {t("This plan meets the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
+          {"BSOP waters."}
+        </>
+      );
+    } else if (objectiveMet === OBJECTIVE_NO) {
+      return (
+        <>
+          {t("This plan does not meet the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
+          {"BSOP waters."}
+        </>
+      );
+    }
+  }
+};
+
+/**
+ * Generates Show By MPA sketch table
+ * @param sketchesById Record<string, NullSketch>
+ * @param regMetrics Metric[]
+ * @returns
+ */
+const genMpaSketchTable = (
+  sketchesById: Record<string, NullSketch>,
+  regMetrics: Metric[],
+  t: any
+) => {
+  const columns: Column<Metric>[] = [
+    {
+      Header: t("MPA"),
+      accessor: (row) => (
+        <GroupPill groupColorMap={groupColorMap} group={row.groupId!}>
+          {sketchesById[row.sketchId!].properties.name}
+        </GroupPill>
+      ),
+    },
+    {
+      Header: "% Belize Ocean Space",
+      accessor: (row) => percentWithEdge(row.value),
+    },
+  ];
+
   return (
-    <Translator>
-      <SizeCard />
-    </Translator>
+    <SmallReportTableStyled>
+      <Table
+        className="styled"
+        columns={columns}
+        data={regMetrics.sort((a, b) => {
+          return a.value > b.value ? 1 : -1;
+        })}
+      />
+    </SmallReportTableStyled>
+  );
+};
+
+const genGroupLevelTable = (
+  levelAggs: GroupMetricAgg[],
+  t: any
+) => {
+  const groupDisplayMap: Record<string, string> = {
+    HIGH_PROTECTION: t("High Protection Biodiversity Zone(s)"),
+    MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone(s)"),
+  };
+
+  const columns: Column<GroupMetricAgg>[] = [
+    {
+      Header: t("This plan contains") + ":",
+      accessor: (row) => (
+        <GroupCircleRow
+          group={row.groupId}
+          groupColorMap={groupColorMap}
+          circleText={`${row.numSketches}`}
+          rowText={
+            <>
+              <b>{groupDisplayMap[row.groupId]}</b>
+            </>
+          }
+        />
+      ),
+    },
+    {
+      Header: "% Belize Ocean Space",
+      accessor: (row) => {
+        return (
+          <GroupPill groupColorMap={groupColorMap} group={row.groupId}>
+            {percentWithEdge(row.percValue as number)}
+          </GroupPill>
+        );
+      },
+    },
+  ];
+
+  return (
+    <SmallReportTableStyled>
+      <Table
+        className="styled"
+        columns={columns}
+        data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
+      />
+    </SmallReportTableStyled>
+  );
+};
+
+/**
+ * Generates Learn More for Size Card
+ * @param objectives Objective[]
+ * @returns JSX.Element
+ */
+const genLearnMore = (objectives: Objective[]) => {
+  const objectiveMap = keyBy(objectives, (obj) => obj.objectiveId);
+  const minYesCounts = getMinYesCountMap(objectives);
+  return (
+    <>
+      <p>
+        An MPA counts toward an objective if it meets the minimum level of
+        protection for that objective.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Objective</th>
+            <th>Minimum MPA Classification Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          {getKeys(objectiveMap).map((objectiveId, index) => {
+            return (
+              <tr key={index}>
+                <td>{objectiveMap[objectiveId].shortDesc}</td>
+                <td>{groupDisplayMap[minYesCounts[objectiveId]]}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <p>
+        <Trans i18nKey="Size Card - Learn more">
+          Overlap is only counted once. If MPAs of different protection levels
+          overlap, only the highest protection level is counted.
+        </Trans>
+      </p>
+    </>
   );
 };
