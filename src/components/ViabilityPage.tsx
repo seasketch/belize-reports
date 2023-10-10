@@ -1,11 +1,12 @@
 import React from "react";
 import { SizeCard } from "./SizeCard";
 import { SketchAttributesCard } from "@seasketch/geoprocessing/client-ui";
-import { HabitatCard } from "./HabitatCard";
+import { ProtectionCard } from "./ProtectionCard";
 
 const ReportPage = () => {
   return (
     <>
+      <ProtectionCard />
       <SizeCard />
       {/* <HabitatCard /> */}
       <SketchAttributesCard autoHide />

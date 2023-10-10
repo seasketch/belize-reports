@@ -13,7 +13,6 @@ import {
   ReportChartFigure,
   ObjectiveStatus,
   useSketchProperties,
-  VerticalSpacer,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -226,11 +225,6 @@ const sketchReport = (data: ReportResult,
         })}
       </>
     );
-  // return (
-  //   <>
-  //     <SketchObjectives groupId={level} t={t} />
-  //   </>
-  // );
 };
 
 /**
@@ -364,74 +358,6 @@ const collectionReport = (
   );
 };
 
-// SINGLE SKETCH TYPES AND ELEMENTS
-
-/**
- * Properties for running SizeCard for single sketch
- * @param groupId level of protection
- */
-interface SketchObjectivesProps {
-  groupId: "HIGH_PROTECTION" | "MEDIUM_PROTECTION";
-  t: any;
-}
-
-/**
- * Presents objectives for single sketch
- * @param SketchObjectivesProps containing groupId
- * @returns
- */
-const SketchObjectives: React.FunctionComponent<SketchObjectivesProps> = ({
-  groupId,
-  t,
-}) => {
-  return (
-    <>
-      {getKeys(sketchMsgs).map((objectiveId) => (
-        <SketchObjectiveStatus
-          key={objectiveId}
-          groupId={groupId}
-          objective={project.getObjectiveById(objectiveId)}
-          renderMsg={() =>
-            sketchMsgs[objectiveId](
-              project.getObjectiveById(objectiveId),
-              groupId,
-              t
-            )
-          }
-        />
-      ))}
-    </>
-  );
-};
-
-/**
- * Properties for getting objective status for single sketch
- * @param groupId level of protection, "FULLY_PROTECTED" or "HIGHLY_PROTECTED"
- * @param objective Objective
- * @param renderMsg function that takes (objective, groupId)
- */
-interface SketchObjectiveStatusProps {
-  groupId: "HIGH_PROTECTION" | "MEDIUM_PROTECTION";
-  objective: Objective;
-  renderMsg: Function;
-}
-
-/**
- * Presents objective status for single sketch
- * @param SketchObjectiveStatusProps containing groupId, objective, renderMsg
- * @returns ObjectiveStatus JSX.Element
- */
-const SketchObjectiveStatus: React.FunctionComponent<SketchObjectiveStatusProps> =
-  ({ groupId, objective, renderMsg }) => {
-    return (
-      <ObjectiveStatus
-        key={objective.objectiveId}
-        status={objective.countsToward[groupId]}
-        msg={renderMsg(objective, groupId)}
-      />
-    );
-  };
-
 // SKETCH COLLECTION TYPES AND ELEMENTS
 
 /**
@@ -463,34 +389,6 @@ const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStat
   };
 
 /**
- * Renders messages based on objective and if objective is met for single sketches
- */
-const sketchMsgs: Record<string, any> = {
-  ocean_space_protected: (
-    objective: Objective,
-    level: "HIGH_PROTECTION" | "MEDIUM_PROTECTION",
-    t: any
-  ) => {
-    if (objective.countsToward[level] === OBJECTIVE_YES) {
-      return (
-        <>
-          {t("This MPA counts towards protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
-          {"BSOP waters."}
-        </>
-      );
-    } else if (objective.countsToward[level] === OBJECTIVE_NO) {
-      return (
-        <>
-          {t("This MPA does not count towards protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
-          {"BSOP waters."}
-        </>
-      );
-    }
-  }};
-
-/**
  * Renders messages beased on objective and if objective is met for sketch collections
  */
 const collectionMsgs: Record<string, any> = {
@@ -503,16 +401,14 @@ const collectionMsgs: Record<string, any> = {
       return (
         <>
           {t("This plan meets the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
-          {"BSOP waters."}
+          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space.")}
         </>
       );
     } else if (objectiveMet === OBJECTIVE_NO) {
       return (
         <>
           {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of")}{" "}
-          {"BSOP waters."}
+          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space.")}
         </>
       );
     }

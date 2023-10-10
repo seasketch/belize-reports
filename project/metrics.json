@@ -11,7 +11,20 @@
       }
   ]
 },
-
+{
+  "metricId": "protectionCountOverlap",
+  "type": "countOverlap",
+  "classes": [
+      {
+          "classId": "high_protection",
+          "display": "High Protection"
+      },
+      {
+          "classId": "medium_protection",
+          "display": "Medium Protection"
+      }
+  ]
+},
 {
   "metricId": "habitatOverlap",
   "type": "areaOverlap",
