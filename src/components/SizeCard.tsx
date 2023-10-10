@@ -23,12 +23,14 @@ import {
   useSketchProperties,
   ToolbarCard,
   DataDownload,
+  WatersDiagram,
 } from "@seasketch/geoprocessing/client-ui";
 import styled from "styled-components";
 import project from "../../project";
 import Translator from "../components/TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
+import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
@@ -76,6 +78,45 @@ export const SizeCard = () => {
   );
 
   const notFoundString = t("Results not found");
+  const landLabel = t("Land");
+  const shorelineLabel = t("Shoreline");
+  const internalWatersLabel = t("Internal Waters\n(Shoreline - Baseline)");
+  const baselineLabel = t("Baseline");
+  const territorialSeasLabel = t("Territorial Seas\n(Baseline - 12nm)");
+  const eezLabel = t("Exclusive Economic Zone\n(12 - 200nm)");
+
+  const labelsFinal: Label[] = [
+    { key: "land", labelText: landLabel, x: 20, y: 640 },
+    { key: "shoreline", labelText: shorelineLabel, x: 230, y: 530 },
+    {
+      key: "internalWaters",
+      labelText: internalWatersLabel,
+      x: 20,
+      y: 430,
+    },
+    {
+      key: "baseline",
+      labelText: baselineLabel,
+      x: 230,
+      y: 400,
+    },
+    {
+      key: "territorialSeas",
+      labelText: territorialSeasLabel,
+      x: 20,
+      y: 310,
+    },
+    {
+      key: "eez",
+      labelText: eezLabel,
+      x: 20,
+      y: 170,
+    },
+  ].map((label) => ({
+    //Adding default style
+    ...label,
+    style: { font: "12pt Helvetica, Arial, sans-serif", whiteSpace: "pre" },
+  }));
 
   /* i18next-extract-disable-next-line */
   const planningUnitName = t(project.basic.planningAreaName);
@@ -120,20 +161,17 @@ export const SizeCard = () => {
                 </Collapse>
               )}
               <Collapse title={t("Learn more")}>
-                <p>
-                  <img
-                    src={require("../assets/img/territorial_waters.png")}
-                    style={{ maxWidth: "100%" }}
-                  />
-                  <a
-                    target="_blank"
-                    href="https://en.wikipedia.org/wiki/Territorial_waters"
-                  >
-                    <Trans i18nKey="SizeCard - learn more source">
-                      Source: Wikipedia - Territorial Waters
-                    </Trans>
-                  </a>
-                </p>
+              <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700">
+                    <WatersBackgroundBelize />
+
+                    {labelsFinal.map((label) => (
+                      <text key={label.key} x={label.x} y={label.y} style={label.style}>
+                        {label.labelText}
+                      </text>
+                    ))}
+                  </svg>
+                </div>
                 <Trans i18nKey="SizeCard - learn more">
                   <p>
                     {" "}
