@@ -20,6 +20,7 @@
   "geoprocessingFunctions": [
     "src/functions/boundaryAreaOverlap.ts",
     "src/functions/protection.ts",
+    "src/functions/bathymetry.ts",
     "src/functions/habitatOverlap.ts"
   ]
 }

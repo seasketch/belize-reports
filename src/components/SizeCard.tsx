@@ -558,24 +558,22 @@ const genLearnMore = (t: any) => {
           ))}
         </svg>
       </div>
-      <p>
-        <Trans i18nKey="Size Card - Learn more">
-          <p>ℹ️ Overview: The Belize Ocean Space consists of three maritime areas: 
-            (1) internal waters extending from the shoreline to the baseline, 
-            (2) territorial seas extending from the baseline to 12nm, 
-            (3) the Exclusive Economic Zone (EEZ) extending from 12nm - 200nm. 
-            Belize is committed to expanding areas under Biodiversity Protection 
-            Zones to 25% of the Belize Ocean Space. In this Marine Spatial Plan, 
-            the two levels of protection are High Protection of Biodiversity Zones 
-            (HPBZs) and Medium Protection of Biodiversity Zones (MPBZs).</p>
-          <p>🎯 Planning Objective: 25% protection of Belize Ocean Space</p>
-          <p>🗺️ Source Data: Belize EEZ</p>
-          <p>📈 Report: The total area of the plan was calculated, along with the 
-            total area under high protection and total area under medium protection. 
-            Overlap was only counted once, and if zones of different protection levels 
-            overlap, only the highest protection level is counted. </p>
-        </Trans>
-      </p>
+      <Trans i18nKey="Size Card - Learn more">
+        <p>ℹ️ Overview: The Belize Ocean Space consists of three maritime areas: 
+          (1) internal waters extending from the shoreline to the baseline, 
+          (2) territorial seas extending from the baseline to 12nm, 
+          (3) the Exclusive Economic Zone (EEZ) extending from 12nm - 200nm. 
+          Belize is committed to expanding areas under Biodiversity Protection 
+          Zones to 25% of the Belize Ocean Space. In this Marine Spatial Plan, 
+          the two levels of protection are High Protection of Biodiversity Zones 
+          (HPBZs) and Medium Protection of Biodiversity Zones (MPBZs).</p>
+        <p>🎯 Planning Objective: 25% protection of Belize Ocean Space</p>
+        <p>🗺️ Source Data: Belize EEZ</p>
+        <p>📈 Report: The total area of the plan was calculated, along with the 
+          total area under high protection and total area under medium protection. 
+          Overlap was only counted once, and if zones of different protection levels 
+          overlap, only the highest protection level is counted. </p>
+      </Trans>
     </>
   );
 };
