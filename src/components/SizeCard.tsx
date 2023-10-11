@@ -13,6 +13,7 @@ import {
   ReportChartFigure,
   ObjectiveStatus,
   useSketchProperties,
+  VerticalSpacer,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -27,34 +28,25 @@ import {
   squareMeterToKilometer,
   OBJECTIVE_NO,
   OBJECTIVE_YES,
-  getKeys,
   Objective,
   getUserAttribute,
   ObjectiveAnswer,
   toPercentMetric,
-  genSketchCollection,
 } from "@seasketch/geoprocessing/client-core";
 import {
   getMetricGroupObjectiveIds,
-  getMinYesCountMap,
-  getObjectiveById,
   isSketchCollection,
 } from "@seasketch/geoprocessing";
 import { Trans, useTranslation } from "react-i18next";
 import styled from "styled-components";
 import project from "../../project";
 import { flattenByGroupAllClass } from "../util/flattenByGroupAllClass";
+import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
 
 // Mapping groupIds to colors
 const groupColorMap: Record<string, string> = {
   HIGH_PROTECTION: "#BEE4BE",
   MEDIUM_PROTECTION: "#FFE1A3",
-};
-
-// Mapping groupIds to display names
-const groupDisplayMap: Record<string, string> = {
-  HIGH_PROTECTION: "High Protection Area",
-  MEDIUM_PROTECTION: "Medium Protection Area",
 };
 
 // Styling for 'Show by --' tables
@@ -111,6 +103,13 @@ export const SizeCard: React.FunctionComponent = (props) => {
         return (
           <ReportError>
             <>
+              <Trans i18nKey="SizeCard - Intro">
+                The Belize Ocean Space includes internal waters, territorial seas, 
+                and the Exclusive Economic Zone (EEZ) which extends out to 200 nautical miles. 
+                This report summarizes this plan's overlap with the total ocean space, 
+                measuring progress towards achieving the objective of 25% protection.
+              </Trans>
+              <VerticalSpacer/>
               <KeySection>
                 {t("This plan is")}{" "}
                 <b>
@@ -130,7 +129,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
                 : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
               <Collapse title={t("Learn More")}>
-                {genLearnMore(objectives)}
+                {genLearnMore(t)}
               </Collapse>
             </>
           </ReportError>
@@ -504,40 +503,77 @@ const genGroupLevelTable = (
 
 /**
  * Generates Learn More for Size Card
- * @param objectives Objective[]
  * @returns JSX.Element
  */
-const genLearnMore = (objectives: Objective[]) => {
-  const objectiveMap = keyBy(objectives, (obj) => obj.objectiveId);
-  const minYesCounts = getMinYesCountMap(objectives);
+const genLearnMore = (t: any) => {
+  const landLabel = t("Land");
+  const shorelineLabel = t("Shoreline");
+  const internalWatersLabel = t("Internal Waters\n(Shoreline - Baseline)");
+  const baselineLabel = t("Baseline");
+  const territorialSeasLabel = t("Territorial Seas\n(Baseline - 12nm)");
+  const eezLabel = t("Exclusive Economic Zone\n(12 - 200nm)");
+
+  const labelsFinal: Label[] = [
+    { key: "land", labelText: landLabel, x: 20, y: 640 },
+    { key: "shoreline", labelText: shorelineLabel, x: 230, y: 530 },
+    {
+      key: "internalWaters",
+      labelText: internalWatersLabel,
+      x: 20,
+      y: 430,
+    },
+    {
+      key: "baseline",
+      labelText: baselineLabel,
+      x: 230,
+      y: 400,
+    },
+    {
+      key: "territorialSeas",
+      labelText: territorialSeasLabel,
+      x: 20,
+      y: 310,
+    },
+    {
+      key: "eez",
+      labelText: eezLabel,
+      x: 20,
+      y: 170,
+    },
+  ].map((label) => ({
+    // default style
+    ...label,
+    style: { font: "12pt Helvetica, Arial, sans-serif", whiteSpace: "pre" },
+  }));
   return (
     <>
-      <p>
-        An MPA counts toward an objective if it meets the minimum level of
-        protection for that objective.
-      </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Objective</th>
-            <th>Minimum MPA Classification Required</th>
-          </tr>
-        </thead>
-        <tbody>
-          {getKeys(objectiveMap).map((objectiveId, index) => {
-            return (
-              <tr key={index}>
-                <td>{objectiveMap[objectiveId].shortDesc}</td>
-                <td>{groupDisplayMap[minYesCounts[objectiveId]]}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700">
+          <WatersBackgroundBelize />
+
+          {labelsFinal.map((label) => (
+            <text key={label.key} x={label.x} y={label.y} style={label.style}>
+              {label.labelText}
+            </text>
+          ))}
+        </svg>
+      </div>
       <p>
         <Trans i18nKey="Size Card - Learn more">
-          Overlap is only counted once. If MPAs of different protection levels
-          overlap, only the highest protection level is counted.
+          <p>ℹ️ Overview: The Belize Ocean Space consists of three maritime areas: 
+            (1) internal waters extending from the shoreline to the baseline, 
+            (2) territorial seas extending from the baseline to 12nm, 
+            (3) the Exclusive Economic Zone (EEZ) extending from 12nm - 200nm. 
+            Belize is committed to expanding areas under Biodiversity Protection 
+            Zones to 25% of the Belize Ocean Space. In this Marine Spatial Plan, 
+            the two levels of protection are High Protection of Biodiversity Zones 
+            (HPBZs) and Medium Protection of Biodiversity Zones (MPBZs).</p>
+          <p>🎯 Planning Objective: 25% protection of Belize Ocean Space</p>
+          <p>🗺️ Source Data: Belize EEZ</p>
+          <p>📈 Report: The total area of the plan was calculated, along with the 
+            total area under high protection and total area under medium protection. 
+            Overlap was only counted once, and if zones of different protection levels 
+            overlap, only the highest protection level is counted. </p>
         </Trans>
       </p>
     </>

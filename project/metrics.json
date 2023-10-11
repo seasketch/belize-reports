@@ -26,6 +26,18 @@
   ]
 },
 {
+  "metricId": "bathymetry",
+  "type": "valueOverlap",
+  "classes": [
+      {
+          "classId": "depth",
+          "display": "Depth",
+          "datasourceId": "bathymetry",
+          "layerId": "6jgkBTCkU"
+      }
+  ]
+},
+{
   "metricId": "habitatOverlap",
   "type": "areaOverlap",
   "classes": [

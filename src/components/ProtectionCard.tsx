@@ -105,7 +105,6 @@ const sketchReport = (metrics: Metric[], mg: MetricGroup, t: any) => {
 
       <Collapse title={t("Learn More")}>
         <ProtectionLearnMore
-          objectives={project.getMetricGroupObjectives(mg, t) as Objective[]}
           t={t}
         />
       </Collapse>
@@ -155,7 +154,6 @@ const sketchCollectionReport = (
       </Collapse>
       <Collapse title={t("Learn More")}>
         <ProtectionLearnMore
-          objectives={project.getMetricGroupObjectives(mg, t) as Objective[]}
           t={t}
         />
       </Collapse>
@@ -200,50 +198,36 @@ const genMpaSketchTable = (sketches: NullSketch[], t: any) => {
 
 /**
  * Interface for Learn More function component
- * @param objectives Objective[]
  */
 interface LearnMoreProps {
-  objectives: Objective[];
   t: any;
 }
 
-/**
- * Protection level learn more
- * @param objectives Objective[]
- */
+/** Protection level learn more */
 export const ProtectionLearnMore: React.FunctionComponent<LearnMoreProps> = ({
-  objectives,
   t,
 }) => {
-  const objectiveMap = keyBy(objectives, (obj: Objective) => obj.objectiveId);
-  const minYesCounts = getMinYesCountMap(objectives);
-
   return (
     <>
-      <p>
         <Trans i18nKey="Protection Card - Learn more">
-          An MPA counts toward an objective if it meets the minimum level of
-          protection for that objective.
+          <p>ℹ️ Overview: High biodiversity protection zones conserve and protect the top priority areas 
+            for marine and coastal biodiversity. These zones are designated for habitats and species that 
+            may be rare, endangered, unique or with narrow distribution ranges. This zone includes breeding 
+            or spawning areas, key foraging habitat, fragile or sensitive species and habitats, and 
+            internationally significant areas. When combined, these zones provide habitats and species 
+            with long-term protection, and are sufficiently large to ensure ecological resilience and climate 
+            change adaptation. This zone category is not suitable for extraction or sea-bed alteration and is 
+            considered a no-take zone in common vernacular.</p>
+          <p>Medium biodiversity protection and sustainable use zones are proposed to conserve areas that are 
+            suitable for medium levels of biodiversity protection and are also compatible with some sustainable 
+            uses. These zones include habitats and species that have some tolerance to disturbance and human 
+            activities. These zones also include regionally and nationally significant areas. This zone category 
+            is suitable for some level of extraction and sea-bed alteration, with appropriate management and 
+            direction, depending on the objective of each designated area.</p>
+          <p>🎯 Planning Objective: None</p>
+          <p>🗺️ Source Data: None</p>
+          <p>📈 Report: Simply counts number of zones in each protection level.</p>
         </Trans>
-      </p>
-      <table>
-        <thead>
-          <tr>
-            <th>{t("Objective")}</th>
-            <th>{t("Minimum MPA Classification Required")}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {getKeys(objectiveMap).map((objectiveId, index) => {
-            return (
-              <tr key={index}>
-                <td>{objectiveMap[objectiveId].shortDesc}</td>
-                <td>{groupDisplayMap[minYesCounts[objectiveId]]}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
     </>
   );
 };

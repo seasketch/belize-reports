@@ -1,8 +1,14 @@
 import React from "react";
 import { HabitatCard } from "./HabitatCard";
+import { BathymetryCard } from "./BathymetryCard";
 
 const ReportPage = () => {
-  return <><HabitatCard /></>;
+  return (
+    <>
+      <BathymetryCard/>
+      <HabitatCard />
+    </>
+  );
 };
 
 export default ReportPage;

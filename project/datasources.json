@@ -128,18 +128,8 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Data_Received/Belize Maritime Areas/Belize Maritime Areas.shp",
-    "layerName": "Belize Maritime Areas",
-    "geo_type": "vector",
     "datasourceId": "belize_ocean_space",
-    "formats": [
-      "fgb"
-    ],
-    "classKeys": [
-      "NAME"
-    ],
-    "created": "2023-10-11T16:23:56.645Z",
-    "lastUpdated": "2023-10-11T16:23:56.645Z",
+    "geo_type": "vector",
     "keyStats": {
       "NAME": {
         "Internal Waters": {
@@ -163,8 +153,40 @@
         }
       }
     },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Belize Maritime Areas",
+    "classKeys": [
+      "NAME"
+    ],
+    "created": "2023-10-11T16:23:56.645Z",
+    "lastUpdated": "2023-10-11T16:23:56.645Z",
+    "src": "data/src/Data_Received/Belize Maritime Areas/Belize Maritime Areas.shp",
     "propertiesToKeep": [
       "NAME"
     ]
+  },
+  {
+    "src": "data/src/Analytics/gebco_2023.tif",
+    "band": 1,
+    "geo_type": "raster",
+    "datasourceId": "bathymetry",
+    "formats": [
+      "tif"
+    ],
+    "created": "2023-10-11T22:05:11.131Z",
+    "lastUpdated": "2023-10-11T22:05:11.131Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "sum": -797596543,
+          "count": null,
+          "area": null
+        }
+      }
+    },
+    "noDataValue": -32767,
+    "measurementType": "quantitative"
   }
 ]
