@@ -5,7 +5,7 @@
       {
           "classId": "belize_eez",
           "display": "Ocean Space",
-          "datasourceId": "belize_eez",
+          "datasourceId": "belize_ocean_space",
           "objectiveId": "ocean_space_protected",
           "layerId": ""
       }

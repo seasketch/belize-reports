@@ -106,16 +106,8 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Data_Products/belize-eez.json",
-    "layerName": "belize-eez",
-    "geo_type": "vector",
     "datasourceId": "belize_eez",
-    "formats": [
-      "fgb"
-    ],
-    "classKeys": [],
-    "created": "2023-10-09T23:01:30.856Z",
-    "lastUpdated": "2023-10-09T23:01:30.856Z",
+    "geo_type": "vector",
     "keyStats": {
       "total": {
         "total": {
@@ -125,6 +117,54 @@
         }
       }
     },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "belize-eez",
+    "classKeys": [],
+    "created": "2023-10-09T23:01:30.856Z",
+    "lastUpdated": "2023-10-09T23:01:30.856Z",
+    "src": "data/src/Data_Products/belize-eez.json",
     "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Data_Received/Belize Maritime Areas/Belize Maritime Areas.shp",
+    "layerName": "Belize Maritime Areas",
+    "geo_type": "vector",
+    "datasourceId": "belize_ocean_space",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [
+      "NAME"
+    ],
+    "created": "2023-10-11T16:23:56.645Z",
+    "lastUpdated": "2023-10-11T16:23:56.645Z",
+    "keyStats": {
+      "NAME": {
+        "Internal Waters": {
+          "count": 2,
+          "area": 12616535739.07758
+        },
+        "Territorial Seas": {
+          "count": 1,
+          "area": 6451282657.450262
+        },
+        "Exclusive Economic Zone": {
+          "count": 1,
+          "area": 14853785381.22234
+        }
+      },
+      "total": {
+        "total": {
+          "count": 4,
+          "sum": null,
+          "area": 33921603777.750183
+        }
+      }
+    },
+    "propertiesToKeep": [
+      "NAME"
+    ]
   }
 ]
