@@ -168,25 +168,47 @@
     ]
   },
   {
-    "src": "data/src/Analytics/gebco_2023.tif",
-    "band": 1,
-    "geo_type": "raster",
     "datasourceId": "bathymetry",
-    "formats": [
-      "tif"
-    ],
-    "created": "2023-10-11T22:05:11.131Z",
-    "lastUpdated": "2023-10-11T22:05:11.131Z",
+    "geo_type": "raster",
     "keyStats": {
       "total": {
         "total": {
-          "sum": -797596543,
           "count": null,
+          "sum": -797596543,
           "area": null
         }
       }
     },
+    "formats": [
+      "tif"
+    ],
+    "measurementType": "quantitative",
+    "band": 1,
     "noDataValue": -32767,
-    "measurementType": "quantitative"
+    "created": "2023-10-11T22:05:11.131Z",
+    "lastUpdated": "2023-10-11T22:05:11.131Z",
+    "src": "data/src/Analytics/bathymetry/gebco_2023.tif"
+  },
+  {
+    "src": "data/src/Analytics/boundaries/belize_osm_ocean_space.geojson",
+    "layerName": "belize_osm_ocean_space",
+    "geo_type": "vector",
+    "datasourceId": "belize_osm_ocean_space",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [],
+    "created": "2023-10-12T19:41:30.375Z",
+    "lastUpdated": "2023-10-12T19:41:30.375Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 10,
+          "sum": null,
+          "area": 8695945420200654
+        }
+      }
+    },
+    "propertiesToKeep": []
   }
 ]
