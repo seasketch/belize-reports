@@ -1,5 +1,5 @@
 import React from "react";
-import { ResultsCard, KeySection, Collapse, ToolbarCard, LayerToggle } from "@seasketch/geoprocessing/client-ui";
+import { ResultsCard, KeySection, Collapse, ToolbarCard, LayerToggle, DataDownload, VerticalSpacer } from "@seasketch/geoprocessing/client-ui";
 import { BathymetryResults } from "../functions/bathymetry";
 import { Trans, useTranslation } from "react-i18next";
 import project from "../../project";
@@ -12,7 +12,7 @@ const formatDepth = (val: number) => {
 
 export const BathymetryCard: React.FunctionComponent = (props) => {
   const { t, i18n } = useTranslation();
-  const mg = project.getMetricGroup("boundaryAreaOverlap", t);
+  const mg = project.getMetricGroup("bathymetry", t);
   return (
     <ResultsCard
       title={t("Depth")}
@@ -21,11 +21,12 @@ export const BathymetryCard: React.FunctionComponent = (props) => {
       {(data: BathymetryResults) => {
         return (
           <ToolbarCard
-              title={t("Depth")}
-              items={
+            title={t("Depth")}
+            items={
                 <LayerToggle label="Map" layerId={mg.layerId} simple />
-              }
-            >
+            }
+          >
+            <VerticalSpacer/>
             <KeySection
               style={{ display: "flex", justifyContent: "space-around" }}
             >

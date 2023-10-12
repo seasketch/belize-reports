@@ -14,6 +14,8 @@ import {
   ObjectiveStatus,
   useSketchProperties,
   VerticalSpacer,
+  ToolbarCard,
+  LayerToggle,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -71,6 +73,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
     <ResultsCard
       title={t("Size")}
       functionName="boundaryAreaOverlap"
+      useChildCard
     >
       {(data: ReportResult) => {
         // Get overall area of sketch metric
@@ -102,7 +105,13 @@ export const SizeCard: React.FunctionComponent = (props) => {
 
         return (
           <ReportError>
-            <>
+            <ToolbarCard
+              title={t("Size")}
+              items={
+                  <LayerToggle label="Map" layerId={mg.layerId} simple />
+              }
+            >
+              <VerticalSpacer />
               <Trans i18nKey="SizeCard - Intro">
                 The Belize Ocean Space includes internal waters, territorial seas, 
                 and the Exclusive Economic Zone (EEZ) which extends out to 200 nautical miles. 
@@ -131,7 +140,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
               <Collapse title={t("Learn More")}>
                 {genLearnMore(t)}
               </Collapse>
-            </>
+            </ToolbarCard>
           </ReportError>
         );
       }}

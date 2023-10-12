@@ -81,7 +81,7 @@ export const HabitatCard = () => {
             items={
               <>
                 <DataDownload
-                  filename="suma"
+                  filename="habitat"
                   data={data.metrics}
                   formats={["csv", "json"]}
                   placement="left-end"
