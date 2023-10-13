@@ -1,0 +1,173 @@
+{
+  "metrics": [
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "abyss",
+      "groupId": null,
+      "geographyId": null,
+      "value": 8781531226.097952,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "basins",
+      "groupId": null,
+      "geographyId": null,
+      "value": 683555031.093353,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "canyons",
+      "groupId": null,
+      "geographyId": null,
+      "value": 1213634497.853664,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "escarpments",
+      "groupId": null,
+      "geographyId": null,
+      "value": 2726015899.067746,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "plateaus",
+      "groupId": null,
+      "geographyId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "rises",
+      "groupId": null,
+      "geographyId": null,
+      "value": 8781720809.54531,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "shelf",
+      "groupId": null,
+      "geographyId": null,
+      "value": 1309707879.322693,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "shelf_valleys",
+      "groupId": null,
+      "geographyId": null,
+      "value": 229579255.559855,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "sills",
+      "groupId": null,
+      "geographyId": null,
+      "value": 76204845.265373,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "metricId": "geomorphAreaOverlap",
+      "sketchId": "20652",
+      "classId": "slope",
+      "groupId": null,
+      "geographyId": null,
+      "value": 3072576199.4238,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    }
+  ],
+  "sketch": {
+    "id": 20652,
+    "bbox": [
+      -88.023674,
+      16.775734,
+      -85.97308,
+      17.890213
+    ],
+    "type": "Feature",
+    "properties": {
+      "2931": "HIGH_PROTECTION",
+      "2932": "large-hpbz",
+      "2934": "abby",
+      "id": "20652",
+      "name": "large-hpbz",
+      "postId": null,
+      "userId": "531",
+      "authors": "abby",
+      "comments": null,
+      "userSlug": "Abby",
+      "createdAt": "2023-10-10T22:16:30.080299+00:00",
+      "updatedAt": "2023-10-10T22:16:30.080299+00:00",
+      "designation": "HIGH_PROTECTION",
+      "collectionId": null,
+      "isCollection": false,
+      "sharedInForum": false,
+      "sketchClassId": "196",
+      "userAttributes": [
+        {
+          "label": "Comments",
+          "value": null,
+          "exportId": "comments",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 2933,
+          "alternateLanguages": {}
+        },
+        {
+          "label": "Author(s)",
+          "value": "abby",
+          "exportId": "authors",
+          "fieldType": "ShortText",
+          "valueLabel": null,
+          "formElementId": 2934,
+          "alternateLanguages": {}
+        },
+        {
+          "label": "Designation",
+          "value": "HIGH_PROTECTION",
+          "exportId": "designation",
+          "fieldType": "ComboBox",
+          "valueLabel": "High Protection",
+          "formElementId": 2931,
+          "alternateLanguages": {}
+        }
+      ]
+    },
+    "geometry": null
+  }
+}

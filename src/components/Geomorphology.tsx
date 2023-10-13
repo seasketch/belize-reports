@@ -1,80 +1,76 @@
 import React from "react";
 import {
-  ReportResult,
-  percentWithEdge,
-  keyBy,
-  toNullSketchArray,
-  nestMetrics,
-  valueFormatter,
-  toPercentMetric,
-  Metric,
-  MetricGroup,
-  metricsWithSketchId,
-  flattenBySketchAllClass,
-} from "@seasketch/geoprocessing/client-core";
-import {
-  ClassTable,
   Collapse,
-  Column,
-  ReportTableStyled,
   ResultsCard,
-  Table,
   useSketchProperties,
   ToolbarCard,
-  DataDownload,
   LayerToggle,
+  ClassTable,
   SketchClassTable,
 } from "@seasketch/geoprocessing/client-ui";
-import styled from "styled-components";
+import {
+  ReportResult,
+  toNullSketchArray,
+  flattenBySketchAllClass,
+  metricsWithSketchId,
+  squareMeterToKilometer,
+  valueFormatter,
+  Metric,
+  MetricGroup,
+  toPercentMetric,
+} from "@seasketch/geoprocessing/client-core";
+
 import project from "../../project";
-import { squareMeterToKilometer } from "@seasketch/geoprocessing";
-import { Trans, useTranslation } from "react-i18next";
 import Translator from "./TranslatorAsync";
+import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const HabitatCard = () => {
+export const Geomorphology: React.FunctionComponent = () => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
-  const mapLabel = t("Map");
-  const benthicLabel = t("Habitat Type");
-  const areaWithin = t("Area Within Plan");
-  const percAreaWithin = t("% Area Within Plan");
-  const sqKmLabel = t("km²");
-
-  const metricGroup = project.getMetricGroup("habitatOverlap", t);
+  const metricGroup = project.getMetricGroup("geomorphAreaOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
   );
 
+  const mapLabel = t("Map");
+  const benthicLabel = t("Feature");
+  const areaWithin = t("Area Within Plan");
+  const percAreaWithin = t("% Area Within Plan");
+  const sqKmLabel = t("km²");
 
   return (
-    <ResultsCard title="Key Habitat" functionName="habitatOverlap">
-      {(data: ReportResult) => {
-        if (Object.keys(data).length === 0)
-          throw new Error("Protection results not found");
+    <>
+      <ResultsCard
+        title={t("Geomorphology")}
+        functionName="geomorphAreaOverlap"
+      >
+        {(data: ReportResult) => {
+          let singleMetrics = data.metrics.filter(
+            (m) => m.sketchId === data.sketch.properties.id
+          );
 
-        let singleMetrics = data.metrics.filter(
-          (m) => m.sketchId === data.sketch.properties.id
-        );
+          const finalMetrics = [
+            ...singleMetrics,
+            ...toPercentMetric(
+              singleMetrics,
+              precalcMetrics,
+              project.getMetricGroupPercId(metricGroup)
+            ),
+          ];
 
-        const finalMetrics = [
-          ...singleMetrics,
-          ...toPercentMetric(
-            singleMetrics,
-            precalcMetrics,
-            project.getMetricGroupPercId(metricGroup)
-          ),
-        ];
-
-        return (
+          return (
             <>
               <p>
-                <Trans i18nKey="Habitat Card 1">
-                  Protection of key habitats is integral to sustaining species communities. 
-                  This report summarizes the percentage of each key habitat found in this plan.
+                <Trans i18nKey="Geomorphology Card 1">
+                  The seafloor has many unique physical geomorphological features,
+                  each creating habitats that support different ecological
+                  communities. Plans should ensure the representative coverage of each 
+                  seafloor type. This report summarizes the percentage of each
+                  geomorphological feature found in this plan.
                 </Trans>
               </p>
 
@@ -147,16 +143,32 @@ export const HabitatCard = () => {
               )}
 
               <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Habitat Card - learn more">
+                <Trans i18nKey="Geomorphology Card - learn more">
                   <p>
-                    ℹ️ Overview:
+                    ℹ️ Overview: Seafloor features were identified based on
+                    geomorphology, which classifies features using depth, seabed
+                    slope, and other environmental characteristics. 
+                  </p>
+                  <p>
+                    In the Seafloor Geomorphic Features dataset, the seafloor is 
+                    split into shelves (shallowest), slopes,  and abysses (deepest). 
+                    These three features are mutually exclusive. Basins, canyons, 
+                    escarpments, plateaus, rises, and sills occur within these three features.
                   </p>
                   <p>
                     🎯 Planning Objective: No identified planning objectives for
-                    habitats.
+                    geomorphic features.
                   </p>
                   <p>
-                    🗺️ Source Data:
+                    🗺️ Source Data: Seafloor Geomorphic Features Map.{" "}
+                    <a href="https://doi.org/10.1016/j.margeo.2014.01.011">
+                      Harris, P.T., Macmillan-Lawler, M., Rupp, J. and Baker,
+                      E.K. 2014. Geomorphology of the oceans. Marine Geology,
+                      352: 4-24.
+                    </a>{" "}
+                    <a href="https://bluehabitats.org/">
+                      https://bluehabitats.org/
+                    </a>
                   </p>
                   <p>
                     📈 Report: The percentage of each feature type within this
@@ -170,9 +182,10 @@ export const HabitatCard = () => {
                 </Trans>
               </Collapse>
             </>
-        );
-      }}
-    </ResultsCard>
+          );
+        }}
+      </ResultsCard>
+    </>
   );
 };
 
