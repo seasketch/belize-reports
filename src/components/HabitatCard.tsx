@@ -51,7 +51,7 @@ export const HabitatCard = () => {
 
 
   return (
-    <ResultsCard title="Key Habitat" functionName="habitatOverlap">
+    <ResultsCard title={t("Key Habitat")} functionName="habitatOverlap">
       {(data: ReportResult) => {
         if (Object.keys(data).length === 0)
           throw new Error("Protection results not found");

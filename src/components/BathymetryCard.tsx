@@ -11,8 +11,10 @@ const formatDepth = (val: number) => {
 };
 
 export const BathymetryCard: React.FunctionComponent = (props) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const mg = project.getMetricGroup("bathymetry", t);
+  const mapLabel = t("Map");
+
   return (
     <ResultsCard
       title={t("Depth")}
@@ -23,7 +25,7 @@ export const BathymetryCard: React.FunctionComponent = (props) => {
           <ToolbarCard
             title={t("Depth")}
             items={
-                <LayerToggle label="Map" layerId={mg.layerId} simple />
+                <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
             }
           >
             <VerticalSpacer/>

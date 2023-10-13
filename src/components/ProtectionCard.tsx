@@ -17,15 +17,11 @@ import {
   NullSketch,
   NullSketchCollection,
   Metric,
-  keyBy,
   toNullSketchArray,
-  getKeys,
-  Objective,
   getUserAttribute,
 } from "@seasketch/geoprocessing/client-core";
 import styled from "styled-components";
 import project from "../../project";
-import { getMinYesCountMap } from "@seasketch/geoprocessing/src";
 import { Trans, useTranslation } from "react-i18next";
 import { MetricGroup } from "@seasketch/geoprocessing";
 
@@ -42,18 +38,12 @@ const groupColorMap: Record<string, string> = {
   MEDIUM_PROTECTION: "#FFE1A3",
 };
 
-// Mapping groupIds to display names
-const groupDisplayMap: Record<string, string> = {
-  HIGH_PROTECTION: "High Protection Biodiversity Zone",
-  MEDIUM_PROTECTION: "Medium Protection Biodiversity Zone",
-};
-
 /**
  * Top level Protection report - JSX.Element
  */
 export const ProtectionCard = () => {
-  const { t, i18n } = useTranslation();
   const [{ isCollection }] = useSketchProperties();
+  const { t } = useTranslation();
 
   const mg = project.getMetricGroup("protectionCountOverlap", t);
   return (
@@ -83,6 +73,12 @@ const sketchReport = (metrics: Metric[], mg: MetricGroup, t: any) => {
     throw new Error(
       "In single sketch protection report, and getting !=1 metric"
     );
+
+  // Mapping groupIds to display names
+  const groupDisplayMap: Record<string, string> = {
+    HIGH_PROTECTION: t("High Protection Biodiversity Zone"),
+    MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone"),
+  };
 
   return (
     <>
@@ -165,6 +161,12 @@ const sketchCollectionReport = (
  * Show by MPA sketch table for sketch collection
  */
 const genMpaSketchTable = (sketches: NullSketch[], t: any) => {
+  // Mapping groupIds to display names
+  const groupDisplayMap: Record<string, string> = {
+    HIGH_PROTECTION: t("High Protection Biodiversity Zone"),
+    MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone"),
+  };
+
   const columns: Column<NullSketch>[] = [
     {
       Header: t("MPA"),

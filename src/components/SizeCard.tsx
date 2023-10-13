@@ -67,7 +67,6 @@ export const SizeCard: React.FunctionComponent = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const mg = project.getMetricGroup("boundaryAreaOverlap", t);
   const objectiveIds = getMetricGroupObjectiveIds(mg);
-  const objectives = objectiveIds.map((o) => project.getObjectiveById(o));
 
   return (
     <ResultsCard
@@ -102,13 +101,14 @@ export const SizeCard: React.FunctionComponent = (props) => {
           areaMetric.value / totalAreaMetric.value
         );
         const areaUnitDisplay = t("sq. km");
+        const mapLabel = t("Map");
 
         return (
           <ReportError>
             <ToolbarCard
               title={t("Size")}
               items={
-                  <LayerToggle label="Map" layerId={mg.layerId} simple />
+                  <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
               }
             >
               <VerticalSpacer />
@@ -178,7 +178,7 @@ const sketchReport = (data: ReportResult,
 
     // Coloring and styling for horizontal bars
     const groupColors = Object.values(groupColorMap);
-    const blockGroupNames = ["High", "Medium"];
+    const blockGroupNames = [t("High"), t("Medium")];
     const blockGroupStyles = groupColors.map((curBlue) => ({
       backgroundColor: curBlue,
     }));
