@@ -106,39 +106,17 @@
     "propertiesToKeep": []
   },
   {
-    "datasourceId": "belize_eez",
-    "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 34500830720.44984
-        }
-      }
-    },
-    "formats": [
-      "fgb"
-    ],
-    "layerName": "belize-eez",
-    "classKeys": [],
-    "created": "2023-10-09T23:01:30.856Z",
-    "lastUpdated": "2023-10-09T23:01:30.856Z",
-    "src": "data/src/Data_Products/belize-eez.json",
-    "propertiesToKeep": []
-  },
-  {
     "datasourceId": "belize_ocean_space",
     "geo_type": "vector",
     "keyStats": {
       "NAME": {
         "Internal Waters": {
-          "count": 2,
-          "area": 12616535739.07758
+          "count": 7,
+          "area": 12255684924.84711
         },
         "Territorial Seas": {
-          "count": 1,
-          "area": 6451282657.450262
+          "count": 2,
+          "area": 6450544994.499655
         },
         "Exclusive Economic Zone": {
           "count": 1,
@@ -147,22 +125,22 @@
       },
       "total": {
         "total": {
-          "count": 4,
+          "count": 10,
           "sum": null,
-          "area": 33921603777.750183
+          "area": 33560015300.569107
         }
       }
     },
     "formats": [
       "fgb"
     ],
-    "layerName": "Belize Maritime Areas",
+    "layerName": "Belize_Territorial_Areas_Landless",
     "classKeys": [
       "NAME"
     ],
     "created": "2023-10-11T16:23:56.645Z",
-    "lastUpdated": "2023-10-11T16:23:56.645Z",
-    "src": "data/src/Data_Received/Belize Maritime Areas/Belize Maritime Areas.shp",
+    "lastUpdated": "2023-10-17T22:56:46.338Z",
+    "src": "data/src/Analytics/boundaries/Belize_Territorial_Areas_Landless.geojson",
     "propertiesToKeep": [
       "NAME"
     ]
@@ -188,28 +166,6 @@
     "created": "2023-10-11T22:05:11.131Z",
     "lastUpdated": "2023-10-11T22:05:11.131Z",
     "src": "data/src/Analytics/bathymetry/gebco_2023.tif"
-  },
-  {
-    "datasourceId": "belize_osm_ocean_space",
-    "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 10,
-          "sum": null,
-          "area": 33327897553.0102
-        }
-      }
-    },
-    "formats": [
-      "fgb"
-    ],
-    "layerName": "belize_osm_ocean_space",
-    "classKeys": [],
-    "created": "2023-10-12T20:04:54.825Z",
-    "lastUpdated": "2023-10-12T20:04:54.825Z",
-    "src": "data/src/Analytics/boundaries/belize_osm_ocean_space.geojson",
-    "propertiesToKeep": []
   },
   {
     "datasourceId": "abyss",
@@ -442,16 +398,8 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Analytics/seafloor_features/Slope.geojson",
-    "layerName": "Slope",
-    "geo_type": "vector",
     "datasourceId": "slope",
-    "formats": [
-      "fgb"
-    ],
-    "classKeys": [],
-    "created": "2023-10-12T21:30:45.348Z",
-    "lastUpdated": "2023-10-12T21:30:45.348Z",
+    "geo_type": "vector",
     "keyStats": {
       "total": {
         "total": {
@@ -461,6 +409,36 @@
         }
       }
     },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Slope",
+    "classKeys": [],
+    "created": "2023-10-12T21:30:45.348Z",
+    "lastUpdated": "2023-10-12T21:30:45.348Z",
+    "src": "data/src/Analytics/seafloor_features/Slope.geojson",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "belize_ocean_space_border",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 6,
+          "sum": null,
+          "area": 33559920800.496624
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Belize_Territorial_Areas_Border_Landless",
+    "classKeys": [],
+    "created": "2023-10-17T22:29:54.227Z",
+    "lastUpdated": "2023-10-17T22:56:48.766Z",
+    "src": "data/src/Analytics/boundaries/Belize_Territorial_Areas_Border_Landless.geojson",
     "propertiesToKeep": []
   }
 ]

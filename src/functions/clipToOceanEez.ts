@@ -7,7 +7,7 @@ import { genClipLoader } from "@seasketch/geoprocessing/dataproviders";
 
 const clipLoader = genClipLoader(project, [
   {
-    datasourceId: "belize_osm_ocean_space",
+    datasourceId: "belize_ocean_space_border",
     operation: "intersection",
     options: {},
   },
