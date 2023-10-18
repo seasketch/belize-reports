@@ -58,6 +58,18 @@ export const SmallReportTableStyled = styled(ReportTableStyled)`
   }
 `;
 
+// Hard code total area of Belize ocean space
+const boundaryTotalMetrics: Metric[] = [
+  {
+    classId: "eez",
+    metricId: "boundaryAreaOverlap",
+    sketchId: null,
+    groupId: null,
+    geographyId: null,
+    value: 33706000000,
+  },
+];
+
 /**
  * Top level SizeCard element
  * @returns React.FunctionComponent
@@ -81,12 +93,6 @@ export const SizeCard: React.FunctionComponent = (props) => {
           (m) => m.sketchId === data.sketch.properties.id && m.groupId === null
         );
 
-        // Get precalcalulated total metrics from precalc.json
-        const boundaryTotalMetrics = project.getPrecalcMetrics(
-          mg,
-          "area"
-        );
-
         // Grab overall size precalc metric
         const totalAreaMetric = firstMatchingMetric(
           boundaryTotalMetrics,
@@ -100,7 +106,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
         const percDisplay = percentWithEdge(
           areaMetric.value / totalAreaMetric.value
         );
-        const areaUnitDisplay = t("sq. km");
+        const areaUnitDisplay = t("km²");
         const mapLabel = t("Map");
 
         return (
@@ -116,7 +122,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
                 The Belize Ocean Space includes internal waters, territorial seas, 
                 and the Exclusive Economic Zone (EEZ) which extends out to 200 nautical miles. 
                 This report summarizes this plan's overlap with the total ocean space, 
-                measuring progress towards achieving the objective of 25% protection.
+                measuring progress towards achieving the objective of 30% protection.
               </Trans>
               <VerticalSpacer/>
               <KeySection>
@@ -126,7 +132,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
                 </b>
                 {", "}
                 {t("which is")} <b>{percDisplay}</b> {t("of")}{" "}
-                {t("the Belize Ocean Space")}.
+                {t("the 33,706 km² Belize Ocean Space")}.
               </KeySection>
               {isCollection
                 ? collectionReport(
@@ -519,8 +525,8 @@ const genLearnMore = (t: any) => {
   const shorelineLabel = t("Shoreline");
   const internalWatersLabel = t("Internal Waters\n(Shoreline - Baseline)");
   const baselineLabel = t("Baseline");
-  const territorialSeasLabel = t("Territorial Seas\n(Baseline - 12nm)");
-  const eezLabel = t("Exclusive Economic Zone\n(12 - 200nm)");
+  const territorialSeasLabel = t("Territorial Seas\n(Baseline - 12nm past baseline)");
+  const eezLabel = t("Exclusive Economic Zone\n(Territorial Seas extent - 200nm past baseline)");
 
   const labelsFinal: Label[] = [
     { key: "land", labelText: landLabel, x: 20, y: 640 },
@@ -568,15 +574,21 @@ const genLearnMore = (t: any) => {
         </svg>
       </div>
       <Trans i18nKey="Size Card - Learn more">
-        <p>ℹ️ Overview: The Belize Ocean Space consists of three maritime areas: 
-          (1) internal waters extending from the shoreline to the baseline, 
-          (2) territorial seas extending from the baseline to 12nm, 
-          (3) the Exclusive Economic Zone (EEZ) extending from 12nm - 200nm. 
-          Belize is committed to expanding areas under Biodiversity Protection 
-          Zones to 25% of the Belize Ocean Space. In this Marine Spatial Plan, 
-          the two levels of protection are High Protection of Biodiversity Zones 
-          (HPBZs) and Medium Protection of Biodiversity Zones (MPBZs).</p>
-        <p>🎯 Planning Objective: 25% protection of Belize Ocean Space</p>
+        <p>ℹ️ Overview: The Belize Ocean Space consists of three maritime areas:</p> 
+        <p>(1) Internal waters: Any area of waters that are on the landward side of 
+          the territorial sea baseline.</p> 
+        <p>(2) Territorial seas: Comprises those areas of the sea having, as their 
+          inner limits, the baseline of the territorial sea and, as their outer limits, 
+          a line measured from that baseline, every point of which is 12 nautical miles 
+          from the nearest point of that baseline.</p> 
+        <p>(3) Exclusive Economic Zone (EEZ): Comprises those areas of the sea that are 
+          beyond and adjacent to the territorial sea having, as their outer limits, a 
+          line, measured seaward from the baseline of the territorial sea every point 
+          of which is 200 nautical miles distant from the nearest point of that baseline.</p>
+        <p>In this Marine Spatial Plan, the two levels of protection are High Protection 
+          of Biodiversity Zones (HPBZs) and Medium Protection of Biodiversity Zones (MPBZs).</p>
+        <p>🎯 Planning Objective: 30% protection of Belize Ocean Space. 15% protection in 
+          HPBZs. 15% protection in MPBZs.</p>
         <p>🗺️ Source Data: Belize EEZ</p>
         <p>📈 Report: The total area of the plan was calculated, along with the 
           total area under high protection and total area under medium protection. 

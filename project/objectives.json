@@ -1,9 +1,18 @@
 [{
   "objectiveId": "ocean_space_protected",
   "shortDesc": "Ocean Space Objective",
-  "target": 0.25,
+  "target": 0.3,
   "countsToward": {
       "HIGH_PROTECTION": "yes",
       "MEDIUM_PROTECTION": "yes"
+  }
+},
+{
+  "objectiveId": "ocean_space_highly_protected",
+  "shortDesc": "Ocean Space High Protection Objective",
+  "target": 0.15,
+  "countsToward": {
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "no"
   }
 }]

@@ -219,13 +219,17 @@ export const ProtectionLearnMore: React.FunctionComponent<LearnMoreProps> = ({
             internationally significant areas. When combined, these zones provide habitats and species 
             with long-term protection, and are sufficiently large to ensure ecological resilience and climate 
             change adaptation. This zone category is not suitable for extraction or sea-bed alteration and is 
-            considered a no-take zone in common vernacular.</p>
+            considered a no-take zone in common vernacular. Examples of high protection status, depending on 
+            the objectives and allowable human activities, are: Marine Protected Areas in the IUCN categories 
+            Ia, Ib, and II.</p>
           <p>Medium biodiversity protection and sustainable use zones are proposed to conserve areas that are 
             suitable for medium levels of biodiversity protection and are also compatible with some sustainable 
             uses. These zones include habitats and species that have some tolerance to disturbance and human 
             activities. These zones also include regionally and nationally significant areas. This zone category 
             is suitable for some level of extraction and sea-bed alteration, with appropriate management and 
-            direction, depending on the objective of each designated area.</p>
+            direction, depending on the objective of each designated area. Examples of medium protection status 
+            could include: Marine Protected Area IUCN categories V and VI, IUCN OECM category, and Locally 
+            Managed Marine Areas (LMMA).</p>
           <p>🎯 Planning Objective: None</p>
           <p>🗺️ Source Data: None</p>
           <p>📈 Report: Simply counts number of zones in each protection level.</p>

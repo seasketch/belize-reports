@@ -23,7 +23,6 @@ export async function protection(
 
   const protectionLevels = sketchFeatures.reduce<Record<string, number>>(
     (levels, sketch) => {
-      console.log(sketch.properties);
       const designation = getUserAttribute(
         sketch.properties,
         "designation",
