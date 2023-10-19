@@ -3,7 +3,7 @@
     {
       "metricId": "boundaryAreaOverlap",
       "sketchId": "20652",
-      "classId": "belize_eez",
+      "classId": "belize_ocean_space",
       "groupId": null,
       "geographyId": null,
       "value": 16193367344.341074,
@@ -14,7 +14,7 @@
     {
       "metricId": "boundaryAreaOverlap",
       "sketchId": "20652",
-      "classId": "belize_eez",
+      "classId": "belize_ocean_space",
       "groupId": "HIGH_PROTECTION",
       "geographyId": null,
       "value": 16193367344.341074,
@@ -25,7 +25,7 @@
     {
       "metricId": "boundaryAreaOverlap",
       "sketchId": "20652",
-      "classId": "belize_eez",
+      "classId": "belize_ocean_space",
       "groupId": "MEDIUM_PROTECTION",
       "geographyId": null,
       "value": 0,

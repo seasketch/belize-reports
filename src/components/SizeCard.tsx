@@ -34,8 +34,11 @@ import {
   getUserAttribute,
   ObjectiveAnswer,
   toPercentMetric,
+  genSketchCollection,
+  toNullSketch,
 } from "@seasketch/geoprocessing/client-core";
 import {
+  LineString,
   getMetricGroupObjectiveIds,
   isSketchCollection,
 } from "@seasketch/geoprocessing";
@@ -61,7 +64,7 @@ export const SmallReportTableStyled = styled(ReportTableStyled)`
 // Hard code total area of Belize ocean space
 const boundaryTotalMetrics: Metric[] = [
   {
-    classId: "eez",
+    classId: "belize_ocean_space",
     metricId: "boundaryAreaOverlap",
     sketchId: null,
     groupId: null,
@@ -143,6 +146,12 @@ export const SizeCard: React.FunctionComponent = (props) => {
                   )
                 : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
+              {isCollection && (
+                <Collapse title={t("Show by MPA")}>
+                  {genMpaSketchTable(data, boundaryTotalMetrics, t)}
+                </Collapse>
+              )}
+
               <Collapse title={t("Learn More")}>
                 {genLearnMore(t)}
               </Collapse>
@@ -169,6 +178,7 @@ const sketchReport = (data: ReportResult,
     data.sketch.properties,
     "designation"
   );
+  if(!level) console.error("No protection level in sketch", data.sketch.properties.name);
 
   const area = firstMatchingMetric(
     data.metrics,
@@ -180,65 +190,28 @@ const sketchReport = (data: ReportResult,
     (m) => m.groupId === null
   ).value;
 
-  const percArea = area/totalArea;
+  const percArea = area / totalArea;
 
-    // Coloring and styling for horizontal bars
-    const groupColors = Object.values(groupColorMap);
-    const blockGroupNames = [t("High"), t("Medium")];
-    const blockGroupStyles = groupColors.map((curBlue) => ({
-      backgroundColor: curBlue,
-    }));
-    const valueFormatter = (value: number) => percentWithEdge(value / 100);
+  // Filter down grouped metrics to ones that count for each objective
+  const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
+    (acc, objectiveId) => {
+      const countedLevels = levels.filter((level) => {
+        return (
+          project.getObjectiveById(objectiveId).countsToward[level] ===
+          OBJECTIVE_YES
+        );
+      });
 
-    return (
-      <>
-        {objectiveIds.map((objectiveId: string) => {
-          const objective = project.getObjectiveById(objectiveId);
-          const isMet = percArea >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
+      return {...acc, [objectiveId]: countedLevels.map((l) => l === level ? percArea : 0)}
+    },
+    {}
+  );
 
-          // Create horizontal bar config
-          const config = {
-            rows: [levels.map((l) => l===level ? [percArea * 100] : [0])],
-            rowConfigs: [
-              {
-                title: "",
-              },
-            ],
-            target: objective.target * 100,
-            max: 100,
-          };
-  
-          const targetLabel = t("Target");
-  
-          return (
-            <React.Fragment key={objectiveId}>
-              <CollectionObjectiveStatus
-                objective={objective}
-                objectiveMet={isMet}
-                t={t}
-                renderMsg={collectionMsgs[objectiveId](
-                  objective,
-                  isMet,
-                  t
-                )}
-              />
-              <ReportChartFigure>
-                <HorizontalStackedBar
-                  {...config}
-                  blockGroupNames={blockGroupNames}
-                  blockGroupStyles={blockGroupStyles}
-                  showLegend={true}
-                  valueFormatter={valueFormatter}
-                  targetValueFormatter={(value) =>
-                    targetLabel + ` - ` + value + `%`
-                  }
-                />
-              </ReportChartFigure>
-            </React.Fragment>
-          );
-        })}
-      </>
-    );
+  return (
+    <>
+      {genObjectiveReport(objectiveIds, totalsByObjective, t)}
+    </>
+  );
 };
 
 /**
@@ -255,8 +228,6 @@ const collectionReport = (
   t: any
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
-  const sketches = toNullSketchArray(data.sketch);
-  const sketchesById = keyBy(sketches, (sk) => sk.properties.id);
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
@@ -287,15 +258,25 @@ const collectionReport = (
     {}
   );
 
-  // Child sketch table for 'Show By MPA'
-  const childAreaMetrics = levelMetrics.filter(
-    (m) => m.sketchId !== data.sketch.properties.id && m.groupId
-  );
-  const childAreaPercMetrics = toPercentMetric(
-    childAreaMetrics,
-    precalcMetrics
-  );
+  return (
+    <>
+      {genObjectiveReport(objectiveIds, totalsByObjective, t)}
 
+      <Collapse title={t("Show by Protection Level")}>
+        {genGroupLevelTable(groupLevelAggs, t)}
+      </Collapse>
+    </>
+  );
+};
+
+/**
+ * Generates Show By MPA sketch table
+ */
+const genObjectiveReport = (
+  objectiveIds: string[],
+  totalsByObjective: Record<string, number[]>,
+  t: any
+) => {
   // Coloring and styling for horizontal bars
   const groupColors = Object.values(groupColorMap);
   const blockGroupNames = ["High", "Medium"];
@@ -304,9 +285,9 @@ const collectionReport = (
   }));
   const valueFormatter = (value: number) => percentWithEdge(value / 100);
 
-  return (
+  return(
     <>
-      {objectiveIds.map((objectiveId: string) => {
+    {objectiveIds.map((objectiveId: string) => {
         const objective = project.getObjectiveById(objectiveId);
 
         // Get total percentage within sketch
@@ -360,19 +341,9 @@ const collectionReport = (
           </React.Fragment>
         );
       })}
-
-      <Collapse title={t("Show by Protection Level")}>
-        {genGroupLevelTable(groupLevelAggs, t)}
-      </Collapse>
-
-      <Collapse title={t("Show by MPA")}>
-        {genMpaSketchTable(sketchesById, childAreaPercMetrics, t)}
-      </Collapse>
-    </>
-  );
-};
-
-// SKETCH COLLECTION TYPES AND ELEMENTS
+      </>
+  )
+}
 
 /**
  * Properties for getting objective status for sketch collection
@@ -426,20 +397,55 @@ const collectionMsgs: Record<string, any> = {
         </>
       );
     }
+  },
+  ocean_space_highly_protected: (
+    objective: Objective,
+    objectiveMet: ObjectiveAnswer,
+    t: any
+  ) => {
+    if (objectiveMet === OBJECTIVE_YES) {
+      return (
+        <>
+          {t("This plan meets the objective of highly protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space.")}
+        </>
+      );
+    } else if (objectiveMet === OBJECTIVE_NO) {
+      return (
+        <>
+          {t("This plan does not meet the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space in High Protection Biodiversity Zones")}
+        </>
+      );
+    }
   }
 };
 
 /**
  * Generates Show By MPA sketch table
- * @param sketchesById Record<string, NullSketch>
- * @param regMetrics Metric[]
- * @returns
  */
 const genMpaSketchTable = (
-  sketchesById: Record<string, NullSketch>,
-  regMetrics: Metric[],
+  data: ReportResult,
+  precalcMetrics: Metric[],
   t: any
 ) => {
+  const sketches = toNullSketchArray(data.sketch);
+  const sketchesById = keyBy(sketches, (sk) => sk.properties.id);
+
+  // Filter down to metrics which have groupIds
+  const levelMetrics = data.metrics.filter(
+    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+  );
+
+  // Child sketch table for 'Show By MPA'
+  const childAreaMetrics = levelMetrics.filter(
+    (m) => m.sketchId !== data.sketch.properties.id && m.groupId
+  );
+  const childAreaPercMetrics = toPercentMetric(
+    childAreaMetrics,
+    precalcMetrics
+  );
+
   const columns: Column<Metric>[] = [
     {
       Header: t("MPA"),
@@ -460,7 +466,7 @@ const genMpaSketchTable = (
       <Table
         className="styled"
         columns={columns}
-        data={regMetrics.sort((a, b) => {
+        data={childAreaPercMetrics.sort((a, b) => {
           return a.value > b.value ? 1 : -1;
         })}
       />

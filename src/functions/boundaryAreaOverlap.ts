@@ -23,10 +23,17 @@ import {
 } from "@seasketch/geoprocessing/client-core";
 
 const metricGroup = project.getMetricGroup("boundaryAreaOverlap");
-const boundaryTotalMetrics = project.getPrecalcMetrics(
-  metricGroup,
-  "area"
-);
+// Hard code total area of Belize ocean space
+const boundaryTotalMetrics: Metric[] = [
+  {
+    classId: "belize_ocean_space",
+    metricId: "boundaryAreaOverlap",
+    sketchId: null,
+    groupId: null,
+    geographyId: null,
+    value: 33706000000,
+  },
+];
 const totalAreaMetric = firstMatchingMetric(
   boundaryTotalMetrics,
   (m) => m.groupId === null

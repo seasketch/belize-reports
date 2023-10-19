@@ -3,12 +3,13 @@
         "metricId": "boundaryAreaOverlap",
         "type": "areaOverlap",
         "layerId": "cgzjJWmTU",
+        "objectiveId": "ocean_space_protected",
         "classes": [
             {
-                "classId": "belize_eez",
+                "classId": "belize_ocean_space",
                 "display": "Ocean Space",
                 "datasourceId": "belize_ocean_space",
-                "objectiveId": "ocean_space_protected"
+                "objectiveId": "ocean_space_highly_protected"
             }
         ]
     },
