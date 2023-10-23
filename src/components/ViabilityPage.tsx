@@ -8,7 +8,6 @@ const ReportPage = () => {
     <>
       <ProtectionCard />
       <SizeCard />
-      {/* <HabitatCard /> */}
       <SketchAttributesCard autoHide />
     </>
   );

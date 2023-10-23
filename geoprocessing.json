@@ -21,7 +21,6 @@
     "src/functions/boundaryAreaOverlap.ts",
     "src/functions/protection.ts",
     "src/functions/bathymetry.ts",
-    "src/functions/geomorphAreaOverlap.ts",
-    "src/functions/habitatOverlap.ts"
+    "src/functions/geomorphAreaOverlap.ts"
   ]
 }
