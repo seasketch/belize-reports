@@ -24,11 +24,11 @@
       "NAME": {
         "Internal Waters": {
           "count": 2,
-          "area": 12262002921.37354
+          "area": 12616535739.07758
         },
         "Territorial Seas": {
-          "count": 2,
-          "area": 6450545920.324866
+          "count": 1,
+          "area": 6451282657.450262
         },
         "Exclusive Economic Zone": {
           "count": 1,
@@ -37,22 +37,22 @@
       },
       "total": {
         "total": {
-          "count": 5,
+          "count": 4,
           "sum": null,
-          "area": 33566334222.920746
+          "area": 33921603777.750183
         }
       }
     },
     "formats": [
       "fgb"
     ],
-    "layerName": "belize_maritime_areas_landless",
+    "layerName": "Belize Maritime Areas-IW, TS, EEZ",
     "classKeys": [
       "NAME"
     ],
     "created": "2023-10-11T16:23:56.645Z",
-    "lastUpdated": "2023-10-23T17:49:15.389Z",
-    "src": "data/src/Analytics/boundaries/belize_maritime_areas_landless.geojson",
+    "lastUpdated": "2023-10-23T22:08:59.403Z",
+    "src": "data/src/Data_Received/Administrative/Belize Maritime Areas/Belize Maritime Areas-IW, TS, EEZ.shp",
     "propertiesToKeep": [
       "NAME"
     ]
@@ -65,18 +65,18 @@
         "total": {
           "count": 1,
           "sum": null,
-          "area": 33566239723.820175
+          "area": 33921509252.512566
         }
       }
     },
     "formats": [
       "fgb"
     ],
-    "layerName": "belize_ocean_space_landless",
+    "layerName": "Belize Territorial Areas_Border_AOI",
     "classKeys": [],
     "created": "2023-10-17T22:29:54.227Z",
-    "lastUpdated": "2023-10-23T17:49:18.665Z",
-    "src": "data/src/Analytics/boundaries/belize_ocean_space_landless.geojson",
+    "lastUpdated": "2023-10-23T22:09:01.564Z",
+    "src": "data/src/Data_Received/Administrative/Belize Maritime Areas/Belize Territorial Areas_Border_AOI.shp",
     "propertiesToKeep": []
   },
   {
@@ -351,6 +351,66 @@
     "created": "2023-10-12T21:30:45.348Z",
     "lastUpdated": "2023-10-12T21:30:45.348Z",
     "src": "data/src/Analytics/seafloor_features/Slope.geojson",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "mangroves_priority",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 477,
+          "sum": null,
+          "area": 776765066.1745077
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "priorityareas_mngvregs2018",
+    "classKeys": [],
+    "created": "2023-10-23T22:13:40.773Z",
+    "lastUpdated": "2023-10-23T22:13:40.773Z",
+    "src": "data/src/Data_Received/Administrative/Mangrove Priority Areas Data/priorityareas_mngvregs2018.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "mangroves",
+    "geo_type": "vector",
+    "keyStats": {
+      "C2019": {
+        "Mangrove": {
+          "count": 6531,
+          "area": 751842053.0170237
+        },
+        "Non-mangrove": {
+          "count": 691,
+          "area": 15454218.168720929
+        },
+        "Littoral": {
+          "count": 122,
+          "area": 8729656.258806476
+        }
+      },
+      "total": {
+        "total": {
+          "count": 7344,
+          "sum": null,
+          "area": 776025927.4445513
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "bz_mangrove_littoral_cover_2019",
+    "classKeys": [
+      "C2019"
+    ],
+    "created": "2023-10-23T22:14:14.268Z",
+    "lastUpdated": "2023-10-23T22:45:15.453Z",
+    "src": "data/src/Data_Received/Ecosystems/Mangrove and Littoral Cover/bz_mangrove_littoral_cover_2019.shp",
     "propertiesToKeep": []
   }
 ]

@@ -40,36 +40,35 @@
         ]
     },
     {
-        "metricId": "habitatOverlap",
+        "metricId": "mangroveAreaOverlap",
         "type": "areaOverlap",
         "classes": [
             {
-                "classId": "mangrove_healthy",
-                "display": "Healthy Mangrove",
-                "datasourceId": "mangrove_healthy",
-                "objectiveId": "ocean_space_protected",
-                "layerId": "q6jfCjjqM"
+                "classId": "mangrove_priority",
+                "display": "Priority Mangrove Areas",
+                "datasourceId": "mangroves_priority",
+                "layerId": ""
             },
             {
-                "classId": "mangrove_degraded",
-                "display": "Degraded Mangrove",
-                "datasourceId": "mangrove_degraded",
-                "objectiveId": "ocean_space_protected",
-                "layerId": "ypGBMZV8T"
+                "classKey": "C2019",
+                "classId": "Mangrove",
+                "display": "Mangroves",
+                "datasourceId": "mangroves",
+                "layerId": ""
             },
             {
-                "classId": "coral_healthy",
-                "display": "Healthy Coral",
-                "datasourceId": "coral_healthy",
-                "objectiveId": "ocean_space_protected",
-                "layerId": "HHy8pGvks"
+                "classKey": "C2019",
+                "classId": "Non-mangrove",
+                "display": "Cleared Mangroves",
+                "datasourceId": "mangroves",
+                "layerId": ""
             },
             {
-                "classId": "coral_degraded",
-                "display": "Degraded Coral",
-                "datasourceId": "coral_degraded",
-                "objectiveId": "ocean_space_protected",
-                "layerId": "Qu7i8UGMp"
+                "classKey": "C2019",
+                "classId": "Littoral",
+                "display": "Littoral Forests",
+                "datasourceId": "mangroves",
+                "layerId": ""
             }
         ]
     },
