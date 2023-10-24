@@ -28,6 +28,36 @@
         ]
     },
     {
+        "metricId": "humanStressorsAreaOverlap",
+        "type": "areaOverlap",
+        "classes": [
+            {
+                "classId": "ag_runoff",
+                "display": "Agricultural Runoff",
+                "datasourceId": "ag_runoff",
+                "layerId": "Z1_qaJDQE"
+            },
+            {
+                "classId": "coastal_dev",
+                "display": "Coastal Development",
+                "datasourceId": "coastal_dev",
+                "layerId": "ChVZwiIrm"
+            },
+            {
+                "classId": "marine_dredging",
+                "display": "Marine Dredging",
+                "datasourceId": "marine_dredging",
+                "layerId": "TpiORi4XX"
+            },
+            {
+                "classId": "marine_trans",
+                "display": "Marine Transportation",
+                "datasourceId": "marine_trans",
+                "layerId": "5LDhFkMrU"
+            }
+        ]
+    },
+    {
         "metricId": "bathymetry",
         "type": "valueOverlap",
         "layerId": "6jgkBTCkU",

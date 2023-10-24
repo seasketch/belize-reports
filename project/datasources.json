@@ -436,22 +436,110 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Data_Received/Ecosystems/Coral Cover/Coral Cover_2021.shp",
-    "layerName": "Coral Cover_2021",
-    "geo_type": "vector",
     "datasourceId": "coral",
-    "formats": [
-      "fgb"
-    ],
-    "classKeys": [],
-    "created": "2023-10-24T20:57:18.530Z",
-    "lastUpdated": "2023-10-24T20:57:18.530Z",
+    "geo_type": "vector",
     "keyStats": {
       "total": {
         "total": {
           "count": 10632,
           "sum": null,
           "area": 2747898088.485498
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Coral Cover_2021",
+    "classKeys": [],
+    "created": "2023-10-24T20:57:18.530Z",
+    "lastUpdated": "2023-10-24T20:57:18.530Z",
+    "src": "data/src/Data_Received/Ecosystems/Coral Cover/Coral Cover_2021.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "ag_runoff",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 263,
+          "sum": null,
+          "area": 9332545681.413067
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Agricultural_Runoff 2020",
+    "classKeys": [],
+    "created": "2023-10-24T22:09:08.563Z",
+    "lastUpdated": "2023-10-24T22:09:08.563Z",
+    "src": "data/src/Data_Received/Human Stressors/Agricultural_Runoff 2020.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "coastal_dev",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 2893,
+          "sum": null,
+          "area": 74961375.06085733
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Coastal Development 2020",
+    "classKeys": [],
+    "created": "2023-10-24T22:09:26.200Z",
+    "lastUpdated": "2023-10-24T22:09:26.200Z",
+    "src": "data/src/Data_Received/Human Stressors/Coastal Development 2020.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "datasourceId": "marine_dredging",
+    "geo_type": "vector",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 28,
+          "sum": null,
+          "area": 1029956817.6142242
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Marine Dredging 2020",
+    "classKeys": [],
+    "created": "2023-10-24T22:09:43.675Z",
+    "lastUpdated": "2023-10-24T22:09:43.675Z",
+    "src": "data/src/Data_Received/Human Stressors/Marine Dredging 2020.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Data_Received/Human Stressors/Marine Transportation 2020.shp",
+    "layerName": "Marine Transportation 2020",
+    "geo_type": "vector",
+    "datasourceId": "marine_trans",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [],
+    "created": "2023-10-24T22:10:01.982Z",
+    "lastUpdated": "2023-10-24T22:10:01.982Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 23,
+          "sum": null,
+          "area": 8865582104.355726
         }
       }
     },
