@@ -17,18 +17,17 @@ import {
   MetricGroup,
   toPercentMetric,
 } from "@seasketch/geoprocessing/client-core";
-
 import project from "../../project";
 import Translator from "./TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const Seagrass: React.FunctionComponent = () => {
+export const Coral: React.FunctionComponent = () => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
-  const metricGroup = project.getMetricGroup("seagrassAreaOverlap", t);
+  const metricGroup = project.getMetricGroup("coralAreaOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
@@ -42,8 +41,8 @@ export const Seagrass: React.FunctionComponent = () => {
   return (
     <>
       <ResultsCard
-        title={t("Seagrass")}
-        functionName="seagrassAreaOverlap"
+        title={t("Coral Reef")}
+        functionName="coralAreaOverlap"
       >
         {(data: ReportResult) => {
           let singleMetrics = data.metrics.filter(
@@ -62,16 +61,17 @@ export const Seagrass: React.FunctionComponent = () => {
           return (
             <>
               <p>
-                <Trans i18nKey="Seagrass Card 1">
-                Seagrass beds are a key marine ecosystem, providing food and shelter 
-                for many marine organisms. This report shows the total seagrass area 
-                protected by this plan.
+                <Trans i18nKey="Coral Card 1">
+                  This planning process has the goal of promoting the growth and 
+                  survival of coral species. This report shows progress towards 
+                  the objective of 20% reef protection.
                 </Trans>
               </p>
               <Translator>
                 <ClassTable
                   rows={finalMetrics}
                   metricGroup={metricGroup}
+                  objective={project.getMetricGroupObjectives(metricGroup)}
                   columnConfig={[
                     {
                       columnLabel: " ",
@@ -137,12 +137,22 @@ export const Seagrass: React.FunctionComponent = () => {
               )}
 
               <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Seagrass Card - learn more">
+                <Trans i18nKey="Coral Card - learn more">
                   <p>
-                    🎯 Planning Objective: No specific planning objective for seagrass.
+                    ℹ️ Overview: Coral reef restoration is the intentional and active 
+                    process of assisting the recovery and regeneration of coral reefs 
+                    that have been damaged or degraded. It involves various techniques 
+                    and interventions aimed at promoting the growth and survival of 
+                    coral species, enhancing reef structure, and restoring ecosystem 
+                    functionality. 7% of Belizean coral reefs are currently protected. 
                   </p>
                   <p>
-                    🗺️ Source Data: ?</p>
+                    🎯 Planning Objective: 20% coral reef protection
+                  </p>
+                  <p>
+                    🗺️ Source Data: Coral cover for 2021 from the Smart Coasts project, 
+                    derived from the GEOBON project from CZMAI.
+                  </p>
                   <p>
                     📈 Report: The percentage of each feature type within this plan is 
                     calculated by finding the overlap of each feature type with the plan, 

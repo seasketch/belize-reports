@@ -12,15 +12,15 @@ import {
   getFlatGeobufFilename,
   isInternalVectorDatasource,
 } from "@seasketch/geoprocessing";
-import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
+import { fgbFetchAll, getFeatures } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
 import project from "../../project";
 
-export async function seagrassAreaOverlap(
+export async function coralAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
 ): Promise<ReportResult> {
   const box = sketch.bbox || bbox(sketch);
-  const metricGroup = project.getMetricGroup("seagrassAreaOverlap");
+  const metricGroup = project.getMetricGroup("coralAreaOverlap");
 
   let cachedFeatures: Record<string, Feature<Polygon>[]> = {};
 
@@ -92,9 +92,9 @@ export async function seagrassAreaOverlap(
   };
 }
 
-export default new GeoprocessingHandler(seagrassAreaOverlap, {
-  title: "seagrassAreaOverlap",
-  description: "Calculate sketch overlap with seagrass polygons",
+export default new GeoprocessingHandler(coralAreaOverlap, {
+  title: "coralAreaOverlap",
+  description: "Calculate sketch overlap with coral polygons",
   executionMode: "async",
   timeout: 600,
   requiresProperties: [],

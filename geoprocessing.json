@@ -23,6 +23,7 @@
     "src/functions/bathymetry.ts",
     "src/functions/mangroveAreaOverlap.ts",
     "src/functions/seagrassAreaOverlap.ts",
+    "src/functions/coralAreaOverlap.ts",
     "src/functions/geomorphAreaOverlap.ts"
   ]
 }

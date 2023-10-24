@@ -414,22 +414,44 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Data_Received/Ecosystems/Seagrass Cover/Seagrass Cover 2021.shp",
-    "layerName": "Seagrass Cover 2021",
-    "geo_type": "vector",
     "datasourceId": "seagrass",
-    "formats": [
-      "fgb"
-    ],
-    "classKeys": [],
-    "created": "2023-10-24T17:54:15.632Z",
-    "lastUpdated": "2023-10-24T17:54:15.632Z",
+    "geo_type": "vector",
     "keyStats": {
       "total": {
         "total": {
           "count": 32887,
           "sum": null,
           "area": 4574201098.290353
+        }
+      }
+    },
+    "formats": [
+      "fgb"
+    ],
+    "layerName": "Seagrass Cover 2021",
+    "classKeys": [],
+    "created": "2023-10-24T17:54:15.632Z",
+    "lastUpdated": "2023-10-24T17:54:15.632Z",
+    "src": "data/src/Data_Received/Ecosystems/Seagrass Cover/Seagrass Cover 2021.shp",
+    "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Data_Received/Ecosystems/Coral Cover/Coral Cover_2021.shp",
+    "layerName": "Coral Cover_2021",
+    "geo_type": "vector",
+    "datasourceId": "coral",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [],
+    "created": "2023-10-24T20:57:18.530Z",
+    "lastUpdated": "2023-10-24T20:57:18.530Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 10632,
+          "sum": null,
+          "area": 2747898088.485498
         }
       }
     },

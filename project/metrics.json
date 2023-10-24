@@ -85,6 +85,19 @@
         ]
     },
     {
+        "metricId": "coralAreaOverlap",
+        "type": "areaOverlap",
+        "objectiveId": "coral",
+        "classes": [
+            {
+                "classId": "coral",
+                "display": "Coral Reef",
+                "datasourceId": "coral",
+                "layerId": "UtnjYN9f1"
+            }
+        ]
+    },
+    {
         "metricId": "geomorphAreaOverlap",
         "type": "areaOverlap",
         "classes": [

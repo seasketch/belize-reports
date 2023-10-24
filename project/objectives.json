@@ -15,4 +15,13 @@
       "HIGH_PROTECTION": "yes",
       "MEDIUM_PROTECTION": "no"
   }
+},
+{
+  "objectiveId": "coral",
+  "shortDesc": "Coral Reef Objective",
+  "target": 0.20,
+  "countsToward": {
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "no"
+  }
 }]

@@ -3,6 +3,7 @@ import { BathymetryCard } from "./BathymetryCard";
 import { Geomorphology } from "./Geomorphology";
 import { Mangroves } from "./Mangroves";
 import { Seagrass } from "./Seagrass";
+import { Coral } from "./Coral";
 
 const ReportPage = () => {
   return (
@@ -10,6 +11,7 @@ const ReportPage = () => {
       <BathymetryCard />
       <Mangroves />
       <Seagrass />
+      <Coral />
       <Geomorphology />
     </>
   );
