@@ -3,8 +3,6 @@ import {
   Collapse,
   ResultsCard,
   useSketchProperties,
-  ToolbarCard,
-  LayerToggle,
   ClassTable,
   SketchClassTable,
 } from "@seasketch/geoprocessing/client-ui";
@@ -26,11 +24,11 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const Geomorphology: React.FunctionComponent = () => {
+export const Seagrass: React.FunctionComponent = () => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
-  const metricGroup = project.getMetricGroup("geomorphAreaOverlap", t);
+  const metricGroup = project.getMetricGroup("seagrassAreaOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
@@ -45,8 +43,8 @@ export const Geomorphology: React.FunctionComponent = () => {
   return (
     <>
       <ResultsCard
-        title={t("Geomorphology")}
-        functionName="geomorphAreaOverlap"
+        title={t("Seagrass")}
+        functionName="seagrassAreaOverlap"
       >
         {(data: ReportResult) => {
           let singleMetrics = data.metrics.filter(
@@ -65,22 +63,19 @@ export const Geomorphology: React.FunctionComponent = () => {
           return (
             <>
               <p>
-                <Trans i18nKey="Geomorphology Card 1">
-                  The seafloor has many unique physical geomorphological features,
-                  each creating habitats that support different ecological
-                  communities. Plans should ensure the representative coverage of each 
-                  seafloor type. This report summarizes the percentage of each
-                  geomorphological feature found in this plan.
+                <Trans i18nKey="Seagrass Card 1">
+                Seagrass beds are a key marine ecosystem, providing food and shelter 
+                for many marine organisms. This report shows the total seagrass area 
+                protected by this plan.
                 </Trans>
               </p>
-
               <Translator>
                 <ClassTable
                   rows={finalMetrics}
                   metricGroup={metricGroup}
                   columnConfig={[
                     {
-                      columnLabel: benthicLabel,
+                      columnLabel: " ",
                       type: "class",
                       width: 25,
                     },
@@ -143,41 +138,18 @@ export const Geomorphology: React.FunctionComponent = () => {
               )}
 
               <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Geomorphology Card - learn more">
+                <Trans i18nKey="Seagrass Card - learn more">
                   <p>
-                    ℹ️ Overview: Seafloor features were identified based on
-                    geomorphology, which classifies features using depth, seabed
-                    slope, and other environmental characteristics. 
+                    🎯 Planning Objective: No specific planning objective for seagrass.
                   </p>
                   <p>
-                    In the Seafloor Geomorphic Features dataset, the seafloor is 
-                    split into shelves (shallowest), slopes,  and abysses (deepest). 
-                    These three features are mutually exclusive. Basins, canyons, 
-                    escarpments, plateaus, rises, and sills occur within these three features.
-                  </p>
+                    🗺️ Source Data: ?</p>
                   <p>
-                    🎯 Planning Objective: No identified planning objectives for
-                    geomorphic features.
-                  </p>
-                  <p>
-                    🗺️ Source Data: Seafloor Geomorphic Features Map.{" "}
-                    <a href="https://doi.org/10.1016/j.margeo.2014.01.011">
-                      Harris, P.T., Macmillan-Lawler, M., Rupp, J. and Baker,
-                      E.K. 2014. Geomorphology of the oceans. Marine Geology,
-                      352: 4-24.
-                    </a>{" "}
-                    <a href="https://bluehabitats.org/">
-                      https://bluehabitats.org/
-                    </a>
-                  </p>
-                  <p>
-                    📈 Report: The percentage of each feature type within this
-                    plan is calculated by finding the overlap of each feature
-                    type with the plan, summing its area, then dividing it by
-                    the total area of each feature type found within the
-                    selected nearshore planning area. If the plan includes
-                    multiple areas that overlap, the overlap is only counted
-                    once.
+                    📈 Report: The percentage of each feature type within this plan is 
+                    calculated by finding the overlap of each feature type with the plan, 
+                    summing its area, then dividing it by the total area of each feature 
+                    type found within the selected nearshore planning area. If the plan 
+                    includes multiple areas that overlap, the overlap is only counted once.
                   </p>
                 </Trans>
               </Collapse>

@@ -412,5 +412,27 @@
     "lastUpdated": "2023-10-23T22:45:15.453Z",
     "src": "data/src/Data_Received/Ecosystems/Mangrove and Littoral Cover/bz_mangrove_littoral_cover_2019.shp",
     "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Data_Received/Ecosystems/Seagrass Cover/Seagrass Cover 2021.shp",
+    "layerName": "Seagrass Cover 2021",
+    "geo_type": "vector",
+    "datasourceId": "seagrass",
+    "formats": [
+      "fgb"
+    ],
+    "classKeys": [],
+    "created": "2023-10-24T17:54:15.632Z",
+    "lastUpdated": "2023-10-24T17:54:15.632Z",
+    "keyStats": {
+      "total": {
+        "total": {
+          "count": 32887,
+          "sum": null,
+          "area": 4574201098.290353
+        }
+      }
+    },
+    "propertiesToKeep": []
   }
 ]

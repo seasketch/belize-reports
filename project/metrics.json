@@ -2,7 +2,7 @@
     {
         "metricId": "boundaryAreaOverlap",
         "type": "areaOverlap",
-        "layerId": "cgzjJWmTU",
+        "layerId": "UU0vApkb2",
         "objectiveId": "ocean_space_protected",
         "classes": [
             {
@@ -47,28 +47,40 @@
                 "classId": "mangrove_priority",
                 "display": "Priority Mangrove Areas",
                 "datasourceId": "mangroves_priority",
-                "layerId": ""
+                "layerId": "7SuJXuc04"
             },
             {
                 "classKey": "C2019",
                 "classId": "Mangrove",
                 "display": "Mangroves",
                 "datasourceId": "mangroves",
-                "layerId": ""
+                "layerId": "5xlX0KoC8"
             },
             {
                 "classKey": "C2019",
                 "classId": "Non-mangrove",
                 "display": "Cleared Mangroves",
                 "datasourceId": "mangroves",
-                "layerId": ""
+                "layerId": "5xlX0KoC8"
             },
             {
                 "classKey": "C2019",
                 "classId": "Littoral",
                 "display": "Littoral Forests",
                 "datasourceId": "mangroves",
-                "layerId": ""
+                "layerId": "5xlX0KoC8"
+            }
+        ]
+    },
+    {
+        "metricId": "seagrassAreaOverlap",
+        "type": "areaOverlap",
+        "classes": [
+            {
+                "classId": "seagrass",
+                "display": "Seagrass",
+                "datasourceId": "seagrass",
+                "layerId": "7nN0k9nsx"
             }
         ]
     },
