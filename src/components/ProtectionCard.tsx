@@ -249,41 +249,38 @@ export const ProtectionLearnMore: React.FunctionComponent<LearnMoreProps> = ({
   return (
     <>
         <Trans i18nKey="Protection Card - Learn more">
-          <p>ℹ️ Overview: This planning process uses the IUCN framework of protection level:
-            <ul>
-            <li>IUCN Ia Strict nature reserve: Strictly protected for biodiversity and also possibly 
+          <p>ℹ️ Overview: This planning process uses the IUCN framework of protection level:</p>
+          <p>IUCN Ia Strict nature reserve: Strictly protected for biodiversity and also possibly 
               geological/ geomorphological features, where human visitation, use and impacts are 
-              controlled and limited to ensure protection of the conservation values</li>            
-            <li>IUCN Ib Wilderness area: Usually large unmodified or slightly modified areas, retaining 
-              their natural character and influence, without permanent or significant human habitation, 
-              protected and managed to preserve their natural condition</li>
-            <li>IUCN II National park: Large natural or near-natural areas protecting large-scale 
-              ecological processes with characteristic species and ecosystems, which also have 
-              environmentally and culturally compatible spiritual, scientific, educational, recreational 
-              and visitor opportunities</li>
-            <li>IUCN III Natural monument or feature: Areas set aside to protect a specific natural 
-              monument, which can be a landform, sea mount, marine cavern, geological feature such as 
-              a cave, or a living feature such as an ancient grove</li>
-            <li>IUCN IV Habitat/species management area: Areas to protect particular species or habitats, 
-              where management reflects this priority. Many will need regular, active interventions to 
-              meet the needs of particular species or habitats, but this is not a requirement of the category</li>
-            <li>IUCN V Protected landscape or seascape: Where the interaction of people and nature over 
-              time has produced a distinct character with significant ecological, biological, cultural and 
-              scenic value: and where safeguarding the integrity of this interaction is vital to protecting 
-              and sustaining the area and its associated nature conservation and other values</li>
-            <li>IUCN VI Protected areas with sustainable use of natural resources: Areas which conserve 
-              ecosystems, together with associated cultural values and traditional natural resource management 
-              systems. Generally large, mainly in a natural condition, with a proportion under sustainable 
-              natural resource management and where low-level non-industrial natural resource use compatible 
-              with nature conservation is seen as one of the main aims</li>
-            <li>IUCN Other Effective area-based Conservation Measures (OECM): A geographically defined area 
-              other than a Protected Area, which is governed and managed in ways that achieve positive and 
-              sustained long-term outcomes for the in situ conservation of biodiversity, with associated 
-              ecosystem functions and services and where applicable, cultural, spiritual, socioeconomic, 
-              and other locally relevant values (CBD, 2018).</li>
-            <li>Locally Managed Marine Areas (LMMA)</li>
-            </ul>
-          </p>
+              controlled and limited to ensure protection of the conservation values</p>            
+          <p>IUCN Ib Wilderness area: Usually large unmodified or spghtly modified areas, retaining 
+            their natural character and influence, without permanent or significant human habitation, 
+            protected and managed to preserve their natural condition</p>
+          <p>IUCN II National park: Large natural or near-natural areas protecting large-scale 
+            ecological processes with characteristic species and ecosystems, which also have 
+            environmentally and culturally compatible spiritual, scientific, educational, recreational 
+            and visitor opportunities</p>
+          <p>IUCN III Natural monument or feature: Areas set aside to protect a specific natural 
+            monument, which can be a landform, sea mount, marine cavern, geological feature such as 
+            a cave, or a pving feature such as an ancient grove</p>
+          <p>IUCN IV Habitat/species management area: Areas to protect particular species or habitats, 
+            where management reflects this priority. Many will need regular, active interventions to 
+            meet the needs of particular species or habitats, but this is not a requirement of the category</p>
+          <p>IUCN V Protected landscape or seascape: Where the interaction of people and nature over 
+            time has produced a distinct character with significant ecological, biological, cultural and 
+            scenic value: and where safeguarding the integrity of this interaction is vital to protecting 
+            and sustaining the area and its associated nature conservation and other values</p>
+          <p>IUCN VI Protected areas with sustainable use of natural resources: Areas which conserve 
+            ecosystems, together with associated cultural values and traditional natural resource management 
+            systems. Generally large, mainly in a natural condition, with a proportion under sustainable 
+            natural resource management and where low-level non-industrial natural resource use compatible 
+            with nature conservation is seen as one of the main aims</p>
+          <p>IUCN Other Effective area-based Conservation Measures (OECM): A geographically defined area 
+            other than a Protected Area, which is governed and managed in ways that achieve positive and 
+            sustained long-term outcomes for the in situ conservation of biodiversity, with associated 
+            ecosystem functions and services and where apppcable, cultural, spiritual, socioeconomic, 
+            and other locally relevant values (CBD, 2018).</p>
+          <p>Locally Managed Marine Areas (LMMA)</p>
           <p>IUCN Ia, Ib, and II are considered High Biodiversity Protection Zones (HBPZs). 
             IUCN V, VI, OECM, and LMMAs are considered Medium Biodiversity Protection Zones 
             (MBPZs). In these reports, IUCN levels III and IV are also considered MBPZs.</p>

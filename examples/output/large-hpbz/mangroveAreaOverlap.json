@@ -1,44 +1,44 @@
 {
   "metrics": [
     {
-      "metricId": "mangroveAreaOverlap",
-      "sketchId": "20652",
-      "classId": "mangrove_priority",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "mangrove_priority",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 71612374.13875,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "metricId": "mangroveAreaOverlap",
-      "sketchId": "20652",
-      "classId": "Mangrove",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Mangrove",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 7839884.595473,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "metricId": "mangroveAreaOverlap",
-      "sketchId": "20652",
-      "classId": "Non-mangrove",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Non-mangrove",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 13607.675706,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "metricId": "mangroveAreaOverlap",
-      "sketchId": "20652",
-      "classId": "Littoral",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 487554.501992,
       "extra": {
         "sketchName": "large-hpbz"

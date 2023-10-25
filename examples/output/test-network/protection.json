@@ -1,19 +1,19 @@
 {
   "metrics": [
     {
-      "metricId": "protectionCountOverlap",
-      "sketchId": null,
-      "classId": "Ib",
-      "groupId": "Ib",
       "geographyId": null,
+      "metricId": "protectionCountOverlap",
+      "classId": "Ib",
+      "sketchId": null,
+      "groupId": "Ib",
       "value": 1
     },
     {
-      "metricId": "protectionCountOverlap",
-      "sketchId": null,
-      "classId": "V",
-      "groupId": "V",
       "geographyId": null,
+      "metricId": "protectionCountOverlap",
+      "classId": "V",
+      "sketchId": null,
+      "groupId": "V",
       "value": 1
     }
   ],

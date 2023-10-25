@@ -1,51 +1,25 @@
 [
   {
-    "datasourceId": "global-clipping-osm-land",
+    "datasourceId": "world",
     "geo_type": "vector",
     "formats": [
-      "subdivided"
+      "json"
     ],
+    "precalc": true,
+    "layerName": "world",
     "classKeys": [],
-    "url": "https://d3p1dsef9f0gjr.cloudfront.net/"
-  },
-  {
-    "datasourceId": "global-clipping-eez-land-union",
-    "geo_type": "vector",
-    "formats": [
-      "subdivided"
-    ],
-    "classKeys": [],
-    "url": "https://d3muy0hbwp5qkl.cloudfront.net"
+    "created": "2023-10-05T00:00:00Z",
+    "lastUpdated": "2023-10-05T00:00:00Z",
+    "src": "data/default/world.json",
+    "propertiesToKeep": []
   },
   {
     "datasourceId": "belize_ocean_space",
     "geo_type": "vector",
-    "keyStats": {
-      "NAME": {
-        "Internal Waters": {
-          "count": 2,
-          "area": 12616535739.07758
-        },
-        "Territorial Seas": {
-          "count": 1,
-          "area": 6451282657.450262
-        },
-        "Exclusive Economic Zone": {
-          "count": 1,
-          "area": 14853785381.22234
-        }
-      },
-      "total": {
-        "total": {
-          "count": 4,
-          "sum": null,
-          "area": 33921603777.750183
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Belize Maritime Areas-IW, TS, EEZ",
     "classKeys": [
       "NAME"
@@ -60,18 +34,10 @@
   {
     "datasourceId": "belize_ocean_space_border",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 33921509252.512566
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Belize Territorial Areas_Border_AOI",
     "classKeys": [],
     "created": "2023-10-17T22:29:54.227Z",
@@ -80,52 +46,12 @@
     "propertiesToKeep": []
   },
   {
-    "datasourceId": "bathymetry",
-    "geo_type": "raster",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": null,
-          "sum": -797596543,
-          "area": null
-        }
-      }
-    },
-    "formats": [
-      "tif"
-    ],
-    "measurementType": "quantitative",
-    "band": 1,
-    "noDataValue": -32767,
-    "created": "2023-10-11T22:05:11.131Z",
-    "lastUpdated": "2023-10-11T22:05:11.131Z",
-    "src": "data/src/Analytics/bathymetry/gebco_2023.tif"
-  },
-  {
     "datasourceId": "abyss",
     "geo_type": "vector",
-    "keyStats": {
-      "Class": {
-        "Hills": {
-          "count": 1,
-          "area": 10665338991.021204
-        },
-        "Mountains": {
-          "count": 6,
-          "area": 3123527585.387147
-        }
-      },
-      "total": {
-        "total": {
-          "count": 7,
-          "sum": null,
-          "area": 13788866576.408352
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Abyssal_Classification",
     "classKeys": [
       "Class"
@@ -140,18 +66,10 @@
   {
     "datasourceId": "basins",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 18,
-          "sum": null,
-          "area": 1760313389.7705235
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Basins",
     "classKeys": [],
     "created": "2023-10-12T21:28:01.400Z",
@@ -162,18 +80,10 @@
   {
     "datasourceId": "canyons",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 12,
-          "sum": null,
-          "area": 3170688694.0803137
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Canyons",
     "classKeys": [],
     "created": "2023-10-12T21:28:19.453Z",
@@ -184,18 +94,10 @@
   {
     "datasourceId": "escarpments",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 6,
-          "sum": null,
-          "area": 5487609117.173057
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Escarpments",
     "classKeys": [],
     "created": "2023-10-12T21:28:35.088Z",
@@ -206,18 +108,10 @@
   {
     "datasourceId": "plateaus",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 231442003.54988524
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Plateaus",
     "classKeys": [],
     "created": "2023-10-12T21:28:51.511Z",
@@ -228,18 +122,10 @@
   {
     "datasourceId": "rises",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 13558353773.89332
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Rises",
     "classKeys": [],
     "created": "2023-10-12T21:29:10.432Z",
@@ -250,32 +136,10 @@
   {
     "datasourceId": "shelf",
     "geo_type": "vector",
-    "keyStats": {
-      "Class": {
-        "high": {
-          "count": 20,
-          "area": 4276084777.5662565
-        },
-        "low": {
-          "count": 18,
-          "area": 1126068026.3004615
-        },
-        "medium": {
-          "count": 27,
-          "area": 4703283668.28186
-        }
-      },
-      "total": {
-        "total": {
-          "count": 65,
-          "sum": null,
-          "area": 10105436472.14858
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Shelf_Classification",
     "classKeys": [
       "Class"
@@ -290,18 +154,10 @@
   {
     "datasourceId": "shelf_valleys",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 312139226.28412837
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Shelf_valleys",
     "classKeys": [],
     "created": "2023-10-12T21:30:10.167Z",
@@ -312,18 +168,10 @@
   {
     "datasourceId": "sills",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 76204844.76937321
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Sills",
     "classKeys": [],
     "created": "2023-10-12T21:30:25.668Z",
@@ -334,18 +182,10 @@
   {
     "datasourceId": "slope",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 1,
-          "sum": null,
-          "area": 9262982436.363665
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Slope",
     "classKeys": [],
     "created": "2023-10-12T21:30:45.348Z",
@@ -356,18 +196,10 @@
   {
     "datasourceId": "mangroves_priority",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 477,
-          "sum": null,
-          "area": 776765066.1745077
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "priorityareas_mngvregs2018",
     "classKeys": [],
     "created": "2023-10-23T22:13:40.773Z",
@@ -378,32 +210,10 @@
   {
     "datasourceId": "mangroves",
     "geo_type": "vector",
-    "keyStats": {
-      "C2019": {
-        "Mangrove": {
-          "count": 6531,
-          "area": 751842053.0170237
-        },
-        "Non-mangrove": {
-          "count": 691,
-          "area": 15454218.168720929
-        },
-        "Littoral": {
-          "count": 122,
-          "area": 8729656.258806476
-        }
-      },
-      "total": {
-        "total": {
-          "count": 7344,
-          "sum": null,
-          "area": 776025927.4445513
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "bz_mangrove_littoral_cover_2019",
     "classKeys": [
       "C2019"
@@ -416,18 +226,10 @@
   {
     "datasourceId": "seagrass",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 32887,
-          "sum": null,
-          "area": 4574201098.290353
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Seagrass Cover 2021",
     "classKeys": [],
     "created": "2023-10-24T17:54:15.632Z",
@@ -438,18 +240,10 @@
   {
     "datasourceId": "coral",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 10632,
-          "sum": null,
-          "area": 2747898088.485498
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Coral Cover_2021",
     "classKeys": [],
     "created": "2023-10-24T20:57:18.530Z",
@@ -460,18 +254,10 @@
   {
     "datasourceId": "ag_runoff",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 263,
-          "sum": null,
-          "area": 9332545681.413067
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Agricultural_Runoff 2020",
     "classKeys": [],
     "created": "2023-10-24T22:09:08.563Z",
@@ -482,18 +268,10 @@
   {
     "datasourceId": "coastal_dev",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 2893,
-          "sum": null,
-          "area": 74961375.06085733
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Coastal Development 2020",
     "classKeys": [],
     "created": "2023-10-24T22:09:26.200Z",
@@ -504,18 +282,10 @@
   {
     "datasourceId": "marine_dredging",
     "geo_type": "vector",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 28,
-          "sum": null,
-          "area": 1029956817.6142242
-        }
-      }
-    },
     "formats": [
       "fgb"
     ],
+    "precalc": true,
     "layerName": "Marine Dredging 2020",
     "classKeys": [],
     "created": "2023-10-24T22:09:43.675Z",
@@ -524,25 +294,31 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Data_Received/Human Stressors/Marine Transportation 2020.shp",
-    "layerName": "Marine Transportation 2020",
-    "geo_type": "vector",
     "datasourceId": "marine_trans",
+    "geo_type": "vector",
     "formats": [
       "fgb"
     ],
+    "precalc": true,
+    "layerName": "Marine Transportation 2020",
     "classKeys": [],
     "created": "2023-10-24T22:10:01.982Z",
     "lastUpdated": "2023-10-24T22:10:01.982Z",
-    "keyStats": {
-      "total": {
-        "total": {
-          "count": 23,
-          "sum": null,
-          "area": 8865582104.355726
-        }
-      }
-    },
+    "src": "data/src/Data_Received/Human Stressors/Marine Transportation 2020.shp",
     "propertiesToKeep": []
+  },
+  {
+    "src": "data/src/Analytics/bathymetry/gebco_2023.tif",
+    "band": 1,
+    "geo_type": "raster",
+    "datasourceId": "bathymetry",
+    "formats": [
+      "tif"
+    ],
+    "created": "2023-10-25T22:38:47.704Z",
+    "lastUpdated": "2023-10-25T22:38:47.704Z",
+    "noDataValue": -32767,
+    "measurementType": "quantitative",
+    "precalc": true
   }
 ]

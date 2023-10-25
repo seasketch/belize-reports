@@ -32,6 +32,7 @@ export const Seagrass: React.FunctionComponent = () => {
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
+    "world"
   );
 
   const mapLabel = t("Map");
@@ -55,7 +56,7 @@ export const Seagrass: React.FunctionComponent = () => {
             ...toPercentMetric(
               singleMetrics,
               precalcMetrics,
-              project.getMetricGroupPercId(metricGroup)
+              {metricIdOverride: project.getMetricGroupPercId(metricGroup)}
             ),
           ];
 

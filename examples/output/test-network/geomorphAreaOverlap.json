@@ -1,33 +1,33 @@
 {
   "metrics": [
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
-      "classId": "abyss",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "abyss",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "abyss",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "test-network",
@@ -35,33 +35,33 @@
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
-      "classId": "basins",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "basins",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "basins",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "test-network",
@@ -69,33 +69,33 @@
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
-      "classId": "canyons",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "canyons",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 29894927.047249,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "canyons",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 29894927.047249,
       "extra": {
         "sketchName": "test-network",
@@ -103,33 +103,33 @@
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
       "classId": "escarpments",
+      "sketchId": "20646",
       "groupId": null,
-      "geographyId": null,
       "value": 113713064.961204,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "escarpments",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 294089726.494683,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "escarpments",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 407802791.455888,
       "extra": {
         "sketchName": "test-network",
@@ -137,33 +137,33 @@
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
-      "classId": "plateaus",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "plateaus",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "plateaus",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "test-network",
@@ -171,33 +171,33 @@
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
-      "classId": "rises",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "rises",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "rises",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "test-network",
@@ -205,33 +205,33 @@
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
       "classId": "shelf",
+      "sketchId": "20646",
       "groupId": null,
-      "geographyId": null,
       "value": 166437887.235259,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "shelf",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "shelf",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 166437887.235259,
       "extra": {
         "sketchName": "test-network",
@@ -239,33 +239,33 @@
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
-      "classId": "shelf_valleys",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "shelf_valleys",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "shelf_valleys",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "test-network",
@@ -273,33 +273,33 @@
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
-      "classId": "sills",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "sills",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "sills",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "test-network",
@@ -307,33 +307,33 @@
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20646",
       "classId": "slope",
+      "sketchId": "20646",
       "groupId": null,
-      "geographyId": null,
       "value": 527686565.621609,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "slope",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 628954301.331505,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20648",
-      "classId": "slope",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 1156640866.953114,
       "extra": {
         "sketchName": "test-network",
@@ -355,7 +355,7 @@
         ],
         "type": "Feature",
         "properties": {
-          "2931": "HIGH_PROTECTION",
+          "2931": "Ib",
           "2932": "high-protection-zone",
           "2934": "abby",
           "id": "20646",
@@ -366,8 +366,8 @@
           "comments": null,
           "userSlug": "Abby",
           "createdAt": "2023-10-10T21:18:57.746626+00:00",
-          "updatedAt": "2023-10-10T21:22:47.456686+00:00",
-          "designation": "HIGH_PROTECTION",
+          "updatedAt": "2023-10-25T17:48:19.521793+00:00",
+          "designation": "Ib",
           "collectionId": "20648",
           "isCollection": false,
           "sharedInForum": false,
@@ -393,10 +393,10 @@
             },
             {
               "label": "Designation",
-              "value": "HIGH_PROTECTION",
+              "value": "Ib",
               "exportId": "designation",
               "fieldType": "ComboBox",
-              "valueLabel": "High Protection",
+              "valueLabel": "IUCN Ib: Wilderness Area",
               "formElementId": 2931,
               "alternateLanguages": {}
             }
@@ -414,7 +414,7 @@
         ],
         "type": "Feature",
         "properties": {
-          "2931": "MEDIUM_PROTECTION",
+          "2931": "V",
           "2932": "medium-protection-zone",
           "2934": "abby",
           "id": "20647",
@@ -425,8 +425,8 @@
           "comments": null,
           "userSlug": "Abby",
           "createdAt": "2023-10-10T21:22:33.978226+00:00",
-          "updatedAt": "2023-10-10T21:22:48.436039+00:00",
-          "designation": "MEDIUM_PROTECTION",
+          "updatedAt": "2023-10-25T17:48:25.183511+00:00",
+          "designation": "V",
           "collectionId": "20648",
           "isCollection": false,
           "sharedInForum": false,
@@ -452,10 +452,10 @@
             },
             {
               "label": "Designation",
-              "value": "MEDIUM_PROTECTION",
+              "value": "V",
               "exportId": "designation",
               "fieldType": "ComboBox",
-              "valueLabel": "Medium Protection",
+              "valueLabel": "IUCN V: Protected Landscape or Seascape",
               "formElementId": 2931,
               "alternateLanguages": {}
             }
@@ -472,7 +472,7 @@
       "userId": "531",
       "userSlug": "Abby",
       "createdAt": "2023-10-10T21:22:41.550657+00:00",
-      "updatedAt": "2023-10-10T21:22:48.436039+00:00",
+      "updatedAt": "2023-10-25T17:48:25.183511+00:00",
       "collectionId": null,
       "isCollection": true,
       "sharedInForum": false,

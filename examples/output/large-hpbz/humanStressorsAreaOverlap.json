@@ -1,44 +1,44 @@
 {
   "metrics": [
     {
-      "metricId": "humanStressorsAreaOverlap",
-      "sketchId": "20652",
-      "classId": "ag_runoff",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 96420795.65678,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "metricId": "humanStressorsAreaOverlap",
-      "sketchId": "20652",
-      "classId": "coastal_dev",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 6695.963173,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "metricId": "humanStressorsAreaOverlap",
-      "sketchId": "20652",
-      "classId": "marine_dredging",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 30808504.046273,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "metricId": "humanStressorsAreaOverlap",
-      "sketchId": "20652",
-      "classId": "marine_trans",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 1381308213.782768,
       "extra": {
         "sketchName": "large-hpbz"

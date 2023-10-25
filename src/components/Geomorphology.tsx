@@ -34,6 +34,7 @@ export const Geomorphology: React.FunctionComponent = () => {
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
+    "world"
   );
 
   const mapLabel = t("Map");
@@ -58,7 +59,7 @@ export const Geomorphology: React.FunctionComponent = () => {
             ...toPercentMetric(
               singleMetrics,
               precalcMetrics,
-              project.getMetricGroupPercId(metricGroup)
+              {metricIdOverride: project.getMetricGroupPercId(metricGroup)}
             ),
           ];
 

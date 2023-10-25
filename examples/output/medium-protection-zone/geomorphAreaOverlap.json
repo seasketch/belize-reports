@@ -1,110 +1,110 @@
 {
   "metrics": [
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
       "classId": "abyss",
+      "sketchId": "20647",
       "groupId": null,
-      "geographyId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
       "classId": "basins",
+      "sketchId": "20647",
       "groupId": null,
-      "geographyId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "canyons",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 29894927.047249,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "escarpments",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 294089726.494683,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
       "classId": "plateaus",
+      "sketchId": "20647",
       "groupId": null,
-      "geographyId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
       "classId": "rises",
+      "sketchId": "20647",
       "groupId": null,
-      "geographyId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
       "classId": "shelf",
+      "sketchId": "20647",
       "groupId": null,
-      "geographyId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
       "classId": "shelf_valleys",
+      "sketchId": "20647",
       "groupId": null,
-      "geographyId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
       "classId": "sills",
+      "sketchId": "20647",
       "groupId": null,
-      "geographyId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "geomorphAreaOverlap",
-      "sketchId": "20647",
-      "classId": "slope",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 628954301.331505,
       "extra": {
         "sketchName": "medium-protection-zone"

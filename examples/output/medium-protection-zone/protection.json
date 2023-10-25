@@ -1,11 +1,11 @@
 {
   "metrics": [
     {
-      "metricId": "protectionCountOverlap",
-      "sketchId": null,
-      "classId": "MEDIUM_PROTECTION",
-      "groupId": "MEDIUM_PROTECTION",
       "geographyId": null,
+      "metricId": "protectionCountOverlap",
+      "classId": "MEDIUM_PROTECTION",
+      "sketchId": null,
+      "groupId": "MEDIUM_PROTECTION",
       "value": 1
     }
   ],

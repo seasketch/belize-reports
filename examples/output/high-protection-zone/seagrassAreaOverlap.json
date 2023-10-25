@@ -1,11 +1,11 @@
 {
   "metrics": [
     {
-      "metricId": "seagrassAreaOverlap",
-      "sketchId": "20646",
-      "classId": "seagrass",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "seagrassAreaOverlap",
+      "classId": "seagrass",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 51044319.890262,
       "extra": {
         "sketchName": "high-protection-zone"

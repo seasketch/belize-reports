@@ -1,11 +1,11 @@
 {
   "metrics": [
     {
-      "metricId": "coralAreaOverlap",
-      "sketchId": "20647",
-      "classId": "coral",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "coralAreaOverlap",
+      "classId": "coral",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"

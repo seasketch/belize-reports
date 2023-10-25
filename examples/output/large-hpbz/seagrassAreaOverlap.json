@@ -1,11 +1,11 @@
 {
   "metrics": [
     {
-      "metricId": "seagrassAreaOverlap",
-      "sketchId": "20652",
-      "classId": "seagrass",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "seagrassAreaOverlap",
+      "classId": "seagrass",
+      "sketchId": "20652",
+      "groupId": null,
       "value": 253003711.618678,
       "extra": {
         "sketchName": "large-hpbz"

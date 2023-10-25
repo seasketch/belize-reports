@@ -1,55 +1,55 @@
 {
   "metrics": [
     {
-      "metricId": "boundaryAreaOverlap",
-      "sketchId": "20646",
-      "classId": "belize_ocean_space",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "boundaryAreaOverlap",
+      "classId": "belize_ocean_space",
+      "sketchId": "20646",
+      "groupId": null,
       "value": 694095022.2589856,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "boundaryAreaOverlap",
-      "sketchId": "20646",
       "classId": "belize_ocean_space",
+      "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "geographyId": null,
       "value": 694095022.2589856,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "metricId": "boundaryAreaOverlap",
-      "sketchId": "20647",
-      "classId": "belize_ocean_space",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "boundaryAreaOverlap",
+      "classId": "belize_ocean_space",
+      "sketchId": "20647",
+      "groupId": null,
       "value": 628951900.2058634,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
+      "geographyId": null,
       "metricId": "boundaryAreaOverlap",
-      "sketchId": "20647",
       "classId": "belize_ocean_space",
+      "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "geographyId": null,
       "value": 628951900.2058634,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "metricId": "boundaryAreaOverlap",
-      "sketchId": "20648",
-      "classId": "belize_ocean_space",
-      "groupId": null,
       "geographyId": null,
+      "metricId": "boundaryAreaOverlap",
+      "classId": "belize_ocean_space",
+      "sketchId": "20648",
+      "groupId": null,
       "value": 1323046922.464849,
       "extra": {
         "sketchName": "test-network",
@@ -57,11 +57,11 @@
       }
     },
     {
-      "metricId": "boundaryAreaOverlap",
-      "sketchId": "20648",
-      "classId": "belize_ocean_space",
-      "groupId": "HIGH_PROTECTION",
       "geographyId": null,
+      "metricId": "boundaryAreaOverlap",
+      "classId": "belize_ocean_space",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
       "value": 694095022.2589856,
       "extra": {
         "sketchName": "test-network",
@@ -69,11 +69,11 @@
       }
     },
     {
-      "metricId": "boundaryAreaOverlap",
-      "sketchId": "20648",
-      "classId": "belize_ocean_space",
-      "groupId": "MEDIUM_PROTECTION",
       "geographyId": null,
+      "metricId": "boundaryAreaOverlap",
+      "classId": "belize_ocean_space",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 628951900.2058634,
       "extra": {
         "sketchName": "test-network",

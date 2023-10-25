@@ -1,11 +1,11 @@
 {
   "metrics": [
     {
-      "metricId": "protectionCountOverlap",
-      "sketchId": null,
-      "classId": "HIGH_PROTECTION",
-      "groupId": "HIGH_PROTECTION",
       "geographyId": null,
+      "metricId": "protectionCountOverlap",
+      "classId": "HIGH_PROTECTION",
+      "sketchId": null,
+      "groupId": "HIGH_PROTECTION",
       "value": 1
     }
   ],
