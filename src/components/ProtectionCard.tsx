@@ -34,7 +34,16 @@ export const SmallReportTableStyled = styled(ReportTableStyled)`
 
 // Mapping groupIds to colors
 const groupColorMap: Record<string, string> = {
+  Ia: "#BEE4BE",
+  Ib: "#BEE4BE",
+  II: "#BEE4BE",
   HIGH_PROTECTION: "#BEE4BE",
+  III: "#FFE1A3",
+  IV: "#FFE1A3",
+  V: "#FFE1A3",
+  VI: "#FFE1A3",
+  OECM: "#FFE1A3",
+  LMMA: "#FFE1A3",
   MEDIUM_PROTECTION: "#FFE1A3",
 };
 
@@ -78,6 +87,15 @@ const sketchReport = (metrics: Metric[], mg: MetricGroup, t: any) => {
   const groupDisplayMap: Record<string, string> = {
     HIGH_PROTECTION: t("High Protection Biodiversity Zone"),
     MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone"),
+    Ia: t("IUCN Ia. Strict Nature Reserve"),
+    Ib: t("IUCN Ib. Wilderness Area"),
+    II: t("IUCN II. National Park"),
+    III: t("IUCN III. Natural Monument or Feature"),
+    IV: t("IUCN IV. Habitat/Species Management Area"),
+    V: t("IUCN V. Protected Landscape or Seascape"),
+    VI: t("IUCN VI. Protected Area with Sustainable Use"),
+    OECM: t("IUCN Other Effective area-based Conservation Measures (OECM)"),
+    LMMA: t("Locally Managed Marine Area (LMMA)"),
   };
 
   return (
@@ -121,9 +139,19 @@ const sketchCollectionReport = (
   mg: MetricGroup,
   t: any
 ) => {
+  // Mapping groupIds to display names
   const groupDisplayMap: Record<string, string> = {
     HIGH_PROTECTION: t("High Protection Biodiversity Zone(s)"),
     MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone(s)"),
+    Ia: t("IUCN Ia. Strict Nature Reserve(s)"),
+    Ib: t("IUCN Ib. Wilderness Area(s)"),
+    II: t("IUCN II. National Park(s)"),
+    III: t("IUCN III. Natural Monument(s) or Feature(s)"),
+    IV: t("IUCN IV. Habitat/Species Management Area(s)"),
+    V: t("IUCN V. Protected Landscape(s) or Seascape(s)"),
+    VI: t("IUCN VI. Protected Area(s) with Sustainable Use"),
+    OECM: t("IUCN Other Effective area-based Conservation Measures (OECM)"),
+    LMMA: t("Locally Managed Marine Area(s) (LMMA)"),
   };
 
   const sketches = toNullSketchArray(sketch);
@@ -165,6 +193,15 @@ const genMpaSketchTable = (sketches: NullSketch[], t: any) => {
   const groupDisplayMap: Record<string, string> = {
     HIGH_PROTECTION: t("High Protection Biodiversity Zone"),
     MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone"),
+    Ia: t("IUCN Ia. Strict Nature Reserve"),
+    Ib: t("IUCN Ib. Wilderness Area"),
+    II: t("IUCN II. National Park"),
+    III: t("IUCN III. Natural Monument or Feature"),
+    IV: t("IUCN IV. Habitat/Species Management Area"),
+    V: t("IUCN V. Protected Landscape or Seascape"),
+    VI: t("IUCN VI. Protected Area with Sustainable Use"),
+    OECM: t("IUCN Other Effective area-based Conservation Measures (OECM)"),
+    LMMA: t("Locally Managed Marine Area (LMMA)"),
   };
 
   const columns: Column<NullSketch>[] = [
@@ -212,24 +249,44 @@ export const ProtectionLearnMore: React.FunctionComponent<LearnMoreProps> = ({
   return (
     <>
         <Trans i18nKey="Protection Card - Learn more">
-          <p>ℹ️ Overview: High biodiversity protection zones conserve and protect the top priority areas 
-            for marine and coastal biodiversity. These zones are designated for habitats and species that 
-            may be rare, endangered, unique or with narrow distribution ranges. This zone includes breeding 
-            or spawning areas, key foraging habitat, fragile or sensitive species and habitats, and 
-            internationally significant areas. When combined, these zones provide habitats and species 
-            with long-term protection, and are sufficiently large to ensure ecological resilience and climate 
-            change adaptation. This zone category is not suitable for extraction or sea-bed alteration and is 
-            considered a no-take zone in common vernacular. Examples of high protection status, depending on 
-            the objectives and allowable human activities, are: Marine Protected Areas in the IUCN categories 
-            Ia, Ib, and II.</p>
-          <p>Medium biodiversity protection and sustainable use zones are proposed to conserve areas that are 
-            suitable for medium levels of biodiversity protection and are also compatible with some sustainable 
-            uses. These zones include habitats and species that have some tolerance to disturbance and human 
-            activities. These zones also include regionally and nationally significant areas. This zone category 
-            is suitable for some level of extraction and sea-bed alteration, with appropriate management and 
-            direction, depending on the objective of each designated area. Examples of medium protection status 
-            could include: Marine Protected Area IUCN categories V and VI, IUCN OECM category, and Locally 
-            Managed Marine Areas (LMMA).</p>
+          <p>ℹ️ Overview: This planning process uses the IUCN framework of protection level:
+            <ul>
+            <li>IUCN Ia Strict nature reserve: Strictly protected for biodiversity and also possibly 
+              geological/ geomorphological features, where human visitation, use and impacts are 
+              controlled and limited to ensure protection of the conservation values</li>            
+            <li>IUCN Ib Wilderness area: Usually large unmodified or slightly modified areas, retaining 
+              their natural character and influence, without permanent or significant human habitation, 
+              protected and managed to preserve their natural condition</li>
+            <li>IUCN II National park: Large natural or near-natural areas protecting large-scale 
+              ecological processes with characteristic species and ecosystems, which also have 
+              environmentally and culturally compatible spiritual, scientific, educational, recreational 
+              and visitor opportunities</li>
+            <li>IUCN III Natural monument or feature: Areas set aside to protect a specific natural 
+              monument, which can be a landform, sea mount, marine cavern, geological feature such as 
+              a cave, or a living feature such as an ancient grove</li>
+            <li>IUCN IV Habitat/species management area: Areas to protect particular species or habitats, 
+              where management reflects this priority. Many will need regular, active interventions to 
+              meet the needs of particular species or habitats, but this is not a requirement of the category</li>
+            <li>IUCN V Protected landscape or seascape: Where the interaction of people and nature over 
+              time has produced a distinct character with significant ecological, biological, cultural and 
+              scenic value: and where safeguarding the integrity of this interaction is vital to protecting 
+              and sustaining the area and its associated nature conservation and other values</li>
+            <li>IUCN VI Protected areas with sustainable use of natural resources: Areas which conserve 
+              ecosystems, together with associated cultural values and traditional natural resource management 
+              systems. Generally large, mainly in a natural condition, with a proportion under sustainable 
+              natural resource management and where low-level non-industrial natural resource use compatible 
+              with nature conservation is seen as one of the main aims</li>
+            <li>IUCN Other Effective area-based Conservation Measures (OECM): A geographically defined area 
+              other than a Protected Area, which is governed and managed in ways that achieve positive and 
+              sustained long-term outcomes for the in situ conservation of biodiversity, with associated 
+              ecosystem functions and services and where applicable, cultural, spiritual, socioeconomic, 
+              and other locally relevant values (CBD, 2018).</li>
+            <li>Locally Managed Marine Areas (LMMA)</li>
+            </ul>
+          </p>
+          <p>IUCN Ia, Ib, and II are considered High Biodiversity Protection Zones (HBPZs). 
+            IUCN V, VI, OECM, and LMMAs are considered Medium Biodiversity Protection Zones 
+            (MBPZs). In these reports, IUCN levels III and IV are also considered MBPZs.</p>
           <p>🎯 Planning Objective: None</p>
           <p>🗺️ Source Data: None</p>
           <p>📈 Report: Simply counts number of zones in each protection level.</p>

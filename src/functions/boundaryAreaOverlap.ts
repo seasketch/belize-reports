@@ -39,6 +39,10 @@ const totalAreaMetric = firstMatchingMetric(
   (m) => m.groupId === null
 );
 
+// Designations of high and medium protection levels
+const highProtectionLevels = ['Ia','Ib','II','HIGH_PROTECTION'];
+const mediumProtectionLevels = ['IV','V','VI','OECM','LMMA','MEDIUM_PROTECTION'];
+
 export async function boundaryAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
 ): Promise<ReportResult> {
@@ -91,12 +95,18 @@ export function getMpaProtectionLevel(
         sketch.properties,
         "designation",
         ""
-      );
-      levels[sketch.properties.id] = designation;
+      ).toString();
+      
+      if(highProtectionLevels.includes(designation)) levels[sketch.properties.id] = "HIGH_PROTECTION";
+      else if(mediumProtectionLevels.includes(designation)) levels[sketch.properties.id] = "MEDIUM_PROTECTION";
+      else levels[sketch.properties.id] = "MEDIUM_PROTECTION";
+
       return levels;
     },
     {}
   );
+  console.log(protectionLevels);
+  
   return protectionLevels;
 }
 

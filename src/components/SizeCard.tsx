@@ -591,8 +591,25 @@ const genLearnMore = (t: any) => {
           beyond and adjacent to the territorial sea having, as their outer limits, a 
           line, measured seaward from the baseline of the territorial sea every point 
           of which is 200 nautical miles distant from the nearest point of that baseline.</p>
-        <p>In this Marine Spatial Plan, the two levels of protection are High Protection 
-          of Biodiversity Zones (HPBZs) and Medium Protection of Biodiversity Zones (MPBZs).</p>
+        <p>High biodiversity protection zones conserve and protect the top priority areas for 
+          marine and coastal biodiversity. These zones are designated for habitats and species 
+          that may be rare, endangered, unique or with narrow distribution ranges. This zone 
+          includes breeding or spawning areas, key foraging habitat, fragile or sensitive 
+          species and habitats, and internationally significant areas. When combined, these zones 
+          provide habitats and species with long-term protection, and are sufficiently large to 
+          ensure ecological resilience and climate change adaptation. This zone category is not 
+          suitable for extraction or sea-bed alteration and is considered a no-take zone in common 
+          vernacular. Examples of high protection status, depending on the objectives and allowable 
+          human activities, are: Marine Protected Areas in the IUCN categories Ia, Ib, and II.</p>
+        <p>Medium biodiversity protection and sustainable use zones are proposed to conserve areas 
+          that are suitable for medium levels of biodiversity protection and are also compatible 
+          with some sustainable uses. These zones include habitats and species that have some tolerance 
+          to disturbance and human activities. These zones also include regionally and nationally 
+          significant areas. This zone category is suitable for some level of extraction and sea-bed 
+          alteration, with appropriate management and direction, depending on the objective of each 
+          designated area. Examples of medium protection status could include: Marine Protected Area 
+          IUCN categories V and VI, IUCN OECM category, and Locally Managed Marine Areas (LMMA). In 
+          these reports, IUCN levels III and IV are also considered MBPZs.</p>
         <p>🎯 Planning Objective: 30% protection of Belize Ocean Space. 15% protection in 
           HPBZs. 15% protection in MPBZs.</p>
         <p>🗺️ Source Data: Belize EEZ</p>

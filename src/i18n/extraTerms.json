@@ -25,5 +25,17 @@
   "Slope": "Slope",
   "Ocean Space Objective": "Ocean Space Objective",
   "HIGH_PROTECTION": "HIGH_PROTECTION",
-  "MEDIUM_PROTECTION": "MEDIUM_PROTECTION"
+  "MEDIUM_PROTECTION": "MEDIUM_PROTECTION",
+  "Agricultural Runoff": "Agricultural Runoff",
+  "Coastal Development": "Coastal Development",
+  "Marine Dredging": "Marine Dredging",
+  "Marine Transportation": "Marine Transportation",
+  "Priority Mangrove Areas": "Priority Mangrove Areas",
+  "Mangroves": "Mangroves",
+  "Cleared Mangroves": "Cleared Mangroves",
+  "Littoral Forests": "Littoral Forests",
+  "Seagrass": "Seagrass",
+  "Coral Reef": "Coral Reef",
+  "Ocean Space High Protection Objective": "Ocean Space High Protection Objective",
+  "Coral Reef Objective": "Coral Reef Objective"
 }
