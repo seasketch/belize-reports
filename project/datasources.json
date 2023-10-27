@@ -9,7 +9,7 @@
     "layerName": "world",
     "classKeys": [],
     "created": "2023-10-05T00:00:00Z",
-    "lastUpdated": "2023-10-05T00:00:00Z",
+    "lastUpdated": "2023-10-26T16:40:24.797Z",
     "src": "data/default/world.json",
     "propertiesToKeep": []
   },
@@ -214,13 +214,13 @@
       "fgb"
     ],
     "precalc": true,
-    "layerName": "bz_mangrove_littoral_cover_2019",
+    "layerName": "mangroves_and_littoral_forests_cropped",
     "classKeys": [
       "C2019"
     ],
     "created": "2023-10-23T22:14:14.268Z",
-    "lastUpdated": "2023-10-23T22:45:15.453Z",
-    "src": "data/src/Data_Received/Ecosystems/Mangrove and Littoral Cover/bz_mangrove_littoral_cover_2019.shp",
+    "lastUpdated": "2023-10-26T23:40:56.032Z",
+    "src": "data/src/Analytics/ecosystems_cropped/mangroves_and_littoral_forests_cropped.geojson",
     "propertiesToKeep": []
   },
   {
@@ -230,11 +230,11 @@
       "fgb"
     ],
     "precalc": true,
-    "layerName": "Seagrass Cover 2021",
+    "layerName": "seagrass_cropped",
     "classKeys": [],
     "created": "2023-10-24T17:54:15.632Z",
-    "lastUpdated": "2023-10-24T17:54:15.632Z",
-    "src": "data/src/Data_Received/Ecosystems/Seagrass Cover/Seagrass Cover 2021.shp",
+    "lastUpdated": "2023-10-26T23:47:05.286Z",
+    "src": "data/src/Analytics/ecosystems_cropped/seagrass_cropped.geojson",
     "propertiesToKeep": []
   },
   {
@@ -244,11 +244,11 @@
       "fgb"
     ],
     "precalc": true,
-    "layerName": "Coral Cover_2021",
+    "layerName": "coral_cropped",
     "classKeys": [],
     "created": "2023-10-24T20:57:18.530Z",
-    "lastUpdated": "2023-10-24T20:57:18.530Z",
-    "src": "data/src/Data_Received/Ecosystems/Coral Cover/Coral Cover_2021.shp",
+    "lastUpdated": "2023-10-26T23:51:40.260Z",
+    "src": "data/src/Analytics/ecosystems_cropped/coral_cropped.geojson",
     "propertiesToKeep": []
   },
   {
@@ -308,17 +308,17 @@
     "propertiesToKeep": []
   },
   {
-    "src": "data/src/Analytics/bathymetry/gebco_2023.tif",
-    "band": 1,
-    "geo_type": "raster",
     "datasourceId": "bathymetry",
+    "geo_type": "raster",
     "formats": [
       "tif"
     ],
+    "precalc": true,
+    "measurementType": "quantitative",
+    "band": 1,
+    "noDataValue": -32767,
     "created": "2023-10-25T22:38:47.704Z",
     "lastUpdated": "2023-10-25T22:38:47.704Z",
-    "noDataValue": -32767,
-    "measurementType": "quantitative",
-    "precalc": true
+    "src": "data/src/Analytics/bathymetry/gebco_2023.tif"
   }
 ]
