@@ -96,6 +96,7 @@ export default new GeoprocessingHandler(coralAreaOverlap, {
   title: "coralAreaOverlap",
   description: "Calculate sketch overlap with coral polygons",
   executionMode: "async",
-  timeout: 600,
+  timeout: 900,
+  memory: 8192,
   requiresProperties: [],
 });

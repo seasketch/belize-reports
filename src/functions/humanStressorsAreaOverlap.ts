@@ -97,5 +97,6 @@ export default new GeoprocessingHandler(humanStressorsAreaOverlap, {
   description: "Calculate sketch overlap with humanStressors polygons",
   executionMode: "async",
   timeout: 600,
+  memory: 4096,
   requiresProperties: [],
 });

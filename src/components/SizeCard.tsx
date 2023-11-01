@@ -279,7 +279,7 @@ const genObjectiveReport = (
 ) => {
   // Coloring and styling for horizontal bars
   const groupColors = Object.values(groupColorMap);
-  const blockGroupNames = ["High", "Medium"];
+  const blockGroupNames = [t("High"), t("Medium")];
   const blockGroupStyles = groupColors.map((curBlue) => ({
     backgroundColor: curBlue,
   }));

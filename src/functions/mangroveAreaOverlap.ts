@@ -97,5 +97,6 @@ export default new GeoprocessingHandler(mangroveAreaOverlap, {
   description: "Calculate sketch overlap with mangrove polygons",
   executionMode: "async",
   timeout: 600,
+  memory: 4096,
   requiresProperties: [],
 });

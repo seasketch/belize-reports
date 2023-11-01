@@ -96,6 +96,7 @@ export default new GeoprocessingHandler(seagrassAreaOverlap, {
   title: "seagrassAreaOverlap",
   description: "Calculate sketch overlap with seagrass polygons",
   executionMode: "async",
-  timeout: 600,
+  timeout: 900,
+  memory: 8192,
   requiresProperties: [],
 });
