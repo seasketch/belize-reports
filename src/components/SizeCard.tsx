@@ -173,36 +173,32 @@ const sketchReport = (data: ReportResult,
   precalcMetrics: Metric[],
   objectiveIds: string[],
   t: any) => {
-  const levels = ["HIGH_PROTECTION", "MEDIUM_PROTECTION"];
-  const level = getUserAttribute(
-    data.sketch.properties,
-    "designation"
-  );
-  if(!level) console.error("No protection level in sketch", data.sketch.properties.name);
 
-  const area = firstMatchingMetric(
-    data.metrics,
-    (m) => m.groupId === null
-  ).value;
-
+  // Get total planning area
   const totalArea = firstMatchingMetric(
     precalcMetrics,
     (m) => m.groupId === null
   ).value;
-
-  const percArea = area / totalArea;
+  
+  // Filter down to metrics which have groupIds
+  const levelMetrics = data.metrics.filter(
+    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+  );
 
   // Filter down grouped metrics to ones that count for each objective
   const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
     (acc, objectiveId) => {
-      const countedLevels = levels.filter((level) => {
+      // Protection levels which count for objective
+      const yesAggs = levelMetrics.filter((levelAgg) => {
+        const level = levelAgg.groupId;
         return (
-          project.getObjectiveById(objectiveId).countsToward[level] ===
+          project.getObjectiveById(objectiveId).countsToward[level!] ===
           OBJECTIVE_YES
         );
       });
-
-      return {...acc, [objectiveId]: countedLevels.map((l) => l === level ? percArea : 0)}
+      // Extract percent value from metric
+      const yesValues = yesAggs.map((yesAgg) => yesAgg.value / totalArea);
+      return { ...acc, [objectiveId]: yesValues };
     },
     {}
   );
