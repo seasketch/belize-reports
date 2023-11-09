@@ -18,6 +18,7 @@ import {
   Metric,
   MetricGroup,
   toPercentMetric,
+  GeogProp,
 } from "@seasketch/geoprocessing/client-core";
 
 import project from "../../project";
@@ -26,15 +27,19 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const Geomorphology: React.FunctionComponent = () => {
+export const Geomorphology: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
+
+  const curGeography = project.getGeographyById(props.geographyId, {
+    fallbackGroup: "default-boundary",
+  });
 
   const metricGroup = project.getMetricGroup("geomorphAreaOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
-    "world"
+    curGeography.geographyId
   );
 
   const mapLabel = t("Map");

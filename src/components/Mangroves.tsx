@@ -18,6 +18,7 @@ import {
   Metric,
   MetricGroup,
   toPercentMetric,
+  GeogProp,
 } from "@seasketch/geoprocessing/client-core";
 
 import project from "../../project";
@@ -26,7 +27,7 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const Mangroves: React.FunctionComponent = () => {
+export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
@@ -34,7 +35,7 @@ export const Mangroves: React.FunctionComponent = () => {
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
-    "world"
+    "belize_ocean_space"
   );
 
   const mapLabel = t("Map");

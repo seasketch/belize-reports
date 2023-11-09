@@ -2,7 +2,7 @@
  * @jest-environment node
  * @group smoke
  */
-import { coralAreaOverlap } from "./coralAreaOverlap";
+import { seagrassValueOverlap } from "./seagrassValueOverlap";
 import {
   getExamplePolygonSketchAll,
   writeResultOutput,
@@ -10,14 +10,14 @@ import {
 
 describe("Basic smoke tests", () => {
   test("handler function is present", () => {
-    expect(typeof coralAreaOverlap).toBe("function");
+    expect(typeof seagrassValueOverlap).toBe("function");
   });
-  test("coralAreaOverlapSmoke - tests run against all examples", async () => {
+  test("seagrassValueOverlapSmoke - tests run against all examples", async () => {
     const examples = await getExamplePolygonSketchAll();
     for (const example of examples) {
-      const result = await coralAreaOverlap(example);
+      const result = await seagrassValueOverlap(example);
       expect(result).toBeTruthy();
-      writeResultOutput(result, "coralAreaOverlap", example.properties.name);
+      writeResultOutput(result, "seagrassValueOverlap", example.properties.name);
     }
   }, 120000);
 });

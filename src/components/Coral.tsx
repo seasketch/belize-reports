@@ -16,6 +16,7 @@ import {
   Metric,
   MetricGroup,
   toPercentMetric,
+  GeogProp
 } from "@seasketch/geoprocessing/client-core";
 import project from "../../project";
 import Translator from "./TranslatorAsync";
@@ -23,15 +24,19 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const Coral: React.FunctionComponent = () => {
+export const Coral: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
-  const metricGroup = project.getMetricGroup("coralAreaOverlap", t);
+  const curGeography = project.getGeographyById(props.geographyId, {
+    fallbackGroup: "default-boundary",
+  });
+
+  const metricGroup = project.getMetricGroup("coralValueOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
-    "area",
-    "world"
+    "sum",
+    curGeography.geographyId
   );
 
   const mapLabel = t("Map");
@@ -43,7 +48,7 @@ export const Coral: React.FunctionComponent = () => {
     <>
       <ResultsCard
         title={t("Coral Reef")}
-        functionName="coralAreaOverlap"
+        functionName="coralValueOverlap"
       >
         {(data: ReportResult) => {
           let singleMetrics = data.metrics.filter(
@@ -84,13 +89,16 @@ export const Coral: React.FunctionComponent = () => {
                       type: "metricValue",
                       metricId: metricGroup.metricId,
                       valueFormatter: (val: string | number) =>
-                        Number.format(
+                      {
+                        const v = typeof val === "string" ? parseInt(val) : val;
+                        return Number.format(
                           Math.round(
                             squareMeterToKilometer(
-                              typeof val === "string" ? parseInt(val) : val
+                              v*15*15
                             )
                           )
-                        ),
+                        )
+                      },
                       valueLabel: sqKmLabel,
                       width: 30,
                     },

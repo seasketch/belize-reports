@@ -17,6 +17,7 @@
     "import:data_": "geoprocessing import:data",
     "precalc:data": "start-server-and-test 'http-server data/dist -c-1 -p 8001' http://localhost:8001 precalc:data_",
     "precalc:data_": "geoprocessing precalc:data",
+    "precalc:data:clean": "geoprocessing precalc:data:clean",
     "reimport:data": "start-server-and-test 'http-server data/dist -c-1 -p 8001' http://localhost:8001 reimport:data_",
     "reimport:data_": "geoprocessing reimport:data",
     "publish:data": "geoprocessing publish:data",
@@ -61,7 +62,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
-    "@seasketch/geoprocessing": "3.0.1-experimental-subregional.102",
+    "@seasketch/geoprocessing": "3.0.1-experimental-subregional.112",
     "@turf/boolean-disjoint": "^6.5.0",
     "@turf/boolean-valid": "^6.5.0",
     "@types/request": "^2.48.8",

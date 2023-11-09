@@ -1,19 +1,5 @@
 [
   {
-    "datasourceId": "world",
-    "geo_type": "vector",
-    "formats": [
-      "json"
-    ],
-    "precalc": true,
-    "layerName": "world",
-    "classKeys": [],
-    "created": "2023-10-05T00:00:00Z",
-    "lastUpdated": "2023-10-26T16:40:24.797Z",
-    "src": "data/default/world.json",
-    "propertiesToKeep": []
-  },
-  {
     "datasourceId": "belize_ocean_space",
     "geo_type": "vector",
     "formats": [
@@ -37,7 +23,7 @@
     "formats": [
       "fgb"
     ],
-    "precalc": true,
+    "precalc": false,
     "layerName": "Belize Territorial Areas_Border_AOI",
     "classKeys": [],
     "created": "2023-10-17T22:29:54.227Z",
@@ -208,48 +194,30 @@
     "propertiesToKeep": []
   },
   {
-    "datasourceId": "mangroves",
-    "geo_type": "vector",
-    "formats": [
-      "fgb"
-    ],
-    "precalc": true,
-    "layerName": "mangroves_and_littoral_forests_cropped",
-    "classKeys": [
-      "C2019"
-    ],
-    "created": "2023-10-23T22:14:14.268Z",
-    "lastUpdated": "2023-10-26T23:40:56.032Z",
-    "src": "data/src/Analytics/ecosystems_cropped/mangroves_and_littoral_forests_cropped.geojson",
-    "propertiesToKeep": []
-  },
-  {
     "datasourceId": "seagrass",
-    "geo_type": "vector",
+    "geo_type": "raster",
     "formats": [
-      "fgb"
+      "tif"
     ],
     "precalc": true,
-    "layerName": "seagrass_cropped",
-    "classKeys": [],
-    "created": "2023-10-24T17:54:15.632Z",
-    "lastUpdated": "2023-10-26T23:47:05.286Z",
-    "src": "data/src/Analytics/ecosystems_cropped/seagrass_cropped.geojson",
-    "propertiesToKeep": []
+    "measurementType": "quantitative",
+    "band": 1,
+    "created": "2023-11-08T18:26:24.686Z",
+    "lastUpdated": "2023-11-08T18:26:24.686Z",
+    "src": "data/src/Analytics/ecosystems/seagrass_30.tif"
   },
   {
     "datasourceId": "coral",
-    "geo_type": "vector",
+    "geo_type": "raster",
     "formats": [
-      "fgb"
+      "tif"
     ],
     "precalc": true,
-    "layerName": "coral_cropped",
-    "classKeys": [],
-    "created": "2023-10-24T20:57:18.530Z",
-    "lastUpdated": "2023-10-26T23:51:40.260Z",
-    "src": "data/src/Analytics/ecosystems_cropped/coral_cropped.geojson",
-    "propertiesToKeep": []
+    "measurementType": "quantitative",
+    "band": 1,
+    "created": "2023-11-08T18:26:24.686Z",
+    "lastUpdated": "2023-11-08T19:11:05.776Z",
+    "src": "data/src/Analytics/ecosystems/coral_15.tif"
   },
   {
     "datasourceId": "ag_runoff",
@@ -320,5 +288,25 @@
     "created": "2023-10-25T22:38:47.704Z",
     "lastUpdated": "2023-10-25T22:38:47.704Z",
     "src": "data/src/Analytics/bathymetry/gebco_2023.tif"
+  },
+  {
+    "datasourceId": "mangroves",
+    "geo_type": "vector",
+    "formats": [
+      "fgb",
+      "json"
+    ],
+    "precalc": true,
+    "layerName": "mangroves_and_littoral_forests_cropped",
+    "classKeys": [
+      "C2019"
+    ],
+    "created": "2023-11-09T00:04:01.009Z",
+    "lastUpdated": "2023-11-09T18:25:38.096Z",
+    "src": "data/src/Analytics/ecosystems/mangroves_and_littoral_forests_cropped.geojson",
+    "propertiesToKeep": [
+      "C2019"
+    ],
+    "explodeMulti": true
   }
 ]

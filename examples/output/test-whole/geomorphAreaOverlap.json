@@ -1,0 +1,188 @@
+{
+  "metrics": [
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 13785813415.808252,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 1759084845.819252,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 3169762711.214623,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 5486950149.968844,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 231163205.400189,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 13554808714.70215,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 10102834745.255169,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 312138471.801005,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 76204845.265373,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "21893",
+      "groupId": null,
+      "value": 9261817212.171902,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    }
+  ],
+  "sketch": {
+    "id": 21893,
+    "bbox": [
+      -88.93599,
+      15.904199,
+      -86.205666,
+      18.488726
+    ],
+    "type": "Feature",
+    "properties": {
+      "2931": "Ia",
+      "2932": "test-whole",
+      "2934": "abby",
+      "id": "21893",
+      "name": "test-whole",
+      "postId": null,
+      "userId": "531",
+      "authors": "abby",
+      "comments": null,
+      "userSlug": "Abby",
+      "createdAt": "2023-11-07T19:51:21.451281+00:00",
+      "updatedAt": "2023-11-07T19:51:21.451281+00:00",
+      "designation": "Ia",
+      "collectionId": null,
+      "isCollection": false,
+      "sharedInForum": false,
+      "sketchClassId": "196",
+      "userAttributes": [
+        {
+          "label": "Comments",
+          "value": null,
+          "exportId": "comments",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 2933,
+          "alternateLanguages": {
+            "es": {
+              "label": "Comentarios",
+              "valueLabel": null
+            }
+          }
+        },
+        {
+          "label": "Author(s)",
+          "value": "abby",
+          "exportId": "authors",
+          "fieldType": "ShortText",
+          "valueLabel": null,
+          "formElementId": 2934,
+          "alternateLanguages": {
+            "es": {
+              "label": "Autor(es)",
+              "valueLabel": null
+            }
+          }
+        },
+        {
+          "label": "Designation",
+          "value": "Ia",
+          "exportId": "designation",
+          "fieldType": "ComboBox",
+          "valueLabel": "IUCN Ia: Strict Nature Reserve",
+          "formElementId": 2931,
+          "alternateLanguages": {
+            "es": {
+              "label": "Designación",
+              "valueLabel": "UICN Ia: Reserva Natural Estricta"
+            }
+          }
+        }
+      ]
+    },
+    "geometry": null
+  }
+}

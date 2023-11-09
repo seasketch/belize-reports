@@ -103,7 +103,7 @@
         ]
     },
     {
-        "metricId": "seagrassAreaOverlap",
+        "metricId": "seagrassValueOverlap",
         "type": "areaOverlap",
         "classes": [
             {
@@ -115,13 +115,13 @@
         ]
     },
     {
-        "metricId": "coralAreaOverlap",
-        "type": "areaOverlap",
-        "objectiveId": "coral",
+        "metricId": "coralValueOverlap",
+        "type": "valueOverlap",
         "classes": [
             {
                 "classId": "coral",
                 "display": "Coral Reef",
+                "objectiveId": "coral",
                 "datasourceId": "coral",
                 "layerId": "UtnjYN9f1"
             }

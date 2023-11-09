@@ -28,11 +28,11 @@ export const Seagrass: React.FunctionComponent = () => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
-  const metricGroup = project.getMetricGroup("seagrassAreaOverlap", t);
+  const metricGroup = project.getMetricGroup("seagrassValueOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
-    "area",
-    "world"
+    "sum",
+    "belize_ocean_space"
   );
 
   const mapLabel = t("Map");
@@ -44,7 +44,7 @@ export const Seagrass: React.FunctionComponent = () => {
     <>
       <ResultsCard
         title={t("Seagrass")}
-        functionName="seagrassAreaOverlap"
+        functionName="seagrassValueOverlap"
       >
         {(data: ReportResult) => {
           let singleMetrics = data.metrics.filter(
@@ -83,14 +83,15 @@ export const Seagrass: React.FunctionComponent = () => {
                       columnLabel: areaWithin,
                       type: "metricValue",
                       metricId: metricGroup.metricId,
-                      valueFormatter: (val: string | number) =>
-                        Number.format(
+                      valueFormatter: (val: string | number) => {
+                        const v = typeof val === "string" ? parseInt(val) : val;
+                        return Number.format(
                           Math.round(
                             squareMeterToKilometer(
-                              typeof val === "string" ? parseInt(val) : val
+                              v*30*30
                             )
                           )
-                        ),
+                        )},
                       valueLabel: sqKmLabel,
                       width: 30,
                     },
