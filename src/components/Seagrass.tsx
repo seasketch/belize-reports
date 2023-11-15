@@ -16,6 +16,7 @@ import {
   Metric,
   MetricGroup,
   toPercentMetric,
+  roundDecimal,
 } from "@seasketch/geoprocessing/client-core";
 
 import project from "../../project";
@@ -84,14 +85,11 @@ export const Seagrass: React.FunctionComponent = () => {
                       type: "metricValue",
                       metricId: metricGroup.metricId,
                       valueFormatter: (val: string | number) => {
-                        const v = typeof val === "string" ? parseInt(val) : val;
-                        return Number.format(
-                          Math.round(
-                            squareMeterToKilometer(
-                              v*30*30
-                            )
-                          )
-                        )},
+                        const valueKm = squareMeterToKilometer((typeof val === "string" ? parseInt(val) : val)*30*30);
+                        return valueKm && valueKm < 0.5 
+                        ? Number.format(roundDecimal(valueKm, 2))
+                        : Number.format( Math.round(valueKm))
+                      },
                       valueLabel: sqKmLabel,
                       width: 30,
                     },

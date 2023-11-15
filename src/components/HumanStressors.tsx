@@ -17,6 +17,7 @@ import {
   MetricGroup,
   toPercentMetric,
   GeogProp,
+  roundDecimal,
 } from "@seasketch/geoprocessing/client-core";
 
 import project from "../../project";
@@ -89,14 +90,12 @@ export const HumanStressors: React.FunctionComponent<GeogProp> = (props) => {
                       columnLabel: areaWithin,
                       type: "metricValue",
                       metricId: metricGroup.metricId,
-                      valueFormatter: (val: string | number) =>
-                        Number.format(
-                          Math.round(
-                            squareMeterToKilometer(
-                              typeof val === "string" ? parseInt(val) : val
-                            )
-                          )
-                        ),
+                      valueFormatter: (val: string | number) => {
+                        const valueKm = squareMeterToKilometer(typeof val === "string" ? parseInt(val) : val);
+                        return valueKm && valueKm < 0.5 
+                        ? Number.format(roundDecimal(valueKm, 2))
+                        : Number.format( Math.round(valueKm))
+                      },
                       valueLabel: sqKmLabel,
                       width: 30,
                     },

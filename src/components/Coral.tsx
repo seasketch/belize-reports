@@ -16,7 +16,8 @@ import {
   Metric,
   MetricGroup,
   toPercentMetric,
-  GeogProp
+  GeogProp,
+  roundDecimal
 } from "@seasketch/geoprocessing/client-core";
 import project from "../../project";
 import Translator from "./TranslatorAsync";
@@ -90,14 +91,12 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
                       metricId: metricGroup.metricId,
                       valueFormatter: (val: string | number) =>
                       {
-                        const v = typeof val === "string" ? parseInt(val) : val;
-                        return Number.format(
-                          Math.round(
-                            squareMeterToKilometer(
-                              v*15*15
-                            )
-                          )
-                        )
+                        {
+                          const valueKm = squareMeterToKilometer((typeof val === "string" ? parseInt(val) : val)*15*15);
+                          return valueKm && valueKm < 0.5 
+                          ? Number.format(roundDecimal(valueKm, 2))
+                          : Number.format( Math.round(valueKm))
+                        }
                       },
                       valueLabel: sqKmLabel,
                       width: 30,
