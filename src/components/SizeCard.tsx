@@ -527,8 +527,8 @@ const genLearnMore = (t: any) => {
   const shorelineLabel = t("Shoreline");
   const internalWatersLabel = t("Internal Waters\n(Shoreline - Baseline)");
   const baselineLabel = t("Baseline");
-  const territorialSeasLabel = t("Territorial Seas\n(Baseline - 12nm past baseline)");
-  const eezLabel = t("Exclusive Economic Zone\n(Territorial Seas extent - 200nm past baseline)");
+  const territorialSeasLabel = t("Territorial Seas\n(Baseline - 12nm)");
+  const eezLabel = t("Exclusive Economic Zone\n(Baseline - 200nm)");
 
   const labelsFinal: Label[] = [
     { key: "land", labelText: landLabel, x: 20, y: 640 },
