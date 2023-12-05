@@ -4,17 +4,6 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "ag_runoff",
-      "sketchId": "20646",
-      "groupId": null,
-      "value": 0,
-      "extra": {
-        "sketchName": "high-protection-zone"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "humanStressorsAreaOverlap",
-      "classId": "ag_runoff",
       "sketchId": "20647",
       "groupId": null,
       "value": 0,
@@ -26,23 +15,23 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "ag_runoff",
-      "sketchId": "20648",
+      "sketchId": "20646",
       "groupId": null,
-      "value": 0,
+      "value": 265733648.902582,
       "extra": {
-        "sketchName": "test-network",
-        "isCollection": true
+        "sketchName": "high-protection-zone"
       }
     },
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
-      "classId": "coastal_dev",
-      "sketchId": "20646",
+      "classId": "ag_runoff",
+      "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 265733648.902582,
       "extra": {
-        "sketchName": "high-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -60,23 +49,23 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "coastal_dev",
-      "sketchId": "20648",
+      "sketchId": "20646",
       "groupId": null,
-      "value": 0,
+      "value": 24485.204943,
       "extra": {
-        "sketchName": "test-network",
-        "isCollection": true
+        "sketchName": "high-protection-zone"
       }
     },
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
-      "classId": "marine_dredging",
-      "sketchId": "20646",
+      "classId": "coastal_dev",
+      "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 24485.204943,
       "extra": {
-        "sketchName": "high-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -94,9 +83,20 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_dredging",
+      "sketchId": "20646",
+      "groupId": null,
+      "value": 62833196.68504,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
       "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 62833196.68504,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -106,20 +106,9 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_trans",
-      "sketchId": "20646",
-      "groupId": null,
-      "value": 280690075.159306,
-      "extra": {
-        "sketchName": "high-protection-zone"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "humanStressorsAreaOverlap",
-      "classId": "marine_trans",
       "sketchId": "20647",
       "groupId": null,
-      "value": 51843942.541456,
+      "value": 288874636.499477,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -128,9 +117,20 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_trans",
+      "sketchId": "20646",
+      "groupId": null,
+      "value": 335893252.112565,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
       "sketchId": "20648",
       "groupId": null,
-      "value": 332534017.700763,
+      "value": 624767888.612042,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -142,69 +142,10 @@
     "type": "FeatureCollection",
     "features": [
       {
-        "id": 20646,
-        "bbox": [
-          -88.0052,
-          16.765121,
-          -87.60986,
-          17.005533
-        ],
-        "type": "Feature",
-        "properties": {
-          "2931": "Ib",
-          "2932": "high-protection-zone",
-          "2934": "abby",
-          "id": "20646",
-          "name": "high-protection-zone",
-          "postId": null,
-          "userId": "531",
-          "authors": "abby",
-          "comments": null,
-          "userSlug": "Abby",
-          "createdAt": "2023-10-10T21:18:57.746626+00:00",
-          "updatedAt": "2023-10-25T17:48:19.521793+00:00",
-          "designation": "Ib",
-          "collectionId": "20648",
-          "isCollection": false,
-          "sharedInForum": false,
-          "sketchClassId": "196",
-          "userAttributes": [
-            {
-              "label": "Comments",
-              "value": null,
-              "exportId": "comments",
-              "fieldType": "TextArea",
-              "valueLabel": null,
-              "formElementId": 2933,
-              "alternateLanguages": {}
-            },
-            {
-              "label": "Author(s)",
-              "value": "abby",
-              "exportId": "authors",
-              "fieldType": "ShortText",
-              "valueLabel": null,
-              "formElementId": 2934,
-              "alternateLanguages": {}
-            },
-            {
-              "label": "Designation",
-              "value": "Ib",
-              "exportId": "designation",
-              "fieldType": "ComboBox",
-              "valueLabel": "IUCN Ib: Wilderness Area",
-              "formElementId": 2931,
-              "alternateLanguages": {}
-            }
-          ]
-        },
-        "geometry": null
-      },
-      {
         "id": 20647,
         "bbox": [
-          -87.56553,
-          17.485428,
+          -87.656166,
+          17.151253,
           -87.22561,
           17.798794
         ],
@@ -221,7 +162,7 @@
           "comments": null,
           "userSlug": "Abby",
           "createdAt": "2023-10-10T21:22:33.978226+00:00",
-          "updatedAt": "2023-10-25T17:48:25.183511+00:00",
+          "updatedAt": "2023-12-05T23:16:32.755845+00:00",
           "designation": "V",
           "collectionId": "20648",
           "isCollection": false,
@@ -235,7 +176,12 @@
               "fieldType": "TextArea",
               "valueLabel": null,
               "formElementId": 2933,
-              "alternateLanguages": {}
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
             },
             {
               "label": "Author(s)",
@@ -244,7 +190,12 @@
               "fieldType": "ShortText",
               "valueLabel": null,
               "formElementId": 2934,
-              "alternateLanguages": {}
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
             },
             {
               "label": "Designation",
@@ -253,7 +204,86 @@
               "fieldType": "ComboBox",
               "valueLabel": "IUCN V: Protected Landscape or Seascape",
               "formElementId": 2931,
-              "alternateLanguages": {}
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN V: Paisaje o Paisaje Marino Protegido"
+                }
+              }
+            }
+          ]
+        },
+        "geometry": null
+      },
+      {
+        "id": 20646,
+        "bbox": [
+          -88.18616,
+          16.765121,
+          -87.60986,
+          17.056587
+        ],
+        "type": "Feature",
+        "properties": {
+          "2931": "Ib",
+          "2932": "high-protection-zone",
+          "2934": "abby",
+          "id": "20646",
+          "name": "high-protection-zone",
+          "postId": null,
+          "userId": "531",
+          "authors": "abby",
+          "comments": null,
+          "userSlug": "Abby",
+          "createdAt": "2023-10-10T21:18:57.746626+00:00",
+          "updatedAt": "2023-12-05T23:16:13.439867+00:00",
+          "designation": "Ib",
+          "collectionId": "20648",
+          "isCollection": false,
+          "sharedInForum": false,
+          "sketchClassId": "196",
+          "userAttributes": [
+            {
+              "label": "Comments",
+              "value": null,
+              "exportId": "comments",
+              "fieldType": "TextArea",
+              "valueLabel": null,
+              "formElementId": 2933,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Author(s)",
+              "value": "abby",
+              "exportId": "authors",
+              "fieldType": "ShortText",
+              "valueLabel": null,
+              "formElementId": 2934,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Designation",
+              "value": "Ib",
+              "exportId": "designation",
+              "fieldType": "ComboBox",
+              "valueLabel": "IUCN Ib: Wilderness Area",
+              "formElementId": 2931,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN Ib: Área silvestre"
+                }
+              }
             }
           ]
         },
@@ -266,14 +296,35 @@
       "name": "test-network",
       "postId": null,
       "userId": "531",
+      "authors": null,
+      "comments": null,
       "userSlug": "Abby",
       "createdAt": "2023-10-10T21:22:41.550657+00:00",
-      "updatedAt": "2023-10-25T17:48:25.183511+00:00",
+      "updatedAt": "2023-12-05T23:16:32.755845+00:00",
       "collectionId": null,
       "isCollection": true,
       "sharedInForum": false,
       "sketchClassId": "232",
-      "userAttributes": null
+      "userAttributes": [
+        {
+          "label": "Comments",
+          "value": null,
+          "exportId": "comments",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 5784,
+          "alternateLanguages": {}
+        },
+        {
+          "label": "Author(s)",
+          "value": null,
+          "exportId": "authors",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 5785,
+          "alternateLanguages": {}
+        }
+      ]
     }
   }
 }

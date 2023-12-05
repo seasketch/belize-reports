@@ -4,6 +4,17 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "abyss",
+      "sketchId": "20647",
+      "groupId": null,
+      "value": 63516637.022942,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
       "sketchId": "20646",
       "groupId": null,
       "value": 0,
@@ -15,34 +26,12 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "abyss",
-      "sketchId": "20647",
-      "groupId": null,
-      "value": 0,
-      "extra": {
-        "sketchName": "medium-protection-zone"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "geomorphAreaOverlap",
-      "classId": "abyss",
       "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 63516637.022942,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "geomorphAreaOverlap",
-      "classId": "basins",
-      "sketchId": "20646",
-      "groupId": null,
-      "value": 0,
-      "extra": {
-        "sketchName": "high-protection-zone"
       }
     },
     {
@@ -60,23 +49,23 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "basins",
-      "sketchId": "20648",
+      "sketchId": "20646",
       "groupId": null,
-      "value": 0,
+      "value": 99197186.009834,
       "extra": {
-        "sketchName": "test-network",
-        "isCollection": true
+        "sketchName": "high-protection-zone"
       }
     },
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "classId": "canyons",
-      "sketchId": "20646",
+      "classId": "basins",
+      "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 99197186.009834,
       "extra": {
-        "sketchName": "high-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -85,7 +74,7 @@
       "classId": "canyons",
       "sketchId": "20647",
       "groupId": null,
-      "value": 29894927.047249,
+      "value": 90050674.552683,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -94,23 +83,23 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "canyons",
-      "sketchId": "20648",
+      "sketchId": "20646",
       "groupId": null,
-      "value": 29894927.047249,
+      "value": 0,
       "extra": {
-        "sketchName": "test-network",
-        "isCollection": true
+        "sketchName": "high-protection-zone"
       }
     },
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "classId": "escarpments",
-      "sketchId": "20646",
+      "classId": "canyons",
+      "sketchId": "20648",
       "groupId": null,
-      "value": 113713064.961204,
+      "value": 90050674.552683,
       "extra": {
-        "sketchName": "high-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -119,7 +108,7 @@
       "classId": "escarpments",
       "sketchId": "20647",
       "groupId": null,
-      "value": 294089726.494683,
+      "value": 823773641.113712,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -128,23 +117,23 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "escarpments",
-      "sketchId": "20648",
+      "sketchId": "20646",
       "groupId": null,
-      "value": 407802791.455888,
+      "value": 111829202.645004,
       "extra": {
-        "sketchName": "test-network",
-        "isCollection": true
+        "sketchName": "high-protection-zone"
       }
     },
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "classId": "plateaus",
-      "sketchId": "20646",
+      "classId": "escarpments",
+      "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 935602843.758717,
       "extra": {
-        "sketchName": "high-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -156,6 +145,17 @@
       "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "20646",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "high-protection-zone"
       }
     },
     {
@@ -174,6 +174,17 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "rises",
+      "sketchId": "20647",
+      "groupId": null,
+      "value": 63519775.758807,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
       "sketchId": "20646",
       "groupId": null,
       "value": 0,
@@ -185,23 +196,23 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "rises",
-      "sketchId": "20647",
+      "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 63519775.758807,
       "extra": {
-        "sketchName": "medium-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "classId": "rises",
-      "sketchId": "20648",
+      "classId": "shelf",
+      "sketchId": "20647",
       "groupId": null,
-      "value": 0,
+      "value": 350978068.225247,
       "extra": {
-        "sketchName": "test-network",
-        "isCollection": true
+        "sketchName": "medium-protection-zone"
       }
     },
     {
@@ -210,7 +221,7 @@
       "classId": "shelf",
       "sketchId": "20646",
       "groupId": null,
-      "value": 166437887.235259,
+      "value": 617231862.285076,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -219,23 +230,23 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "shelf",
-      "sketchId": "20647",
+      "sketchId": "20648",
       "groupId": null,
-      "value": 0,
+      "value": 968209930.510322,
       "extra": {
-        "sketchName": "medium-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
-      "classId": "shelf",
-      "sketchId": "20648",
+      "classId": "shelf_valleys",
+      "sketchId": "20647",
       "groupId": null,
-      "value": 166437887.235259,
+      "value": 0,
       "extra": {
-        "sketchName": "test-network",
-        "isCollection": true
+        "sketchName": "medium-protection-zone"
       }
     },
     {
@@ -247,17 +258,6 @@
       "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "geomorphAreaOverlap",
-      "classId": "shelf_valleys",
-      "sketchId": "20647",
-      "groupId": null,
-      "value": 0,
-      "extra": {
-        "sketchName": "medium-protection-zone"
       }
     },
     {
@@ -276,22 +276,22 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "sills",
-      "sketchId": "20646",
+      "sketchId": "20647",
       "groupId": null,
       "value": 0,
       "extra": {
-        "sketchName": "high-protection-zone"
+        "sketchName": "medium-protection-zone"
       }
     },
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "sills",
-      "sketchId": "20647",
+      "sketchId": "20646",
       "groupId": null,
       "value": 0,
       "extra": {
-        "sketchName": "medium-protection-zone"
+        "sketchName": "high-protection-zone"
       }
     },
     {
@@ -310,20 +310,9 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "slope",
-      "sketchId": "20646",
-      "groupId": null,
-      "value": 527686565.621609,
-      "extra": {
-        "sketchName": "high-protection-zone"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "geomorphAreaOverlap",
-      "classId": "slope",
       "sketchId": "20647",
       "groupId": null,
-      "value": 628954301.331505,
+      "value": 1057782343.253455,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -332,9 +321,20 @@
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
       "classId": "slope",
+      "sketchId": "20646",
+      "groupId": null,
+      "value": 531791198.196951,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
       "sketchId": "20648",
       "groupId": null,
-      "value": 1156640866.953114,
+      "value": 1589573541.450406,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -346,69 +346,10 @@
     "type": "FeatureCollection",
     "features": [
       {
-        "id": 20646,
-        "bbox": [
-          -88.0052,
-          16.765121,
-          -87.60986,
-          17.005533
-        ],
-        "type": "Feature",
-        "properties": {
-          "2931": "Ib",
-          "2932": "high-protection-zone",
-          "2934": "abby",
-          "id": "20646",
-          "name": "high-protection-zone",
-          "postId": null,
-          "userId": "531",
-          "authors": "abby",
-          "comments": null,
-          "userSlug": "Abby",
-          "createdAt": "2023-10-10T21:18:57.746626+00:00",
-          "updatedAt": "2023-10-25T17:48:19.521793+00:00",
-          "designation": "Ib",
-          "collectionId": "20648",
-          "isCollection": false,
-          "sharedInForum": false,
-          "sketchClassId": "196",
-          "userAttributes": [
-            {
-              "label": "Comments",
-              "value": null,
-              "exportId": "comments",
-              "fieldType": "TextArea",
-              "valueLabel": null,
-              "formElementId": 2933,
-              "alternateLanguages": {}
-            },
-            {
-              "label": "Author(s)",
-              "value": "abby",
-              "exportId": "authors",
-              "fieldType": "ShortText",
-              "valueLabel": null,
-              "formElementId": 2934,
-              "alternateLanguages": {}
-            },
-            {
-              "label": "Designation",
-              "value": "Ib",
-              "exportId": "designation",
-              "fieldType": "ComboBox",
-              "valueLabel": "IUCN Ib: Wilderness Area",
-              "formElementId": 2931,
-              "alternateLanguages": {}
-            }
-          ]
-        },
-        "geometry": null
-      },
-      {
         "id": 20647,
         "bbox": [
-          -87.56553,
-          17.485428,
+          -87.656166,
+          17.151253,
           -87.22561,
           17.798794
         ],
@@ -425,7 +366,7 @@
           "comments": null,
           "userSlug": "Abby",
           "createdAt": "2023-10-10T21:22:33.978226+00:00",
-          "updatedAt": "2023-10-25T17:48:25.183511+00:00",
+          "updatedAt": "2023-12-05T23:16:32.755845+00:00",
           "designation": "V",
           "collectionId": "20648",
           "isCollection": false,
@@ -439,7 +380,12 @@
               "fieldType": "TextArea",
               "valueLabel": null,
               "formElementId": 2933,
-              "alternateLanguages": {}
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
             },
             {
               "label": "Author(s)",
@@ -448,7 +394,12 @@
               "fieldType": "ShortText",
               "valueLabel": null,
               "formElementId": 2934,
-              "alternateLanguages": {}
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
             },
             {
               "label": "Designation",
@@ -457,7 +408,86 @@
               "fieldType": "ComboBox",
               "valueLabel": "IUCN V: Protected Landscape or Seascape",
               "formElementId": 2931,
-              "alternateLanguages": {}
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN V: Paisaje o Paisaje Marino Protegido"
+                }
+              }
+            }
+          ]
+        },
+        "geometry": null
+      },
+      {
+        "id": 20646,
+        "bbox": [
+          -88.18616,
+          16.765121,
+          -87.60986,
+          17.056587
+        ],
+        "type": "Feature",
+        "properties": {
+          "2931": "Ib",
+          "2932": "high-protection-zone",
+          "2934": "abby",
+          "id": "20646",
+          "name": "high-protection-zone",
+          "postId": null,
+          "userId": "531",
+          "authors": "abby",
+          "comments": null,
+          "userSlug": "Abby",
+          "createdAt": "2023-10-10T21:18:57.746626+00:00",
+          "updatedAt": "2023-12-05T23:16:13.439867+00:00",
+          "designation": "Ib",
+          "collectionId": "20648",
+          "isCollection": false,
+          "sharedInForum": false,
+          "sketchClassId": "196",
+          "userAttributes": [
+            {
+              "label": "Comments",
+              "value": null,
+              "exportId": "comments",
+              "fieldType": "TextArea",
+              "valueLabel": null,
+              "formElementId": 2933,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Author(s)",
+              "value": "abby",
+              "exportId": "authors",
+              "fieldType": "ShortText",
+              "valueLabel": null,
+              "formElementId": 2934,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Designation",
+              "value": "Ib",
+              "exportId": "designation",
+              "fieldType": "ComboBox",
+              "valueLabel": "IUCN Ib: Wilderness Area",
+              "formElementId": 2931,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN Ib: Área silvestre"
+                }
+              }
             }
           ]
         },
@@ -470,14 +500,35 @@
       "name": "test-network",
       "postId": null,
       "userId": "531",
+      "authors": null,
+      "comments": null,
       "userSlug": "Abby",
       "createdAt": "2023-10-10T21:22:41.550657+00:00",
-      "updatedAt": "2023-10-25T17:48:25.183511+00:00",
+      "updatedAt": "2023-12-05T23:16:32.755845+00:00",
       "collectionId": null,
       "isCollection": true,
       "sharedInForum": false,
       "sketchClassId": "232",
-      "userAttributes": null
+      "userAttributes": [
+        {
+          "label": "Comments",
+          "value": null,
+          "exportId": "comments",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 5784,
+          "alternateLanguages": {}
+        },
+        {
+          "label": "Author(s)",
+          "value": null,
+          "exportId": "authors",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 5785,
+          "alternateLanguages": {}
+        }
+      ]
     }
   }
 }
