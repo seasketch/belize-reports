@@ -1,4 +1,4 @@
-import { Mangroves } from "./Mangroves";
+import { LittoralForests } from "./LittoralForests";
 import { registerExampleStories } from "@seasketch/geoprocessing/storybook";
 
-registerExampleStories("Reports/Mangroves", Mangroves);
+registerExampleStories("Reports/LittoralForests", LittoralForests);

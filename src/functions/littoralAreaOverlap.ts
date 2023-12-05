@@ -11,10 +11,12 @@ import {
   overlapFeatures,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
+  overlapFeaturesGroupMetrics,
 } from "@seasketch/geoprocessing";
 import { fgbFetchAll, getFeatures } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
 import project from "../../project";
+import { getMpaProtectionLevels, protectionLevels } from "../util/getMpaProtectionLevel";
 
 export async function littoralAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
@@ -23,6 +25,7 @@ export async function littoralAreaOverlap(
   const metricGroup = project.getMetricGroup("littoralAreaOverlap");
 
   let cachedFeatures: Record<string, Feature<Polygon>[]> = {};
+  const featuresByClass: Record<string, Feature<Polygon>[]> = {};
 
   const polysByBoundary = (
     await Promise.all(
@@ -38,6 +41,7 @@ export async function littoralAreaOverlap(
           const dsFeatures =
             cachedFeatures[curClass.datasourceId] || (await fgbFetchAll<Feature<Polygon>>(url, box));
           cachedFeatures[curClass.datasourceId] = dsFeatures;
+          featuresByClass[curClass.classId] = dsFeatures;
 
           // If this is a sub-class, filter by class name, exclude null geometry too
           // ToDo: should do deeper match to classKey
@@ -86,8 +90,22 @@ export async function littoralAreaOverlap(
     []
   );
 
+  // Calculate group metrics - from individual sketch metrics
+  const sketchCategoryMap = getMpaProtectionLevels(sketch);
+  const metricToGroup = (sketchMetric: Metric) =>
+    sketchCategoryMap[sketchMetric.sketchId!];
+
+  const groupMetrics = await overlapFeaturesGroupMetrics({
+    metricId: metricGroup.metricId,
+    groupIds: protectionLevels,
+    sketch,
+    metricToGroup,
+    metrics: metrics,
+    featuresByClass,
+  });
+
   return {
-    metrics: rekeyMetrics(metrics),
+    metrics: rekeyMetrics([...metrics, ...groupMetrics]),
     sketch: toNullSketch(sketch, true),
   };
 }

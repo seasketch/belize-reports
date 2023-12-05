@@ -4,59 +4,59 @@
       "geographyId": null,
       "metricId": "littoralAreaOverlap",
       "classId": "Littoral",
-      "sketchId": "20652",
+      "sketchId": "23569",
       "groupId": null,
-      "value": 487554.501992,
+      "value": 2845500.937215,
       "extra": {
-        "sketchName": "large-hpbz"
+        "sketchName": "littoral-medium"
       }
     },
     {
       "geographyId": null,
       "metricId": "littoralAreaOverlap",
       "classId": "Littoral",
-      "sketchId": "20652",
+      "sketchId": "23569",
       "groupId": "HIGH_PROTECTION",
-      "value": 487554.501992,
-      "extra": {
-        "sketchName": "large-hpbz"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "littoralAreaOverlap",
-      "classId": "Littoral",
-      "sketchId": "20652",
-      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
-        "sketchName": "large-hpbz"
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 2845500.937215,
+      "extra": {
+        "sketchName": "littoral-medium"
       }
     }
   ],
   "sketch": {
-    "id": 20652,
+    "id": 23569,
     "bbox": [
-      -88.023674,
-      16.775734,
-      -85.97308,
-      17.890213
+      -87.628784,
+      17.15198,
+      -87.49012,
+      17.25795
     ],
     "type": "Feature",
     "properties": {
-      "2931": "HIGH_PROTECTION",
-      "2932": "large-hpbz",
+      "2931": "IV",
+      "2932": "littoral-medium",
       "2934": "abby",
-      "id": "20652",
-      "name": "large-hpbz",
+      "id": "23569",
+      "name": "littoral-medium",
       "postId": null,
       "userId": "531",
       "authors": "abby",
       "comments": null,
       "userSlug": "Abby",
-      "createdAt": "2023-10-10T22:16:30.080299+00:00",
-      "updatedAt": "2023-10-10T22:16:30.080299+00:00",
-      "designation": "HIGH_PROTECTION",
+      "createdAt": "2023-12-05T22:02:59.617023+00:00",
+      "updatedAt": "2023-12-05T22:02:59.617023+00:00",
+      "designation": "IV",
       "collectionId": null,
       "isCollection": false,
       "sharedInForum": false,
@@ -69,7 +69,12 @@
           "fieldType": "TextArea",
           "valueLabel": null,
           "formElementId": 2933,
-          "alternateLanguages": {}
+          "alternateLanguages": {
+            "es": {
+              "label": "Comentarios",
+              "valueLabel": null
+            }
+          }
         },
         {
           "label": "Author(s)",
@@ -78,16 +83,26 @@
           "fieldType": "ShortText",
           "valueLabel": null,
           "formElementId": 2934,
-          "alternateLanguages": {}
+          "alternateLanguages": {
+            "es": {
+              "label": "Autor(es)",
+              "valueLabel": null
+            }
+          }
         },
         {
           "label": "Designation",
-          "value": "HIGH_PROTECTION",
+          "value": "IV",
           "exportId": "designation",
           "fieldType": "ComboBox",
-          "valueLabel": "High Protection",
+          "valueLabel": "IUCN IV: Habitat/Species Management Area",
           "formElementId": 2931,
-          "alternateLanguages": {}
+          "alternateLanguages": {
+            "es": {
+              "label": "Designación",
+              "valueLabel": "UICN IV: Área de Manejo de Hábitat/Especies"
+            }
+          }
         }
       ]
     },

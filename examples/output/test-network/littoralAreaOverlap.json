@@ -33,6 +33,52 @@
         "sketchName": "test-network",
         "isCollection": true
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "20647",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
     }
   ],
   "sketch": {

@@ -10,6 +10,28 @@
       "extra": {
         "sketchName": "high-protection-zone"
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
+      "sketchId": "20646",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
     }
   ],
   "sketch": {

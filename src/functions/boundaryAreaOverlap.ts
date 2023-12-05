@@ -21,7 +21,7 @@ import {
   firstMatchingMetric,
   getUserAttribute,
 } from "@seasketch/geoprocessing/client-core";
-import { getMpaProtectionLevel } from "../util/getMpaProtectionLevel";
+import { getMpaProtectionLevels } from "../util/getMpaProtectionLevel";
 
 const metricGroup = project.getMetricGroup("boundaryAreaOverlap");
 // Hard code total area of Belize ocean space
@@ -56,7 +56,7 @@ export async function boundaryAreaOverlap(
 
   // Generate area metrics grouped by protection level, with area overlap within protection level removed
   // Each sketch gets one group metric for its protection level, while collection generates one for each protection level
-  const sketchToMpaClass = getMpaProtectionLevel(sketch);
+  const sketchToMpaClass = getMpaProtectionLevels(sketch);
   const metricToLevel = (sketchMetric: Metric) => {
     return sketchToMpaClass[sketchMetric.sketchId!];
   };

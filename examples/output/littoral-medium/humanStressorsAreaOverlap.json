@@ -2,61 +2,72 @@
   "metrics": [
     {
       "geographyId": null,
-      "metricId": "littoralAreaOverlap",
-      "classId": "Littoral",
-      "sketchId": "21893",
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "23569",
       "groupId": null,
-      "value": 6355586.972638,
-      "extra": {
-        "sketchName": "test-whole"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "littoralAreaOverlap",
-      "classId": "Littoral",
-      "sketchId": "21893",
-      "groupId": "HIGH_PROTECTION",
-      "value": 6355586.972638,
-      "extra": {
-        "sketchName": "test-whole"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "littoralAreaOverlap",
-      "classId": "Littoral",
-      "sketchId": "21893",
-      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
-        "sketchName": "test-whole"
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "23569",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "23569",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "23569",
+      "groupId": null,
+      "value": 27695520.990733,
+      "extra": {
+        "sketchName": "littoral-medium"
       }
     }
   ],
   "sketch": {
-    "id": 21893,
+    "id": 23569,
     "bbox": [
-      -88.93599,
-      15.904199,
-      -86.205666,
-      18.488726
+      -87.628784,
+      17.15198,
+      -87.49012,
+      17.25795
     ],
     "type": "Feature",
     "properties": {
-      "2931": "Ia",
-      "2932": "test-whole",
+      "2931": "IV",
+      "2932": "littoral-medium",
       "2934": "abby",
-      "id": "21893",
-      "name": "test-whole",
+      "id": "23569",
+      "name": "littoral-medium",
       "postId": null,
       "userId": "531",
       "authors": "abby",
       "comments": null,
       "userSlug": "Abby",
-      "createdAt": "2023-11-07T19:51:21.451281+00:00",
-      "updatedAt": "2023-11-07T19:51:21.451281+00:00",
-      "designation": "Ia",
+      "createdAt": "2023-12-05T22:02:59.617023+00:00",
+      "updatedAt": "2023-12-05T22:02:59.617023+00:00",
+      "designation": "IV",
       "collectionId": null,
       "isCollection": false,
       "sharedInForum": false,
@@ -92,15 +103,15 @@
         },
         {
           "label": "Designation",
-          "value": "Ia",
+          "value": "IV",
           "exportId": "designation",
           "fieldType": "ComboBox",
-          "valueLabel": "IUCN Ia: Strict Nature Reserve",
+          "valueLabel": "IUCN IV: Habitat/Species Management Area",
           "formElementId": 2931,
           "alternateLanguages": {
             "es": {
               "label": "Designación",
-              "valueLabel": "UICN Ia: Reserva Natural Estricta"
+              "valueLabel": "UICN IV: Área de Manejo de Hábitat/Especies"
             }
           }
         }

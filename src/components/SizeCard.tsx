@@ -31,14 +31,10 @@ import {
   OBJECTIVE_NO,
   OBJECTIVE_YES,
   Objective,
-  getUserAttribute,
   ObjectiveAnswer,
   toPercentMetric,
-  genSketchCollection,
-  toNullSketch,
 } from "@seasketch/geoprocessing/client-core";
 import {
-  LineString,
   getMetricGroupObjectiveIds,
   isSketchCollection,
 } from "@seasketch/geoprocessing";
@@ -47,12 +43,7 @@ import styled from "styled-components";
 import project from "../../project";
 import { flattenByGroupAllClass } from "../util/flattenByGroupAllClass";
 import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
-
-// Mapping groupIds to colors
-const groupColorMap: Record<string, string> = {
-  HIGH_PROTECTION: "#BEE4BE",
-  MEDIUM_PROTECTION: "#FFE1A3",
-};
+import { groupColorMap } from "../util/getMpaProtectionLevel";
 
 // Styling for 'Show by --' tables
 export const SmallReportTableStyled = styled(ReportTableStyled)`

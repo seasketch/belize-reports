@@ -100,13 +100,13 @@
         "metricId": "littoralAreaOverlap",
         "type": "areaOverlap",
         "objectiveId": "littoral",
+        "layerId": "5xlX0KoC8",
         "classes": [
             {
                 "classKey": "C2019",
                 "classId": "Littoral",
                 "display": "Littoral Forests",
-                "datasourceId": "mangroves",
-                "layerId": "5xlX0KoC8"
+                "datasourceId": "mangroves"
             }
         ]
     },
