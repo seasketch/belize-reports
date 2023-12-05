@@ -8,10 +8,10 @@ import { LittoralForests } from "./LittoralForests";
 const ReportPage: React.FunctionComponent<GeogProp> = (props) => {
   return (
     <>
-      <Mangroves geographyId={props.geographyId}/>
-      <Seagrass geographyId={props.geographyId}/>
       <Coral geographyId={props.geographyId}/>
+      <Mangroves geographyId={props.geographyId}/>
       <LittoralForests geographyId={props.geographyId}/>
+      <Seagrass geographyId={props.geographyId}/>
     </>
   );
 };

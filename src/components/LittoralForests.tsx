@@ -73,11 +73,10 @@ export const LittoralForests: React.FunctionComponent<GeogProp> = (props) => {
             <>
               <p>
                 <Trans i18nKey="Littoral Forests Card 1">
-                Plans should consider protection of littoral forests to further the 
-                goal of restoring and reestablishinglittoral forest ecosystems that have been 
-                degraded, damaged, or lost. Restoration aims to regenerate and 
-                rehabilitate littoral forests to their natural state or enhance their 
-                ecological functions and values. 
+                  This report summarizes the amount of littoral forests within this plan, measuring 
+                  progress to the following targets of the BSOP: littoral forest extent in HPZ is 
+                  increased by 14.5% by 2025, littoral forest extent in HPZ is increased to 60% by 
+                  2030, littoral forest extent in HPZ is increased to 90% by 2035.
                 </Trans>
               </p>
               <Translator>

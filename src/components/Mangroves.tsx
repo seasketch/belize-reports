@@ -45,8 +45,8 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
 
   const mapLabel = t("Map");
   const benthicLabel = t("Feature");
-  const areaWithin = t("Area Within Plan");
-  const percAreaWithin = t("% Area Within Plan");
+  const areaWithin = t("Within Plan");
+  const percAreaWithin = t("% Within Plan");
   const sqKmLabel = t("km²");
 
   return (
@@ -69,26 +69,37 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
             ),
           ];
 
+          const mangroveClassId = "Mangrove";
+          const mangroveTotalMetrics = finalMetrics.filter(
+            (m) => m.classId === mangroveClassId
+          )
+
+          const nonMangroveMetrics = finalMetrics.filter(
+            (m) => m.classId !== mangroveClassId
+          )
+
           return (
             <>
               <p>
                 <Trans i18nKey="Mangroves Card 1">
-                Plans should consider protection of mangroves to further the 
-                goal of restoring and reestablishing mangrove ecosystems that have been 
-                degraded, damaged, or lost. Restoration aims to regenerate and 
-                rehabilitate mangroves to their natural state or enhance their 
-                ecological functions and values. 
+                  Plans should consider protection of mangroves with the 
+                  goal of restoring and reestablishing mangrove ecosystems that have been 
+                  degraded, damaged, or lost. Restoration aims to regenerate and 
+                  rehabilitate mangroves to their natural state or enhance their 
+                  ecological functions and values. This report measures progress towards the
+                  goal of 30% of mangrove ecosystems protected by 2035.
                 </Trans>
               </p>
               <Translator>
-                <ClassTable
-                  rows={finalMetrics}
+              <ClassTable
+                  rows={mangroveTotalMetrics}
                   metricGroup={metricGroup}
+                  objective={project.getObjectiveById(mangroveClassId)}
                   columnConfig={[
                     {
                       columnLabel: benthicLabel,
                       type: "class",
-                      width: 30,
+                      width: 35,
                     },
                     {
                       columnLabel: areaWithin,
@@ -101,7 +112,7 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
                         : Number.format( Math.round(valueKm))
                       },
                       valueLabel: sqKmLabel,
-                      width: 25,
+                      width: 20,
                     },
                     {
                       columnLabel: percAreaWithin,
@@ -133,6 +144,63 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
                     },
                     {
                       columnLabel: mapLabel,
+                      type: "layerToggle",
+                      width: 10,
+                    },
+                  ]}
+                />
+                <ClassTable
+                  rows={nonMangroveMetrics}
+                  metricGroup={metricGroup}
+                  columnConfig={[
+                    {
+                      columnLabel: "    ",
+                      type: "class",
+                      width: 35,
+                    },
+                    {
+                      columnLabel: " ",
+                      type: "metricValue",
+                      metricId: metricGroup.metricId,
+                      valueFormatter: (val: string | number) => {
+                        const valueKm = squareMeterToKilometer(typeof val === "string" ? parseInt(val) : val);
+                        return valueKm && valueKm < 0.5 
+                        ? Number.format(roundDecimal(valueKm, 2))
+                        : Number.format( Math.round(valueKm))
+                      },
+                      valueLabel: sqKmLabel,
+                      width: 20,
+                    },
+                    {
+                      columnLabel: "  ",
+                      type: "metricChart",
+                      metricId: project.getMetricGroupPercId(metricGroup),
+                      valueFormatter: "percent",
+                      chartOptions: {
+                        showTitle: true,
+                        targetLabelPosition: "bottom",
+                        targetLabelStyle: "tight",
+                        barHeight: 11,
+                      },
+                      width: 35,
+                      targetValueFormatter: (
+                        value: number,
+                        row: number,
+                        numRows: number
+                      ) => {
+                        if (row === 0) {
+                          return (value: number) =>
+                            `${valueFormatter(value / 100, "percent0dig")} ${t(
+                              "Target"
+                            )}`;
+                        } else {
+                          return (value: number) =>
+                            `${valueFormatter(value / 100, "percent0dig")}`;
+                        }
+                      },
+                    },
+                    {
+                      columnLabel: "   ",
                       type: "layerToggle",
                       width: 10,
                     },

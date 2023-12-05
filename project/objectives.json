@@ -27,6 +27,15 @@
       }
   },
   {
+    "objectiveId": "Mangrove",
+    "shortDesc": "Mangroves Objective",
+    "target": 0.3,
+    "countsToward": {
+        "HIGH_PROTECTION": "yes",
+        "MEDIUM_PROTECTION": "yes"
+    }
+},
+  {
     "objectiveId": "littoral",
     "shortDesc": "Littoral Forest Objective",
     "target": 0.9,
