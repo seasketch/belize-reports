@@ -23,7 +23,16 @@
       "target": 0.2,
       "countsToward": {
           "HIGH_PROTECTION": "yes",
-          "MEDIUM_PROTECTION": "yes"
+          "MEDIUM_PROTECTION": "no"
       }
+  },
+  {
+    "objectiveId": "littoral",
+    "shortDesc": "Littoral Forest Objective",
+    "target": 0.9,
+    "countsToward": {
+        "HIGH_PROTECTION": "yes",
+        "MEDIUM_PROTECTION": "no"
+    }
   }
 ]

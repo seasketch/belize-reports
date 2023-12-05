@@ -32,17 +32,6 @@
       "extra": {
         "sketchName": "high-protection-zone"
       }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "Littoral",
-      "sketchId": "20646",
-      "groupId": null,
-      "value": 0,
-      "extra": {
-        "sketchName": "high-protection-zone"
-      }
     }
   ],
   "sketch": {

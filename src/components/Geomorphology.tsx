@@ -166,12 +166,12 @@ export const Geomorphology: React.FunctionComponent<GeogProp> = (props) => {
                   </p>
                   <p>
                     🗺️ Source Data: Seafloor Geomorphic Features Map.{" "}
-                    <a href="https://doi.org/10.1016/j.margeo.2014.01.011">
+                    <a href="https://doi.org/10.1016/j.margeo.2014.01.011" target="_blank">
                       Harris, P.T., Macmillan-Lawler, M., Rupp, J. and Baker,
                       E.K. 2014. Geomorphology of the oceans. Marine Geology,
                       352: 4-24.
                     </a>{" "}
-                    <a href="https://bluehabitats.org/">
+                    <a href="https://bluehabitats.org/" target="_blank">
                       https://bluehabitats.org/
                     </a>
                   </p>

@@ -28,7 +28,7 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
+export const LittoralForests: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
@@ -36,7 +36,7 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
     fallbackGroup: "default-boundary",
   });
 
-  const metricGroup = project.getMetricGroup("mangroveAreaOverlap", t);
+  const metricGroup = project.getMetricGroup("littoralAreaOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "area",
@@ -52,8 +52,8 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
   return (
     <>
       <ResultsCard
-        title={t("Mangroves")}
-        functionName="mangroveAreaOverlap"
+        title={t("Littoral Forests")}
+        functionName="littoralAreaOverlap"
       >
         {(data: ReportResult) => {
           let singleMetrics = data.metrics.filter(
@@ -72,11 +72,11 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
           return (
             <>
               <p>
-                <Trans i18nKey="Mangroves Card 1">
-                Plans should consider protection of mangroves to further the 
-                goal of restoring and reestablishing mangrove ecosystems that have been 
+                <Trans i18nKey="Littoral Forests Card 1">
+                Plans should consider protection of littoral forests to further the 
+                goal of restoring and reestablishinglittoral forest ecosystems that have been 
                 degraded, damaged, or lost. Restoration aims to regenerate and 
-                rehabilitate mangroves to their natural state or enhance their 
+                rehabilitate littoral forests to their natural state or enhance their 
                 ecological functions and values. 
                 </Trans>
               </p>
@@ -84,6 +84,7 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
                 <ClassTable
                   rows={finalMetrics}
                   metricGroup={metricGroup}
+                  objective={project.getMetricGroupObjectives(metricGroup)}
                   columnConfig={[
                     {
                       columnLabel: benthicLabel,
@@ -147,18 +148,18 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
               )}
 
               <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Mangroves Card - learn more">
+                <Trans i18nKey="Littoral Forests Card - learn more">
                   <p>
-                    ℹ️ Overview: Mangrove Priority Areas identified under the updated 
-                    mangrove regulations of 2018. Mangroves were identified comparing
+                    ℹ️ Overview: Littoral forest was identified comparing
                     data from 1980 and 2019. 
                   </p>
                   <p>
-                    🎯 Planning Objective: 30% mangroves protected and 4000 hectares mangroves restored.
+                    🎯 Planning Objective: Littoral forest extent in HPZ is increased by 14.5% in 2025.
+                    Littoral forest extent in HPZ is increased to 60% in 2030.
+                    Littoral forest extent in HPZ is increased to 90% in 2035.
                   </p>
                   <p>
-                    🗺️ Source Data: Mangrove Priority Areas from the mangrove regulations of 2018. 
-                    Mangrove and Cleared Mangrove data from Cherrington & Griffin (2020).
+                    🗺️ Source Data: Littoral Forest data from Cherrington & Griffin (2020).
                   </p>
                   <p>
                     📈 Report: The percentage of each feature type within this

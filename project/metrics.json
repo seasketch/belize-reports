@@ -72,6 +72,7 @@
     {
         "metricId": "mangroveAreaOverlap",
         "type": "areaOverlap",
+        "objectiveId": "mangroves",
         "classes": [
             {
                 "classId": "mangrove_priority",
@@ -92,7 +93,14 @@
                 "display": "Cleared Mangroves",
                 "datasourceId": "mangroves",
                 "layerId": "5xlX0KoC8"
-            },
+            }
+        ]
+    },
+    {
+        "metricId": "littoralAreaOverlap",
+        "type": "areaOverlap",
+        "objectiveId": "littoral",
+        "classes": [
             {
                 "classKey": "C2019",
                 "classId": "Littoral",

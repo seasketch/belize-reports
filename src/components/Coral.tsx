@@ -71,7 +71,7 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
                 <Trans i18nKey="Coral Card 1">
                   This planning process has the goal of promoting the growth and 
                   survival of coral species. This report shows progress towards 
-                  the objective of 20% reef protection.
+                  the objective of 20% of coral reefs highly protected.
                 </Trans>
               </p>
               <Translator>
@@ -152,10 +152,10 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
                     that have been damaged or degraded. It involves various techniques 
                     and interventions aimed at promoting the growth and survival of 
                     coral species, enhancing reef structure, and restoring ecosystem 
-                    functionality. 7% of Belizean coral reefs are currently protected. 
+                    functionality. 7% of Belizean coral reefs are currently within HBPZs.  
                   </p>
                   <p>
-                    🎯 Planning Objective: 20% coral reef protection
+                    🎯 Planning Objective: 20% of coral reefs in HBPZs
                   </p>
                   <p>
                     🗺️ Source Data: Coral cover for 2021 from the Smart Coasts project, 

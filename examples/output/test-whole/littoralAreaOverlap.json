@@ -2,33 +2,11 @@
   "metrics": [
     {
       "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "mangrove_priority",
+      "metricId": "littoralAreaOverlap",
+      "classId": "Littoral",
       "sketchId": "21893",
       "groupId": null,
-      "value": 467758256.209659,
-      "extra": {
-        "sketchName": "test-whole"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "Mangrove",
-      "sketchId": "21893",
-      "groupId": null,
-      "value": 197774213.350822,
-      "extra": {
-        "sketchName": "test-whole"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "Non-mangrove",
-      "sketchId": "21893",
-      "groupId": null,
-      "value": 4960195.321034,
+      "value": 6355586.972638,
       "extra": {
         "sketchName": "test-whole"
       }

@@ -9,7 +9,8 @@ import {
   rekeyMetrics,
   getCogFilename,
   overlapRaster,
-  sortMetrics
+  sortMetrics,
+  firstMatchingMetric
 } from "@seasketch/geoprocessing";
 import project from "../../project";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
@@ -18,6 +19,15 @@ export async function coralValueOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
 ): Promise<ReportResult> {
   const metricGroup = project.getMetricGroup("coralValueOverlap");
+  const totalMetrics = project.getPrecalcMetrics(
+    metricGroup,
+    "area",
+    "belize_ocean_space"
+  )
+  const totalAreaMetric = firstMatchingMetric(
+    totalMetrics,
+    (m) => m.groupId === null
+  );
 
   const metrics: Metric[] = (
     await Promise.all(

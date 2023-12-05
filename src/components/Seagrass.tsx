@@ -17,6 +17,7 @@ import {
   MetricGroup,
   toPercentMetric,
   roundDecimal,
+  GeogProp,
 } from "@seasketch/geoprocessing/client-core";
 
 import project from "../../project";
@@ -25,15 +26,19 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
-export const Seagrass: React.FunctionComponent = () => {
+export const Seagrass: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
+
+  const curGeography = project.getGeographyById(props.geographyId, {
+    fallbackGroup: "default-boundary",
+  });
 
   const metricGroup = project.getMetricGroup("seagrassValueOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "sum",
-    "belize_ocean_space"
+    curGeography.geographyId
   );
 
   const mapLabel = t("Map");

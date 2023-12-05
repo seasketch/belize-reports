@@ -32,17 +32,6 @@
       "extra": {
         "sketchName": "large-hpbz"
       }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "Littoral",
-      "sketchId": "20652",
-      "groupId": null,
-      "value": 487554.501992,
-      "extra": {
-        "sketchName": "large-hpbz"
-      }
     }
   ],
   "sketch": {
