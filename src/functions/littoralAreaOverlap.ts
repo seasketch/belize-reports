@@ -54,7 +54,7 @@ export async function littoralAreaOverlap(
                   );
                 }, [])
               : dsFeatures;
-            featuresByClass[curClass.classId] = dsFeatures;
+            featuresByClass[curClass.classId] = finalFeatures;
 
           return finalFeatures;
         }
