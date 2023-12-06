@@ -39,12 +39,15 @@ import project from "../../project";
 import Translator from "./TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 import { getMetricGroupObjectiveIds } from "@seasketch/geoprocessing";
-import { groupColorMap } from "../util/getMpaProtectionLevel";
+import {
+  groupColorMap,
+  groupDisplayMapPl,
+} from "../util/getMpaProtectionLevel";
 
 export const LittoralForests: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
-  
+
   const curGeography = project.getGeographyById(props.geographyId, {
     fallbackGroup: "default-boundary",
   });
@@ -72,66 +75,68 @@ export const LittoralForests: React.FunctionComponent<GeogProp> = (props) => {
               <ToolbarCard
                 title={t("Littoral Forests")}
                 items={
-                    <LayerToggle label={mapLabel} layerId={metricGroup.layerId} simple />
+                  <LayerToggle
+                    label={mapLabel}
+                    layerId={metricGroup.layerId}
+                    simple
+                  />
                 }
               >
-              <p>
-                <Trans i18nKey="Littoral Forests Card 1">
-                  This report summarizes the amount of littoral forests within this plan, measuring 
-                  progress to the target of 90% high protection of littoral forests by 2035.
-                </Trans>
-              </p>
-              <Translator>
-                {isCollection
-                ? collectionReport(
-                    data,
-                    precalcMetrics,
-                    objectiveIds,
-                    t
-                  )
-                : sketchReport(data, precalcMetrics, objectiveIds, t)}
-              </Translator>
+                <p>
+                  <Trans i18nKey="Littoral Forests Card 1">
+                    This report summarizes the amount of littoral forests within
+                    this plan, measuring progress to the target of 90% high
+                    protection of littoral forests by 2035.
+                  </Trans>
+                </p>
+                <Translator>
+                  {isCollection
+                    ? collectionReport(data, precalcMetrics, objectiveIds, t)
+                    : sketchReport(data, precalcMetrics, objectiveIds, t)}
+                </Translator>
 
-              {isCollection && (
-                <Collapse title={t("Show by MPA")}>
-                  {genMpaSketchTable(data, precalcMetrics, t)}
+                {isCollection && (
+                  <Collapse title={t("Show by MPA")}>
+                    {genMpaSketchTable(data, precalcMetrics, t)}
+                  </Collapse>
+                )}
+
+                <Collapse title={t("Learn more")}>
+                  <Trans i18nKey="Littoral Forests Card - learn more">
+                    <p>
+                      ℹ️ Overview: Littoral forest was identified comparing data
+                      from 1980 and 2019.
+                    </p>
+                    <p>
+                      🎯 Planning Objective: Littoral forest extent in HPZ is
+                      increased by 14.5% in 2025. Littoral forest extent in HPZ
+                      is increased to 60% in 2030. Littoral forest extent in HPZ
+                      is increased to 90% in 2035.
+                    </p>
+                    <p>
+                      🗺️ Source Data: Littoral Forest data from Cherrington &
+                      Griffin (2020).
+                    </p>
+                    <p>
+                      📈 Report: Only features within the Belize Ocean Space are
+                      counted. The percentage of each feature type within this
+                      plan is calculated by finding the overlap of each feature
+                      type with the plan, summing its area, then dividing it by
+                      the total area of each feature type found within the
+                      selected nearshore planning area. If the plan includes
+                      multiple areas that overlap, the overlap is only counted
+                      once.
+                    </p>
+                  </Trans>
                 </Collapse>
-              )}
-
-              <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Littoral Forests Card - learn more">
-                  <p>
-                    ℹ️ Overview: Littoral forest was identified comparing
-                    data from 1980 and 2019. 
-                  </p>
-                  <p>
-                    🎯 Planning Objective: Littoral forest extent in HPZ is increased by 14.5% in 2025.
-                    Littoral forest extent in HPZ is increased to 60% in 2030.
-                    Littoral forest extent in HPZ is increased to 90% in 2035.
-                  </p>
-                  <p>
-                    🗺️ Source Data: Littoral Forest data from Cherrington & Griffin (2020).
-                  </p>
-                  <p>
-                    📈 Report: Only features within the Belize Ocean Space are counted.
-                    The percentage of each feature type within this
-                    plan is calculated by finding the overlap of each feature
-                    type with the plan, summing its area, then dividing it by
-                    the total area of each feature type found within the
-                    selected nearshore planning area. If the plan includes
-                    multiple areas that overlap, the overlap is only counted
-                    once.
-                  </p>
-                </Trans>
-              </Collapse>
-          </ToolbarCard>
-        </ReportError>);
+              </ToolbarCard>
+            </ReportError>
+          );
         }}
       </ResultsCard>
     </>
   );
 };
-
 
 /**
  * Report protection level for single sketch
@@ -139,17 +144,18 @@ export const LittoralForests: React.FunctionComponent<GeogProp> = (props) => {
  * @param t TFunction
  * @returns JSX.Element
  */
-const sketchReport = (data: ReportResult, 
+const sketchReport = (
+  data: ReportResult,
   precalcMetrics: Metric[],
   objectiveIds: string[],
-  t: any) => {
-
+  t: any
+) => {
   // Get total planning area
   const totalArea = firstMatchingMetric(
     precalcMetrics,
     (m) => m.groupId === null
   ).value;
-  
+
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
     (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
@@ -173,11 +179,7 @@ const sketchReport = (data: ReportResult,
     {}
   );
 
-  return (
-    <>
-      {genObjectiveReport(objectiveIds, totalsByObjective, t)}
-    </>
-  );
+  return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
 };
 
 /**
@@ -251,9 +253,9 @@ const genObjectiveReport = (
   }));
   const valueFormatter = (value: number) => percentWithEdge(value / 100);
 
-  return(
+  return (
     <>
-    {objectiveIds.map((objectiveId: string) => {
+      {objectiveIds.map((objectiveId: string) => {
         const objective = project.getObjectiveById(objectiveId);
 
         // Get total percentage within sketch
@@ -291,11 +293,7 @@ const genObjectiveReport = (
               objective={objective}
               objectiveMet={isMet}
               t={t}
-              renderMsg={collectionMsgs[objectiveId](
-                objective,
-                isMet,
-                t
-              )}
+              renderMsg={collectionMsgs[objectiveId](objective, isMet, t)}
             />
             <ReportChartFigure>
               <HorizontalStackedBar
@@ -313,9 +311,9 @@ const genObjectiveReport = (
           </React.Fragment>
         );
       })}
-      </>
-  )
-}
+    </>
+  );
+};
 
 /**
  * Properties for getting objective status for sketch collection
@@ -349,29 +347,26 @@ const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStat
  * Renders messages beased on objective and if objective is met for sketch collections
  */
 const collectionMsgs: Record<string, any> = {
-  littoral: (
-    objective: Objective,
-    objectiveMet: ObjectiveAnswer,
-    t: any
-  ) => {
+  littoral: (objective: Objective, objectiveMet: ObjectiveAnswer, t: any) => {
     if (objectiveMet === OBJECTIVE_YES) {
       return (
         <>
           {t("This plan meets the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of littoral forests in High Protection Zones.")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of littoral forests in High Protection Zones.")}
         </>
       );
     } else if (objectiveMet === OBJECTIVE_NO) {
       return (
         <>
           {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of littoral forests in High Protection Zones.")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of littoral forests in High Protection Zones.")}
         </>
       );
     }
-  }
+  },
 };
-
 
 /**
  * Generates Show By MPA sketch table
@@ -381,21 +376,6 @@ const genMpaSketchTable = (
   precalcMetrics: Metric[],
   t: any
 ) => {
-  // Mapping groupIds to display names
-  const groupDisplayMap: Record<string, string> = {
-    HIGH_PROTECTION: t("High Protection Biodiversity Zone"),
-    MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone"),
-    Ia: t("IUCN Ia. Strict Nature Reserve"),
-    Ib: t("IUCN Ib. Wilderness Area"),
-    II: t("IUCN II. National Park"),
-    III: t("IUCN III. Natural Monument or Feature"),
-    IV: t("IUCN IV. Habitat/Species Management Area"),
-    V: t("IUCN V. Protected Landscape or Seascape"),
-    VI: t("IUCN VI. Protected Area with Sustainable Use"),
-    OECM: t("IUCN Other Effective area-based Conservation Measures (OECM)"),
-    LMMA: t("Locally Managed Marine Area (LMMA)"),
-  };
-
   const sketches = toNullSketchArray(data.sketch);
   const sketchesById = keyBy(sketches, (sk) => sk.properties.id);
 
@@ -425,11 +405,16 @@ const genMpaSketchTable = (
     },
     {
       Header: t("IUCN Level"),
-      accessor: (row) => groupDisplayMap[getUserAttribute(
-        sketchesById[row.sketchId!].properties,
-        "designation",
-        ""
-      ).toString()],
+      accessor: (row) =>
+        t(
+          groupDisplayMapPl[
+            getUserAttribute(
+              sketchesById[row.sketchId!].properties,
+              "designation",
+              ""
+            ).toString()
+          ]
+        ),
       width: 20,
     },
     {
@@ -452,14 +437,7 @@ const genMpaSketchTable = (
   );
 };
 
-const genGroupLevelTable = (
-  levelAggs: GroupMetricAgg[],
-  t: any
-) => {
-  const groupDisplayMap: Record<string, string> = {
-    HIGH_PROTECTION: t("High Protection Biodiversity Zone(s)"),
-    MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone(s)"),
-  };
+const genGroupLevelTable = (levelAggs: GroupMetricAgg[], t: any) => {
   const columns: Column<GroupMetricAgg>[] = [
     {
       Header: t("This plan contains") + ":",
@@ -470,7 +448,7 @@ const genGroupLevelTable = (
           circleText={`${row.numSketches}`}
           rowText={
             <>
-              <b>{groupDisplayMap[row.groupId]}</b>
+              <b>{t(groupDisplayMapPl[row.groupId])}</b>
             </>
           }
         />

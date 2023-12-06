@@ -43,7 +43,10 @@ import styled from "styled-components";
 import project from "../../project";
 import { flattenByGroupAllClass } from "../util/flattenByGroupAllClass";
 import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
-import { groupColorMap } from "../util/getMpaProtectionLevel";
+import {
+  groupColorMap,
+  groupDisplayMapPl,
+} from "../util/getMpaProtectionLevel";
 
 // Styling for 'Show by --' tables
 export const SmallReportTableStyled = styled(ReportTableStyled)`
@@ -108,17 +111,18 @@ export const SizeCard: React.FunctionComponent = (props) => {
             <ToolbarCard
               title={t("Size")}
               items={
-                  <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
+                <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
               }
             >
               <VerticalSpacer />
               <Trans i18nKey="SizeCard - Intro">
-                The Belize Ocean Space includes internal waters, territorial seas, 
-                and the Exclusive Economic Zone (EEZ) which extends out to 200 nautical miles. 
-                This report summarizes this plan's overlap with the total ocean space, 
-                measuring progress towards achieving the objective of 30% protection.
+                The Belize Ocean Space includes internal waters, territorial
+                seas, and the Exclusive Economic Zone (EEZ) which extends out to
+                200 nautical miles. This report summarizes this plan's overlap
+                with the total ocean space, measuring progress towards achieving
+                the objective of 30% protection.
               </Trans>
-              <VerticalSpacer/>
+              <VerticalSpacer />
               <KeySection>
                 {t("This plan is")}{" "}
                 <b>
@@ -129,12 +133,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
                 {t("the 33,706 km² Belize Ocean Space")}.
               </KeySection>
               {isCollection
-                ? collectionReport(
-                    data,
-                    boundaryTotalMetrics,
-                    objectiveIds,
-                    t
-                  )
+                ? collectionReport(data, boundaryTotalMetrics, objectiveIds, t)
                 : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
               {isCollection && (
@@ -143,9 +142,7 @@ export const SizeCard: React.FunctionComponent = (props) => {
                 </Collapse>
               )}
 
-              <Collapse title={t("Learn More")}>
-                {genLearnMore(t)}
-              </Collapse>
+              <Collapse title={t("Learn More")}>{genLearnMore(t)}</Collapse>
             </ToolbarCard>
           </ReportError>
         );
@@ -160,17 +157,18 @@ export const SizeCard: React.FunctionComponent = (props) => {
  * @param t TFunction
  * @returns JSX.Element
  */
-const sketchReport = (data: ReportResult, 
+const sketchReport = (
+  data: ReportResult,
   precalcMetrics: Metric[],
   objectiveIds: string[],
-  t: any) => {
-
+  t: any
+) => {
   // Get total planning area
   const totalArea = firstMatchingMetric(
     precalcMetrics,
     (m) => m.groupId === null
   ).value;
-  
+
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
     (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
@@ -194,11 +192,7 @@ const sketchReport = (data: ReportResult,
     {}
   );
 
-  return (
-    <>
-      {genObjectiveReport(objectiveIds, totalsByObjective, t)}
-    </>
-  );
+  return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
 };
 
 /**
@@ -272,9 +266,9 @@ const genObjectiveReport = (
   }));
   const valueFormatter = (value: number) => percentWithEdge(value / 100);
 
-  return(
+  return (
     <>
-    {objectiveIds.map((objectiveId: string) => {
+      {objectiveIds.map((objectiveId: string) => {
         const objective = project.getObjectiveById(objectiveId);
 
         // Get total percentage within sketch
@@ -307,11 +301,7 @@ const genObjectiveReport = (
               objective={objective}
               objectiveMet={isMet}
               t={t}
-              renderMsg={collectionMsgs[objectiveId](
-                objective,
-                isMet,
-                t
-              )}
+              renderMsg={collectionMsgs[objectiveId](objective, isMet, t)}
             />
             <ReportChartFigure>
               <HorizontalStackedBar
@@ -328,9 +318,9 @@ const genObjectiveReport = (
           </React.Fragment>
         );
       })}
-      </>
-  )
-}
+    </>
+  );
+};
 
 /**
  * Properties for getting objective status for sketch collection
@@ -373,14 +363,16 @@ const collectionMsgs: Record<string, any> = {
       return (
         <>
           {t("This plan meets the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space.")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space.")}
         </>
       );
     } else if (objectiveMet === OBJECTIVE_NO) {
       return (
         <>
           {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space.")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space.")}
         </>
       );
     }
@@ -394,18 +386,20 @@ const collectionMsgs: Record<string, any> = {
       return (
         <>
           {t("This plan meets the objective of highly protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space.")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space.")}
         </>
       );
     } else if (objectiveMet === OBJECTIVE_NO) {
       return (
         <>
           {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of the Belize Ocean Space in High Protection Biodiversity Zones")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space in High Protection Biodiversity Zones")}
         </>
       );
     }
-  }
+  },
 };
 
 /**
@@ -461,15 +455,7 @@ const genMpaSketchTable = (
   );
 };
 
-const genGroupLevelTable = (
-  levelAggs: GroupMetricAgg[],
-  t: any
-) => {
-  const groupDisplayMap: Record<string, string> = {
-    HIGH_PROTECTION: t("High Protection Biodiversity Zone(s)"),
-    MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone(s)"),
-  };
-
+const genGroupLevelTable = (levelAggs: GroupMetricAgg[], t: any) => {
   const columns: Column<GroupMetricAgg>[] = [
     {
       Header: t("This plan contains") + ":",
@@ -480,7 +466,7 @@ const genGroupLevelTable = (
           circleText={`${row.numSketches}`}
           rowText={
             <>
-              <b>{groupDisplayMap[row.groupId]}</b>
+              <b>{t(groupDisplayMapPl[row.groupId])}</b>
             </>
           }
         />
@@ -567,43 +553,67 @@ const genLearnMore = (t: any) => {
         </svg>
       </div>
       <Trans i18nKey="Size Card - Learn more">
-        <p>ℹ️ Overview: The Belize Ocean Space consists of three maritime areas:</p> 
-        <p>(1) Internal waters: Any area of waters that are on the landward side of 
-          the territorial sea baseline.</p> 
-        <p>(2) Territorial seas: Comprises those areas of the sea having, as their 
-          inner limits, the baseline of the territorial sea and, as their outer limits, 
-          a line measured from that baseline, every point of which is 12 nautical miles 
-          from the nearest point of that baseline.</p> 
-        <p>(3) Exclusive Economic Zone (EEZ): Comprises those areas of the sea that are 
-          beyond and adjacent to the territorial sea having, as their outer limits, a 
-          line, measured seaward from the baseline of the territorial sea every point 
-          of which is 200 nautical miles distant from the nearest point of that baseline.</p>
-        <p>High biodiversity protection zones conserve and protect the top priority areas for 
-          marine and coastal biodiversity. These zones are designated for habitats and species 
-          that may be rare, endangered, unique or with narrow distribution ranges. This zone 
-          includes breeding or spawning areas, key foraging habitat, fragile or sensitive 
-          species and habitats, and internationally significant areas. When combined, these zones 
-          provide habitats and species with long-term protection, and are sufficiently large to 
-          ensure ecological resilience and climate change adaptation. This zone category is not 
-          suitable for extraction or sea-bed alteration and is considered a no-take zone in common 
-          vernacular. Examples of high protection status, depending on the objectives and allowable 
-          human activities, are: Marine Protected Areas in the IUCN categories Ia, Ib, and II.</p>
-        <p>Medium biodiversity protection and sustainable use zones are proposed to conserve areas 
-          that are suitable for medium levels of biodiversity protection and are also compatible 
-          with some sustainable uses. These zones include habitats and species that have some tolerance 
-          to disturbance and human activities. These zones also include regionally and nationally 
-          significant areas. This zone category is suitable for some level of extraction and sea-bed 
-          alteration, with appropriate management and direction, depending on the objective of each 
-          designated area. Examples of medium protection status could include: Marine Protected Area 
-          IUCN categories V and VI, IUCN OECM category, and Locally Managed Marine Areas (LMMA). In 
-          these reports, IUCN levels III and IV are also considered MBPZs.</p>
-        <p>🎯 Planning Objective: 30% protection of Belize Ocean Space. 15% protection in 
-          HPBZs. 15% protection in MPBZs.</p>
+        <p>
+          ℹ️ Overview: The Belize Ocean Space consists of three maritime areas:
+        </p>
+        <p>
+          (1) Internal waters: Any area of waters that are on the landward side
+          of the territorial sea baseline.
+        </p>
+        <p>
+          (2) Territorial seas: Comprises those areas of the sea having, as
+          their inner limits, the baseline of the territorial sea and, as their
+          outer limits, a line measured from that baseline, every point of which
+          is 12 nautical miles from the nearest point of that baseline.
+        </p>
+        <p>
+          (3) Exclusive Economic Zone (EEZ): Comprises those areas of the sea
+          that are beyond and adjacent to the territorial sea having, as their
+          outer limits, a line, measured seaward from the baseline of the
+          territorial sea every point of which is 200 nautical miles distant
+          from the nearest point of that baseline.
+        </p>
+        <p>
+          High biodiversity protection zones conserve and protect the top
+          priority areas for marine and coastal biodiversity. These zones are
+          designated for habitats and species that may be rare, endangered,
+          unique or with narrow distribution ranges. This zone includes breeding
+          or spawning areas, key foraging habitat, fragile or sensitive species
+          and habitats, and internationally significant areas. When combined,
+          these zones provide habitats and species with long-term protection,
+          and are sufficiently large to ensure ecological resilience and climate
+          change adaptation. This zone category is not suitable for extraction
+          or sea-bed alteration and is considered a no-take zone in common
+          vernacular. Examples of high protection status, depending on the
+          objectives and allowable human activities, are: Marine Protected Areas
+          in the IUCN categories Ia, Ib, and II.
+        </p>
+        <p>
+          Medium biodiversity protection and sustainable use zones are proposed
+          to conserve areas that are suitable for medium levels of biodiversity
+          protection and are also compatible with some sustainable uses. These
+          zones include habitats and species that have some tolerance to
+          disturbance and human activities. These zones also include regionally
+          and nationally significant areas. This zone category is suitable for
+          some level of extraction and sea-bed alteration, with appropriate
+          management and direction, depending on the objective of each
+          designated area. Examples of medium protection status could include:
+          Marine Protected Area IUCN categories V and VI, IUCN OECM category,
+          and Locally Managed Marine Areas (LMMA). In these reports, IUCN levels
+          III and IV are also considered MBPZs.
+        </p>
+        <p>
+          🎯 Planning Objective: 30% protection of Belize Ocean Space. 15%
+          protection in HPBZs. 15% protection in MPBZs.
+        </p>
         <p>🗺️ Source Data: Belize EEZ</p>
-        <p>📈 Report: The total area of the plan was calculated, along with the 
-          total area under high protection and total area under medium protection. 
-          Overlap was only counted once, and if zones of different protection levels 
-          overlap, only the highest protection level is counted. </p>
+        <p>
+          📈 Report: The total area of the plan was calculated, along with the
+          total area under high protection and total area under medium
+          protection. Overlap was only counted once, and if zones of different
+          protection levels overlap, only the highest protection level is
+          counted.{" "}
+        </p>
       </Trans>
     </>
   );

@@ -9,13 +9,13 @@ import {
   ObjectiveStatus,
   Column,
   Table,
-  SmallReportTableStyled,
   GroupCircleRow,
   GroupPill,
   ReportError,
   ClassTable,
   RowConfig,
   LayerToggle,
+  ReportTableStyled,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -43,9 +43,25 @@ import project from "../../project";
 import Translator from "./TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 import { getMetricGroupObjectiveIds } from "@seasketch/geoprocessing";
-import { groupColorMap } from "../util/getMpaProtectionLevel";
+import {
+  groupColorMap,
+  groupDisplayMapPl,
+} from "../util/getMpaProtectionLevel";
+import styled from "styled-components";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
+
+const SmallProtectionLevelTableStyled = styled(ReportTableStyled)`
+  .styled {
+    font-size: 12px;
+  }
+
+  td,
+  th {
+    text-align: center;
+    font-weight: normal;
+  }
+`;
 
 export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
@@ -70,10 +86,7 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
 
   return (
     <>
-      <ResultsCard
-        title={t("Mangroves")}
-        functionName="mangroveAreaOverlap"
-      >
+      <ResultsCard title={t("Mangroves")} functionName="mangroveAreaOverlap">
         {(data: ReportResult) => {
           let singleMetrics = data.metrics.filter(
             (m) => m.sketchId === data.sketch.properties.id
@@ -81,24 +94,23 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
 
           const finalMetrics = [
             ...singleMetrics,
-            ...toPercentMetric(
-              singleMetrics,
-              precalcMetrics,
-              {metricIdOverride: project.getMetricGroupPercId(metricGroup)}
-            ),
+            ...toPercentMetric(singleMetrics, precalcMetrics, {
+              metricIdOverride: project.getMetricGroupPercId(metricGroup),
+            }),
           ];
 
           const mangroveClassId = "Mangrove";
           const nonMangroveMetrics = finalMetrics.filter(
             (m) => m.classId !== mangroveClassId
-          )
+          );
 
           return (
             <ReportError>
               <p>
                 <Trans i18nKey="Mangroves Card 1">
-                  This report summarizes the amount of mangroves within this plan, 
-                  measuring progress to the 30x30 target of 30% mangrove protection.
+                  This report summarizes the amount of mangroves within this
+                  plan, measuring progress to the 30x30 target of 30% mangrove
+                  protection.
                 </Trans>
               </p>
               <LayerToggle
@@ -107,15 +119,16 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
               />
               <Translator>
                 {isCollection
-                ? collectionReport(data, precalcMetrics, objectiveIds, t)
-                : sketchReport(data, precalcMetrics, objectiveIds, t)}
-              <p>
-                <Trans>
-                  Priority mangrove areas and cleared mangrove areas were identified. 
-                  The following table summarizes this plan's overlap with those areas.
-                </Trans>
-              </p>
-              <ClassTable
+                  ? collectionReport(data, precalcMetrics, objectiveIds, t)
+                  : sketchReport(data, precalcMetrics, objectiveIds, t)}
+                <p>
+                  <Trans>
+                    Priority mangrove areas and cleared mangrove areas were
+                    identified. The following table summarizes this plan's
+                    overlap with those areas.
+                  </Trans>
+                </p>
+                <ClassTable
                   rows={nonMangroveMetrics}
                   metricGroup={metricGroup}
                   columnConfig={[
@@ -129,10 +142,12 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
                       type: "metricValue",
                       metricId: metricGroup.metricId,
                       valueFormatter: (val: string | number) => {
-                        const valueKm = squareMeterToKilometer(typeof val === "string" ? parseInt(val) : val);
-                        return valueKm && valueKm < 0.5 
-                        ? Number.format(roundDecimal(valueKm, 2))
-                        : Number.format( Math.round(valueKm))
+                        const valueKm = squareMeterToKilometer(
+                          typeof val === "string" ? parseInt(val) : val
+                        );
+                        return valueKm && valueKm < 0.5
+                          ? Number.format(roundDecimal(valueKm, 2))
+                          : Number.format(Math.round(valueKm));
                       },
                       valueLabel: sqKmLabel,
                       width: 20,
@@ -177,7 +192,7 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
               {isCollection && (
                 <>
                   <Collapse title={t("Show by Protection Level")}>
-                    {genGroupLevelTable(data, precalcMetrics, t)}
+                    {genGroupLevelTable(data, precalcMetrics, metricGroup, t)}
                   </Collapse>
                   <Collapse title={t("Show by MPA")}>
                     {genSketchTable(data, precalcMetrics, metricGroup)}
@@ -188,21 +203,22 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
               <Collapse title={t("Learn more")}>
                 <Trans i18nKey="Mangroves Card - learn more">
                   <p>
-                    ℹ️ Overview: Mangrove Priority Areas identified under the updated 
-                    mangrove regulations of 2018. Mangroves were identified comparing
-                    data from 1980 and 2019. 
+                    ℹ️ Overview: Mangrove Priority Areas identified under the
+                    updated mangrove regulations of 2018. Mangroves were
+                    identified comparing data from 1980 and 2019.
                   </p>
                   <p>
-                    🎯 Planning Objective: 30% mangroves protected and 4000 hectares mangroves 
-                    restored by 2035.
+                    🎯 Planning Objective: 30% mangroves protected and 4000
+                    hectares mangroves restored by 2035.
                   </p>
                   <p>
-                    🗺️ Source Data: Mangrove Priority Areas from the mangrove regulations of 2018. 
-                    Mangrove and Cleared Mangrove data from Cherrington & Griffin (2020).
+                    🗺️ Source Data: Mangrove Priority Areas from the mangrove
+                    regulations of 2018. Mangrove and Cleared Mangrove data from
+                    Cherrington & Griffin (2020).
                   </p>
                   <p>
-                    📈 Report: Only features within the Belize Ocean Space are counted. 
-                    The percentage of each feature type within this
+                    📈 Report: Only features within the Belize Ocean Space are
+                    counted. The percentage of each feature type within this
                     plan is calculated by finding the overlap of each feature
                     type with the plan, summing its area, then dividing it by
                     the total area of each feature type found within the
@@ -226,20 +242,23 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
  * @param t TFunction
  * @returns JSX.Element
  */
-const sketchReport = (data: ReportResult, 
+const sketchReport = (
+  data: ReportResult,
   precalcMetrics: Metric[],
   objectiveIds: string[],
-  t: any) => {
-
+  t: any
+) => {
   // Get total planning area
   const totalArea = firstMatchingMetric(
     precalcMetrics,
     (m) => m.groupId === null && m.classId === "Mangrove"
   ).value;
-  
+
   // Filter down to metrics which have groupIds and classId mangroves
   const levelMetrics = data.metrics.filter(
-    (m) => (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") && m.classId === "Mangrove"
+    (m) =>
+      (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") &&
+      m.classId === "Mangrove"
   );
 
   // Filter down grouped metrics to ones that count for each objective
@@ -258,13 +277,9 @@ const sketchReport = (data: ReportResult,
       return { ...acc, [objectiveId]: yesValues };
     },
     {}
-  ); 
-
-  return (
-    <>
-      {genObjectiveReport(objectiveIds, totalsByObjective, t)}
-    </>
   );
+
+  return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
 };
 
 /**
@@ -284,7 +299,9 @@ const collectionReport = (
 
   // Filter down to metrics which have groupIds and are for Mangroves
   const mangroveLevelMetrics = data.metrics.filter(
-    (m) => (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") && m.classId === "Mangrove"
+    (m) =>
+      (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") &&
+      m.classId === "Mangrove"
   );
 
   const precalcMangroveMetrics = precalcMetrics.filter(
@@ -301,13 +318,15 @@ const collectionReport = (
   const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
     (acc, objectiveId) => {
       // Protection levels which count for objective
-      const yesAggs: GroupMetricAgg[] = mangroveGroupLevelAggs.filter((levelAgg) => {
-        const level = levelAgg.groupId;
-        return (
-          project.getObjectiveById(objectiveId).countsToward[level] ===
-          OBJECTIVE_YES
-        );
-      });
+      const yesAggs: GroupMetricAgg[] = mangroveGroupLevelAggs.filter(
+        (levelAgg) => {
+          const level = levelAgg.groupId;
+          return (
+            project.getObjectiveById(objectiveId).countsToward[level] ===
+            OBJECTIVE_YES
+          );
+        }
+      );
       // Extract percent value from metric
       const yesValues = yesAggs.map((yesAgg) => yesAgg.percValue);
       return { ...acc, [objectiveId]: yesValues };
@@ -315,11 +334,7 @@ const collectionReport = (
     {}
   );
 
-  return (
-    <>
-      {genObjectiveReport(objectiveIds, totalsByObjective, t)}
-    </>
-  );
+  return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
 };
 
 /**
@@ -338,9 +353,9 @@ const genObjectiveReport = (
   }));
   const valueFormatter = (value: number) => percentWithEdge(value / 100);
 
-  return(
+  return (
     <>
-    {objectiveIds.map((objectiveId: string) => {
+      {objectiveIds.map((objectiveId: string) => {
         const objective = project.getObjectiveById(objectiveId);
 
         // Get total percentage within sketch
@@ -378,11 +393,7 @@ const genObjectiveReport = (
               objective={objective}
               objectiveMet={isMet}
               t={t}
-              renderMsg={collectionMsgs[objectiveId](
-                objective,
-                isMet,
-                t
-              )}
+              renderMsg={collectionMsgs[objectiveId](objective, isMet, t)}
             />
             <ReportChartFigure>
               <HorizontalStackedBar
@@ -400,9 +411,9 @@ const genObjectiveReport = (
           </React.Fragment>
         );
       })}
-      </>
-  )
-}
+    </>
+  );
+};
 
 /**
  * Properties for getting objective status for sketch collection
@@ -436,27 +447,25 @@ const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStat
  * Renders messages beased on objective and if objective is met for sketch collections
  */
 const collectionMsgs: Record<string, any> = {
-  Mangrove: (
-    objective: Objective,
-    objectiveMet: ObjectiveAnswer,
-    t: any
-  ) => {
+  Mangrove: (objective: Objective, objectiveMet: ObjectiveAnswer, t: any) => {
     if (objectiveMet === OBJECTIVE_YES) {
       return (
         <>
           {t("This plan meets the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of mangroves in the Belize Ocean Space.")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of mangroves in the Belize Ocean Space.")}
         </>
       );
     } else if (objectiveMet === OBJECTIVE_NO) {
       return (
         <>
           {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b> {t("of mangroves in the Belize Ocean Space.")}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of mangroves in the Belize Ocean Space.")}
         </>
       );
     }
-  }
+  },
 };
 
 const genSketchTable = (
@@ -494,18 +503,14 @@ const genSketchTable = (
 const genGroupLevelTable = (
   data: ReportResult,
   precalcMetrics: Metric[],
+  metricGroup: MetricGroup,
   t: any
 ) => {
-  const groupDisplayMap: Record<string, string> = {
-    HIGH_PROTECTION: t("High Protection Biodiversity Zone(s)"),
-    MEDIUM_PROTECTION: t("Medium Protection Biodiversity Zone(s)"),
-  };
-
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
-    (m) => (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION")
+    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
   );
 
   const levelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
@@ -514,61 +519,47 @@ const genGroupLevelTable = (
     precalcMetrics
   );
 
-  const columns: Column<GroupMetricAgg>[] = [
+  const classColumns: Column<Record<string, string | number>>[] =
+    metricGroup.classes.map((curClass) => ({
+      Header: curClass.display,
+      accessor: (row) => {
+        return (
+          <GroupPill
+            groupColorMap={groupColorMap}
+            group={row.groupId.toString()}
+          >
+            {percentWithEdge(row[curClass.classId] as number)}
+          </GroupPill>
+        );
+      },
+    }));
+
+  const columns: Column<Record<string, string | number>>[] = [
     {
       Header: t("This plan contains") + ":",
       accessor: (row) => (
         <GroupCircleRow
-          group={row.groupId}
+          group={row.groupId.toString()}
           groupColorMap={groupColorMap}
           circleText={`${row.numSketches}`}
           rowText={
             <>
-              <b>{groupDisplayMap[row.groupId]}</b>
+              <b>{t(groupDisplayMapPl[row.groupId])}</b>
             </>
           }
         />
       ),
     },
-    {
-      Header: t("% Priority Mangroves"),
-      accessor: (row) => {
-        return (
-          <GroupPill groupColorMap={groupColorMap} group={row.groupId}>
-            {percentWithEdge(row["mangrove_priority"] as number)}
-          </GroupPill>
-        );
-      },
-    },
-    {
-      Header: t("% Mangroves"),
-      accessor: (row) => {
-        return (
-          <GroupPill groupColorMap={groupColorMap} group={row.groupId}>
-            {percentWithEdge(row["Mangrove"] as number)}
-          </GroupPill>
-        );
-      },
-    },
-    {
-      Header: t("% Cleared Mangroves"),
-      accessor: (row) => {
-        return (
-          <GroupPill groupColorMap={groupColorMap} group={row.groupId}>
-            {percentWithEdge(row["Non-mangrove"] as number)}
-          </GroupPill>
-        );
-      },
-    },
+    ...classColumns,
   ];
 
   return (
-    <SmallReportTableStyled>
+    <SmallProtectionLevelTableStyled>
       <Table
         className="styled"
         columns={columns}
         data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
       />
-    </SmallReportTableStyled>
+    </SmallProtectionLevelTableStyled>
   );
 };
