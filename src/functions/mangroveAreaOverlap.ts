@@ -11,12 +11,16 @@ import {
   overlapFeatures,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
-  overlapFeaturesGroupMetrics,
 } from "@seasketch/geoprocessing";
-import { fgbFetchAll, getFeatures } from "@seasketch/geoprocessing/dataproviders";
+import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
 import project from "../../project";
-import { getMpaProtectionLevels, protectionLevels } from "../util/getMpaProtectionLevel";
+import {
+  getMpaProtectionLevels,
+  protectionLevels,
+} from "../util/getMpaProtectionLevel";
+import { overlapFeaturesGroupMetrics } from "../util/overlapRasterGroupMetrics";
+import { sortMetrics } from "@seasketch/geoprocessing/client-core";
 
 export async function mangroveAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
@@ -39,14 +43,14 @@ export async function mangroveAreaOverlap(
 
           // Fetch features overlapping with sketch, pull from cache if already fetched
           const dsFeatures =
-            cachedFeatures[curClass.datasourceId] || (await fgbFetchAll<Feature<Polygon>>(url, box));
+            cachedFeatures[curClass.datasourceId] ||
+            (await fgbFetchAll<Feature<Polygon>>(url, box));
           cachedFeatures[curClass.datasourceId] = dsFeatures;
 
           // If this is a sub-class, filter by class name, exclude null geometry too
           // ToDo: should do deeper match to classKey
           const finalFeatures =
-            curClass.classKey &&
-            curClass.classId !== `${ds.datasourceId}_all`
+            curClass.classKey && curClass.classId !== `${ds.datasourceId}_all`
               ? dsFeatures.filter((feat) => {
                   return (
                     feat.geometry &&
@@ -55,7 +59,7 @@ export async function mangroveAreaOverlap(
                 }, [])
               : dsFeatures;
 
-            featuresByClass[curClass.classId] = finalFeatures;
+          featuresByClass[curClass.classId] = finalFeatures;
 
           return finalFeatures;
         }
@@ -106,7 +110,7 @@ export async function mangroveAreaOverlap(
   });
 
   return {
-    metrics: rekeyMetrics([...metrics, ...groupMetrics]),
+    metrics: sortMetrics(rekeyMetrics([...metrics, ...groupMetrics])),
     sketch: toNullSketch(sketch, true),
   };
 }

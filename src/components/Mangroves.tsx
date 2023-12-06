@@ -201,7 +201,8 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
                     Mangrove and Cleared Mangrove data from Cherrington & Griffin (2020).
                   </p>
                   <p>
-                    📈 Report: The percentage of each feature type within this
+                    📈 Report: Only features within the Belize Ocean Space are counted. 
+                    The percentage of each feature type within this
                     plan is calculated by finding the overlap of each feature
                     type with the plan, summing its area, then dividing it by
                     the total area of each feature type found within the
