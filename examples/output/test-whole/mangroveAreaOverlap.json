@@ -32,6 +32,72 @@
       "extra": {
         "sketchName": "test-whole"
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Non-mangrove",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 4960195.321034,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Mangrove",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 197774213.350822,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "mangrove_priority",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 467758256.209659,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Non-mangrove",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Mangrove",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "mangrove_priority",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
     }
   ],
   "sketch": {

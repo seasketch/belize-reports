@@ -23,6 +23,7 @@
     "src/functions/humanStressorsAreaOverlap.ts",
     "src/functions/bathymetry.ts",
     "src/functions/mangroveAreaOverlap.ts",
+    "src/functions/littoralAreaOverlap.ts",
     "src/functions/seagrassValueOverlap.ts",
     "src/functions/coralValueOverlap.ts",
     "src/functions/geomorphAreaOverlap.ts"

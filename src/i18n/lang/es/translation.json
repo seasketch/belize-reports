@@ -169,7 +169,7 @@
   "Mangrove and Littoral Forest": "Manglares y Bosques Litorales",
   "Mangroves": "Manglares",
   "Mangroves Card - learn more": "<p>ℹ️ Descripción general: Áreas prioritarias de manglares identificadas según las regulaciones de manglares actualizadas de 2018. Los manglares se identificaron comparando datos de 1980 y 2019.</p><p>🎯 Objetivo de planificación: 30% de manglares protegidos y 4000 hectáreas de manglares restaurados.< /p><p>🗺️ Fuente de datos: Áreas prioritarias de manglares de las regulaciones de manglares de 2018. Datos de manglares y manglares talados de Cherrington & Griffin (2020).</p><p>📈 Informe: El porcentaje de cada tipo de característica dentro este plan se calcula encontrando la superposición de cada tipo de característica con el plan, sumando su área y luego dividiéndola por el área total de cada tipo de característica encontrada dentro del área de planificación cercana a la costa seleccionada. Si el plan incluye varias áreas que se superponen, la superposición solo se cuenta una vez.</p>",
-  "Mangroves Card 1": "Los planes deben considerar la protección de los manglares con el objetivo de restaurar y restablecer los ecosistemas de manglares que han sido degradados, dañados o perdidos. La restauración tiene como objetivo regenerar y rehabilitar los manglares a su estado natural o mejorar sus funciones y valores ecológicos. Este informe mide el progreso hacia la meta de proteger el 30% de los ecosistemas de manglares para 2035.",
+  "Mangroves Card 1": "Este informe resume la cantidad de manglares dentro de este plan, midiendo el progreso hacia la meta 30x30 de protección del 30% de los manglares.",
   "Marine Dredging": "Dragado Marino",
   "Marine Transportation": "Transporte Marítimo",
   "Ocean Space High Protection Objective": "Objetivo de Alta Protección del Espacio Oceánico",
@@ -186,7 +186,16 @@
   "% Within Plan": "% dentro del plan",
   "Littoral Forest Objective": "Objetivo del bosque litoral",
   "Littoral Forests Card - learn more": "<p>ℹ️ Descripción general: se identificó el bosque litoral comparando datos de 1980 y 2019.</p><p>🎯 Objetivo de planificación: la extensión del bosque litoral en HPZ aumenta en un 14,5 % en 2025. La extensión del bosque litoral en HPZ aumenta a 60 % en 2030. La extensión del bosque litoral en HPZ aumentará al 90 % en 2035.</p><p>🗺️ Fuente de datos: datos del bosque litoral de Cherrington & Griffin (2020).</p><p>📈 Informe: El El porcentaje de cada tipo de característica dentro de este plan se calcula encontrando la superposición de cada tipo de característica con el plan, sumando su área y luego dividiéndola por el área total de cada tipo de característica encontrada dentro del área de planificación cercana a la costa seleccionada. Si el plan incluye varias áreas que se superponen, la superposición solo se cuenta una vez.</p>",
-  "Littoral Forests Card 1": "Este informe resume la cantidad de bosques litorales dentro de este plan, midiendo el progreso hacia los siguientes objetivos del BSOP: la extensión de los bosques litorales en HPZ aumenta en un 14,5% para 2025, la extensión de bosques litorales en HPZ aumenta a 60% para 2030, los bosques litorales La extensión en HPZ aumentará al 90% para 2035.",
+  "Littoral Forests Card 1": "Este informe resume la cantidad de bosques litorales dentro de este plan, midiendo el progreso hacia el objetivo de una alta protección del 90% de los bosques litorales para 2035.",
   "Mangroves Objective": "Objetivo Manglares",
-  "Within Plan": "Dentro del plan"
+  "Within Plan": "Dentro del plan",
+  "% Cleared Mangroves": "% Manglares talados",
+  "% Littoral Forest": "% Bosque Litoral",
+  "% Mangroves": "% Manglares",
+  "% Priority Mangroves": "% Manglares Prioritarios",
+  "IUCN Level": "Nivel UICN",
+  "of littoral forests in High Protection Zones.": "de bosques litorales en Zonas de Alta Protección.",
+  "of mangroves in the Belize Ocean Space.": "de manglares en el Espacio Oceánico de Belice.",
+  "Priority mangrove areas and cleared mangrove areas were identified. The following table summarizes this plan's overlap with those areas.": "Se identificaron áreas prioritarias de manglares y áreas de manglares taladas. La siguiente tabla resume la superposición de este plan con esas áreas.",
+  "Show Mangrove Layer": "Mostrar capa de manglar"
 }

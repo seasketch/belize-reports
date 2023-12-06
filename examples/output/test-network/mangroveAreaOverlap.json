@@ -188,7 +188,7 @@
       "classId": "Non-mangrove",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 5935576.269133,
+      "value": 0,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -211,7 +211,7 @@
       "classId": "Mangrove",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 5935576.269133,
+      "value": 3090075.331918,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

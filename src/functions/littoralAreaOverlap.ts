@@ -41,7 +41,6 @@ export async function littoralAreaOverlap(
           const dsFeatures =
             cachedFeatures[curClass.datasourceId] || (await fgbFetchAll<Feature<Polygon>>(url, box));
           cachedFeatures[curClass.datasourceId] = dsFeatures;
-          featuresByClass[curClass.classId] = dsFeatures;
 
           // If this is a sub-class, filter by class name, exclude null geometry too
           // ToDo: should do deeper match to classKey
@@ -55,6 +54,7 @@ export async function littoralAreaOverlap(
                   );
                 }, [])
               : dsFeatures;
+            featuresByClass[curClass.classId] = dsFeatures;
 
           return finalFeatures;
         }

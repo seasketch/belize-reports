@@ -45,7 +45,6 @@ export function getMpaProtectionLevels(
       },
       {}
     );
-    console.log(protectionLevels);
     
     return protectionLevels;
 }

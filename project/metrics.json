@@ -72,7 +72,7 @@
     {
         "metricId": "mangroveAreaOverlap",
         "type": "areaOverlap",
-        "objectiveId": "mangroves",
+        "objectiveId": "Mangrove",
         "classes": [
             {
                 "classId": "mangrove_priority",

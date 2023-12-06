@@ -5,7 +5,6 @@ import {
   useSketchProperties,
   ToolbarCard,
   LayerToggle,
-  SketchClassTable,
   ReportChartFigure,
   HorizontalStackedBar,
   ObjectiveStatus,
@@ -16,6 +15,7 @@ import {
   GroupPill,
   ReportError,
   SketchClassTableStyled,
+  RowConfig,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -278,6 +278,11 @@ const genObjectiveReport = (
         };
 
         const targetLabel = t("Target");
+        const rowConfig: RowConfig[] = [
+          {
+            title: t("Littoral Forests"),
+          },
+        ];
 
         return (
           <React.Fragment key={objectiveId}>
@@ -297,6 +302,7 @@ const genObjectiveReport = (
                 blockGroupNames={blockGroupNames}
                 blockGroupStyles={blockGroupStyles}
                 showLegend={true}
+                rowConfigs={rowConfig}
                 valueFormatter={valueFormatter}
                 targetValueFormatter={(value) =>
                   targetLabel + ` - ` + value + `%`
