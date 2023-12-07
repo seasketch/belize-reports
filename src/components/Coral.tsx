@@ -43,8 +43,6 @@ import {
   groupDisplayMapPl,
 } from "../util/getMpaProtectionLevel";
 
-const Number = new Intl.NumberFormat("en", { style: "decimal" });
-
 export const Coral: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
@@ -271,7 +269,7 @@ const genObjectiveReport = (
           rows: [totalsByObjective[objectiveId].map((value) => [value * 100])],
           rowConfigs: [
             {
-              title: "",
+              title: t("Coral Reef"),
             },
           ],
           target: objective.target * 100,
@@ -279,11 +277,6 @@ const genObjectiveReport = (
         };
 
         const targetLabel = t("Target");
-        const rowConfig: RowConfig[] = [
-          {
-            title: t("Coral Reef"),
-          },
-        ];
 
         return (
           <React.Fragment key={objectiveId}>
@@ -299,7 +292,6 @@ const genObjectiveReport = (
                 blockGroupNames={blockGroupNames}
                 blockGroupStyles={blockGroupStyles}
                 showLegend={true}
-                rowConfigs={rowConfig}
                 valueFormatter={valueFormatter}
                 targetValueFormatter={(value) =>
                   targetLabel + ` - ` + value + `%`

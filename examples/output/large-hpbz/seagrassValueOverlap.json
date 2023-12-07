@@ -10,6 +10,28 @@
       "extra": {
         "sketchName": "large-hpbz"
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 284605,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
     }
   ],
   "sketch": {

@@ -10,6 +10,28 @@
       "extra": {
         "sketchName": "test-whole"
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 2564292,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
     }
   ],
   "sketch": {

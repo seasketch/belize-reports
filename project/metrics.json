@@ -1,204 +1,205 @@
 [
-    {
-        "metricId": "boundaryAreaOverlap",
-        "type": "areaOverlap",
-        "layerId": "UU0vApkb2",
-        "objectiveId": "ocean_space_protected",
-        "classes": [
-            {
-                "classId": "belize_ocean_space",
-                "display": "Ocean Space",
-                "datasourceId": "belize_ocean_space",
-                "objectiveId": "ocean_space_highly_protected"
-            }
-        ]
-    },
-    {
-        "metricId": "protectionCountOverlap",
-        "type": "countOverlap",
-        "classes": [
-            {
-                "classId": "high_protection",
-                "display": "High Protection"
-            },
-            {
-                "classId": "medium_protection",
-                "display": "Medium Protection"
-            }
-        ]
-    },
-    {
-        "metricId": "humanStressorsAreaOverlap",
-        "type": "areaOverlap",
-        "classes": [
-            {
-                "classId": "ag_runoff",
-                "display": "Agricultural Runoff",
-                "datasourceId": "ag_runoff",
-                "layerId": "Z1_qaJDQE"
-            },
-            {
-                "classId": "coastal_dev",
-                "display": "Coastal Development",
-                "datasourceId": "coastal_dev",
-                "layerId": "ChVZwiIrm"
-            },
-            {
-                "classId": "marine_dredging",
-                "display": "Marine Dredging",
-                "datasourceId": "marine_dredging",
-                "layerId": "TpiORi4XX"
-            },
-            {
-                "classId": "marine_trans",
-                "display": "Marine Transportation",
-                "datasourceId": "marine_trans",
-                "layerId": "5LDhFkMrU"
-            }
-        ]
-    },
-    {
-        "metricId": "bathymetry",
-        "type": "valueOverlap",
-        "layerId": "6jgkBTCkU",
-        "classes": [
-            {
-                "classId": "depth",
-                "display": "Depth",
-                "datasourceId": "bathymetry"
-            }
-        ]
-    },
-    {
-        "metricId": "mangroveAreaOverlap",
-        "type": "areaOverlap",
-        "objectiveId": "Mangrove",
-        "classes": [
-            {
-                "classId": "mangrove_priority",
-                "display": "Priority Mangrove Areas",
-                "datasourceId": "mangroves_priority",
-                "layerId": "7SuJXuc04"
-            },
-            {
-                "classKey": "C2019",
-                "classId": "Mangrove",
-                "display": "Mangroves",
-                "datasourceId": "mangroves",
-                "layerId": "5xlX0KoC8"
-            },
-            {
-                "classKey": "C2019",
-                "classId": "Non-mangrove",
-                "display": "Cleared Mangroves",
-                "datasourceId": "mangroves",
-                "layerId": "5xlX0KoC8"
-            }
-        ]
-    },
-    {
-        "metricId": "littoralAreaOverlap",
-        "type": "areaOverlap",
-        "objectiveId": "littoral",
-        "layerId": "5xlX0KoC8",
-        "classes": [
-            {
-                "classKey": "C2019",
-                "classId": "Littoral",
-                "display": "Littoral Forests",
-                "datasourceId": "mangroves"
-            }
-        ]
-    },
-    {
-        "metricId": "seagrassValueOverlap",
-        "type": "areaOverlap",
-        "classes": [
-            {
-                "classId": "seagrass",
-                "display": "Seagrass",
-                "datasourceId": "seagrass",
-                "layerId": "7nN0k9nsx"
-            }
-        ]
-    },
-    {
-        "metricId": "coralValueOverlap",
-        "type": "valueOverlap",
-        "classes": [
-            {
-                "classId": "coral",
-                "display": "Coral Reef",
-                "objectiveId": "coral",
-                "datasourceId": "coral",
-                "layerId": "UtnjYN9f1"
-            }
-        ]
-    },
-    {
-        "metricId": "geomorphAreaOverlap",
-        "type": "areaOverlap",
-        "classes": [
-            {
-                "classId": "abyss",
-                "display": "Abyss",
-                "datasourceId": "abyss",
-                "layerId": "9012Y19bD"
-            },
-            {
-                "classId": "basins",
-                "display": "Basin",
-                "datasourceId": "basins",
-                "layerId": "k0JrKvsgH"
-            },
-            {
-                "classId": "canyons",
-                "display": "Canyon",
-                "datasourceId": "canyons",
-                "layerId": "qXN2Ziwey"
-            },
-            {
-                "classId": "escarpments",
-                "display": "Escarpment",
-                "datasourceId": "escarpments",
-                "layerId": "arlQe_aZS"
-            },
-            {
-                "classId": "plateaus",
-                "display": "Plateau",
-                "datasourceId": "plateaus",
-                "layerId": "fVky1Pg8Y"
-            },
-            {
-                "classId": "rises",
-                "display": "Rise",
-                "datasourceId": "rises",
-                "layerId": "2PIxIaBEX"
-            },
-            {
-                "classId": "shelf",
-                "display": "Shelf",
-                "datasourceId": "shelf",
-                "layerId": "cYNNpTDh4"
-            },
-            {
-                "classId": "shelf_valleys",
-                "display": "Shelf Valley",
-                "datasourceId": "shelf_valleys",
-                "layerId": "mE7UiIgbH"
-            },
-            {
-                "classId": "sills",
-                "display": "Sill",
-                "datasourceId": "sills",
-                "layerId": "YXTpjv0UE"
-            },
-            {
-                "classId": "slope",
-                "display": "Slope",
-                "datasourceId": "slope",
-                "layerId": "3twa1FdjU"
-            }
-        ]
-    }
+  {
+    "metricId": "boundaryAreaOverlap",
+    "type": "areaOverlap",
+    "layerId": "UU0vApkb2",
+    "objectiveId": "ocean_space_protected",
+    "classes": [
+      {
+        "classId": "belize_ocean_space",
+        "display": "Ocean Space",
+        "datasourceId": "belize_ocean_space",
+        "objectiveId": "ocean_space_highly_protected"
+      }
+    ]
+  },
+  {
+    "metricId": "protectionCountOverlap",
+    "type": "countOverlap",
+    "classes": [
+      {
+        "classId": "high_protection",
+        "display": "High Protection"
+      },
+      {
+        "classId": "medium_protection",
+        "display": "Medium Protection"
+      }
+    ]
+  },
+  {
+    "metricId": "humanStressorsAreaOverlap",
+    "type": "areaOverlap",
+    "classes": [
+      {
+        "classId": "ag_runoff",
+        "display": "Agricultural Runoff",
+        "datasourceId": "ag_runoff",
+        "layerId": "Z1_qaJDQE"
+      },
+      {
+        "classId": "coastal_dev",
+        "display": "Coastal Development",
+        "datasourceId": "coastal_dev",
+        "layerId": "ChVZwiIrm"
+      },
+      {
+        "classId": "marine_dredging",
+        "display": "Marine Dredging",
+        "datasourceId": "marine_dredging",
+        "layerId": "TpiORi4XX"
+      },
+      {
+        "classId": "marine_trans",
+        "display": "Marine Transportation",
+        "datasourceId": "marine_trans",
+        "layerId": "5LDhFkMrU"
+      }
+    ]
+  },
+  {
+    "metricId": "bathymetry",
+    "type": "valueOverlap",
+    "layerId": "6jgkBTCkU",
+    "classes": [
+      {
+        "classId": "depth",
+        "display": "Depth",
+        "datasourceId": "bathymetry"
+      }
+    ]
+  },
+  {
+    "metricId": "mangroveAreaOverlap",
+    "type": "areaOverlap",
+    "objectiveId": "Mangrove",
+    "classes": [
+      {
+        "classId": "mangrove_priority",
+        "display": "Priority Mangrove Areas",
+        "datasourceId": "mangroves_priority",
+        "layerId": "7SuJXuc04"
+      },
+      {
+        "classKey": "C2019",
+        "classId": "Mangrove",
+        "display": "Mangroves",
+        "datasourceId": "mangroves",
+        "layerId": "5xlX0KoC8"
+      },
+      {
+        "classKey": "C2019",
+        "classId": "Non-mangrove",
+        "display": "Cleared Mangroves",
+        "datasourceId": "mangroves",
+        "layerId": "5xlX0KoC8"
+      }
+    ]
+  },
+  {
+    "metricId": "littoralAreaOverlap",
+    "type": "areaOverlap",
+    "objectiveId": "littoral",
+    "layerId": "5xlX0KoC8",
+    "classes": [
+      {
+        "classKey": "C2019",
+        "classId": "Littoral",
+        "display": "Littoral Forests",
+        "datasourceId": "mangroves"
+      }
+    ]
+  },
+  {
+    "metricId": "seagrassValueOverlap",
+    "type": "areaOverlap",
+    "layerId": "7nN0k9nsx",
+    "classes": [
+      {
+        "classId": "seagrass",
+        "display": "Seagrass",
+        "objectiveId": "seagrass",
+        "datasourceId": "seagrass"
+      }
+    ]
+  },
+  {
+    "metricId": "coralValueOverlap",
+    "type": "valueOverlap",
+    "layerId": "UtnjYN9f1",
+    "classes": [
+      {
+        "classId": "coral",
+        "display": "Coral Reef",
+        "objectiveId": "coral",
+        "datasourceId": "coral"
+      }
+    ]
+  },
+  {
+    "metricId": "geomorphAreaOverlap",
+    "type": "areaOverlap",
+    "classes": [
+      {
+        "classId": "abyss",
+        "display": "Abyss",
+        "datasourceId": "abyss",
+        "layerId": "9012Y19bD"
+      },
+      {
+        "classId": "basins",
+        "display": "Basin",
+        "datasourceId": "basins",
+        "layerId": "k0JrKvsgH"
+      },
+      {
+        "classId": "canyons",
+        "display": "Canyon",
+        "datasourceId": "canyons",
+        "layerId": "qXN2Ziwey"
+      },
+      {
+        "classId": "escarpments",
+        "display": "Escarpment",
+        "datasourceId": "escarpments",
+        "layerId": "arlQe_aZS"
+      },
+      {
+        "classId": "plateaus",
+        "display": "Plateau",
+        "datasourceId": "plateaus",
+        "layerId": "fVky1Pg8Y"
+      },
+      {
+        "classId": "rises",
+        "display": "Rise",
+        "datasourceId": "rises",
+        "layerId": "2PIxIaBEX"
+      },
+      {
+        "classId": "shelf",
+        "display": "Shelf",
+        "datasourceId": "shelf",
+        "layerId": "cYNNpTDh4"
+      },
+      {
+        "classId": "shelf_valleys",
+        "display": "Shelf Valley",
+        "datasourceId": "shelf_valleys",
+        "layerId": "mE7UiIgbH"
+      },
+      {
+        "classId": "sills",
+        "display": "Sill",
+        "datasourceId": "sills",
+        "layerId": "YXTpjv0UE"
+      },
+      {
+        "classId": "slope",
+        "display": "Slope",
+        "datasourceId": "slope",
+        "layerId": "3twa1FdjU"
+      }
+    ]
+  }
 ]

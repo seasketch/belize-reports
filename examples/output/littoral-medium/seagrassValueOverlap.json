@@ -10,6 +10,28 @@
       "extra": {
         "sketchName": "littoral-medium"
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 21854,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
     }
   ],
   "sketch": {

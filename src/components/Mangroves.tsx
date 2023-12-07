@@ -369,7 +369,7 @@ const genObjectiveReport = (
           rows: [totalsByObjective[objectiveId].map((value) => [value * 100])],
           rowConfigs: [
             {
-              title: "",
+              title: t("Mangroves"),
             },
           ],
           target: objective.target * 100,
@@ -377,11 +377,6 @@ const genObjectiveReport = (
         };
 
         const targetLabel = t("Target");
-        const rowConfig: RowConfig[] = [
-          {
-            title: t("Mangroves"),
-          },
-        ];
 
         return (
           <React.Fragment key={objectiveId}>
@@ -397,7 +392,6 @@ const genObjectiveReport = (
                 blockGroupNames={blockGroupNames}
                 blockGroupStyles={blockGroupStyles}
                 showLegend={true}
-                rowConfigs={rowConfig}
                 valueFormatter={valueFormatter}
                 targetValueFormatter={(value) =>
                   targetLabel + ` - ` + value + `%`

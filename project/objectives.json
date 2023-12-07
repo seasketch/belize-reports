@@ -1,47 +1,56 @@
 [
   {
-      "objectiveId": "ocean_space_protected",
-      "shortDesc": "Ocean Space Objective",
-      "target": 0.3,
-      "countsToward": {
-          "HIGH_PROTECTION": "yes",
-          "MEDIUM_PROTECTION": "yes"
-      }
+    "objectiveId": "ocean_space_protected",
+    "shortDesc": "Ocean Space Objective",
+    "target": 0.3,
+    "countsToward": {
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "yes"
+    }
   },
   {
-      "objectiveId": "ocean_space_highly_protected",
-      "shortDesc": "Ocean Space High Protection Objective",
-      "target": 0.15,
-      "countsToward": {
-          "HIGH_PROTECTION": "yes",
-          "MEDIUM_PROTECTION": "no"
-      }
+    "objectiveId": "ocean_space_highly_protected",
+    "shortDesc": "Ocean Space High Protection Objective",
+    "target": 0.15,
+    "countsToward": {
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "no"
+    }
   },
   {
-      "objectiveId": "coral",
-      "shortDesc": "Coral Reef Objective",
-      "target": 0.2,
-      "countsToward": {
-          "HIGH_PROTECTION": "yes",
-          "MEDIUM_PROTECTION": "no"
-      }
+    "objectiveId": "coral",
+    "shortDesc": "Coral Reef Objective",
+    "target": 0.2,
+    "countsToward": {
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "no"
+    }
+  },
+  {
+    "objectiveId": "seagrass",
+    "shortDesc": "Seagrass Objective",
+    "target": 0.3,
+    "countsToward": {
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "yes"
+    }
   },
   {
     "objectiveId": "Mangrove",
     "shortDesc": "Mangroves Objective",
     "target": 0.3,
     "countsToward": {
-        "HIGH_PROTECTION": "yes",
-        "MEDIUM_PROTECTION": "yes"
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "yes"
     }
-},
+  },
   {
     "objectiveId": "littoral",
     "shortDesc": "Littoral Forest Objective",
     "target": 0.9,
     "countsToward": {
-        "HIGH_PROTECTION": "yes",
-        "MEDIUM_PROTECTION": "no"
+      "HIGH_PROTECTION": "yes",
+      "MEDIUM_PROTECTION": "no"
     }
   }
 ]

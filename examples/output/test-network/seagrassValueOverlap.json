@@ -15,8 +15,30 @@
       "geographyId": null,
       "metricId": "seagrassValueOverlap",
       "classId": "seagrass",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 119642,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
       "sketchId": "20647",
       "groupId": null,
+      "value": 129486,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "20647",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 129486,
       "extra": {
         "sketchName": "medium-protection-zone"
@@ -29,6 +51,30 @@
       "sketchId": "20648",
       "groupId": null,
       "value": 249128,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
+      "value": 119642,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "seagrassValueOverlap",
+      "classId": "seagrass",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 129486,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
