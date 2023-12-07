@@ -10,15 +10,21 @@ import {
   getCogFilename,
   overlapRaster,
   sortMetrics,
-  firstMatchingMetric
 } from "@seasketch/geoprocessing";
 import project from "../../project";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
+import {
+  getMpaProtectionLevels,
+  protectionLevels,
+} from "../util/getMpaProtectionLevel";
+import { overlapRasterGroupMetrics } from "../util/overlapRasterGroupMetrics";
+import { Georaster } from "@seasketch/geoprocessing/client-core";
 
 export async function coralValueOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
 ): Promise<ReportResult> {
   const metricGroup = project.getMetricGroup("coralValueOverlap");
+  const featuresByClass: Record<string, Georaster> = {};
 
   const metrics: Metric[] = (
     await Promise.all(
@@ -30,6 +36,8 @@ export async function coralValueOverlap(
           project.getInternalRasterDatasourceById(curClass.datasourceId)
         )}`;
         const raster = await loadCog(url);
+        featuresByClass[curClass.classId] = raster;
+
         // start analysis as soon as source load done
         const overlapResult = await overlapRaster(
           metricGroup.metricId,
@@ -39,7 +47,7 @@ export async function coralValueOverlap(
         return overlapResult.map(
           (metrics): Metric => ({
             ...metrics,
-            classId: curClass.classId
+            classId: curClass.classId,
           })
         );
       })
@@ -50,8 +58,22 @@ export async function coralValueOverlap(
     []
   );
 
+  // Calculate group metrics - from individual sketch metrics
+  const sketchCategoryMap = getMpaProtectionLevels(sketch);
+  const metricToGroup = (sketchMetric: Metric) =>
+    sketchCategoryMap[sketchMetric.sketchId!];
+
+  const groupMetrics = await overlapRasterGroupMetrics({
+    metricId: metricGroup.metricId,
+    groupIds: protectionLevels,
+    sketch,
+    metricToGroup,
+    metrics: metrics,
+    featuresByClass,
+  });
+
   return {
-    metrics: sortMetrics(rekeyMetrics(metrics)),
+    metrics: sortMetrics(rekeyMetrics([...metrics, ...groupMetrics])),
     sketch: toNullSketch(sketch, true),
   };
 }

@@ -296,23 +296,19 @@ const collectionReport = (
   t: any
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
-
-  // Filter down to metrics which have groupIds and are for Mangroves
   const mangroveLevelMetrics = data.metrics.filter(
-    (m) =>
-      (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") &&
-      m.classId === "Mangrove"
+    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
   );
 
-  const precalcMangroveMetrics = precalcMetrics.filter(
-    (m) => m.classId === "Mangrove"
-  );
+  const precalcMangroveMetrics = precalcMetrics;
 
   const mangroveGroupLevelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
     data.sketch,
     mangroveLevelMetrics,
     precalcMangroveMetrics
   );
+
+  console.log(mangroveGroupLevelAggs);
 
   // Filter down grouped metrics to ones that count for each objective
   const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(

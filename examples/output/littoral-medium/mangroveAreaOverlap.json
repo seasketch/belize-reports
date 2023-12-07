@@ -3,6 +3,39 @@
     {
       "geographyId": null,
       "metricId": "mangroveAreaOverlap",
+      "classId": "Mangrove",
+      "sketchId": "23569",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Mangrove",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Mangrove",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
       "classId": "mangrove_priority",
       "sketchId": "23569",
       "groupId": null,
@@ -14,51 +47,7 @@
     {
       "geographyId": null,
       "metricId": "mangroveAreaOverlap",
-      "classId": "Mangrove",
-      "sketchId": "23569",
-      "groupId": null,
-      "value": 0,
-      "extra": {
-        "sketchName": "littoral-medium"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "Non-mangrove",
-      "sketchId": "23569",
-      "groupId": null,
-      "value": 0,
-      "extra": {
-        "sketchName": "littoral-medium"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
       "classId": "mangrove_priority",
-      "sketchId": "23569",
-      "groupId": "HIGH_PROTECTION",
-      "value": 0,
-      "extra": {
-        "sketchName": "littoral-medium"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "Mangrove",
-      "sketchId": "23569",
-      "groupId": "HIGH_PROTECTION",
-      "value": 0,
-      "extra": {
-        "sketchName": "littoral-medium"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "mangroveAreaOverlap",
-      "classId": "Non-mangrove",
       "sketchId": "23569",
       "groupId": "HIGH_PROTECTION",
       "value": 0,
@@ -80,9 +69,20 @@
     {
       "geographyId": null,
       "metricId": "mangroveAreaOverlap",
-      "classId": "Mangrove",
+      "classId": "Non-mangrove",
       "sketchId": "23569",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "mangroveAreaOverlap",
+      "classId": "Non-mangrove",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "littoral-medium"

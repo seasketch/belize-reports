@@ -10,6 +10,28 @@
       "extra": {
         "sketchName": "large-hpbz"
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 1415645,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
     }
   ],
   "sketch": {

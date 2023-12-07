@@ -15,8 +15,30 @@
       "geographyId": null,
       "metricId": "coralValueOverlap",
       "classId": "coral",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 902716,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
       "sketchId": "20647",
       "groupId": null,
+      "value": 279631,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
+      "sketchId": "20647",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 279631,
       "extra": {
         "sketchName": "medium-protection-zone"
@@ -29,6 +51,30 @@
       "sketchId": "20648",
       "groupId": null,
       "value": 1182347,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
+      "value": 902716,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 279631,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

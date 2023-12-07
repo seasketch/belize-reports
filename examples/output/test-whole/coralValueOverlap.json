@@ -10,6 +10,28 @@
       "extra": {
         "sketchName": "test-whole"
       }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 6200752,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "coralValueOverlap",
+      "classId": "coral",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
     }
   ],
   "sketch": {
