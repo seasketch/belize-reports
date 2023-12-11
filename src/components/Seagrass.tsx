@@ -5,7 +5,6 @@ import {
   useSketchProperties,
   ReportChartFigure,
   HorizontalStackedBar,
-  ObjectiveStatus,
   Column,
   Table,
   SmallReportTableStyled,
@@ -23,18 +22,11 @@ import {
   GeogProp,
   isSketchCollection,
   firstMatchingMetric,
-  OBJECTIVE_YES,
   GroupMetricAgg,
   flattenByGroupAllClass,
   percentWithEdge,
-  OBJECTIVE_NO,
-  Objective,
-  ObjectiveAnswer,
   keyBy,
   getUserAttribute,
-  squareMeterToKilometer,
-  roundDecimal,
-  valueFormatter,
 } from "@seasketch/geoprocessing/client-core";
 import project from "../../project";
 import Translator from "./TranslatorAsync";
@@ -45,8 +37,6 @@ import {
   groupDisplayMapPl,
 } from "../util/getMpaProtectionLevel";
 
-const Number = new Intl.NumberFormat("en", { style: "decimal" });
-
 export const Seagrass: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
@@ -56,7 +46,7 @@ export const Seagrass: React.FunctionComponent<GeogProp> = (props) => {
   });
 
   const metricGroup = project.getMetricGroup("seagrassValueOverlap", t);
-  const objectiveIds = getMetricGroupObjectiveIds(metricGroup);
+  const classIds = metricGroup.classes.map((curClass) => curClass.classId);
   const precalcMetrics = project.getPrecalcMetrics(
     metricGroup,
     "sum",
@@ -64,9 +54,6 @@ export const Seagrass: React.FunctionComponent<GeogProp> = (props) => {
   );
 
   const mapLabel = t("Map");
-  const areaWithin = t("Area Within Plan");
-  const percAreaWithin = t("% Area Within Plan");
-  const sqKmLabel = t("km²");
 
   return (
     <>
@@ -96,8 +83,8 @@ export const Seagrass: React.FunctionComponent<GeogProp> = (props) => {
               </p>
               <Translator>
                 {isCollection
-                  ? collectionReport(data, precalcMetrics, objectiveIds, t)
-                  : sketchReport(data, precalcMetrics, objectiveIds, t)}
+                  ? collectionReport(data, precalcMetrics, classIds, t)
+                  : sketchReport(data, precalcMetrics, classIds, t)}
               </Translator>
 
               {isCollection && (
@@ -158,16 +145,8 @@ const sketchReport = (
   // Filter down grouped metrics to ones that count for each objective
   const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
     (acc, objectiveId) => {
-      // Protection levels which count for objective
-      const yesAggs = levelMetrics.filter((levelAgg) => {
-        const level = levelAgg.groupId;
-        return (
-          project.getObjectiveById(objectiveId).countsToward[level!] ===
-          OBJECTIVE_YES
-        );
-      });
       // Extract percent value from metric
-      const yesValues = yesAggs.map((yesAgg) => yesAgg.value / totalArea);
+      const yesValues = levelMetrics.map((yesAgg) => yesAgg.value / totalArea);
       return { ...acc, [objectiveId]: yesValues };
     },
     {}
@@ -205,16 +184,8 @@ const collectionReport = (
   // Filter down grouped metrics to ones that count for each objective
   const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
     (acc, objectiveId) => {
-      // Protection levels which count for objective
-      const yesAggs: GroupMetricAgg[] = groupLevelAggs.filter((levelAgg) => {
-        const level = levelAgg.groupId;
-        return (
-          project.getObjectiveById(objectiveId).countsToward[level] ===
-          OBJECTIVE_YES
-        );
-      });
       // Extract percent value from metric
-      const yesValues = yesAggs.map((yesAgg) => yesAgg.percValue);
+      const yesValues = groupLevelAggs.map((yesAgg) => yesAgg.percValue);
       return { ...acc, [objectiveId]: yesValues };
     },
     {}
@@ -258,10 +229,6 @@ const genObjectiveReport = (
           0
         );
 
-        // Checks if the objective is met
-        const isMet =
-          percSum >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
-
         // Create horizontal bar config
         const config = {
           rows: [totalsByObjective[objectiveId].map((value) => [value * 100])],
@@ -289,59 +256,6 @@ const genObjectiveReport = (
       })}
     </>
   );
-};
-
-/**
- * Properties for getting objective status for sketch collection
- * @param objective Objective
- * @param objectiveMet ObjectiveAnswer
- * @param renderMsg function that takes (objective, groupId)
- */
-interface CollectionObjectiveStatusProps {
-  objective: Objective;
-  objectiveMet: ObjectiveAnswer;
-  t: any;
-  renderMsg: any;
-}
-
-/**
- * Presents objectives for single sketch
- * @param CollectionObjectiveStatusProps containing objective, objective
- */
-const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStatusProps> =
-  ({ objective, objectiveMet, t }) => {
-    const msg = collectionMsgs[objective.objectiveId](
-      objective,
-      objectiveMet,
-      t
-    );
-
-    return <ObjectiveStatus status={objectiveMet} msg={msg} />;
-  };
-
-/**
- * Renders messages beased on objective and if objective is met for sketch collections
- */
-const collectionMsgs: Record<string, any> = {
-  seagrass: (objective: Objective, objectiveMet: ObjectiveAnswer, t: any) => {
-    if (objectiveMet === OBJECTIVE_YES) {
-      return (
-        <>
-          {t("This plan meets the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of seagrass ecosystems.")}
-        </>
-      );
-    } else if (objectiveMet === OBJECTIVE_NO) {
-      return (
-        <>
-          {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of seagrass ecosystems.")}
-        </>
-      );
-    }
-  },
 };
 
 /**
@@ -413,6 +327,9 @@ const genMpaSketchTable = (
   );
 };
 
+/**
+ * Generates Show By Protection level table
+ */
 const genGroupLevelTable = (levelAggs: GroupMetricAgg[], t: any) => {
   const columns: Column<GroupMetricAgg>[] = [
     {

@@ -14,7 +14,6 @@ import {
   GroupCircleRow,
   GroupPill,
   SketchClassTableStyled,
-  RowConfig,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -41,6 +40,7 @@ import { getMetricGroupObjectiveIds } from "@seasketch/geoprocessing";
 import {
   groupColorMap,
   groupDisplayMapPl,
+  protectionLevelsDisplay,
 } from "../util/getMpaProtectionLevel";
 
 export const Coral: React.FunctionComponent<GeogProp> = (props) => {
@@ -60,25 +60,21 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
   );
 
   const mapLabel = t("Map");
+  const titleLabel = t("Coral Reef");
+  const layerId = metricGroup.layerId;
 
   return (
     <>
       <ResultsCard
-        title={t("Coral Reef")}
+        title={titleLabel}
         functionName="coralValueOverlap"
         useChildCard
       >
         {(data: ReportResult) => {
           return (
             <ToolbarCard
-              title={t("Coral Reef")}
-              items={
-                <LayerToggle
-                  label={mapLabel}
-                  layerId={metricGroup.layerId}
-                  simple
-                />
-              }
+              title={titleLabel}
+              items={<LayerToggle label={mapLabel} layerId={layerId} simple />}
             >
               <p>
                 <Trans i18nKey="Coral Card 1">
@@ -99,33 +95,7 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
                 </Collapse>
               )}
 
-              <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Coral Card - learn more">
-                  <p>
-                    ℹ️ Overview: Coral reef restoration is the intentional and
-                    active process of assisting the recovery and regeneration of
-                    coral reefs that have been damaged or degraded. It involves
-                    various techniques and interventions aimed at promoting the
-                    growth and survival of coral species, enhancing reef
-                    structure, and restoring ecosystem functionality. 7% of
-                    Belizean coral reefs are currently within HBPZs.
-                  </p>
-                  <p>🎯 Planning Objective: 20% of coral reefs in HBPZs</p>
-                  <p>
-                    🗺️ Source Data: Coral cover for 2021 from the Smart Coasts
-                    project, derived from the GEOBON project from CZMAI.
-                  </p>
-                  <p>
-                    📈 Report: The percentage of each feature type within this
-                    plan is calculated by finding the overlap of each feature
-                    type with the plan, summing its area, then dividing it by
-                    the total area of each feature type found within the
-                    selected nearshore planning area. If the plan includes
-                    multiple areas that overlap, the overlap is only counted
-                    once.
-                  </p>
-                </Trans>
-              </Collapse>
+              <Collapse title={t("Learn more")}>{genLearnMore()}</Collapse>
             </ToolbarCard>
           );
         }}
@@ -135,10 +105,11 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
 };
 
 /**
- * Report protection level for single sketch
- * @param data ReportResult
- * @param t TFunction
- * @returns JSX.Element
+ * Creates horizontal stack bars with objectives for a single sketch
+ * @param data returned from lambda function
+ * @param precalcMetrics precalculated totals from precalc.json
+ * @param t TFunction for translation
+ * @returns Stacking bar plot for objectives
  */
 const sketchReport = (
   data: ReportResult,
@@ -146,6 +117,9 @@ const sketchReport = (
   objectiveIds: string[],
   t: any
 ) => {
+  if (isSketchCollection(data.sketch))
+    throw new Error("Expected single sketch");
+
   // Get total planning area
   const totalArea = firstMatchingMetric(
     precalcMetrics,
@@ -179,11 +153,11 @@ const sketchReport = (
 };
 
 /**
- * Report protection level for sketch collection
- * @param data ReportResult
- * @param precalcMetrics Metric[] from precalc.json
- * @param t TFunction
- * @returns JSX.Element
+ * Creates horizontal stack bars with objectives for a sketch collection
+ * @param data returned from lambda function
+ * @param precalcMetrics precalculated totals from precalc.json
+ * @param t TFunction for translation
+ * @returns Stacking bar plot for objectives
  */
 const collectionReport = (
   data: ReportResult,
@@ -191,13 +165,15 @@ const collectionReport = (
   objectiveIds: string[],
   t: any
 ) => {
-  if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
+  if (!isSketchCollection(data.sketch))
+    throw new Error("Expected sketch collection");
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
     (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
   );
 
+  // Flatten metrics by class name
   const groupLevelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
     data.sketch,
     levelMetrics,
@@ -234,7 +210,11 @@ const collectionReport = (
 };
 
 /**
- * Generates Show By MPA sketch table
+ * Creates horizontal stack bar report
+ * @param objectiveIds objectives to show
+ * @param totalsByObjective values per objective
+ * @param t TFunction for translation
+ * @returns Stacking bar plot
  */
 const genObjectiveReport = (
   objectiveIds: string[],
@@ -243,7 +223,7 @@ const genObjectiveReport = (
 ) => {
   // Coloring and styling for horizontal bars
   const groupColors = Object.values(groupColorMap);
-  const blockGroupNames = [t("High"), t("Medium")];
+  const blockGroupNames = protectionLevelsDisplay;
   const blockGroupStyles = groupColors.map((curBlue) => ({
     backgroundColor: curBlue,
   }));
@@ -359,7 +339,55 @@ const collectionMsgs: Record<string, any> = {
 };
 
 /**
+ * Creates Show By Protection Level report
+ * @param levelAggs totals per protection level
+ * @param t TFunction for translation
+ */
+const genGroupLevelTable = (levelAggs: GroupMetricAgg[], t: any) => {
+  const columns: Column<GroupMetricAgg>[] = [
+    {
+      Header: t("This plan contains") + ":",
+      accessor: (row) => (
+        <GroupCircleRow
+          group={row.groupId}
+          groupColorMap={groupColorMap}
+          circleText={`${row.numSketches}`}
+          rowText={
+            <>
+              <b>{t(groupDisplayMapPl[row.groupId])}</b>
+            </>
+          }
+        />
+      ),
+    },
+    {
+      Header: t("% Coral Reef"),
+      accessor: (row) => {
+        return (
+          <GroupPill groupColorMap={groupColorMap} group={row.groupId}>
+            {percentWithEdge(row.percValue as number)}
+          </GroupPill>
+        );
+      },
+    },
+  ];
+
+  return (
+    <SmallReportTableStyled>
+      <Table
+        className="styled"
+        columns={columns}
+        data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
+      />
+    </SmallReportTableStyled>
+  );
+};
+
+/**
  * Generates Show By MPA sketch table
+ * @param data returned by lambda function
+ * @param precalcMetrics precalculated totals from precalc.json
+ * @param t TFunction for translation
  */
 const genMpaSketchTable = (
   data: ReportResult,
@@ -427,42 +455,27 @@ const genMpaSketchTable = (
   );
 };
 
-const genGroupLevelTable = (levelAggs: GroupMetricAgg[], t: any) => {
-  const columns: Column<GroupMetricAgg>[] = [
-    {
-      Header: t("This plan contains") + ":",
-      accessor: (row) => (
-        <GroupCircleRow
-          group={row.groupId}
-          groupColorMap={groupColorMap}
-          circleText={`${row.numSketches}`}
-          rowText={
-            <>
-              <b>{t(groupDisplayMapPl[row.groupId])}</b>
-            </>
-          }
-        />
-      ),
-    },
-    {
-      Header: t("% Coral Reef"),
-      accessor: (row) => {
-        return (
-          <GroupPill groupColorMap={groupColorMap} group={row.groupId}>
-            {percentWithEdge(row.percValue as number)}
-          </GroupPill>
-        );
-      },
-    },
-  ];
-
-  return (
-    <SmallReportTableStyled>
-      <Table
-        className="styled"
-        columns={columns}
-        data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
-      />
-    </SmallReportTableStyled>
-  );
-};
+const genLearnMore = () => (
+  <Trans i18nKey="Coral Card - learn more">
+    <p>
+      ℹ️ Overview: Coral reef restoration is the intentional and active process
+      of assisting the recovery and regeneration of coral reefs that have been
+      damaged or degraded. It involves various techniques and interventions
+      aimed at promoting the growth and survival of coral species, enhancing
+      reef structure, and restoring ecosystem functionality. 7% of Belizean
+      coral reefs are currently within HBPZs.
+    </p>
+    <p>🎯 Planning Objective: 20% of coral reefs in HBPZs</p>
+    <p>
+      🗺️ Source Data: Coral cover for 2021 from the Smart Coasts project,
+      derived from the GEOBON project from CZMAI.
+    </p>
+    <p>
+      📈 Report: The percentage of each feature type within this plan is
+      calculated by finding the overlap of each feature type with the plan,
+      summing its area, then dividing it by the total area of each feature type
+      found within the selected nearshore planning area. If the plan includes
+      multiple areas that overlap, the overlap is only counted once.
+    </p>
+  </Trans>
+);

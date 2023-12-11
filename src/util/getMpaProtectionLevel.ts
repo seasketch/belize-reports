@@ -9,6 +9,7 @@ import {
 
 // Designation of protection levels
 export const protectionLevels = ["HIGH_PROTECTION", "MEDIUM_PROTECTION"];
+export const protectionLevelsDisplay = ["High", "Medium"];
 
 // Display values for groups (plural)
 export const groupDisplayMapPl: Record<string, string> = {
