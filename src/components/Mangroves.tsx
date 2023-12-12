@@ -13,7 +13,6 @@ import {
   GroupPill,
   ReportError,
   ClassTable,
-  RowConfig,
   LayerToggle,
   ReportTableStyled,
 } from "@seasketch/geoprocessing/client-ui";
@@ -297,18 +296,20 @@ const collectionReport = (
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
   const mangroveLevelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+    (m) =>
+      (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") &&
+      m.classId === "Mangrove"
   );
 
-  const precalcMangroveMetrics = precalcMetrics;
+  const precalcMangroveMetrics = precalcMetrics.filter(
+    (m) => m.classId === "Mangrove"
+  );
 
   const mangroveGroupLevelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
     data.sketch,
     mangroveLevelMetrics,
     precalcMangroveMetrics
   );
-
-  console.log(mangroveGroupLevelAggs);
 
   // Filter down grouped metrics to ones that count for each objective
   const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(

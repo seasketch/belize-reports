@@ -14,9 +14,53 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
       "classId": "coastal_dev",
       "sketchId": "23569",
       "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "littoral-medium"
@@ -36,9 +80,53 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_trans",
       "sketchId": "23569",
       "groupId": null,
+      "value": 27695520.990733,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 27695520.990733,
       "extra": {
         "sketchName": "littoral-medium"

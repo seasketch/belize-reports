@@ -14,10 +14,54 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 13785813415.808252,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "basins",
       "sketchId": "21893",
       "groupId": null,
       "value": 1759084845.819252,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 1759084845.819252,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "test-whole"
       }
@@ -36,10 +80,54 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 3169762711.214623,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "escarpments",
       "sketchId": "21893",
       "groupId": null,
       "value": 5486950149.968844,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 5486950149.968844,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "test-whole"
       }
@@ -58,10 +146,54 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 231163205.400189,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "rises",
       "sketchId": "21893",
       "groupId": null,
       "value": 13554808714.70215,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 13554808714.70215,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "test-whole"
       }
@@ -80,10 +212,54 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 10102834745.255169,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "shelf_valleys",
       "sketchId": "21893",
       "groupId": null,
       "value": 312138471.801005,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 312138471.801005,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "test-whole"
       }
@@ -102,10 +278,54 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 76204845.265373,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "slope",
       "sketchId": "21893",
       "groupId": null,
       "value": 9261817212.171902,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 9261817212.171902,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "test-whole"
       }

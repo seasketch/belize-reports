@@ -4,6 +4,28 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "ag_runoff",
+      "sketchId": "20646",
+      "groupId": null,
+      "value": 265733648.902582,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 265733648.902582,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
       "sketchId": "20647",
       "groupId": null,
       "value": 0,
@@ -15,11 +37,11 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "ag_runoff",
-      "sketchId": "20646",
-      "groupId": null,
-      "value": 265733648.902582,
+      "sketchId": "20647",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
-        "sketchName": "high-protection-zone"
+        "sketchName": "medium-protection-zone"
       }
     },
     {
@@ -37,12 +59,25 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
-      "classId": "coastal_dev",
-      "sketchId": "20647",
-      "groupId": null,
+      "classId": "ag_runoff",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
+      "value": 265733648.902582,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
-        "sketchName": "medium-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -60,6 +95,39 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "coastal_dev",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 24485.204943,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "20647",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "20647",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
       "sketchId": "20648",
       "groupId": null,
       "value": 24485.204943,
@@ -71,12 +139,25 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
-      "classId": "marine_dredging",
-      "sketchId": "20647",
-      "groupId": null,
+      "classId": "coastal_dev",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
+      "value": 24485.204943,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
-        "sketchName": "medium-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -94,6 +175,39 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_dredging",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 62833196.68504,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "20647",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "20647",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
       "sketchId": "20648",
       "groupId": null,
       "value": 62833196.68504,
@@ -105,12 +219,25 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
-      "classId": "marine_trans",
-      "sketchId": "20647",
-      "groupId": null,
-      "value": 288874636.499477,
+      "classId": "marine_dredging",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
+      "value": 62833196.68504,
       "extra": {
-        "sketchName": "medium-protection-zone"
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
       }
     },
     {
@@ -128,9 +255,66 @@
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_trans",
+      "sketchId": "20646",
+      "groupId": "HIGH_PROTECTION",
+      "value": 335893252.112565,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "20647",
+      "groupId": null,
+      "value": 288874636.499477,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "20647",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 288874636.499477,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
       "sketchId": "20648",
       "groupId": null,
       "value": 624767888.612042,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "20648",
+      "groupId": "HIGH_PROTECTION",
+      "value": 335893252.112565,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "20648",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 288874636.499477,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

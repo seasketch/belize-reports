@@ -14,9 +14,53 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "basins",
       "sketchId": "23569",
       "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "littoral-medium"
@@ -36,9 +80,53 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "escarpments",
       "sketchId": "23569",
       "groupId": null,
+      "value": 38728160.350814,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 38728160.350814,
       "extra": {
         "sketchName": "littoral-medium"
@@ -58,9 +146,53 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "rises",
       "sketchId": "23569",
       "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "littoral-medium"
@@ -80,9 +212,53 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 93597435.503814,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "shelf_valleys",
       "sketchId": "23569",
       "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "littoral-medium"
@@ -102,9 +278,53 @@
     {
       "geographyId": null,
       "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
       "classId": "slope",
       "sketchId": "23569",
       "groupId": null,
+      "value": 38407627.502577,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23569",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23569",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 38407627.502577,
       "extra": {
         "sketchName": "littoral-medium"

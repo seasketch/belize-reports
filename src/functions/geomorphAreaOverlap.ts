@@ -11,10 +11,16 @@ import {
   overlapFeatures,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
+  overlapFeaturesGroupMetrics,
 } from "@seasketch/geoprocessing";
 import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
 import project from "../../project";
+import {
+  getMpaProtectionLevels,
+  protectionLevels,
+} from "../util/getMpaProtectionLevel";
+import { sortMetrics } from "@seasketch/geoprocessing/client-core";
 
 export async function geomorphAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
@@ -23,6 +29,7 @@ export async function geomorphAreaOverlap(
   const metricGroup = project.getMetricGroup("geomorphAreaOverlap");
 
   let cachedFeatures: Record<string, Feature<Polygon>[]> = {};
+  const featuresByClass: Record<string, Feature<Polygon>[]> = {};
 
   const polysByBoundary = (
     await Promise.all(
@@ -43,8 +50,7 @@ export async function geomorphAreaOverlap(
           // If this is a sub-class, filter by class name, exclude null geometry too
           // ToDo: should do deeper match to classKey
           const finalFeatures =
-            curClass.classKey &&
-            curClass.classId !== `${ds.datasourceId}_all`
+            curClass.classKey && curClass.classId !== `${ds.datasourceId}_all`
               ? dsFeatures.filter((feat) => {
                   return (
                     feat.geometry &&
@@ -52,6 +58,7 @@ export async function geomorphAreaOverlap(
                   );
                 }, [])
               : dsFeatures;
+          featuresByClass[curClass.classId] = finalFeatures;
 
           return finalFeatures;
         }
@@ -87,8 +94,22 @@ export async function geomorphAreaOverlap(
     []
   );
 
+  // Calculate group metrics - from individual sketch metrics
+  const sketchCategoryMap = getMpaProtectionLevels(sketch);
+  const metricToGroup = (sketchMetric: Metric) =>
+    sketchCategoryMap[sketchMetric.sketchId!];
+
+  const groupMetrics = await overlapFeaturesGroupMetrics({
+    metricId: metricGroup.metricId,
+    groupIds: protectionLevels,
+    sketch,
+    metricToGroup,
+    metrics: metrics,
+    featuresByClass,
+  });
+
   return {
-    metrics: rekeyMetrics(metrics),
+    metrics: sortMetrics(rekeyMetrics([...metrics, ...groupMetrics])),
     sketch: toNullSketch(sketch, true),
   };
 }

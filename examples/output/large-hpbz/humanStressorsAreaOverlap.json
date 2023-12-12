@@ -14,10 +14,54 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 96420795.65678,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
       "classId": "coastal_dev",
       "sketchId": "20652",
       "groupId": null,
       "value": 6695.963173,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 6695.963173,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -36,10 +80,54 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 30808504.046273,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_trans",
       "sketchId": "20652",
       "groupId": null,
       "value": 1381308213.782768,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 1381308213.782768,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "large-hpbz"
       }

@@ -14,10 +14,54 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 7084065098.657701,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "ag_runoff",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
       "classId": "coastal_dev",
       "sketchId": "21893",
       "groupId": null,
       "value": 7886287.54482,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 7886287.54482,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "coastal_dev",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "test-whole"
       }
@@ -36,10 +80,54 @@
     {
       "geographyId": null,
       "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 785248763.070443,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_dredging",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_trans",
       "sketchId": "21893",
       "groupId": null,
       "value": 7747654123.356178,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "21893",
+      "groupId": "HIGH_PROTECTION",
+      "value": 7747654123.356178,
+      "extra": {
+        "sketchName": "test-whole"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "humanStressorsAreaOverlap",
+      "classId": "marine_trans",
+      "sketchId": "21893",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "test-whole"
       }
