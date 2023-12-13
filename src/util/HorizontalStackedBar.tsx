@@ -12,6 +12,8 @@ import {
 } from "@seasketch/geoprocessing/client-ui";
 import React from "react";
 import styled from "styled-components";
+// CHANGE: Import CheckCircleFill
+import { CheckCircleFill } from "@styled-icons/bootstrap";
 
 // DID NOT CHANGE - was not exported from library
 const defaults = {
@@ -196,14 +198,16 @@ const StyledHorizontalStackedBar = styled.div<StyledHorizontalStackedBarProps>`
     )}
 
   ${(props) =>
-    props.target
-      ? `
+    props.target &&
+    props.target.map((target) =>
+      target
+        ? `
         .marker-label {
           position: absolute;
           ${props.targetLabelPosition || "top"}: ${
-          props.targetLabelStyle === "normal" ? "-15" : "-12"
-        }px;
-          left: ${props.target ? props.target : 0}%;
+            props.targetLabelStyle === "normal" ? "-15" : "-12"
+          }px;
+          left: ${target ? target : 0}%;
           width: 100px;
           text-align: left;
           font-size: 0.7em;
@@ -212,7 +216,7 @@ const StyledHorizontalStackedBar = styled.div<StyledHorizontalStackedBarProps>`
       
         .marker {
           position: absolute;
-          left: ${props.target}%;
+          left: ${target}%;
           height: ${(props.barHeight || defaults.barHeight) + 4}px;
           width: 3px;
           background-color: #000;
@@ -221,7 +225,8 @@ const StyledHorizontalStackedBar = styled.div<StyledHorizontalStackedBarProps>`
           border-radius: 2px;
         }
     `
-      : ""}
+        : ""
+    )}
 
   ${(props) =>
     props.blockGroupColors.map(
@@ -256,6 +261,7 @@ export type RowConfig = {
 
 // CHANGE: Add showLayerToggles option
 // CHANGE: target is now (number | undefined)[] instead of number
+// CHANGE: showTargetPass option for check mark
 export interface HorizontalStackedBarProps {
   /** row data */
   rows: HorizontalStackedBarRow[];
@@ -275,6 +281,7 @@ export interface HorizontalStackedBarProps {
   showLegend?: boolean;
   showTotalLabel?: boolean;
   showLayerToggles?: boolean;
+  showTargetPass?: boolean;
   targetLabelPosition?: "top" | "bottom";
   targetLabelStyle?: "normal" | "tight";
   valueFormatter?: (value: number) => string | JSX.Element;
@@ -285,6 +292,7 @@ export interface HorizontalStackedBarProps {
 /**
  * Horizontal stacked bar chart component
  * CHANGE: Add showLayerToggles = false default. Add layer toggles
+ * CHANGE: Add small check mark when target reached with showTargetPass option
  */
 export const HorizontalStackedBar: React.FunctionComponent<HorizontalStackedBarProps> =
   ({
@@ -298,6 +306,7 @@ export const HorizontalStackedBar: React.FunctionComponent<HorizontalStackedBarP
     showTotalLabel = true,
     showTargetLabel = true,
     showLayerToggles = false,
+    showTargetPass = false,
     targetLabelPosition = "top",
     targetLabelStyle = "normal",
     target,
@@ -365,6 +374,12 @@ export const HorizontalStackedBar: React.FunctionComponent<HorizontalStackedBarP
                 >
                   {showTitle && (
                     <div className="title">
+                      {showTargetPass && targetReached && (
+                        <CheckCircleFill
+                          size={15}
+                          style={{ color: "#78c679", paddingRight: 5 }}
+                        />
+                      )}
                       {titleValue(rowTotals[rowNumber])}
                     </div>
                   )}

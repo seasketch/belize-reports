@@ -3,10 +3,10 @@ import {
   Collapse,
   ResultsCard,
   useSketchProperties,
-  ReportTableStyled,
+  DataDownload,
+  ToolbarCard,
 } from "@seasketch/geoprocessing/client-ui";
 import { ReportResult, GeogProp } from "@seasketch/geoprocessing/client-core";
-import styled from "styled-components";
 import project from "../../project";
 import Translator from "./TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ import {
   groupedCollectionReport,
   groupedSketchReport,
 } from "../util/ProtectionLevelOverlapReports";
+import { Download } from "@styled-icons/bootstrap/Download/Download";
 
 export const HumanStressors: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
@@ -36,10 +37,27 @@ export const HumanStressors: React.FunctionComponent<GeogProp> = (props) => {
       <ResultsCard
         title={t("Human Use")}
         functionName="humanStressorsAreaOverlap"
+        useChildCard
       >
         {(data: ReportResult) => {
           return (
-            <>
+            <ToolbarCard
+              title={t("Human Use")}
+              items={
+                <DataDownload
+                  filename="human-use"
+                  data={data.metrics}
+                  formats={["csv", "json"]}
+                  titleElement={
+                    <Download
+                      size={18}
+                      color="#999"
+                      style={{ cursor: "pointer" }}
+                    />
+                  }
+                />
+              }
+            >
               <p>
                 <Trans i18nKey="Human Stressors Card 1">
                   This report summarizes the amount of human use sectors that
@@ -79,7 +97,7 @@ export const HumanStressors: React.FunctionComponent<GeogProp> = (props) => {
                   </p>
                 </Trans>
               </Collapse>
-            </>
+            </ToolbarCard>
           );
         }}
       </ResultsCard>

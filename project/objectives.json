@@ -28,7 +28,7 @@
   },
   {
     "objectiveId": "Mangrove",
-    "shortDesc": "Mangroves Objective",
+    "shortDesc": "mangrove forests in High or Medium Protection Biodiversity Zones",
     "target": 0.3,
     "countsToward": {
       "HIGH_PROTECTION": "yes",

@@ -7,8 +7,8 @@ import {
   GroupPill,
   Table,
   GroupCircleRow,
-  SketchClassTableStyled,
   ObjectiveStatus,
+  SketchClassTableStyled,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -37,6 +37,13 @@ import {
 import { HorizontalStackedBar, RowConfig } from "./HorizontalStackedBar";
 import project from "../../project";
 
+export interface ClassTableGroupedProps {
+  showDetailedObjectives: boolean;
+  showLegend: boolean;
+  showLayerToggles: boolean;
+  showTargetPass: boolean;
+}
+
 /**
  * Creates grouped overlap report for sketch
  * @param data data returned from lambda
@@ -48,7 +55,8 @@ export const groupedSketchReport = (
   data: ReportResult,
   precalcMetrics: Metric[],
   metricGroup: MetricGroup,
-  t: any
+  t: any,
+  options?: ClassTableGroupedProps
 ) => {
   // Get total precalc areas
   const totalAreas = metricGroup.classes.reduce<Record<string, number>>(
@@ -95,7 +103,7 @@ export const groupedSketchReport = (
     {}
   );
 
-  return genHorizBarReport(metricGroup, totalsByClass, t);
+  return genClassTableGrouped(metricGroup, totalsByClass, t, options);
 };
 
 /**
@@ -109,7 +117,8 @@ export const groupedCollectionReport = (
   data: ReportResult,
   precalcMetrics: Metric[],
   metricGroup: MetricGroup,
-  t: any
+  t: any,
+  options?: ClassTableGroupedProps
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
 
@@ -147,7 +156,7 @@ export const groupedCollectionReport = (
 
   return (
     <>
-      {genHorizBarReport(metricGroup, totalsByClass, t)}
+      {genClassTableGrouped(metricGroup, totalsByClass, t, options)}
 
       <Collapse title={t("Show by Protection Level")}>
         {genGroupLevelTable(data, precalcMetrics, metricGroup, t)}
@@ -162,11 +171,19 @@ export const groupedCollectionReport = (
  * @param totalsByClass percent overlap for each class for each protection level
  * @param t TFunction
  */
-export const genHorizBarReport = (
+export const genClassTableGrouped = (
   metricGroup: MetricGroup,
   totalsByClass: Record<string, number[]>,
-  t: any
+  t: any,
+  options?: ClassTableGroupedProps
 ) => {
+  const finalOptions = {
+    showDetailedObjectives: true,
+    showLegend: true,
+    showLayerToggles: true,
+    showTargetPass: false,
+    ...options,
+  };
   // Coloring and styling for horizontal bars
   const groupColors = Object.values(groupColorMap);
   const blockGroupNames = protectionLevelsDisplay.map((level) => t(level));
@@ -200,45 +217,51 @@ export const genHorizBarReport = (
 
   return (
     <>
-      {metricGroup.classes.map((curClass) => {
-        if (curClass.objectiveId) {
-          const objective = project.getObjectiveById(curClass.objectiveId);
+      {finalOptions.showDetailedObjectives &&
+        metricGroup.classes.map((curClass) => {
+          if (curClass.objectiveId) {
+            const objective = project.getObjectiveById(curClass.objectiveId);
 
-          // Get total percentage within sketch
-          const percSum = totalsByClass[curClass.classId].reduce(
-            (sum, value) => sum + value,
-            0
-          );
+            // Get total percentage within sketch
+            const percSum = totalsByClass[curClass.classId].reduce(
+              (sum, value) => sum + value,
+              0
+            );
 
-          // Checks if the objective is met
-          const isMet =
-            percSum >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
+            // Checks if the objective is met
+            const isMet =
+              percSum >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
 
-          return (
-            <React.Fragment key={objective.objectiveId}>
-              <CollectionObjectiveStatus
-                objective={objective}
-                objectiveMet={isMet}
-                t={t}
-                renderMsg={
-                  Object.keys(collectionMsgs).includes(objective.objectiveId)
-                    ? collectionMsgs[objective.objectiveId](objective, isMet, t)
-                    : collectionMsgs["default"](objective, isMet, t)
-                }
-              />
-            </React.Fragment>
-          );
-        }
-      })}
+            return (
+              <React.Fragment key={objective.objectiveId}>
+                <CollectionObjectiveStatus
+                  objective={objective}
+                  objectiveMet={isMet}
+                  t={t}
+                  renderMsg={
+                    Object.keys(collectionMsgs).includes(objective.objectiveId)
+                      ? collectionMsgs[objective.objectiveId](
+                          objective,
+                          isMet,
+                          t
+                        )
+                      : collectionMsgs["default"](objective, isMet, t)
+                  }
+                />
+              </React.Fragment>
+            );
+          }
+        })}
       <ReportChartFigure>
         <HorizontalStackedBar
           {...config}
           blockGroupNames={blockGroupNames}
           blockGroupStyles={blockGroupStyles}
-          showLegend={true}
-          showLayerToggles={true}
           valueFormatter={valueFormatter}
           targetValueFormatter={(value) => targetLabel + ` - ` + value + `%`}
+          showLayerToggles={finalOptions.showLayerToggles}
+          showLegend={finalOptions.showLegend}
+          showTargetPass={finalOptions.showTargetPass}
         />
       </ReportChartFigure>
     </>
@@ -251,7 +274,7 @@ export const genHorizBarReport = (
  * @param objectiveMet ObjectiveAnswer
  * @param renderMsg function that takes (objective, groupId)
  */
-interface CollectionObjectiveStatusProps {
+export interface CollectionObjectiveStatusProps {
   objective: Objective;
   objectiveMet: ObjectiveAnswer;
   t: any;
@@ -262,7 +285,7 @@ interface CollectionObjectiveStatusProps {
  * Presents objectives for single sketch
  * @param CollectionObjectiveStatusProps containing objective, objective
  */
-const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStatusProps> =
+export const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStatusProps> =
   ({ objective, objectiveMet, t }) => {
     const msg = Object.keys(collectionMsgs).includes(objective.objectiveId)
       ? collectionMsgs[objective.objectiveId](objective, objectiveMet, t)
@@ -274,7 +297,7 @@ const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStat
 /**
  * Renders messages beased on objective and if objective is met for sketch collections
  */
-const collectionMsgs: Record<string, any> = {
+export const collectionMsgs: Record<string, any> = {
   default: (objective: Objective, objectiveMet: ObjectiveAnswer, t: any) => {
     if (objectiveMet === OBJECTIVE_YES) {
       return (
@@ -288,6 +311,52 @@ const collectionMsgs: Record<string, any> = {
         <>
           {t("This plan does not meet the objective of protecting")}{" "}
           <b>{percentWithEdge(objective.target)}</b> {t(objective.shortDesc)}
+        </>
+      );
+    }
+  },
+  ocean_space_protected: (
+    objective: Objective,
+    objectiveMet: ObjectiveAnswer,
+    t: any
+  ) => {
+    if (objectiveMet === OBJECTIVE_YES) {
+      return (
+        <>
+          {t("This plan meets the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space.")}
+        </>
+      );
+    } else if (objectiveMet === OBJECTIVE_NO) {
+      return (
+        <>
+          {t("This plan does not meet the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space.")}
+        </>
+      );
+    }
+  },
+  ocean_space_highly_protected: (
+    objective: Objective,
+    objectiveMet: ObjectiveAnswer,
+    t: any
+  ) => {
+    if (objectiveMet === OBJECTIVE_YES) {
+      return (
+        <>
+          {t("This plan meets the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space in High Protection Biodiversity Zones")}
+        </>
+      );
+    } else if (objectiveMet === OBJECTIVE_NO) {
+      return (
+        <>
+          {t("This plan does not meet the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b>{" "}
+          {t("of the Belize Ocean Space in High Protection Biodiversity Zones")}
         </>
       );
     }

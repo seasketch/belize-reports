@@ -5,6 +5,8 @@ import {
   useSketchProperties,
   ToolbarCard,
   LayerToggle,
+  ReportError,
+  DataDownload,
 } from "@seasketch/geoprocessing/client-ui";
 import { ReportResult, GeogProp } from "@seasketch/geoprocessing/client-core";
 import project from "../../project";
@@ -15,6 +17,7 @@ import {
   groupedCollectionReport,
   groupedSketchReport,
 } from "../util/ProtectionLevelOverlapReports";
+import { Download } from "@styled-icons/bootstrap/Download/Download";
 
 export const Coral: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
@@ -44,58 +47,78 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
       >
         {(data: ReportResult) => {
           return (
-            <ToolbarCard
-              title={titleLabel}
-              items={<LayerToggle label={mapLabel} layerId={layerId} simple />}
-            >
-              <p>
-                <Trans i18nKey="Coral Card 1">
-                  This planning process has the goal of promoting the growth and
-                  survival of coral species. This report shows progress towards
-                  the objective of 20% of coral reefs highly protected.
-                </Trans>
-              </p>
+            <ReportError>
+              <ToolbarCard
+                title={titleLabel}
+                items={
+                  <>
+                    <LayerToggle label={mapLabel} layerId={layerId} simple />
+                    <DataDownload
+                      filename="coral"
+                      data={data.metrics}
+                      formats={["csv", "json"]}
+                      titleElement={
+                        <Download
+                          size={18}
+                          color="#999"
+                          style={{ cursor: "pointer" }}
+                        />
+                      }
+                    />
+                  </>
+                }
+              >
+                <p>
+                  <Trans i18nKey="Coral Card 1">
+                    This planning process has the goal of promoting the growth
+                    and survival of coral species. This report shows progress
+                    towards the objective of 20% of coral reefs highly
+                    protected.
+                  </Trans>
+                </p>
 
-              <Translator>
-                {isCollection
-                  ? groupedCollectionReport(data, precalcMetrics, mg, t)
-                  : groupedSketchReport(data, precalcMetrics, mg, t)}
+                <Translator>
+                  {isCollection
+                    ? groupedCollectionReport(data, precalcMetrics, mg, t)
+                    : groupedSketchReport(data, precalcMetrics, mg, t)}
 
-                {isCollection && (
-                  <Collapse title={t("Show by MPA")}>
-                    {genSketchTable(data, precalcMetrics, mg)}
-                  </Collapse>
-                )}
-              </Translator>
+                  {isCollection && (
+                    <Collapse title={t("Show by MPA")}>
+                      {genSketchTable(data, precalcMetrics, mg)}
+                    </Collapse>
+                  )}
+                </Translator>
 
-              <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Coral Card - learn more">
-                  <p>
-                    ℹ️ Overview: Coral reef restoration is the intentional and
-                    active process of assisting the recovery and regeneration of
-                    coral reefs that have been damaged or degraded. It involves
-                    various techniques and interventions aimed at promoting the
-                    growth and survival of coral species, enhancing reef
-                    structure, and restoring ecosystem functionality. 7% of
-                    Belizean coral reefs are currently within HBPZs.
-                  </p>
-                  <p>🎯 Planning Objective: 20% of coral reefs in HBPZs</p>
-                  <p>
-                    🗺️ Source Data: Coral cover for 2021 from the Smart Coasts
-                    project, derived from the GEOBON project from CZMAI.
-                  </p>
-                  <p>
-                    📈 Report: The percentage of each feature type within this
-                    plan is calculated by finding the overlap of each feature
-                    type with the plan, summing its area, then dividing it by
-                    the total area of each feature type found within the
-                    selected nearshore planning area. If the plan includes
-                    multiple areas that overlap, the overlap is only counted
-                    once.
-                  </p>
-                </Trans>
-              </Collapse>
-            </ToolbarCard>
+                <Collapse title={t("Learn more")}>
+                  <Trans i18nKey="Coral Card - learn more">
+                    <p>
+                      ℹ️ Overview: Coral reef restoration is the intentional and
+                      active process of assisting the recovery and regeneration
+                      of coral reefs that have been damaged or degraded. It
+                      involves various techniques and interventions aimed at
+                      promoting the growth and survival of coral species,
+                      enhancing reef structure, and restoring ecosystem
+                      functionality. 7% of Belizean coral reefs are currently
+                      within HBPZs.
+                    </p>
+                    <p>🎯 Planning Objective: 20% of coral reefs in HBPZs</p>
+                    <p>
+                      🗺️ Source Data: Coral cover for 2021 from the Smart Coasts
+                      project, derived from the GEOBON project from CZMAI.
+                    </p>
+                    <p>
+                      📈 Report: The percentage of each feature type within this
+                      plan is calculated by finding the overlap of each feature
+                      type with the plan, summing its area, then dividing it by
+                      the total area of each feature type found within the
+                      selected nearshore planning area. If the plan includes
+                      multiple areas that overlap, the overlap is only counted
+                      once.
+                    </p>
+                  </Trans>
+                </Collapse>
+              </ToolbarCard>
+            </ReportError>
           );
         }}
       </ResultsCard>

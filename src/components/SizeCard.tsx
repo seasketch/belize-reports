@@ -3,57 +3,42 @@ import {
   ResultsCard,
   ReportError,
   Collapse,
-  Column,
-  Table,
-  ReportTableStyled,
-  GroupCircleRow,
-  GroupPill,
   KeySection,
   HorizontalStackedBar,
   ReportChartFigure,
-  ObjectiveStatus,
   useSketchProperties,
   VerticalSpacer,
   ToolbarCard,
   LayerToggle,
+  DataDownload,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
-  NullSketch,
   Metric,
   firstMatchingMetric,
-  keyBy,
-  toNullSketchArray,
   percentWithEdge,
   GroupMetricAgg,
   roundLower,
   squareMeterToKilometer,
   OBJECTIVE_NO,
   OBJECTIVE_YES,
-  Objective,
-  ObjectiveAnswer,
-  toPercentMetric,
 } from "@seasketch/geoprocessing/client-core";
 import {
   getMetricGroupObjectiveIds,
   isSketchCollection,
 } from "@seasketch/geoprocessing";
 import { Trans, useTranslation } from "react-i18next";
-import styled from "styled-components";
 import project from "../../project";
 import { flattenByGroupAllClass } from "../util/flattenByGroupAllClass";
 import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
+import { groupColorMap } from "../util/getMpaProtectionLevel";
 import {
-  groupColorMap,
-  groupDisplayMapPl,
-} from "../util/getMpaProtectionLevel";
-
-// Styling for 'Show by --' tables
-export const SmallReportTableStyled = styled(ReportTableStyled)`
-  .styled {
-    font-size: 13px;
-  }
-`;
+  CollectionObjectiveStatus,
+  collectionMsgs,
+  genGroupLevelTable,
+  genSketchTable,
+} from "../util/ProtectionLevelOverlapReports";
+import { Download } from "@styled-icons/bootstrap/Download/Download";
 
 // Hard code total area of Belize ocean space
 const boundaryTotalMetrics: Metric[] = [
@@ -104,14 +89,25 @@ export const SizeCard: React.FunctionComponent = (props) => {
           areaMetric.value / totalAreaMetric.value
         );
         const areaUnitDisplay = t("km²");
-        const mapLabel = t("Map");
+        const mapLabel = t("Show Map Layer");
 
         return (
           <ReportError>
             <ToolbarCard
               title={t("Size")}
               items={
-                <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
+                <DataDownload
+                  filename="size"
+                  data={data.metrics}
+                  formats={["csv", "json"]}
+                  titleElement={
+                    <Download
+                      size={18}
+                      color="#999"
+                      style={{ cursor: "pointer" }}
+                    />
+                  }
+                />
               }
             >
               <VerticalSpacer />
@@ -132,13 +128,17 @@ export const SizeCard: React.FunctionComponent = (props) => {
                 {t("which is")} <b>{percDisplay}</b> {t("of")}{" "}
                 {t("the 33,706 km² Belize Ocean Space")}.
               </KeySection>
+
+              <LayerToggle label={mapLabel} layerId={mg.layerId} />
+              <VerticalSpacer />
+
               {isCollection
                 ? collectionReport(data, boundaryTotalMetrics, objectiveIds, t)
                 : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
               {isCollection && (
                 <Collapse title={t("Show by MPA")}>
-                  {genMpaSketchTable(data, boundaryTotalMetrics, t)}
+                  {genSketchTable(data, boundaryTotalMetrics, mg)}
                 </Collapse>
               )}
 
@@ -209,6 +209,7 @@ const collectionReport = (
   t: any
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
+  const mg = project.getMetricGroup("boundaryAreaOverlap", t);
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
@@ -244,7 +245,7 @@ const collectionReport = (
       {genObjectiveReport(objectiveIds, totalsByObjective, t)}
 
       <Collapse title={t("Show by Protection Level")}>
-        {genGroupLevelTable(groupLevelAggs, t)}
+        {genGroupLevelTable(data, precalcMetrics, mg, t)}
       </Collapse>
     </>
   );
@@ -301,7 +302,11 @@ const genObjectiveReport = (
               objective={objective}
               objectiveMet={isMet}
               t={t}
-              renderMsg={collectionMsgs[objectiveId](objective, isMet, t)}
+              renderMsg={
+                Object.keys(collectionMsgs).includes(objective.objectiveId)
+                  ? collectionMsgs[objective.objectiveId](objective, isMet, t)
+                  : collectionMsgs["default"](objective, isMet, t)
+              }
             />
             <ReportChartFigure>
               <HorizontalStackedBar
@@ -319,179 +324,6 @@ const genObjectiveReport = (
         );
       })}
     </>
-  );
-};
-
-/**
- * Properties for getting objective status for sketch collection
- * @param objective Objective
- * @param objectiveMet ObjectiveAnswer
- * @param renderMsg function that takes (objective, groupId)
- */
-interface CollectionObjectiveStatusProps {
-  objective: Objective;
-  objectiveMet: ObjectiveAnswer;
-  t: any;
-  renderMsg: any;
-}
-
-/**
- * Presents objectives for single sketch
- * @param CollectionObjectiveStatusProps containing objective, objective
- */
-const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStatusProps> =
-  ({ objective, objectiveMet, t }) => {
-    const msg = collectionMsgs[objective.objectiveId](
-      objective,
-      objectiveMet,
-      t
-    );
-
-    return <ObjectiveStatus status={objectiveMet} msg={msg} />;
-  };
-
-/**
- * Renders messages beased on objective and if objective is met for sketch collections
- */
-const collectionMsgs: Record<string, any> = {
-  ocean_space_protected: (
-    objective: Objective,
-    objectiveMet: ObjectiveAnswer,
-    t: any
-  ) => {
-    if (objectiveMet === OBJECTIVE_YES) {
-      return (
-        <>
-          {t("This plan meets the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of the Belize Ocean Space.")}
-        </>
-      );
-    } else if (objectiveMet === OBJECTIVE_NO) {
-      return (
-        <>
-          {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of the Belize Ocean Space.")}
-        </>
-      );
-    }
-  },
-  ocean_space_highly_protected: (
-    objective: Objective,
-    objectiveMet: ObjectiveAnswer,
-    t: any
-  ) => {
-    if (objectiveMet === OBJECTIVE_YES) {
-      return (
-        <>
-          {t("This plan meets the objective of highly protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of the Belize Ocean Space.")}
-        </>
-      );
-    } else if (objectiveMet === OBJECTIVE_NO) {
-      return (
-        <>
-          {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of the Belize Ocean Space in High Protection Biodiversity Zones")}
-        </>
-      );
-    }
-  },
-};
-
-/**
- * Generates Show By MPA sketch table
- */
-const genMpaSketchTable = (
-  data: ReportResult,
-  precalcMetrics: Metric[],
-  t: any
-) => {
-  const sketches = toNullSketchArray(data.sketch);
-  const sketchesById = keyBy(sketches, (sk) => sk.properties.id);
-
-  // Filter down to metrics which have groupIds
-  const levelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
-  );
-
-  // Child sketch table for 'Show By MPA'
-  const childAreaMetrics = levelMetrics.filter(
-    (m) => m.sketchId !== data.sketch.properties.id && m.groupId
-  );
-  const childAreaPercMetrics = toPercentMetric(
-    childAreaMetrics,
-    precalcMetrics
-  );
-
-  const columns: Column<Metric>[] = [
-    {
-      Header: t("MPA"),
-      accessor: (row) => (
-        <GroupPill groupColorMap={groupColorMap} group={row.groupId!}>
-          {sketchesById[row.sketchId!].properties.name}
-        </GroupPill>
-      ),
-    },
-    {
-      Header: "% Belize Ocean Space",
-      accessor: (row) => percentWithEdge(row.value),
-    },
-  ];
-
-  return (
-    <SmallReportTableStyled>
-      <Table
-        className="styled"
-        columns={columns}
-        data={childAreaPercMetrics.sort((a, b) => {
-          return a.value > b.value ? 1 : -1;
-        })}
-      />
-    </SmallReportTableStyled>
-  );
-};
-
-const genGroupLevelTable = (levelAggs: GroupMetricAgg[], t: any) => {
-  const columns: Column<GroupMetricAgg>[] = [
-    {
-      Header: t("This plan contains") + ":",
-      accessor: (row) => (
-        <GroupCircleRow
-          group={row.groupId}
-          groupColorMap={groupColorMap}
-          circleText={`${row.numSketches}`}
-          rowText={
-            <>
-              <b>{t(groupDisplayMapPl[row.groupId])}</b>
-            </>
-          }
-        />
-      ),
-    },
-    {
-      Header: "% Belize Ocean Space",
-      accessor: (row) => {
-        return (
-          <GroupPill groupColorMap={groupColorMap} group={row.groupId}>
-            {percentWithEdge(row.percValue as number)}
-          </GroupPill>
-        );
-      },
-    },
-  ];
-
-  return (
-    <SmallReportTableStyled>
-      <Table
-        className="styled"
-        columns={columns}
-        data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
-      />
-    </SmallReportTableStyled>
   );
 };
 

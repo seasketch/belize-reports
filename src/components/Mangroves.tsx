@@ -3,64 +3,20 @@ import {
   Collapse,
   ResultsCard,
   useSketchProperties,
-  SketchClassTable,
-  ReportChartFigure,
-  HorizontalStackedBar,
-  ObjectiveStatus,
-  Column,
-  Table,
-  GroupCircleRow,
-  GroupPill,
   ReportError,
-  ClassTable,
-  LayerToggle,
-  ReportTableStyled,
+  ToolbarCard,
+  DataDownload,
 } from "@seasketch/geoprocessing/client-ui";
-import {
-  ReportResult,
-  toNullSketchArray,
-  Metric,
-  toPercentMetric,
-  GeogProp,
-  isSketchCollection,
-  firstMatchingMetric,
-  OBJECTIVE_YES,
-  GroupMetricAgg,
-  flattenByGroupAllClass,
-  percentWithEdge,
-  OBJECTIVE_NO,
-  Objective,
-  ObjectiveAnswer,
-  squareMeterToKilometer,
-  roundDecimal,
-  valueFormatter,
-  flattenBySketchAllClass,
-  metricsWithSketchId,
-  MetricGroup,
-} from "@seasketch/geoprocessing/client-core";
+import { ReportResult, GeogProp } from "@seasketch/geoprocessing/client-core";
 import project from "../../project";
 import Translator from "./TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
-import { getMetricGroupObjectiveIds } from "@seasketch/geoprocessing";
 import {
-  groupColorMap,
-  groupDisplayMapPl,
-} from "../util/getMpaProtectionLevel";
-import styled from "styled-components";
-
-const Number = new Intl.NumberFormat("en", { style: "decimal" });
-
-const SmallProtectionLevelTableStyled = styled(ReportTableStyled)`
-  .styled {
-    font-size: 12px;
-  }
-
-  td,
-  th {
-    text-align: center;
-    font-weight: normal;
-  }
-`;
+  genSketchTable,
+  groupedCollectionReport,
+  groupedSketchReport,
+} from "../util/ProtectionLevelOverlapReports";
+import { Download } from "@styled-icons/bootstrap/Download/Download";
 
 export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
@@ -70,487 +26,93 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
     fallbackGroup: "default-boundary",
   });
 
-  const metricGroup = project.getMetricGroup("mangroveAreaOverlap", t);
-  const objectiveIds = getMetricGroupObjectiveIds(metricGroup);
+  const mg = project.getMetricGroup("mangroveAreaOverlap", t);
   const precalcMetrics = project.getPrecalcMetrics(
-    metricGroup,
+    mg,
     "area",
     curGeography.geographyId
   );
 
-  const mapLabel = t("Map");
-  const areaWithin = t("Within Plan");
-  const percAreaWithin = t("% Within Plan");
-  const sqKmLabel = t("km²");
-
   return (
     <>
-      <ResultsCard title={t("Mangroves")} functionName="mangroveAreaOverlap">
+      <ResultsCard
+        title={t("Mangroves")}
+        functionName="mangroveAreaOverlap"
+        useChildCard
+      >
         {(data: ReportResult) => {
-          let singleMetrics = data.metrics.filter(
-            (m) => m.sketchId === data.sketch.properties.id
-          );
-
-          const finalMetrics = [
-            ...singleMetrics,
-            ...toPercentMetric(singleMetrics, precalcMetrics, {
-              metricIdOverride: project.getMetricGroupPercId(metricGroup),
-            }),
-          ];
-
-          const mangroveClassId = "Mangrove";
-          const nonMangroveMetrics = finalMetrics.filter(
-            (m) => m.classId !== mangroveClassId
-          );
-
           return (
             <ReportError>
-              <p>
-                <Trans i18nKey="Mangroves Card 1">
-                  This report summarizes the amount of mangroves within this
-                  plan, measuring progress to the 30x30 target of 30% mangrove
-                  protection.
-                </Trans>
-              </p>
-              <LayerToggle
-                layerId={metricGroup.classes[2].layerId}
-                label={t("Show Mangrove Layer")}
-              />
-              <Translator>
-                {isCollection
-                  ? collectionReport(data, precalcMetrics, objectiveIds, t)
-                  : sketchReport(data, precalcMetrics, objectiveIds, t)}
+              <ToolbarCard
+                title={t("Mangroves")}
+                items={
+                  <DataDownload
+                    filename="mangroves"
+                    data={data.metrics}
+                    formats={["csv", "json"]}
+                    titleElement={
+                      <Download
+                        size={18}
+                        color="#999"
+                        style={{ cursor: "pointer" }}
+                      />
+                    }
+                  />
+                }
+              >
                 <p>
-                  <Trans>
-                    Priority mangrove areas and cleared mangrove areas were
-                    identified. The following table summarizes this plan's
-                    overlap with those areas.
+                  <Trans i18nKey="Mangroves Card 1">
+                    This report summarizes the amount of mangroves within this
+                    plan, measuring progress to the 30x30 target of 30% mangrove
+                    protection.
                   </Trans>
                 </p>
-                <ClassTable
-                  rows={nonMangroveMetrics}
-                  metricGroup={metricGroup}
-                  columnConfig={[
-                    {
-                      columnLabel: " ",
-                      type: "class",
-                      width: 35,
-                    },
-                    {
-                      columnLabel: areaWithin,
-                      type: "metricValue",
-                      metricId: metricGroup.metricId,
-                      valueFormatter: (val: string | number) => {
-                        const valueKm = squareMeterToKilometer(
-                          typeof val === "string" ? parseInt(val) : val
-                        );
-                        return valueKm && valueKm < 0.5
-                          ? Number.format(roundDecimal(valueKm, 2))
-                          : Number.format(Math.round(valueKm));
-                      },
-                      valueLabel: sqKmLabel,
-                      width: 20,
-                    },
-                    {
-                      columnLabel: percAreaWithin,
-                      type: "metricChart",
-                      metricId: project.getMetricGroupPercId(metricGroup),
-                      valueFormatter: "percent",
-                      chartOptions: {
-                        showTitle: true,
-                        targetLabelPosition: "bottom",
-                        targetLabelStyle: "tight",
-                        barHeight: 11,
-                      },
-                      width: 35,
-                      targetValueFormatter: (
-                        value: number,
-                        row: number,
-                        numRows: number
-                      ) => {
-                        if (row === 0) {
-                          return (value: number) =>
-                            `${valueFormatter(value / 100, "percent0dig")} ${t(
-                              "Target"
-                            )}`;
-                        } else {
-                          return (value: number) =>
-                            `${valueFormatter(value / 100, "percent0dig")}`;
-                        }
-                      },
-                    },
-                    {
-                      columnLabel: mapLabel,
-                      type: "layerToggle",
-                      width: 10,
-                    },
-                  ]}
-                />
-              </Translator>
 
-              {isCollection && (
-                <>
-                  <Collapse title={t("Show by Protection Level")}>
-                    {genGroupLevelTable(data, precalcMetrics, metricGroup, t)}
-                  </Collapse>
-                  <Collapse title={t("Show by MPA")}>
-                    {genSketchTable(data, precalcMetrics, metricGroup)}
-                  </Collapse>
-                </>
-              )}
+                <Translator>
+                  {isCollection
+                    ? groupedCollectionReport(data, precalcMetrics, mg, t)
+                    : groupedSketchReport(data, precalcMetrics, mg, t)}
 
-              <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Mangroves Card - learn more">
-                  <p>
-                    ℹ️ Overview: Mangrove Priority Areas identified under the
-                    updated mangrove regulations of 2018. Mangroves were
-                    identified comparing data from 1980 and 2019.
-                  </p>
-                  <p>
-                    🎯 Planning Objective: 30% mangroves protected and 4000
-                    hectares mangroves restored by 2035.
-                  </p>
-                  <p>
-                    🗺️ Source Data: Mangrove Priority Areas from the mangrove
-                    regulations of 2018. Mangrove and Cleared Mangrove data from
-                    Cherrington & Griffin (2020).
-                  </p>
-                  <p>
-                    📈 Report: Only features within the Belize Ocean Space are
-                    counted. The percentage of each feature type within this
-                    plan is calculated by finding the overlap of each feature
-                    type with the plan, summing its area, then dividing it by
-                    the total area of each feature type found within the
-                    selected nearshore planning area. If the plan includes
-                    multiple areas that overlap, the overlap is only counted
-                    once.
-                  </p>
-                </Trans>
-              </Collapse>
+                  {isCollection && (
+                    <Collapse title={t("Show by MPA")}>
+                      {genSketchTable(data, precalcMetrics, mg)}
+                    </Collapse>
+                  )}
+                </Translator>
+
+                <Collapse title={t("Learn more")}>
+                  <Trans i18nKey="Mangroves Card - learn more">
+                    <p>
+                      ℹ️ Overview: Mangrove Priority Areas identified under the
+                      updated mangrove regulations of 2018. Mangroves were
+                      identified comparing data from 1980 and 2019.
+                    </p>
+                    <p>
+                      🎯 Planning Objective: 30% mangroves protected and 4000
+                      hectares mangroves restored by 2035.
+                    </p>
+                    <p>
+                      🗺️ Source Data: Mangrove Priority Areas from the mangrove
+                      regulations of 2018. Mangrove and Cleared Mangrove data
+                      from Cherrington & Griffin (2020).
+                    </p>
+                    <p>
+                      📈 Report: Only features within the Belize Ocean Space are
+                      counted. The percentage of each feature type within this
+                      plan is calculated by finding the overlap of each feature
+                      type with the plan, summing its area, then dividing it by
+                      the total area of each feature type found within the
+                      selected nearshore planning area. If the plan includes
+                      multiple areas that overlap, the overlap is only counted
+                      once.
+                    </p>
+                  </Trans>
+                </Collapse>
+              </ToolbarCard>
             </ReportError>
           );
         }}
       </ResultsCard>
     </>
-  );
-};
-
-/**
- * Report protection level for single sketch
- * @param data ReportResult
- * @param t TFunction
- * @returns JSX.Element
- */
-const sketchReport = (
-  data: ReportResult,
-  precalcMetrics: Metric[],
-  objectiveIds: string[],
-  t: any
-) => {
-  // Get total planning area
-  const totalArea = firstMatchingMetric(
-    precalcMetrics,
-    (m) => m.groupId === null && m.classId === "Mangrove"
-  ).value;
-
-  // Filter down to metrics which have groupIds and classId mangroves
-  const levelMetrics = data.metrics.filter(
-    (m) =>
-      (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") &&
-      m.classId === "Mangrove"
-  );
-
-  // Filter down grouped metrics to ones that count for each objective
-  const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
-    (acc, objectiveId) => {
-      // Protection levels which count for objective
-      const yesAggs = levelMetrics.filter((levelAgg) => {
-        const level = levelAgg.groupId;
-        return (
-          project.getObjectiveById(objectiveId).countsToward[level!] ===
-          OBJECTIVE_YES
-        );
-      });
-      // Extract percent value from metric
-      const yesValues = yesAggs.map((yesAgg) => yesAgg.value / totalArea);
-      return { ...acc, [objectiveId]: yesValues };
-    },
-    {}
-  );
-
-  return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
-};
-
-/**
- * Report protection level for sketch collection
- * @param data ReportResult
- * @param precalcMetrics Metric[] from precalc.json
- * @param t TFunction
- * @returns JSX.Element
- */
-const collectionReport = (
-  data: ReportResult,
-  precalcMetrics: Metric[],
-  objectiveIds: string[],
-  t: any
-) => {
-  if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
-  const mangroveLevelMetrics = data.metrics.filter(
-    (m) =>
-      (m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION") &&
-      m.classId === "Mangrove"
-  );
-
-  const precalcMangroveMetrics = precalcMetrics.filter(
-    (m) => m.classId === "Mangrove"
-  );
-
-  const mangroveGroupLevelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
-    data.sketch,
-    mangroveLevelMetrics,
-    precalcMangroveMetrics
-  );
-
-  // Filter down grouped metrics to ones that count for each objective
-  const totalsByObjective = objectiveIds.reduce<Record<string, number[]>>(
-    (acc, objectiveId) => {
-      // Protection levels which count for objective
-      const yesAggs: GroupMetricAgg[] = mangroveGroupLevelAggs.filter(
-        (levelAgg) => {
-          const level = levelAgg.groupId;
-          return (
-            project.getObjectiveById(objectiveId).countsToward[level] ===
-            OBJECTIVE_YES
-          );
-        }
-      );
-      // Extract percent value from metric
-      const yesValues = yesAggs.map((yesAgg) => yesAgg.percValue);
-      return { ...acc, [objectiveId]: yesValues };
-    },
-    {}
-  );
-
-  return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
-};
-
-/**
- * Generates Show By MPA sketch table
- */
-const genObjectiveReport = (
-  objectiveIds: string[],
-  totalsByObjective: Record<string, number[]>,
-  t: any
-) => {
-  // Coloring and styling for horizontal bars
-  const groupColors = Object.values(groupColorMap);
-  const blockGroupNames = [t("High"), t("Medium")];
-  const blockGroupStyles = groupColors.map((curBlue) => ({
-    backgroundColor: curBlue,
-  }));
-  const valueFormatter = (value: number) => percentWithEdge(value / 100);
-
-  return (
-    <>
-      {objectiveIds.map((objectiveId: string) => {
-        const objective = project.getObjectiveById(objectiveId);
-
-        // Get total percentage within sketch
-        const percSum = totalsByObjective[objectiveId].reduce(
-          (sum, value) => sum + value,
-          0
-        );
-
-        // Checks if the objective is met
-        const isMet =
-          percSum >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
-
-        // Create horizontal bar config
-        const config = {
-          rows: [totalsByObjective[objectiveId].map((value) => [value * 100])],
-          rowConfigs: [
-            {
-              title: t("Mangroves"),
-            },
-          ],
-          target: objective.target * 100,
-          max: 100,
-        };
-
-        const targetLabel = t("Target");
-
-        return (
-          <React.Fragment key={objectiveId}>
-            <CollectionObjectiveStatus
-              objective={objective}
-              objectiveMet={isMet}
-              t={t}
-              renderMsg={collectionMsgs[objectiveId](objective, isMet, t)}
-            />
-            <ReportChartFigure>
-              <HorizontalStackedBar
-                {...config}
-                blockGroupNames={blockGroupNames}
-                blockGroupStyles={blockGroupStyles}
-                showLegend={true}
-                valueFormatter={valueFormatter}
-                targetValueFormatter={(value) =>
-                  targetLabel + ` - ` + value + `%`
-                }
-              />
-            </ReportChartFigure>
-          </React.Fragment>
-        );
-      })}
-    </>
-  );
-};
-
-/**
- * Properties for getting objective status for sketch collection
- * @param objective Objective
- * @param objectiveMet ObjectiveAnswer
- * @param renderMsg function that takes (objective, groupId)
- */
-interface CollectionObjectiveStatusProps {
-  objective: Objective;
-  objectiveMet: ObjectiveAnswer;
-  t: any;
-  renderMsg: any;
-}
-
-/**
- * Presents objectives for single sketch
- * @param CollectionObjectiveStatusProps containing objective, objective
- */
-const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStatusProps> =
-  ({ objective, objectiveMet, t }) => {
-    const msg = collectionMsgs[objective.objectiveId](
-      objective,
-      objectiveMet,
-      t
-    );
-
-    return <ObjectiveStatus status={objectiveMet} msg={msg} />;
-  };
-
-/**
- * Renders messages beased on objective and if objective is met for sketch collections
- */
-const collectionMsgs: Record<string, any> = {
-  Mangrove: (objective: Objective, objectiveMet: ObjectiveAnswer, t: any) => {
-    if (objectiveMet === OBJECTIVE_YES) {
-      return (
-        <>
-          {t("This plan meets the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of mangroves in the Belize Ocean Space.")}
-        </>
-      );
-    } else if (objectiveMet === OBJECTIVE_NO) {
-      return (
-        <>
-          {t("This plan does not meet the objective of protecting")}{" "}
-          <b>{percentWithEdge(objective.target)}</b>{" "}
-          {t("of mangroves in the Belize Ocean Space.")}
-        </>
-      );
-    }
-  },
-};
-
-const genSketchTable = (
-  data: ReportResult,
-  precalcMetrics: Metric[],
-  metricGroup: MetricGroup
-) => {
-  // Build agg metric objects for each child sketch in collection with percValue for each class
-  const childSketches = toNullSketchArray(data.sketch);
-  const childSketchIds = childSketches.map((sk) => sk.properties.id);
-  const childSketchMetrics = toPercentMetric(
-    metricsWithSketchId(
-      data.metrics.filter((m) => m.metricId === metricGroup.metricId),
-      childSketchIds
-    ),
-    precalcMetrics
-  );
-  const sketchRows = flattenBySketchAllClass(
-    childSketchMetrics,
-    metricGroup.classes,
-    childSketches
-  );
-  return (
-    <SketchClassTable rows={sketchRows} metricGroup={metricGroup} formatPerc />
-  );
-};
-
-/**
- * Report protection level for sketch collection
- * @param data ReportResult
- * @param precalcMetrics Metric[] from precalc.json
- * @param t TFunction
- * @returns JSX.Element
- */
-const genGroupLevelTable = (
-  data: ReportResult,
-  precalcMetrics: Metric[],
-  metricGroup: MetricGroup,
-  t: any
-) => {
-  if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
-
-  // Filter down to metrics which have groupIds
-  const levelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
-  );
-
-  const levelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
-    data.sketch,
-    levelMetrics,
-    precalcMetrics
-  );
-
-  const classColumns: Column<Record<string, string | number>>[] =
-    metricGroup.classes.map((curClass) => ({
-      Header: curClass.display,
-      accessor: (row) => {
-        return (
-          <GroupPill
-            groupColorMap={groupColorMap}
-            group={row.groupId.toString()}
-          >
-            {percentWithEdge(row[curClass.classId] as number)}
-          </GroupPill>
-        );
-      },
-    }));
-
-  const columns: Column<Record<string, string | number>>[] = [
-    {
-      Header: t("This plan contains") + ":",
-      accessor: (row) => (
-        <GroupCircleRow
-          group={row.groupId.toString()}
-          groupColorMap={groupColorMap}
-          circleText={`${row.numSketches}`}
-          rowText={
-            <>
-              <b>{t(groupDisplayMapPl[row.groupId])}</b>
-            </>
-          }
-        />
-      ),
-    },
-    ...classColumns,
-  ];
-
-  return (
-    <SmallProtectionLevelTableStyled>
-      <Table
-        className="styled"
-        columns={columns}
-        data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
-      />
-    </SmallProtectionLevelTableStyled>
   );
 };

@@ -72,20 +72,20 @@
   {
     "metricId": "mangroveAreaOverlap",
     "type": "areaOverlap",
-    "objectiveId": "Mangrove",
     "classes": [
-      {
-        "classId": "mangrove_priority",
-        "display": "Priority Mangrove Areas",
-        "datasourceId": "mangroves_priority",
-        "layerId": "7SuJXuc04"
-      },
       {
         "classKey": "C2019",
         "classId": "Mangrove",
         "display": "Mangroves",
         "datasourceId": "mangroves",
+        "objectiveId": "Mangrove",
         "layerId": "5xlX0KoC8"
+      },
+      {
+        "classId": "mangrove_priority",
+        "display": "Priority Mangrove Areas",
+        "datasourceId": "mangroves_priority",
+        "layerId": "7SuJXuc04"
       },
       {
         "classKey": "C2019",

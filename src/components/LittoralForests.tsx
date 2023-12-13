@@ -6,6 +6,7 @@ import {
   ToolbarCard,
   LayerToggle,
   ReportError,
+  DataDownload,
 } from "@seasketch/geoprocessing/client-ui";
 import { ReportResult, GeogProp } from "@seasketch/geoprocessing/client-core";
 import project from "../../project";
@@ -16,6 +17,7 @@ import {
   groupedCollectionReport,
   groupedSketchReport,
 } from "../util/ProtectionLevelOverlapReports";
+import { Download } from "@styled-icons/bootstrap/Download/Download";
 
 export const LittoralForests: React.FunctionComponent<GeogProp> = (props) => {
   const [{ isCollection }] = useSketchProperties();
@@ -47,7 +49,21 @@ export const LittoralForests: React.FunctionComponent<GeogProp> = (props) => {
               <ToolbarCard
                 title={t("Littoral Forests")}
                 items={
-                  <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
+                  <>
+                    <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
+                    <DataDownload
+                      filename="littoral-forest"
+                      data={data.metrics}
+                      formats={["csv", "json"]}
+                      titleElement={
+                        <Download
+                          size={18}
+                          color="#999"
+                          style={{ cursor: "pointer" }}
+                        />
+                      }
+                    />
+                  </>
                 }
               >
                 <p>
