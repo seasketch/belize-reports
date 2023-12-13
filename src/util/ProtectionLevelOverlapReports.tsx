@@ -133,6 +133,8 @@ export const groupedCollectionReport = (
     precalcMetrics
   );
 
+  console.log(groupLevelAggs);
+
   // Filter down grouped metrics to ones that count for each class
   const totalsByClass = metricGroup.classes.reduce<Record<string, number[]>>(
     (acc, curClass) => {
@@ -146,7 +148,7 @@ export const groupedCollectionReport = (
                 OBJECTIVE_YES
               );
             })
-            .map((yesAgg) => yesAgg.percValue)
+            .map((yesAgg) => yesAgg[curClass.classId] as number)
         : groupLevelAggs.map((group) => group[curClass.classId] as number);
 
       return { ...acc, [curClass.classId]: values };
