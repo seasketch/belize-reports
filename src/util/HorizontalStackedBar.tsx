@@ -9,7 +9,6 @@ import {
   BlockGroup,
   HorizontalStackedBarRow,
   LayerToggle,
-  StyledHorizontalStackedBarProps,
 } from "@seasketch/geoprocessing/client-ui";
 import React from "react";
 import styled from "styled-components";
@@ -19,6 +18,18 @@ const defaults = {
   barHeight: 30,
   titleWidth: 35,
 };
+
+// CHANGE target from number to (number | undefined)[]
+export interface StyledHorizontalStackedBarProps {
+  rowTotals: number[];
+  blockGroupColors: (string | undefined)[];
+  showTitle: boolean;
+  target?: (number | undefined)[];
+  barHeight?: number;
+  titleWidth?: number;
+  targetLabelPosition?: "top" | "bottom";
+  targetLabelStyle?: "normal" | "tight";
+}
 
 // CHANGE - added 0.25em padding-rop to .row
 // CHANGE - added .layer-toggle styling
@@ -244,6 +255,7 @@ export type RowConfig = {
 };
 
 // CHANGE: Add showLayerToggles option
+// CHANGE: target is now (number | undefined)[] instead of number
 export interface HorizontalStackedBarProps {
   /** row data */
   rows: HorizontalStackedBarRow[];
@@ -257,7 +269,7 @@ export interface HorizontalStackedBarProps {
   blockGroupStyles?: React.CSSProperties[];
   barHeight?: number;
   titleWidth?: number;
-  target?: number;
+  target?: (number | undefined)[];
   showTargetLabel?: boolean;
   showTitle?: boolean;
   showLegend?: boolean;
@@ -342,7 +354,10 @@ export const HorizontalStackedBar: React.FunctionComponent<HorizontalStackedBarP
               })();
 
               const layerId = rowConfigs[rowNumber].layerId;
-              const targetReached = target && rowTotals[rowNumber] >= target;
+              const targetReached =
+                target &&
+                target[rowNumber] &&
+                rowTotals[rowNumber] >= target[rowNumber]!;
               return (
                 <div
                   key={`row-${rowNumber}`}
@@ -356,36 +371,34 @@ export const HorizontalStackedBar: React.FunctionComponent<HorizontalStackedBarP
                   <div className="chart">
                     {row.map((blockGroup, blockGroupNumber) =>
                       blockGroup.map((blockValue, blockNumber) => (
-                        <>
-                          <span
-                            key={`${blockGroupNumber}${blockNumber}`}
-                            title={`${
-                              valueFormatter
-                                ? valueFormatter(blockValue)
-                                : blockValue
-                            }`}
-                            style={{
-                              width: `${blockValue}%`,
-                              ...blockGroupStyles[blockGroupNumber],
-                              ...(targetReached && targetReachedColor
-                                ? {
-                                    backgroundColor: targetReachedColor,
-                                  }
-                                : {}),
-                            }}
-                            className={`block-group-${blockGroupNumber} block-${blockNumber} block`}
-                          ></span>
-                        </>
+                        <span
+                          key={`${blockGroupNumber}${blockNumber}`}
+                          title={`${
+                            valueFormatter
+                              ? valueFormatter(blockValue)
+                              : blockValue
+                          }`}
+                          style={{
+                            width: `${blockValue}%`,
+                            ...blockGroupStyles[blockGroupNumber],
+                            ...(targetReached && targetReachedColor
+                              ? {
+                                  backgroundColor: targetReachedColor,
+                                }
+                              : {}),
+                          }}
+                          className={`block-group-${blockGroupNumber} block-${blockNumber} block`}
+                        ></span>
                       ))
                     )}
                     <div className="zero-marker" />
-                    {target && (
+                    {target && target[rowNumber] && (
                       <>
                         <div className="marker" />
                         {showTargetLabel && rowNumber === 0 && (
                           <div className="marker-label">
                             {targetValueFormatter
-                              ? targetValueFormatter(target)
+                              ? targetValueFormatter(target[rowNumber]!)
                               : "Target"}
                           </div>
                         )}

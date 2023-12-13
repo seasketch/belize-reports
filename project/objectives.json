@@ -19,20 +19,11 @@
   },
   {
     "objectiveId": "coral",
-    "shortDesc": "Coral Reef Objective",
+    "shortDesc": "coral reefs in High Protection Biodiversity Zones",
     "target": 0.2,
     "countsToward": {
       "HIGH_PROTECTION": "yes",
       "MEDIUM_PROTECTION": "no"
-    }
-  },
-  {
-    "objectiveId": "seagrass",
-    "shortDesc": "Seagrass Objective",
-    "target": 0.3,
-    "countsToward": {
-      "HIGH_PROTECTION": "yes",
-      "MEDIUM_PROTECTION": "yes"
     }
   },
   {
@@ -46,7 +37,7 @@
   },
   {
     "objectiveId": "littoral",
-    "shortDesc": "Littoral Forest Objective",
+    "shortDesc": "littoral forests in High Protection Biodiversity Zones",
     "target": 0.9,
     "countsToward": {
       "HIGH_PROTECTION": "yes",

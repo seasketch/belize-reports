@@ -8,6 +8,7 @@ import {
   Table,
   GroupCircleRow,
   SketchClassTableStyled,
+  ObjectiveStatus,
 } from "@seasketch/geoprocessing/client-ui";
 import {
   ReportResult,
@@ -22,9 +23,19 @@ import {
   flattenByGroupAllClass,
   isSketchCollection,
   percentWithEdge,
+  OBJECTIVE_YES,
+  OBJECTIVE_NO,
+  Objective,
+  ObjectiveAnswer,
 } from "@seasketch/geoprocessing/client-core";
-import { groupColorMap, groupDisplayMapPl } from "./getMpaProtectionLevel";
+import {
+  groupColorMap,
+  groupDisplayMapPl,
+  protectionLevels,
+  protectionLevelsDisplay,
+} from "./getMpaProtectionLevel";
 import { HorizontalStackedBar, RowConfig } from "./HorizontalStackedBar";
+import project from "../../project";
 
 /**
  * Creates grouped overlap report for sketch
@@ -39,32 +50,47 @@ export const groupedSketchReport = (
   metricGroup: MetricGroup,
   t: any
 ) => {
-  const classIds = metricGroup.classes.map((curClass) => curClass.classId);
-
   // Get total precalc areas
-  const totalAreas = classIds.reduce<Record<string, number>>((acc, classId) => {
-    return {
-      ...acc,
-      [classId]: firstMatchingMetric(
-        precalcMetrics,
-        (m) => m.groupId === null && m.classId === classId
-      ).value,
-    };
-  }, {});
+  const totalAreas = metricGroup.classes.reduce<Record<string, number>>(
+    (acc, curClass) => {
+      return {
+        ...acc,
+        [curClass.classId]: firstMatchingMetric(
+          precalcMetrics,
+          (m) => m.groupId === null && m.classId === curClass.classId
+        ).value,
+      };
+    },
+    {}
+  );
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+    (m) => m.groupId && protectionLevels.includes(m.groupId)
   );
 
   // Filter down grouped metrics to ones that count for each class
-  const totalsByClass = classIds.reduce<Record<string, number[]>>(
-    (acc, classId) => {
-      // Extract percent value from metric
-      const groupValues = levelMetrics
-        .filter((m) => m.classId === classId)
-        .map((group) => group.value / totalAreas[classId]);
-      return { ...acc, [classId]: groupValues };
+  const totalsByClass = metricGroup.classes.reduce<Record<string, number[]>>(
+    (acc, curClass) => {
+      const classMetrics = levelMetrics.filter(
+        (m) => m.classId === curClass.classId
+      );
+      const objective = curClass.objectiveId;
+      const values = objective
+        ? classMetrics
+            .filter((levelAgg) => {
+              const level = levelAgg.groupId;
+              return (
+                project.getObjectiveById(objective).countsToward[level!] ===
+                OBJECTIVE_YES
+              );
+            })
+            .map((yesAgg) => yesAgg.value / totalAreas[curClass.classId])
+        : classMetrics.map(
+            (group) => group.value / totalAreas[curClass.classId]
+          );
+
+      return { ...acc, [curClass.classId]: values };
     },
     {}
   );
@@ -86,11 +112,10 @@ export const groupedCollectionReport = (
   t: any
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
-  const classIds = metricGroup.classes.map((curClass) => curClass.classId);
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+    (m) => m.groupId && protectionLevels.includes(m.groupId)
   );
 
   const groupLevelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
@@ -100,13 +125,22 @@ export const groupedCollectionReport = (
   );
 
   // Filter down grouped metrics to ones that count for each class
-  const totalsByClass = classIds.reduce<Record<string, number[]>>(
-    (acc, classId) => {
-      // Extract percent value from metric
-      const groupValues = groupLevelAggs.map(
-        (group) => group[classId] as number
-      );
-      return { ...acc, [classId]: groupValues };
+  const totalsByClass = metricGroup.classes.reduce<Record<string, number[]>>(
+    (acc, curClass) => {
+      const objective = curClass.objectiveId;
+      const values = objective
+        ? groupLevelAggs
+            .filter((levelAgg) => {
+              const level = levelAgg.groupId;
+              return (
+                project.getObjectiveById(objective).countsToward[level!] ===
+                OBJECTIVE_YES
+              );
+            })
+            .map((yesAgg) => yesAgg.percValue)
+        : groupLevelAggs.map((group) => group[curClass.classId] as number);
+
+      return { ...acc, [curClass.classId]: values };
     },
     {}
   );
@@ -114,6 +148,7 @@ export const groupedCollectionReport = (
   return (
     <>
       {genHorizBarReport(metricGroup, totalsByClass, t)}
+
       <Collapse title={t("Show by Protection Level")}>
         {genGroupLevelTable(data, precalcMetrics, metricGroup, t)}
       </Collapse>
@@ -134,13 +169,12 @@ export const genHorizBarReport = (
 ) => {
   // Coloring and styling for horizontal bars
   const groupColors = Object.values(groupColorMap);
-  const blockGroupNames = [t("High"), t("Medium")];
+  const blockGroupNames = protectionLevelsDisplay.map((level) => t(level));
   const blockGroupStyles = groupColors.map((curBlue) => ({
     backgroundColor: curBlue,
   }));
   const valueFormatter = (value: number) => percentWithEdge(value / 100);
 
-  const classIds = metricGroup.classes.map((curClass) => curClass.classId);
   const rowConfig: RowConfig[] = [];
   metricGroup.classes.forEach((curClass) => {
     rowConfig.push({
@@ -150,29 +184,114 @@ export const genHorizBarReport = (
   });
 
   const config = {
-    rows: classIds.map((classId) =>
-      totalsByClass[classId].map((value) => [value * 100])
+    rows: metricGroup.classes.map((curClass) =>
+      totalsByClass[curClass.classId].map((value) => [value * 100])
+    ),
+    target: metricGroup.classes.map((curClass) =>
+      curClass.objectiveId
+        ? project.getObjectiveById(curClass.objectiveId).target * 100
+        : undefined
     ),
     rowConfigs: rowConfig,
     max: 100,
   };
 
+  const targetLabel = t("Target");
+
   return (
     <>
-      <React.Fragment>
-        <ReportChartFigure>
-          <HorizontalStackedBar
-            {...config}
-            blockGroupNames={blockGroupNames}
-            blockGroupStyles={blockGroupStyles}
-            showLegend={true}
-            showLayerToggles={true}
-            valueFormatter={valueFormatter}
-          />
-        </ReportChartFigure>
-      </React.Fragment>
+      {metricGroup.classes.map((curClass) => {
+        if (curClass.objectiveId) {
+          const objective = project.getObjectiveById(curClass.objectiveId);
+
+          // Get total percentage within sketch
+          const percSum = totalsByClass[curClass.classId].reduce(
+            (sum, value) => sum + value,
+            0
+          );
+
+          // Checks if the objective is met
+          const isMet =
+            percSum >= objective.target ? OBJECTIVE_YES : OBJECTIVE_NO;
+
+          return (
+            <React.Fragment key={objective.objectiveId}>
+              <CollectionObjectiveStatus
+                objective={objective}
+                objectiveMet={isMet}
+                t={t}
+                renderMsg={
+                  Object.keys(collectionMsgs).includes(objective.objectiveId)
+                    ? collectionMsgs[objective.objectiveId](objective, isMet, t)
+                    : collectionMsgs["default"](objective, isMet, t)
+                }
+              />
+            </React.Fragment>
+          );
+        }
+      })}
+      <ReportChartFigure>
+        <HorizontalStackedBar
+          {...config}
+          blockGroupNames={blockGroupNames}
+          blockGroupStyles={blockGroupStyles}
+          showLegend={true}
+          showLayerToggles={true}
+          valueFormatter={valueFormatter}
+          targetValueFormatter={(value) => targetLabel + ` - ` + value + `%`}
+        />
+      </ReportChartFigure>
     </>
   );
+};
+
+/**
+ * Properties for getting objective status for sketch collection
+ * @param objective Objective
+ * @param objectiveMet ObjectiveAnswer
+ * @param renderMsg function that takes (objective, groupId)
+ */
+interface CollectionObjectiveStatusProps {
+  objective: Objective;
+  objectiveMet: ObjectiveAnswer;
+  t: any;
+  renderMsg: any;
+}
+
+/**
+ * Presents objectives for single sketch
+ * @param CollectionObjectiveStatusProps containing objective, objective
+ */
+const CollectionObjectiveStatus: React.FunctionComponent<CollectionObjectiveStatusProps> =
+  ({ objective, objectiveMet, t }) => {
+    const msg = Object.keys(collectionMsgs).includes(objective.objectiveId)
+      ? collectionMsgs[objective.objectiveId](objective, objectiveMet, t)
+      : collectionMsgs["default"](objective, objectiveMet, t);
+
+    return <ObjectiveStatus status={objectiveMet} msg={msg} />;
+  };
+
+/**
+ * Renders messages beased on objective and if objective is met for sketch collections
+ */
+const collectionMsgs: Record<string, any> = {
+  default: (objective: Objective, objectiveMet: ObjectiveAnswer, t: any) => {
+    if (objectiveMet === OBJECTIVE_YES) {
+      return (
+        <>
+          {t("This plan meets the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t(objective.shortDesc)}
+        </>
+      );
+    } else if (objectiveMet === OBJECTIVE_NO) {
+      return (
+        <>
+          {t("This plan does not meet the objective of protecting")}{" "}
+          <b>{percentWithEdge(objective.target)}</b> {t(objective.shortDesc)}
+        </>
+      );
+    }
+  },
 };
 
 /**
@@ -192,7 +311,7 @@ export const genGroupLevelTable = (
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+    (m) => m.groupId && protectionLevels.includes(m.groupId)
   );
 
   const levelAggs: GroupMetricAgg[] = flattenByGroupAllClass(

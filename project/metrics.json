@@ -99,12 +99,12 @@
   {
     "metricId": "littoralAreaOverlap",
     "type": "areaOverlap",
-    "objectiveId": "littoral",
     "layerId": "5xlX0KoC8",
     "classes": [
       {
         "classKey": "C2019",
         "classId": "Littoral",
+        "objectiveId": "littoral",
         "display": "Littoral Forests",
         "datasourceId": "mangroves"
       }
@@ -118,7 +118,6 @@
       {
         "classId": "seagrass",
         "display": "Seagrass",
-        "objectiveId": "seagrass",
         "datasourceId": "seagrass"
       }
     ]
