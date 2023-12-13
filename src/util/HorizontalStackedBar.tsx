@@ -1,9 +1,4 @@
-/* Small edits made to support layer toggles in HorizontalStackedBar
- *  1) RowConfig type now supports optional layerId string
- *  2) interface HorizontalStackedBarProps includes showLayerToggles?: boolean;
- *  3) HorizontalStackedBar has a default value of showLayerToggles = false
-       and adds a layer toggle
- */
+/* Edits made to support layer toggles, target passing, and multiple objectives */
 
 import {
   BlockGroup,
@@ -26,7 +21,7 @@ export interface StyledHorizontalStackedBarProps {
   rowTotals: number[];
   blockGroupColors: (string | undefined)[];
   showTitle: boolean;
-  target?: (number | undefined)[];
+  target?: number | (number | undefined)[];
   barHeight?: number;
   titleWidth?: number;
   targetLabelPosition?: "top" | "bottom";
@@ -197,36 +192,62 @@ const StyledHorizontalStackedBar = styled.div<StyledHorizontalStackedBarProps>`
     `
     )}
 
+  // CHANGE: Adds handling for multi-objective report
   ${(props) =>
     props.target &&
-    props.target.map((target) =>
-      target
-        ? `
-        .marker-label {
-          position: absolute;
-          ${props.targetLabelPosition || "top"}: ${
-            props.targetLabelStyle === "normal" ? "-15" : "-12"
-          }px;
-          left: ${target ? target : 0}%;
-          width: 100px;
-          text-align: left;
-          font-size: 0.7em;
-          color: #999;
-        }
-      
-        .marker {
-          position: absolute;
-          left: ${target}%;
-          height: ${(props.barHeight || defaults.barHeight) + 4}px;
-          width: 3px;
-          background-color: #000;
-          opacity: 0.35;
-          top: -2px;
-          border-radius: 2px;
-        }
-    `
-        : ""
-    )}
+    (Array.isArray(props.target)
+      ? props.target.map((target) =>
+          target
+            ? `
+          .marker-label {
+            position: absolute;
+            ${props.targetLabelPosition || "top"}: ${
+                props.targetLabelStyle === "normal" ? "-15" : "-12"
+              }px;
+            left: ${target ? target : 0}%;
+            width: 100px;
+            text-align: left;
+            font-size: 0.7em;
+            color: #999;
+          }
+        
+          .marker {
+            position: absolute;
+            left: ${target}%;
+            height: ${(props.barHeight || defaults.barHeight) + 4}px;
+            width: 3px;
+            background-color: #000;
+            opacity: 0.35;
+            top: -2px;
+            border-radius: 2px;
+          }
+      `
+            : ""
+        )
+      : `
+    .marker-label {
+      position: absolute;
+      ${props.targetLabelPosition || "top"}: ${
+          props.targetLabelStyle === "normal" ? "-15" : "-12"
+        }px;
+      left: ${props.target ? props.target : 0}%;
+      width: 100px;
+      text-align: left;
+      font-size: 0.7em;
+      color: #999;
+    }
+  
+    .marker {
+      position: absolute;
+      left: ${props.target}%;
+      height: ${(props.barHeight || defaults.barHeight) + 4}px;
+      width: 3px;
+      background-color: #000;
+      opacity: 0.35;
+      top: -2px;
+      border-radius: 2px;
+    }
+`)}
 
   ${(props) =>
     props.blockGroupColors.map(
@@ -275,7 +296,7 @@ export interface HorizontalStackedBarProps {
   blockGroupStyles?: React.CSSProperties[];
   barHeight?: number;
   titleWidth?: number;
-  target?: (number | undefined)[];
+  target?: number | (number | undefined)[];
   showTargetLabel?: boolean;
   showTitle?: boolean;
   showLegend?: boolean;
@@ -363,10 +384,18 @@ export const HorizontalStackedBar: React.FunctionComponent<HorizontalStackedBarP
               })();
 
               const layerId = rowConfigs[rowNumber].layerId;
+              const curTarget = (() => {
+                if (Array.isArray(target)) {
+                  // Multi-objective
+                  return target[rowNumber];
+                } else {
+                  // Single objective or no objective
+                  return target;
+                }
+              })();
               const targetReached =
-                target &&
-                target[rowNumber] &&
-                rowTotals[rowNumber] >= target[rowNumber]!;
+                curTarget && rowTotals[rowNumber] >= curTarget;
+
               return (
                 <div
                   key={`row-${rowNumber}`}
@@ -407,13 +436,13 @@ export const HorizontalStackedBar: React.FunctionComponent<HorizontalStackedBarP
                       ))
                     )}
                     <div className="zero-marker" />
-                    {target && target[rowNumber] && (
+                    {curTarget && (
                       <>
                         <div className="marker" />
                         {showTargetLabel && rowNumber === 0 && (
                           <div className="marker-label">
                             {targetValueFormatter
-                              ? targetValueFormatter(target[rowNumber]!)
+                              ? targetValueFormatter(curTarget)
                               : "Target"}
                           </div>
                         )}
