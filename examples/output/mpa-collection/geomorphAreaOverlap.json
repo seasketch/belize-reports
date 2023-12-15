@@ -1,0 +1,1582 @@
+{
+  "metrics": [
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 3797501439.957221,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 3797501439.957221,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 2155891573.552659,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 2155891573.552659,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 1641609866.404562,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "abyss",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 1641609866.404562,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 707651856.893238,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 32981003.322002,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 674670853.571236,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 32981003.322002,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 32981003.322002,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 620618761.28852,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 620618761.28852,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 54052092.282716,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 54052092.282716,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "basins",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 202584276.932041,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 202584276.932041,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 20604387.591377,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 20604387.591377,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 118240322.373456,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 118240322.373456,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 63739566.967208,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "canyons",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 63739566.967208,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 667619166.308895,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 667619166.308895,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 374615264.256283,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 374615264.256283,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 169845896.054033,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 169845896.054033,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 123158005.99858,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "escarpments",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 123158005.99858,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "plateaus",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 3797415205.024905,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 3797415205.024905,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 2155907256.916442,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 2155907256.916442,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 1641507948.108464,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "rises",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 1641507948.108464,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 1139249944.314191,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 553577919.29675,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 585672025.017441,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 553577919.29675,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 553577919.29675,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 585672025.017441,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 585672025.017441,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 66846190.812417,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 66846190.812417,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 66846190.812417,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 66846190.812417,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "shelf_valleys",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 76204845.265373,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 76204845.265373,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 76204845.265373,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 76204845.265373,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "sills",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23746",
+      "groupId": null,
+      "value": 233516505.195543,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 233516505.195543,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23747",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23748",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23749",
+      "groupId": null,
+      "value": 233516505.195543,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23749",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 233516505.195543,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23750",
+      "groupId": null,
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "geomorphAreaOverlap",
+      "classId": "slope",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    }
+  ],
+  "sketch": {
+    "id": 23746,
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": 23750,
+        "bbox": [
+          -87.97787,
+          16.219738,
+          -87.45354,
+          16.68526
+        ],
+        "type": "Feature",
+        "properties": {
+          "2931": "VI",
+          "2932": "souther",
+          "2934": "abby",
+          "id": "23750",
+          "name": "souther",
+          "postId": null,
+          "userId": "531",
+          "authors": "abby",
+          "comments": null,
+          "userSlug": "Abby",
+          "createdAt": "2023-12-13T23:03:14.823323+00:00",
+          "updatedAt": "2023-12-13T23:03:17.679221+00:00",
+          "designation": "VI",
+          "collectionId": "23746",
+          "isCollection": false,
+          "sharedInForum": false,
+          "sketchClassId": "196",
+          "userAttributes": [
+            {
+              "label": "Comments",
+              "value": null,
+              "exportId": "comments",
+              "fieldType": "TextArea",
+              "valueLabel": null,
+              "formElementId": 2933,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Author(s)",
+              "value": "abby",
+              "exportId": "authors",
+              "fieldType": "ShortText",
+              "valueLabel": null,
+              "formElementId": 2934,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Designation",
+              "value": "VI",
+              "exportId": "designation",
+              "fieldType": "ComboBox",
+              "valueLabel": "IUCN VI: Protected Area with Sustainable Use",
+              "formElementId": 2931,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN VI: Área Protegida con Uso Sostenible"
+                }
+              }
+            }
+          ]
+        },
+        "geometry": null
+      },
+      {
+        "id": 23749,
+        "bbox": [
+          -88.02067,
+          17.151064,
+          -87.614044,
+          17.6208
+        ],
+        "type": "Feature",
+        "properties": {
+          "2931": "III",
+          "2932": "turneffe",
+          "2934": "abby",
+          "id": "23749",
+          "name": "turneffe",
+          "postId": null,
+          "userId": "531",
+          "authors": "abby",
+          "comments": null,
+          "userSlug": "Abby",
+          "createdAt": "2023-12-13T23:02:52.63869+00:00",
+          "updatedAt": "2023-12-13T23:02:59.148823+00:00",
+          "designation": "III",
+          "collectionId": "23746",
+          "isCollection": false,
+          "sharedInForum": false,
+          "sketchClassId": "196",
+          "userAttributes": [
+            {
+              "label": "Comments",
+              "value": null,
+              "exportId": "comments",
+              "fieldType": "TextArea",
+              "valueLabel": null,
+              "formElementId": 2933,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Author(s)",
+              "value": "abby",
+              "exportId": "authors",
+              "fieldType": "ShortText",
+              "valueLabel": null,
+              "formElementId": 2934,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Designation",
+              "value": "III",
+              "exportId": "designation",
+              "fieldType": "ComboBox",
+              "valueLabel": "IUCN III: Natural Monument or Feature",
+              "formElementId": 2931,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN III: Monumento o Característica Natural"
+                }
+              }
+            }
+          ]
+        },
+        "geometry": null
+      },
+      {
+        "id": 23748,
+        "bbox": [
+          -86.79895,
+          17.228289,
+          -86.205666,
+          17.823345
+        ],
+        "type": "Feature",
+        "properties": {
+          "2931": "V",
+          "2932": "offshore",
+          "2934": "abby",
+          "id": "23748",
+          "name": "offshore",
+          "postId": null,
+          "userId": "531",
+          "authors": "abby",
+          "comments": null,
+          "userSlug": "Abby",
+          "createdAt": "2023-12-13T23:02:34.911638+00:00",
+          "updatedAt": "2023-12-13T23:02:37.230936+00:00",
+          "designation": "V",
+          "collectionId": "23746",
+          "isCollection": false,
+          "sharedInForum": false,
+          "sketchClassId": "196",
+          "userAttributes": [
+            {
+              "label": "Comments",
+              "value": null,
+              "exportId": "comments",
+              "fieldType": "TextArea",
+              "valueLabel": null,
+              "formElementId": 2933,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Author(s)",
+              "value": "abby",
+              "exportId": "authors",
+              "fieldType": "ShortText",
+              "valueLabel": null,
+              "formElementId": 2934,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Designation",
+              "value": "V",
+              "exportId": "designation",
+              "fieldType": "ComboBox",
+              "valueLabel": "IUCN V: Protected Landscape or Seascape",
+              "formElementId": 2931,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN V: Paisaje o Paisaje Marino Protegido"
+                }
+              }
+            }
+          ]
+        },
+        "geometry": null
+      },
+      {
+        "id": 23747,
+        "bbox": [
+          -88.20793,
+          17.513683,
+          -87.95111,
+          17.972303
+        ],
+        "type": "Feature",
+        "properties": {
+          "2931": "Ia",
+          "2932": "coastal",
+          "2934": "abby",
+          "id": "23747",
+          "name": "coastal",
+          "postId": null,
+          "userId": "531",
+          "authors": "abby",
+          "comments": null,
+          "userSlug": "Abby",
+          "createdAt": "2023-12-13T23:02:20.132533+00:00",
+          "updatedAt": "2023-12-13T23:02:23.405725+00:00",
+          "designation": "Ia",
+          "collectionId": "23746",
+          "isCollection": false,
+          "sharedInForum": false,
+          "sketchClassId": "196",
+          "userAttributes": [
+            {
+              "label": "Comments",
+              "value": null,
+              "exportId": "comments",
+              "fieldType": "TextArea",
+              "valueLabel": null,
+              "formElementId": 2933,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Comentarios",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Author(s)",
+              "value": "abby",
+              "exportId": "authors",
+              "fieldType": "ShortText",
+              "valueLabel": null,
+              "formElementId": 2934,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Autor(es)",
+                  "valueLabel": null
+                }
+              }
+            },
+            {
+              "label": "Designation",
+              "value": "Ia",
+              "exportId": "designation",
+              "fieldType": "ComboBox",
+              "valueLabel": "IUCN Ia: Strict Nature Reserve",
+              "formElementId": 2931,
+              "alternateLanguages": {
+                "es": {
+                  "label": "Designación",
+                  "valueLabel": "UICN Ia: Reserva Natural Estricta"
+                }
+              }
+            }
+          ]
+        },
+        "geometry": null
+      }
+    ],
+    "properties": {
+      "3094": "mpa-collection",
+      "id": "23746",
+      "name": "mpa-collection",
+      "postId": null,
+      "userId": "531",
+      "authors": null,
+      "comments": null,
+      "userSlug": "Abby",
+      "createdAt": "2023-12-13T23:02:00.449408+00:00",
+      "updatedAt": "2023-12-13T23:03:17.679221+00:00",
+      "collectionId": null,
+      "isCollection": true,
+      "sharedInForum": false,
+      "sketchClassId": "232",
+      "userAttributes": [
+        {
+          "label": "Comments",
+          "value": null,
+          "exportId": "comments",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 5784,
+          "alternateLanguages": {}
+        },
+        {
+          "label": "Author(s)",
+          "value": null,
+          "exportId": "authors",
+          "fieldType": "TextArea",
+          "valueLabel": null,
+          "formElementId": 5785,
+          "alternateLanguages": {}
+        }
+      ]
+    }
+  }
+}
