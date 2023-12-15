@@ -19,6 +19,7 @@ import {
   genSampleSketchCollection,
   createMetric,
   isPolygonFeatureArray,
+  firstMatchingMetric,
 } from "@seasketch/geoprocessing/client-core";
 import flatten from "@turf/flatten";
 import cloneDeep from "lodash/cloneDeep";
@@ -59,7 +60,10 @@ export async function overlapRasterGroupMetrics(options: {
     ) => {
       if (isPolygonFeatureArray(features)) throw new Error(`Expected raster`);
       const overallGroupMetrics = await overlapRaster(metricId, features, sc);
-      return overallGroupMetrics[0].value;
+      return firstMatchingMetric(
+        overallGroupMetrics,
+        (m) => !!m.extra?.isCollection
+      ).value;
     },
   });
 }
