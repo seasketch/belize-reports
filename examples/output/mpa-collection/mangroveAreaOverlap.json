@@ -18,7 +18,7 @@
       "classId": "Mangrove",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 20869269.951633,
+      "value": 85697071.476253,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -30,7 +30,7 @@
       "classId": "Mangrove",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 64827801.52462,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -96,7 +96,7 @@
       "metricId": "mangroveAreaOverlap",
       "classId": "Mangrove",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 64827801.52462,
       "extra": {
         "sketchName": "turneffe"
@@ -142,7 +142,7 @@
       "classId": "mangrove_priority",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 40106369.156708,
+      "value": 170053762.36985,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -154,7 +154,7 @@
       "classId": "mangrove_priority",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 129947393.213143,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -220,7 +220,7 @@
       "metricId": "mangroveAreaOverlap",
       "classId": "mangrove_priority",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 129947393.213143,
       "extra": {
         "sketchName": "turneffe"
@@ -266,7 +266,7 @@
       "classId": "Non-mangrove",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 1899984.199561,
+      "value": 2199713.186697,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -278,7 +278,7 @@
       "classId": "Non-mangrove",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 299728.987136,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -344,7 +344,7 @@
       "metricId": "mangroveAreaOverlap",
       "classId": "Non-mangrove",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 299728.987136,
       "extra": {
         "sketchName": "turneffe"

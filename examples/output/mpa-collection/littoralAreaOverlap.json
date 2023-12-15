@@ -18,7 +18,7 @@
       "classId": "Littoral",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 0,
+      "value": 1009719.91769,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -30,7 +30,7 @@
       "classId": "Littoral",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1009719.91769,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -96,7 +96,7 @@
       "metricId": "littoralAreaOverlap",
       "classId": "Littoral",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 1009719.91769,
       "extra": {
         "sketchName": "turneffe"

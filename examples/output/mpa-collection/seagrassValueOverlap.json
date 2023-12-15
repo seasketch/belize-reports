@@ -18,7 +18,7 @@
       "classId": "seagrass",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 438279,
+      "value": 573048,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -30,7 +30,7 @@
       "classId": "seagrass",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 134769,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -96,7 +96,7 @@
       "metricId": "seagrassValueOverlap",
       "classId": "seagrass",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 134769,
       "extra": {
         "sketchName": "turneffe"

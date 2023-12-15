@@ -96,7 +96,7 @@
       "metricId": "humanStressorsAreaOverlap",
       "classId": "ag_runoff",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "turneffe"
@@ -142,7 +142,7 @@
       "classId": "coastal_dev",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 3352145.267211,
+      "value": 3401940.21244,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -154,7 +154,7 @@
       "classId": "coastal_dev",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 49794.945229,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -220,7 +220,7 @@
       "metricId": "humanStressorsAreaOverlap",
       "classId": "coastal_dev",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 49794.945229,
       "extra": {
         "sketchName": "turneffe"
@@ -266,7 +266,7 @@
       "classId": "marine_dredging",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 129466664.893271,
+      "value": 169619571.312897,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -278,7 +278,7 @@
       "classId": "marine_dredging",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 40152906.419626,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -344,7 +344,7 @@
       "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_dredging",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 40152906.419626,
       "extra": {
         "sketchName": "turneffe"
@@ -390,7 +390,7 @@
       "classId": "marine_trans",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 413267053.114541,
+      "value": 586508540.295662,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -402,7 +402,7 @@
       "classId": "marine_trans",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 279233815.852016,
+      "value": 105992328.670894,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -468,7 +468,7 @@
       "metricId": "humanStressorsAreaOverlap",
       "classId": "marine_trans",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 173241487.181121,
       "extra": {
         "sketchName": "turneffe"

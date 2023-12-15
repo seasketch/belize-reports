@@ -18,7 +18,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 599470023.0107008,
+      "value": 1794496789.2785597,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -30,7 +30,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 4992440563.71604,
+      "value": 3797413797.448181,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -96,7 +96,7 @@
       "metricId": "boundaryAreaOverlap",
       "classId": "belize_ocean_space",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 1195026766.2678587,
       "extra": {
         "sketchName": "turneffe"

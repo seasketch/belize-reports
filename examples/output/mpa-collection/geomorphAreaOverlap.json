@@ -96,7 +96,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "abyss",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "turneffe"
@@ -142,7 +142,7 @@
       "classId": "basins",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 32981003.322002,
+      "value": 87033095.604718,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -154,7 +154,7 @@
       "classId": "basins",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 674670853.571236,
+      "value": 620618761.28852,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -220,7 +220,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "basins",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 54052092.282716,
       "extra": {
         "sketchName": "turneffe"
@@ -266,7 +266,7 @@
       "classId": "canyons",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 0,
+      "value": 118240322.373456,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -278,7 +278,7 @@
       "classId": "canyons",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 202584276.932041,
+      "value": 84343954.558585,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -344,7 +344,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "canyons",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 118240322.373456,
       "extra": {
         "sketchName": "turneffe"
@@ -390,7 +390,7 @@
       "classId": "escarpments",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 0,
+      "value": 169845896.054033,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -402,7 +402,7 @@
       "classId": "escarpments",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 667619166.308895,
+      "value": 497773270.254863,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -468,7 +468,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "escarpments",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 169845896.054033,
       "extra": {
         "sketchName": "turneffe"
@@ -592,7 +592,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "plateaus",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "turneffe"
@@ -716,7 +716,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "rises",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "turneffe"
@@ -762,7 +762,7 @@
       "classId": "shelf",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 553577919.29675,
+      "value": 1139249944.314191,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -774,7 +774,7 @@
       "classId": "shelf",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 585672025.017441,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -840,7 +840,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "shelf",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 585672025.017441,
       "extra": {
         "sketchName": "turneffe"
@@ -886,7 +886,7 @@
       "classId": "shelf_valleys",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 0,
+      "value": 66846190.812417,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -898,7 +898,7 @@
       "classId": "shelf_valleys",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 66846190.812417,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -964,7 +964,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "shelf_valleys",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 66846190.812417,
       "extra": {
         "sketchName": "turneffe"
@@ -1088,7 +1088,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "sills",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "turneffe"
@@ -1134,7 +1134,7 @@
       "classId": "slope",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 0,
+      "value": 233516505.195543,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -1146,7 +1146,7 @@
       "classId": "slope",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 233516505.195543,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -1212,7 +1212,7 @@
       "metricId": "geomorphAreaOverlap",
       "classId": "slope",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 233516505.195543,
       "extra": {
         "sketchName": "turneffe"

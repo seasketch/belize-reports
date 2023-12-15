@@ -18,7 +18,7 @@
       "classId": "coral",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 182116,
+      "value": 1262951,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -30,7 +30,7 @@
       "classId": "coral",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1080835,
+      "value": 0,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -96,7 +96,7 @@
       "metricId": "coralValueOverlap",
       "classId": "coral",
       "sketchId": "23749",
-      "groupId": "MEDIUM_PROTECTION",
+      "groupId": "HIGH_PROTECTION",
       "value": 1080835,
       "extra": {
         "sketchName": "turneffe"

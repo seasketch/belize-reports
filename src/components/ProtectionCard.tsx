@@ -41,8 +41,8 @@ const groupColorMap: Record<string, string> = {
   Ia: "#BEE4BE",
   Ib: "#BEE4BE",
   II: "#BEE4BE",
+  III: "#BEE4BE",
   HIGH_PROTECTION: "#BEE4BE",
-  III: "#FFE1A3",
   IV: "#FFE1A3",
   V: "#FFE1A3",
   VI: "#FFE1A3",
@@ -272,10 +272,9 @@ export const ProtectionLearnMore: React.FunctionComponent<LearnMoreProps> = ({
         </p>
         <p>Locally Managed Marine Areas (LMMA)</p>
         <p>
-          IUCN Ia, Ib, and II are considered High Biodiversity Protection Zones
-          (HBPZs). IUCN V, VI, OECM, and LMMAs are considered Medium
-          Biodiversity Protection Zones (MBPZs). In these reports, IUCN levels
-          III and IV are also considered MBPZs.
+          IUCN Ia, Ib, II, and III are considered High Biodiversity Protection
+          Zones (HBPZs). IUCN IV, V, VI, OECM, and LMMAs are considered Medium
+          Biodiversity Protection Zones (MBPZs).
         </p>
         <p>🎯 Planning Objective: None</p>
         <p>🗺️ Source Data: None</p>

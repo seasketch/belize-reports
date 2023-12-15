@@ -418,7 +418,7 @@ const genLearnMore = (t: any) => {
           or sea-bed alteration and is considered a no-take zone in common
           vernacular. Examples of high protection status, depending on the
           objectives and allowable human activities, are: Marine Protected Areas
-          in the IUCN categories Ia, Ib, and II.
+          in the IUCN categories Ia, Ib, II, and III.
         </p>
         <p>
           Medium biodiversity protection and sustainable use zones are proposed
@@ -430,9 +430,8 @@ const genLearnMore = (t: any) => {
           some level of extraction and sea-bed alteration, with appropriate
           management and direction, depending on the objective of each
           designated area. Examples of medium protection status could include:
-          Marine Protected Area IUCN categories V and VI, IUCN OECM category,
-          and Locally Managed Marine Areas (LMMA). In these reports, IUCN levels
-          III and IV are also considered MBPZs.
+          Marine Protected Area IUCN categories IV, V, VI, IUCN OECM category,
+          and Locally Managed Marine Areas (LMMA).
         </p>
         <p>
           🎯 Planning Objective: 30% protection of Belize Ocean Space. 15%

@@ -48,7 +48,13 @@ export const groupColorMap: Record<string, string> = {
 };
 
 // Designations of high and medium protection levels
-export const highProtectionLevels = ["Ia", "Ib", "II", "HIGH_PROTECTION"];
+export const highProtectionLevels = [
+  "Ia",
+  "Ib",
+  "II",
+  "III",
+  "HIGH_PROTECTION",
+];
 export const mediumProtectionLevels = [
   "IV",
   "V",
