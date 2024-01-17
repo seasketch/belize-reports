@@ -1,23 +1,26 @@
 import {
   Sketch,
-  GeoprocessingHandler,
   Metric,
   Polygon,
   ReportResult,
   SketchCollection,
   toNullSketch,
   rekeyMetrics,
+  Georaster,
+  sortMetrics,
+} from "@seasketch/geoprocessing/client-core";
+import {
+  GeoprocessingHandler,
   getCogFilename,
   rasterMetrics,
+  overlapRasterGroupMetrics,
 } from "@seasketch/geoprocessing";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
 import project from "../../project";
-import { Georaster, sortMetrics } from "@seasketch/geoprocessing/client-core";
 import {
   getMpaProtectionLevels,
   protectionLevels,
 } from "../util/getMpaProtectionLevel";
-import { overlapRasterGroupMetrics } from "../util/overlapRasterGroupMetrics";
 
 export async function seagrassValueOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>

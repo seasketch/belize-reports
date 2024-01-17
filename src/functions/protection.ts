@@ -4,16 +4,14 @@ import {
   toNullSketch,
   Sketch,
   SketchCollection,
-  GeoprocessingHandler,
   Polygon,
   ReportResult,
-} from "@seasketch/geoprocessing";
-import project from "../../project";
-import {
   createMetric,
   getSketchFeatures,
   getUserAttribute,
 } from "@seasketch/geoprocessing/client-core";
+import { GeoprocessingHandler } from "@seasketch/geoprocessing";
+import project from "../../project";
 
 export async function protection(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>

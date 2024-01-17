@@ -1,16 +1,20 @@
 import {
   Sketch,
   Feature,
-  GeoprocessingHandler,
   Metric,
   Polygon,
   ReportResult,
   SketchCollection,
   toNullSketch,
   rekeyMetrics,
+  sortMetrics,
+} from "@seasketch/geoprocessing/client-core";
+import {
+  GeoprocessingHandler,
   overlapFeatures,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
+  overlapFeaturesGroupMetrics,
 } from "@seasketch/geoprocessing";
 import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
@@ -19,8 +23,6 @@ import {
   getMpaProtectionLevels,
   protectionLevels,
 } from "../util/getMpaProtectionLevel";
-import { overlapFeaturesGroupMetrics } from "../util/overlapRasterGroupMetrics";
-import { sortMetrics } from "@seasketch/geoprocessing/client-core";
 
 export async function mangroveAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>

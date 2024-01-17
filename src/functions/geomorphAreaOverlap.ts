@@ -1,13 +1,16 @@
 import {
   Sketch,
   Feature,
-  GeoprocessingHandler,
   Metric,
   Polygon,
   ReportResult,
   SketchCollection,
   toNullSketch,
   rekeyMetrics,
+  sortMetrics,
+} from "@seasketch/geoprocessing/client-core";
+import {
+  GeoprocessingHandler,
   overlapFeatures,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
@@ -20,7 +23,6 @@ import {
   getMpaProtectionLevels,
   protectionLevels,
 } from "../util/getMpaProtectionLevel";
-import { sortMetrics } from "@seasketch/geoprocessing/client-core";
 
 export async function geomorphAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>

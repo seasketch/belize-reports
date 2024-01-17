@@ -1,6 +1,5 @@
 import {
   Sketch,
-  GeoprocessingHandler,
   Metric,
   Polygon,
   ReportResult,
@@ -8,19 +7,14 @@ import {
   toNullSketch,
   rekeyMetrics,
   sortMetrics,
-  NullSketchCollection,
-  NullSketch,
-  getSketchFeatures,
+  firstMatchingMetric,
+} from "@seasketch/geoprocessing/client-core";
+import {
+  overlapAreaGroupMetrics,
+  overlapArea,
+  GeoprocessingHandler,
 } from "@seasketch/geoprocessing";
 import project from "../../project";
-import {
-  overlapArea,
-  overlapAreaGroupMetrics,
-} from "@seasketch/geoprocessing/src";
-import {
-  firstMatchingMetric,
-  getUserAttribute,
-} from "@seasketch/geoprocessing/client-core";
 import { getMpaProtectionLevels } from "../util/getMpaProtectionLevel";
 
 const metricGroup = project.getMetricGroup("boundaryAreaOverlap");
