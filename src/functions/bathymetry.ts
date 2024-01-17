@@ -6,8 +6,9 @@ import {
   Polygon,
   toSketchArray,
   getCogFilename,
+  toRasterProjection,
 } from "@seasketch/geoprocessing";
-import { loadCogWindow } from "@seasketch/geoprocessing/dataproviders";
+import { loadCog } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
 import { min, max, mean } from "simple-statistics";
 import project from "../../project";
@@ -36,14 +37,10 @@ export async function bathymetry(
   const url = `${project.dataBucketUrl()}${getCogFilename(
     project.getInternalRasterDatasourceById(mg.classes[0].datasourceId)
   )}`;
-  const raster = await loadCogWindow(url, {
-    windowBox: box,
-  });
+  const raster = await loadCog(url);
   const stats = await bathyStats(sketches, raster);
   if (!stats)
-    throw new Error(
-      `No stats returned for ${sketch.properties.name}`
-    );
+    throw new Error(`No stats returned for ${sketch.properties.name}`);
   return stats;
 }
 
@@ -56,34 +53,39 @@ export async function bathyStats(
   /** bathymetry raster to search */
   raster: Georaster
 ): Promise<BathymetryResults> {
-  const sketchStats = features.map((feature, index) => {
-    // If empty sketch (from subregional clipping)
-    if (!feature.geometry.coordinates.length)
-      return {
-        min: null,
-        mean: null,
-        max: null,
-      };
-    try {
-      // @ts-ignore
-      const stats = geoblaze.stats(raster, feature, {
-        calcMax: true,
-        calcMean: true,
-        calcMin: true,
-      })[0];
-      return { min: stats.min, max: stats.max, mean: stats.mean };
-    } catch (err) {
-      if (err === "No Values were found in the given geometry") {
+  const sketchStats = await Promise.all(
+    features.map(async (feature, index) => {
+      const finalFeat = toRasterProjection(raster, feature);
+      // If empty sketch (from subregional clipping)
+      if (!finalFeat.geometry.coordinates.length)
         return {
           min: null,
           mean: null,
           max: null,
         };
-      } else {
-        throw err;
+      try {
+        // @ts-ignore
+        const stats = (
+          await geoblaze.stats(raster, finalFeat, {
+            calcMax: true,
+            calcMean: true,
+            calcMin: true,
+          })
+        )[0];
+        return { min: stats.min, max: stats.max, mean: stats.mean };
+      } catch (err) {
+        if (err === "No Values were found in the given geometry") {
+          return {
+            min: null,
+            mean: null,
+            max: null,
+          };
+        } else {
+          throw err;
+        }
       }
-    }
-  });
+    })
+  );
 
   if (!sketchStats.map((s) => s.min).filter(notNull).length) {
     // No sketch overlaps with planning area

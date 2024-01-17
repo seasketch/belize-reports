@@ -6,7 +6,7 @@
       "classId": "seagrass",
       "sketchId": "21893",
       "groupId": null,
-      "value": 2564292,
+      "value": 2241712,
       "extra": {
         "sketchName": "test-whole"
       }
@@ -17,7 +17,7 @@
       "classId": "seagrass",
       "sketchId": "21893",
       "groupId": "HIGH_PROTECTION",
-      "value": 2564292,
+      "value": 2241712,
       "extra": {
         "sketchName": "test-whole"
       }

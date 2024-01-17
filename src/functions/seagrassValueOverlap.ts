@@ -8,7 +8,7 @@ import {
   toNullSketch,
   rekeyMetrics,
   getCogFilename,
-  overlapRaster,
+  rasterMetrics,
 } from "@seasketch/geoprocessing";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
 import project from "../../project";
@@ -38,11 +38,10 @@ export async function seagrassValueOverlap(
         featuresByClass[curClass.classId] = raster;
 
         // start analysis as soon as source load done
-        const overlapResult = await overlapRaster(
-          metricGroup.metricId,
-          raster,
-          sketch
-        );
+        const overlapResult = await rasterMetrics(raster, {
+          metricId: metricGroup.metricId,
+          feature: sketch,
+        });
         return overlapResult.map(
           (metrics): Metric => ({
             ...metrics,

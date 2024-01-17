@@ -6,7 +6,7 @@
       "classId": "coral",
       "sketchId": "20646",
       "groupId": null,
-      "value": 902716,
+      "value": 785951,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -17,7 +17,7 @@
       "classId": "coral",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 902716,
+      "value": 785951,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -28,7 +28,7 @@
       "classId": "coral",
       "sketchId": "20647",
       "groupId": null,
-      "value": 279631,
+      "value": 243155,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -39,7 +39,7 @@
       "classId": "coral",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 279631,
+      "value": 243155,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -50,7 +50,7 @@
       "classId": "coral",
       "sketchId": "20648",
       "groupId": null,
-      "value": 1182347,
+      "value": 1029106,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -62,7 +62,7 @@
       "classId": "coral",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 902716,
+      "value": 785951,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -74,7 +74,7 @@
       "classId": "coral",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 279631,
+      "value": 243155,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

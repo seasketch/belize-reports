@@ -18,7 +18,7 @@ export const groupDisplayMapPl: Record<string, string> = {
   Ia: "IUCN Ia. Strict Nature Reserve(s)",
   Ib: "IUCN Ib. Wilderness Area(s)",
   II: "IUCN II. National Park(s)",
-  III: "IUCN III. Natural Monumens) or Feature(s)",
+  III: "IUCN III. Natural Monument(s) or Feature(s)",
   IV: "IUCN IV. Habitat/Species Management Area(s)",
   V: "IUCN V. Protected Landscape(s) or Seascape(s)",
   VI: "IUCN VI. Protected Area(s) with Sustainable Use",

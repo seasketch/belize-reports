@@ -3,7 +3,7 @@ import {
   clip,
   genFeatureCollection,
   overlapFeatures,
-  overlapRaster,
+  rasterMetrics,
 } from "@seasketch/geoprocessing";
 import {
   SketchCollection,
@@ -32,7 +32,7 @@ type OverlapGroupOperation = (
 ) => Promise<number>;
 
 /**
- * Generate overlap group metrics using overlapRaster operation
+ * Generate overlap group metrics using rasterMetrics operation
  * NEW FUNCTION
  */
 export async function overlapRasterGroupMetrics(options: {
@@ -59,7 +59,10 @@ export async function overlapRasterGroupMetrics(options: {
       sc: SketchCollection<Polygon>
     ) => {
       if (isPolygonFeatureArray(features)) throw new Error(`Expected raster`);
-      const overallGroupMetrics = await overlapRaster(metricId, features, sc);
+      const overallGroupMetrics = await rasterMetrics(features, {
+        metricId: metricId,
+        feature: sc,
+      });
       return firstMatchingMetric(
         overallGroupMetrics,
         (m) => !!m.extra?.isCollection
@@ -70,7 +73,7 @@ export async function overlapRasterGroupMetrics(options: {
 
 /**
  * Generate overlap group metrics using overlapFeatures operation
- * ADDITIONS: Checks that only features is a polygon array (line 93)
+ * ADDITIONS: Checks that only features is a polygon array (line 98)
  */
 export async function overlapFeaturesGroupMetrics(options: {
   /** Caller-provided metric ID */

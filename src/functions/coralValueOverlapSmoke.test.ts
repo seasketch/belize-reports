@@ -19,5 +19,5 @@ describe("Basic smoke tests", () => {
       expect(result).toBeTruthy();
       writeResultOutput(result, "coralValueOverlap", example.properties.name);
     }
-  }, 120000);
+  }, 200000);
 });

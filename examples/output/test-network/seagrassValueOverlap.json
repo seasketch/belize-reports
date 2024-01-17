@@ -6,7 +6,7 @@
       "classId": "seagrass",
       "sketchId": "20646",
       "groupId": null,
-      "value": 119642,
+      "value": 104720,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -17,7 +17,7 @@
       "classId": "seagrass",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 119642,
+      "value": 104720,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -28,7 +28,7 @@
       "classId": "seagrass",
       "sketchId": "20647",
       "groupId": null,
-      "value": 129486,
+      "value": 113355,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -39,7 +39,7 @@
       "classId": "seagrass",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 129486,
+      "value": 113355,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -50,7 +50,7 @@
       "classId": "seagrass",
       "sketchId": "20648",
       "groupId": null,
-      "value": 249128,
+      "value": 218075,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -62,7 +62,7 @@
       "classId": "seagrass",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 119642,
+      "value": 104720,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -74,7 +74,7 @@
       "classId": "seagrass",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 129486,
+      "value": 113355,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
