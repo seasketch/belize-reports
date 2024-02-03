@@ -12,7 +12,7 @@ import project from "../../project";
 import Translator from "./TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 import {
-  genSketchTable,
+  genAreaSketchTable,
   groupedCollectionReport,
   groupedSketchReport,
 } from "../util/ProtectionLevelOverlapReports";
@@ -75,7 +75,7 @@ export const Mangroves: React.FunctionComponent<GeogProp> = (props) => {
 
                   {isCollection && (
                     <Collapse title={t("Show by MPA")}>
-                      {genSketchTable(data, precalcMetrics, mg)}
+                      {genAreaSketchTable(data, precalcMetrics, mg, t)}
                     </Collapse>
                   )}
                 </Translator>
