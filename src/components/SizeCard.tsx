@@ -22,6 +22,7 @@ import {
   squareMeterToKilometer,
   OBJECTIVE_NO,
   OBJECTIVE_YES,
+  flattenByGroupAllClass,
 } from "@seasketch/geoprocessing/client-core";
 import {
   getMetricGroupObjectiveIds,
@@ -29,14 +30,13 @@ import {
 } from "@seasketch/geoprocessing";
 import { Trans, useTranslation } from "react-i18next";
 import project from "../../project";
-import { flattenByGroupAllClass } from "../util/flattenByGroupAllClass";
 import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
 import { groupColorMap } from "../util/getMpaProtectionLevel";
 import {
   CollectionObjectiveStatus,
   collectionMsgs,
+  genAreaGroupLevelTable,
   genAreaSketchTable,
-  genGroupLevelTable,
 } from "../util/ProtectionLevelOverlapReports";
 import { Download } from "@styled-icons/bootstrap/Download/Download";
 
@@ -137,9 +137,14 @@ export const SizeCard: React.FunctionComponent = (props) => {
                 : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
               {isCollection && (
-                <Collapse title={t("Show by MPA")}>
-                  {genAreaSketchTable(data, boundaryTotalMetrics, mg, t)}
-                </Collapse>
+                <>
+                  <Collapse title={t("Show by Protection Level")}>
+                    {genAreaGroupLevelTable(data, boundaryTotalMetrics, mg, t)}
+                  </Collapse>
+                  <Collapse title={t("Show by MPA")}>
+                    {genAreaSketchTable(data, boundaryTotalMetrics, mg, t)}
+                  </Collapse>
+                </>
               )}
 
               <Collapse title={t("Learn More")}>{genLearnMore(t)}</Collapse>
@@ -240,15 +245,7 @@ const collectionReport = (
     {}
   );
 
-  return (
-    <>
-      {genObjectiveReport(objectiveIds, totalsByObjective, t)}
-
-      <Collapse title={t("Show by Protection Level")}>
-        {genGroupLevelTable(data, precalcMetrics, mg, t)}
-      </Collapse>
-    </>
-  );
+  return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
 };
 
 /**

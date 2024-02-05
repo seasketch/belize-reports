@@ -13,6 +13,7 @@ import project from "../../project";
 import Translator from "./TranslatorAsync";
 import { Trans, useTranslation } from "react-i18next";
 import {
+  genAreaGroupLevelTable,
   genAreaSketchTable,
   groupedCollectionReport,
   groupedSketchReport,
@@ -79,9 +80,14 @@ export const Seagrass: React.FunctionComponent<GeogProp> = (props) => {
                     : groupedSketchReport(data, precalcMetrics, mg, t)}
 
                   {isCollection && (
-                    <Collapse title={t("Show by MPA")}>
-                      {genAreaSketchTable(data, precalcMetrics, mg, t)}
-                    </Collapse>
+                    <>
+                      <Collapse title={t("Show by Protection Level")}>
+                        {genAreaGroupLevelTable(data, precalcMetrics, mg, t)}
+                      </Collapse>
+                      <Collapse title={t("Show by MPA")}>
+                        {genAreaSketchTable(data, precalcMetrics, mg, t)}
+                      </Collapse>
+                    </>
                   )}
                 </Translator>
 
