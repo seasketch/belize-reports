@@ -23,6 +23,8 @@ import {
   getMpaProtectionLevels,
   protectionLevels,
 } from "../util/getMpaProtectionLevel";
+import { spawn, Thread, Worker, FunctionThread } from "threads";
+import { OverlapFeaturesWorker } from "../util/overlapFeaturesWorker";
 
 export async function mangroveAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
@@ -78,11 +80,15 @@ export async function mangroveAreaOverlap(
   const metrics: Metric[] = (
     await Promise.all(
       metricGroup.classes.map(async (curClass) => {
-        const overlapResult = await overlapFeatures(
+        const worker = await spawn<OverlapFeaturesWorker>(
+          new Worker("./../util/overlapFeaturesWorker")
+        );
+        const overlapResult = await worker(
           metricGroup.metricId,
           polysByBoundary[curClass.classId],
           sketch
         );
+        await Thread.terminate(worker);
         return overlapResult.map(
           (metric): Metric => ({
             ...metric,
