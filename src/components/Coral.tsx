@@ -41,7 +41,7 @@ export const Coral: React.FunctionComponent<ReportProps> = (props) => {
   const layerId = mg.layerId;
 
   return (
-    <>
+    <div style={{ breakInside: "avoid" }}>
       <ResultsCard
         title={titleLabel}
         functionName="coralValueOverlap"
@@ -98,7 +98,13 @@ export const Coral: React.FunctionComponent<ReportProps> = (props) => {
                         collapsed={!props.printing}
                         key={String(props.printing) + "MPA"}
                       >
-                        {genAreaSketchTable(data, precalcMetrics, mg, t)}
+                        {genAreaSketchTable(
+                          data,
+                          precalcMetrics,
+                          mg,
+                          t,
+                          props.printing
+                        )}
                       </Collapse>
                     </>
                   )}
@@ -140,6 +146,6 @@ export const Coral: React.FunctionComponent<ReportProps> = (props) => {
           );
         }}
       </ResultsCard>
-    </>
+    </div>
   );
 };

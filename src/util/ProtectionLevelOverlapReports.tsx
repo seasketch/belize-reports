@@ -563,6 +563,7 @@ export const genAreaGroupLevelTable = (
             className="styled"
             columns={tableColumns}
             data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
+            manualPagination={printing}
           />
         </AreaSketchTableStyled>
       );
@@ -593,7 +594,8 @@ export const genAreaGroupLevelTable = (
 export const genSketchTable = (
   data: ReportResult,
   precalcMetrics: Metric[],
-  metricGroup: MetricGroup
+  metricGroup: MetricGroup,
+  printing: boolean = false
 ) => {
   // Build agg metric objects for each child sketch in collection with percValue for each class
   const childSketches = toNullSketchArray(data.sketch);
@@ -639,6 +641,7 @@ export const genSketchTable = (
         data={sketchRows.sort((a, b) =>
           (a.sketchName as string).localeCompare(b.sketchName as string)
         )}
+        manualPagination={printing}
       />
     </PercentSketchTableStyled>
   );
@@ -740,7 +743,11 @@ export const genAreaSketchTable = (
       tables.push(
         <AreaSketchTableStyled printing={printing}>
           <AreaSketchTableStyled printing={printing}>
-            <Table columns={tableColumns} data={rows} />
+            <Table
+              columns={tableColumns}
+              data={rows}
+              manualPagination={printing}
+            />
           </AreaSketchTableStyled>
         </AreaSketchTableStyled>
       );

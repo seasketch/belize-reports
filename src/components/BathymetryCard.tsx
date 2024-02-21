@@ -26,52 +26,54 @@ export const BathymetryCard: React.FunctionComponent<ReportProps> = (props) => {
   const mapLabel = t("Map");
 
   return (
-    <ResultsCard title={t("Depth")} functionName="bathymetry" useChildCard>
-      {(data: BathymetryResults) => {
-        return (
-          <ToolbarCard
-            title={t("Depth")}
-            items={
-              <>
-                <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
-                <DataDownload
-                  filename="depth"
-                  data={[data]}
-                  formats={["csv", "json"]}
-                  titleElement={
-                    <Download
-                      size={18}
-                      color="#999"
-                      style={{ cursor: "pointer" }}
-                    />
-                  }
-                />
-              </>
-            }
-          >
-            <VerticalSpacer />
-            <KeySection
-              style={{ display: "flex", justifyContent: "space-around" }}
+    <div style={{ breakInside: "avoid" }}>
+      <ResultsCard title={t("Depth")} functionName="bathymetry" useChildCard>
+        {(data: BathymetryResults) => {
+          return (
+            <ToolbarCard
+              title={t("Depth")}
+              items={
+                <>
+                  <LayerToggle label={mapLabel} layerId={mg.layerId} simple />
+                  <DataDownload
+                    filename="depth"
+                    data={[data]}
+                    formats={["csv", "json"]}
+                    titleElement={
+                      <Download
+                        size={18}
+                        color="#999"
+                        style={{ cursor: "pointer" }}
+                      />
+                    }
+                  />
+                </>
+              }
             >
-              <span>
-                {t("Min")}: <b>{formatDepth(data.max)}</b>
-              </span>
-              <span>
-                {t("Avg")}: <b>{formatDepth(data.mean)}</b>
-              </span>
-              <span>
-                {t("Max")}: <b>{formatDepth(data.min)}</b>
-              </span>
-            </KeySection>
-            {!props.printing && (
-              <Collapse title={t("Learn More")}>
-                <BathymetryLearnMore />
-              </Collapse>
-            )}
-          </ToolbarCard>
-        );
-      }}
-    </ResultsCard>
+              <VerticalSpacer />
+              <KeySection
+                style={{ display: "flex", justifyContent: "space-around" }}
+              >
+                <span>
+                  {t("Min")}: <b>{formatDepth(data.max)}</b>
+                </span>
+                <span>
+                  {t("Avg")}: <b>{formatDepth(data.mean)}</b>
+                </span>
+                <span>
+                  {t("Max")}: <b>{formatDepth(data.min)}</b>
+                </span>
+              </KeySection>
+              {!props.printing && (
+                <Collapse title={t("Learn More")}>
+                  <BathymetryLearnMore />
+                </Collapse>
+              )}
+            </ToolbarCard>
+          );
+        }}
+      </ResultsCard>
+    </div>
   );
 };
 

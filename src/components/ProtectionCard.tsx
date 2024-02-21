@@ -157,7 +157,7 @@ const sketchCollectionReport = (
         collapsed={!printing}
         key={String(printing)}
       >
-        {genMpaSketchTable(sketches, t)}
+        {genMpaSketchTable(sketches, t, printing)}
       </Collapse>
 
       {!printing && (
@@ -172,7 +172,11 @@ const sketchCollectionReport = (
 /**
  * Show by MPA sketch table for sketch collection
  */
-const genMpaSketchTable = (sketches: NullSketch[], t: any) => {
+const genMpaSketchTable = (
+  sketches: NullSketch[],
+  t: any,
+  printing?: boolean
+) => {
   const columns: Column<NullSketch>[] = [
     {
       Header: t("MPA"),
@@ -203,6 +207,7 @@ const genMpaSketchTable = (sketches: NullSketch[], t: any) => {
         data={sketches.sort((a, b) =>
           a.properties.name.localeCompare(b.properties.name)
         )}
+        manualPagination={printing}
       />
     </SmallReportTableStyled>
   );

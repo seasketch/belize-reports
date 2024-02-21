@@ -35,7 +35,7 @@ export const HumanStressors: React.FunctionComponent<ReportProps> = (props) => {
   );
 
   return (
-    <>
+    <div style={{ breakInside: "avoid" }}>
       <ResultsCard
         title={t("Human Use")}
         functionName="humanStressorsAreaOverlap"
@@ -86,7 +86,13 @@ export const HumanStressors: React.FunctionComponent<ReportProps> = (props) => {
                       collapsed={!props.printing}
                       key={String(props.printing) + "MPA"}
                     >
-                      {genAreaSketchTable(data, precalcMetrics, mg, t)}
+                      {genAreaSketchTable(
+                        data,
+                        precalcMetrics,
+                        mg,
+                        t,
+                        props.printing
+                      )}
                     </Collapse>
                   </>
                 )}
@@ -119,6 +125,6 @@ export const HumanStressors: React.FunctionComponent<ReportProps> = (props) => {
           );
         }}
       </ResultsCard>
-    </>
+    </div>
   );
 };

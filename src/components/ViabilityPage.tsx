@@ -11,7 +11,7 @@ const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
       <ProtectionCard printing={props.printing} />
       <SizeCard printing={props.printing} />
       <HumanStressors printing={props.printing} />
-      <SketchAttributesCard autoHide />
+      {!props.printing && <SketchAttributesCard autoHide />}
     </>
   );
 };

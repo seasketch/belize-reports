@@ -38,7 +38,7 @@ export const Geomorphology: React.FunctionComponent<ReportProps> = (props) => {
   );
 
   return (
-    <>
+    <div style={{ breakInside: "avoid" }}>
       <ResultsCard
         title={t("Geomorphology")}
         functionName="geomorphAreaOverlap"
@@ -162,6 +162,6 @@ export const Geomorphology: React.FunctionComponent<ReportProps> = (props) => {
           );
         }}
       </ResultsCard>
-    </>
+    </div>
   );
 };

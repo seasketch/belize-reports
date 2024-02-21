@@ -64,106 +64,125 @@ export const SizeCard: React.FunctionComponent<ReportProps> = (props) => {
   const objectiveIds = getMetricGroupObjectiveIds(mg);
 
   return (
-    <ResultsCard
-      title={t("Size")}
-      functionName="boundaryAreaOverlap"
-      useChildCard
-    >
-      {(data: ReportResult) => {
-        // Get overall area of sketch metric
-        const areaMetric = firstMatchingMetric(
-          data.metrics,
-          (m) => m.sketchId === data.sketch.properties.id && m.groupId === null
-        );
+    <div style={{ breakInside: "avoid" }}>
+      <ResultsCard
+        title={t("Size")}
+        functionName="boundaryAreaOverlap"
+        useChildCard
+      >
+        {(data: ReportResult) => {
+          // Get overall area of sketch metric
+          const areaMetric = firstMatchingMetric(
+            data.metrics,
+            (m) =>
+              m.sketchId === data.sketch.properties.id && m.groupId === null
+          );
 
-        // Grab overall size precalc metric
-        const totalAreaMetric = firstMatchingMetric(
-          boundaryTotalMetrics,
-          (m) => m.groupId === null
-        );
+          // Grab overall size precalc metric
+          const totalAreaMetric = firstMatchingMetric(
+            boundaryTotalMetrics,
+            (m) => m.groupId === null
+          );
 
-        // Format area metrics for key section display
-        const areaDisplay = roundLower(
-          squareMeterToKilometer(areaMetric.value)
-        );
-        const percDisplay = percentWithEdge(
-          areaMetric.value / totalAreaMetric.value
-        );
-        const areaUnitDisplay = t("km²");
-        const mapLabel = t("Show Map Layer");
+          // Format area metrics for key section display
+          const areaDisplay = roundLower(
+            squareMeterToKilometer(areaMetric.value)
+          );
+          const percDisplay = percentWithEdge(
+            areaMetric.value / totalAreaMetric.value
+          );
+          const areaUnitDisplay = t("km²");
+          const mapLabel = t("Show Map Layer");
 
-        return (
-          <ReportError>
-            <ToolbarCard
-              title={t("Size")}
-              items={
-                <DataDownload
-                  filename="size"
-                  data={data.metrics}
-                  formats={["csv", "json"]}
-                  titleElement={
-                    <Download
-                      size={18}
-                      color="#999"
-                      style={{ cursor: "pointer" }}
-                    />
-                  }
-                />
-              }
-            >
-              <VerticalSpacer />
-              <Trans i18nKey="SizeCard - Intro">
-                The Belize Ocean Space includes internal waters, territorial
-                seas, and the Exclusive Economic Zone (EEZ) which extends out to
-                200 nautical miles. This report summarizes this plan's overlap
-                with the total ocean space, measuring progress towards achieving
-                the objective of 30% protection.
-              </Trans>
-              <VerticalSpacer />
-              <KeySection>
-                {t("This plan is")}{" "}
-                <b>
-                  {areaDisplay} {areaUnitDisplay}
-                </b>
-                {", "}
-                {t("which is")} <b>{percDisplay}</b> {t("of")}{" "}
-                {t("the 33,706 km² Belize Ocean Space")}.
-              </KeySection>
+          return (
+            <ReportError>
+              <ToolbarCard
+                title={t("Size")}
+                items={
+                  <DataDownload
+                    filename="size"
+                    data={data.metrics}
+                    formats={["csv", "json"]}
+                    titleElement={
+                      <Download
+                        size={18}
+                        color="#999"
+                        style={{ cursor: "pointer" }}
+                      />
+                    }
+                  />
+                }
+              >
+                <VerticalSpacer />
+                <Trans i18nKey="SizeCard - Intro">
+                  The Belize Ocean Space includes internal waters, territorial
+                  seas, and the Exclusive Economic Zone (EEZ) which extends out
+                  to 200 nautical miles. This report summarizes this plan's
+                  overlap with the total ocean space, measuring progress towards
+                  achieving the objective of 30% protection.
+                </Trans>
+                <VerticalSpacer />
+                <KeySection>
+                  {t("This plan is")}{" "}
+                  <b>
+                    {areaDisplay} {areaUnitDisplay}
+                  </b>
+                  {", "}
+                  {t("which is")} <b>{percDisplay}</b> {t("of")}{" "}
+                  {t("the 33,706 km² Belize Ocean Space")}.
+                </KeySection>
 
-              <LayerToggle label={mapLabel} layerId={mg.layerId} />
-              <VerticalSpacer />
+                <LayerToggle label={mapLabel} layerId={mg.layerId} />
+                <VerticalSpacer />
 
-              {isCollection
-                ? collectionReport(data, boundaryTotalMetrics, objectiveIds, t)
-                : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
+                {isCollection
+                  ? collectionReport(
+                      data,
+                      boundaryTotalMetrics,
+                      objectiveIds,
+                      t
+                    )
+                  : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
-              {isCollection && (
-                <>
-                  <Collapse
-                    title={t("Show by Protection Level")}
-                    collapsed={!props.printing}
-                    key={String(props.printing) + "Protection"}
-                  >
-                    {genAreaGroupLevelTable(data, boundaryTotalMetrics, mg, t)}
-                  </Collapse>
-                  <Collapse
-                    title={t("Show by MPA")}
-                    collapsed={!props.printing}
-                    key={String(props.printing) + "MPA"}
-                  >
-                    {genAreaSketchTable(data, boundaryTotalMetrics, mg, t)}
-                  </Collapse>
-                </>
-              )}
+                {isCollection && (
+                  <>
+                    <Collapse
+                      title={t("Show by Protection Level")}
+                      collapsed={!props.printing}
+                      key={String(props.printing) + "Protection"}
+                    >
+                      {genAreaGroupLevelTable(
+                        data,
+                        boundaryTotalMetrics,
+                        mg,
+                        t
+                      )}
+                    </Collapse>
+                    <Collapse
+                      title={t("Show by MPA")}
+                      collapsed={!props.printing}
+                      key={String(props.printing) + "MPA"}
+                    >
+                      {genAreaSketchTable(
+                        data,
+                        boundaryTotalMetrics,
+                        mg,
+                        t,
+                        props.printing
+                      )}
+                    </Collapse>
+                  </>
+                )}
 
-              {!props.printing && (
-                <Collapse title={t("Learn More")}>{genLearnMore(t)}</Collapse>
-              )}
-            </ToolbarCard>
-          </ReportError>
-        );
-      }}
-    </ResultsCard>
+                {!props.printing && (
+                  <Collapse title={t("Learn More")}>{genLearnMore(t)}</Collapse>
+                )}
+              </ToolbarCard>
+            </ReportError>
+          );
+        }}
+      </ResultsCard>
+    </div>
   );
 };
 

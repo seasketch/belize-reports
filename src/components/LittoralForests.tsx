@@ -41,7 +41,7 @@ export const LittoralForests: React.FunctionComponent<ReportProps> = (
   const mapLabel = t("Map");
 
   return (
-    <>
+    <div style={{ breakInside: "avoid" }}>
       <ResultsCard
         title={t("Littoral Forests")}
         functionName="littoralAreaOverlap"
@@ -97,7 +97,13 @@ export const LittoralForests: React.FunctionComponent<ReportProps> = (
                         collapsed={!props.printing}
                         key={String(props.printing) + "MPA"}
                       >
-                        {genAreaSketchTable(data, precalcMetrics, mg, t)}
+                        {genAreaSketchTable(
+                          data,
+                          precalcMetrics,
+                          mg,
+                          t,
+                          props.printing
+                        )}
                       </Collapse>
                     </>
                   )}
@@ -138,6 +144,6 @@ export const LittoralForests: React.FunctionComponent<ReportProps> = (
           );
         }}
       </ResultsCard>
-    </>
+    </div>
   );
 };

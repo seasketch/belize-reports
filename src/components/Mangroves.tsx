@@ -36,7 +36,7 @@ export const Mangroves: React.FunctionComponent<ReportProps> = (props) => {
   );
 
   return (
-    <>
+    <div style={{ breakInside: "avoid" }}>
       <ResultsCard
         title={t("Mangroves")}
         functionName="mangroveAreaOverlap"
@@ -89,7 +89,13 @@ export const Mangroves: React.FunctionComponent<ReportProps> = (props) => {
                         collapsed={!props.printing}
                         key={String(props.printing) + "MPA"}
                       >
-                        {genAreaSketchTable(data, precalcMetrics, mg, t)}
+                        {genAreaSketchTable(
+                          data,
+                          precalcMetrics,
+                          mg,
+                          t,
+                          props.printing
+                        )}
                       </Collapse>
                     </>
                   )}
@@ -130,6 +136,6 @@ export const Mangroves: React.FunctionComponent<ReportProps> = (props) => {
           );
         }}
       </ResultsCard>
-    </>
+    </div>
   );
 };

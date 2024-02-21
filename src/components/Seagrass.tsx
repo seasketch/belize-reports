@@ -39,7 +39,7 @@ export const Seagrass: React.FunctionComponent<ReportProps> = (props) => {
   const mapLabel = t("Map");
 
   return (
-    <>
+    <div style={{ breakInside: "avoid" }}>
       <ResultsCard
         title={t("Seagrass")}
         functionName="seagrassValueOverlap"
@@ -94,7 +94,13 @@ export const Seagrass: React.FunctionComponent<ReportProps> = (props) => {
                         collapsed={!props.printing}
                         key={String(props.printing) + "MPA"}
                       >
-                        {genAreaSketchTable(data, precalcMetrics, mg, t)}
+                        {genAreaSketchTable(
+                          data,
+                          precalcMetrics,
+                          mg,
+                          t,
+                          props.printing
+                        )}
                       </Collapse>
                     </>
                   )}
@@ -125,6 +131,6 @@ export const Seagrass: React.FunctionComponent<ReportProps> = (props) => {
           );
         }}
       </ResultsCard>
-    </>
+    </div>
   );
 };
