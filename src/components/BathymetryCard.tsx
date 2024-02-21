@@ -12,6 +12,7 @@ import { BathymetryResults } from "../functions/bathymetry";
 import { Trans, useTranslation } from "react-i18next";
 import project from "../../project";
 import { Download } from "@styled-icons/bootstrap/Download/Download";
+import { ReportProps } from "../util/ReportProp";
 
 const formatDepth = (val: number) => {
   if (!val) return "0m";
@@ -19,7 +20,7 @@ const formatDepth = (val: number) => {
   return val <= 0 ? `-${baseVal}m` : `+${baseVal}m`;
 };
 
-export const BathymetryCard: React.FunctionComponent = (props) => {
+export const BathymetryCard: React.FunctionComponent<ReportProps> = (props) => {
   const { t } = useTranslation();
   const mg = project.getMetricGroup("bathymetry", t);
   const mapLabel = t("Map");
@@ -62,9 +63,11 @@ export const BathymetryCard: React.FunctionComponent = (props) => {
                 {t("Max")}: <b>{formatDepth(data.min)}</b>
               </span>
             </KeySection>
-            <Collapse title={t("Learn More")}>
-              <BathymetryLearnMore />
-            </Collapse>
+            {!props.printing && (
+              <Collapse title={t("Learn More")}>
+                <BathymetryLearnMore />
+              </Collapse>
+            )}
           </ToolbarCard>
         );
       }}

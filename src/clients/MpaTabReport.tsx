@@ -1,12 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { SegmentControl, ReportPage } from "@seasketch/geoprocessing/client-ui";
 import ViabilityPage from "../components/ViabilityPage";
 import RepresentationPage from "../components/RepresentationPage";
 import KeyHabitatPage from "../components/KeyHabitatPage";
 import { useTranslation } from "react-i18next";
 import { Translator } from "../components/TranslatorAsync";
-import { Printer, PrinterFill, Download } from "@styled-icons/bootstrap";
-import ReactToPrint from "react-to-print";
+import { Printer } from "@styled-icons/bootstrap";
+import { useReactToPrint } from "react-to-print";
 
 const MpaTabReport = () => {
   const { t } = useTranslation();
@@ -20,66 +20,52 @@ const MpaTabReport = () => {
     { id: keyHabitatId, label: t("Key Habitat") },
   ];
   const [tab, setTab] = useState<string>(viabilityId);
-  const [enableAllTabs, setEnableAllTabs] = useState<boolean>(false);
-  const [showSegmentControl, setShowSegmentControl] = useState<boolean>(true);
 
+  // Adding support for printing reports
   const printRef = useRef(null);
+  const promiseResolveRef = useRef<any>(null);
+  const [isPrinting, setIsPrinting] = useState(false);
+
+  useEffect(() => {
+    if (isPrinting && promiseResolveRef.current) {
+      // Resolves the Promise, letting `react-to-print` know that the DOM updates are completed
+      promiseResolveRef.current();
+    }
+  }, [isPrinting]);
+
+  const handlePrint = useReactToPrint({
+    content: () => printRef.current,
+    onBeforeGetContent: () => {
+      return new Promise((resolve) => {
+        promiseResolveRef.current = resolve;
+        setIsPrinting(true);
+      });
+    },
+    onAfterPrint: () => {
+      // Reset the Promise resolve so we can print again
+      promiseResolveRef.current = null;
+      setIsPrinting(false);
+    },
+  });
+
   return (
     <>
-      {enableAllTabs ? (
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
-          <ReactToPrint
-            trigger={() => (
-              <Download
-                size={18}
-                color="#999"
-                title="Download reports"
-                style={{
-                  margin: "10px 5px 5px 5px",
-                  cursor: "pointer",
-                  marginLeft: "auto",
-                }}
-              />
-            )}
-            content={() => printRef.current}
-          />
-          <PrinterFill
-            size={18}
-            color="#999"
-            title="Return to Standard View"
-            style={{
-              margin: "10px 5px 5px 5px",
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              setEnableAllTabs(false);
-              setShowSegmentControl(true);
-            }}
-          />
-        </div>
-      ) : (
-        <Printer
-          size={18}
-          color="#999"
-          title="Print View"
-          style={{
-            float: "right",
-            position: "relative",
-            margin: "10px 5px 5px 5px",
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            setEnableAllTabs(true);
-            setShowSegmentControl(false);
-          }}
-        />
-      )}
+      <Printer
+        size={18}
+        color="#999"
+        title="Print/Save to PDF"
+        style={{
+          float: "right",
+          position: "relative",
+          margin: "5px",
+          cursor: "pointer",
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = "#666")}
+        onMouseLeave={(e) => (e.currentTarget.style.color = "#999")}
+        onClick={() => handlePrint()}
+      />
 
-      {showSegmentControl && (
+      {!isPrinting && (
         <div style={{ marginTop: 5 }}>
           <SegmentControl
             value={tab}
@@ -89,15 +75,15 @@ const MpaTabReport = () => {
         </div>
       )}
 
-      <div ref={printRef}>
-        <ReportPage hidden={!enableAllTabs && tab !== viabilityId}>
-          <ViabilityPage geographyId={geographyId} />
+      <div ref={printRef} style={{ breakInside: "avoid" }}>
+        <ReportPage hidden={!isPrinting && tab !== viabilityId}>
+          <ViabilityPage geographyId={geographyId} printing={isPrinting} />
         </ReportPage>
-        <ReportPage hidden={!enableAllTabs && tab !== representationId}>
-          <RepresentationPage geographyId={geographyId} />
+        <ReportPage hidden={!isPrinting && tab !== representationId}>
+          <RepresentationPage geographyId={geographyId} printing={isPrinting} />
         </ReportPage>
-        <ReportPage hidden={!enableAllTabs && tab !== keyHabitatId}>
-          <KeyHabitatPage geographyId={geographyId} />
+        <ReportPage hidden={!isPrinting && tab !== keyHabitatId}>
+          <KeyHabitatPage geographyId={geographyId} printing={isPrinting} />
         </ReportPage>
       </div>
     </>

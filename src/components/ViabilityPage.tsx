@@ -3,14 +3,14 @@ import { SizeCard } from "./SizeCard";
 import { SketchAttributesCard } from "@seasketch/geoprocessing/client-ui";
 import { ProtectionCard } from "./ProtectionCard";
 import { HumanStressors } from "./HumanStressors";
-import { GeogProp } from "@seasketch/geoprocessing/client-core";
+import { ReportProps } from "../util/ReportProp";
 
-const ReportPage: React.FunctionComponent<GeogProp> = (props) => {
+const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
   return (
     <>
-      <ProtectionCard />
-      <SizeCard />
-      <HumanStressors geographyId={props.geographyId}/>
+      <ProtectionCard printing={props.printing} />
+      <SizeCard printing={props.printing} />
+      <HumanStressors printing={props.printing} />
       <SketchAttributesCard autoHide />
     </>
   );

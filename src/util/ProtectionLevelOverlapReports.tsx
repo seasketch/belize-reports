@@ -463,7 +463,8 @@ export const genAreaGroupLevelTable = (
   data: ReportResult,
   precalcMetrics: Metric[],
   metricGroup: MetricGroup,
-  t: any
+  t: any,
+  printing: boolean = false
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
 
@@ -541,8 +542,38 @@ export const genAreaGroupLevelTable = (
     },
     ...classColumns,
   ];
+
+  if (printing) {
+    const tables: JSX.Element[] = [];
+    const totalClasses = metricGroup.classes.length;
+    const numTables = Math.ceil(totalClasses / 5);
+
+    for (let i = 0; i < numTables; i++) {
+      const startIndex = i * 5;
+      const endIndex = Math.min((i + 1) * 5, totalClasses);
+
+      const tableColumns: Column<Record<string, string | number>>[] = [
+        columns[0], // "This plan contains" column
+        ...classColumns.slice(startIndex, endIndex),
+      ];
+
+      tables.push(
+        <AreaSketchTableStyled printing={printing}>
+          <Table
+            className="styled"
+            columns={tableColumns}
+            data={levelAggs.sort((a, b) => a.groupId.localeCompare(b.groupId))}
+          />
+        </AreaSketchTableStyled>
+      );
+    }
+
+    return tables;
+  }
+
+  // If not printing, return a single table
   return (
-    <AreaSketchTableStyled>
+    <AreaSketchTableStyled printing={printing}>
       <Table
         className="styled"
         columns={columns}
@@ -553,7 +584,7 @@ export const genAreaGroupLevelTable = (
 };
 
 /**
- * Creates "Show by MPA" report
+ * Creates "Show by MPA" report with percentages
  * @param data data returned from lambda
  * @param precalcMetrics metrics from precalc.json
  * @param metricGroup metric group to get stats for
@@ -613,11 +644,13 @@ export const genSketchTable = (
   );
 };
 
+// Creates "Show by MPA" report with area + percentages
 export const genAreaSketchTable = (
   data: ReportResult,
   precalcMetrics: Metric[],
   mg: MetricGroup,
-  t: any
+  t: any,
+  printing: boolean = false
 ) => {
   const sketches = toNullSketchArray(data.sketch);
   const sketchesById = keyBy(sketches, (sk) => sk.properties.id);
@@ -690,8 +723,35 @@ export const genAreaSketchTable = (
     ...classColumns,
   ];
 
+  if (printing) {
+    const tables: JSX.Element[] = [];
+    const totalClasses = mg.classes.length;
+    const numTables = Math.ceil(totalClasses / 5);
+
+    for (let i = 0; i < numTables; i++) {
+      const startIndex = i * 5;
+      const endIndex = Math.min((i + 1) * 5, totalClasses);
+
+      const tableColumns: Column<{ sketchId: string }>[] = [
+        columns[0], // "This plan contains" column
+        ...classColumns.slice(startIndex, endIndex),
+      ];
+
+      tables.push(
+        <AreaSketchTableStyled printing={printing}>
+          <AreaSketchTableStyled printing={printing}>
+            <Table columns={tableColumns} data={rows} />
+          </AreaSketchTableStyled>
+        </AreaSketchTableStyled>
+      );
+    }
+
+    return tables;
+  }
+
+  // If not printing, return a single table
   return (
-    <AreaSketchTableStyled>
+    <AreaSketchTableStyled printing={printing}>
       <Table columns={columns} data={rows} />
     </AreaSketchTableStyled>
   );

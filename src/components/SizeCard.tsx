@@ -39,6 +39,7 @@ import {
   genAreaSketchTable,
 } from "../util/ProtectionLevelOverlapReports";
 import { Download } from "@styled-icons/bootstrap/Download/Download";
+import { ReportProps } from "../util/ReportProp";
 
 // Hard code total area of Belize ocean space
 const boundaryTotalMetrics: Metric[] = [
@@ -56,7 +57,7 @@ const boundaryTotalMetrics: Metric[] = [
  * Top level SizeCard element
  * @returns React.FunctionComponent
  */
-export const SizeCard: React.FunctionComponent = (props) => {
+export const SizeCard: React.FunctionComponent<ReportProps> = (props) => {
   const { t, i18n } = useTranslation();
   const [{ isCollection }] = useSketchProperties();
   const mg = project.getMetricGroup("boundaryAreaOverlap", t);
@@ -138,16 +139,26 @@ export const SizeCard: React.FunctionComponent = (props) => {
 
               {isCollection && (
                 <>
-                  <Collapse title={t("Show by Protection Level")}>
+                  <Collapse
+                    title={t("Show by Protection Level")}
+                    collapsed={!props.printing}
+                    key={String(props.printing) + "Protection"}
+                  >
                     {genAreaGroupLevelTable(data, boundaryTotalMetrics, mg, t)}
                   </Collapse>
-                  <Collapse title={t("Show by MPA")}>
+                  <Collapse
+                    title={t("Show by MPA")}
+                    collapsed={!props.printing}
+                    key={String(props.printing) + "MPA"}
+                  >
                     {genAreaSketchTable(data, boundaryTotalMetrics, mg, t)}
                   </Collapse>
                 </>
               )}
 
-              <Collapse title={t("Learn More")}>{genLearnMore(t)}</Collapse>
+              {!props.printing && (
+                <Collapse title={t("Learn More")}>{genLearnMore(t)}</Collapse>
+              )}
             </ToolbarCard>
           </ReportError>
         );

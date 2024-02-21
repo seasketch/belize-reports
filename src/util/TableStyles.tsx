@@ -33,10 +33,16 @@ export const PercentSketchTableStyled = styled(ReportTableStyled)`
   }
 `;
 
-export const AreaSketchTableStyled = styled(ReportTableStyled)`
+interface AreaSketchTableProps {
+  printing: boolean;
+}
+
+export const AreaSketchTableStyled = styled(
+  ReportTableStyled
+)<AreaSketchTableProps>`
   & {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: ${(props) => (props.printing ? "visible" : "scroll")};
     font-size: 12px;
   }
 

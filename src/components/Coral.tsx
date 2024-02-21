@@ -19,8 +19,9 @@ import {
   groupedSketchReport,
 } from "../util/ProtectionLevelOverlapReports";
 import { Download } from "@styled-icons/bootstrap/Download/Download";
+import { ReportProps } from "../util/ReportProp";
 
-export const Coral: React.FunctionComponent<GeogProp> = (props) => {
+export const Coral: React.FunctionComponent<ReportProps> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
@@ -85,44 +86,55 @@ export const Coral: React.FunctionComponent<GeogProp> = (props) => {
 
                   {isCollection && (
                     <>
-                      <Collapse title={t("Show by Protection Level")}>
+                      <Collapse
+                        title={t("Show by Protection Level")}
+                        collapsed={!props.printing}
+                        key={String(props.printing) + "Protection"}
+                      >
                         {genAreaGroupLevelTable(data, precalcMetrics, mg, t)}
                       </Collapse>
-                      <Collapse title={t("Show by MPA")}>
+                      <Collapse
+                        title={t("Show by MPA")}
+                        collapsed={!props.printing}
+                        key={String(props.printing) + "MPA"}
+                      >
                         {genAreaSketchTable(data, precalcMetrics, mg, t)}
                       </Collapse>
                     </>
                   )}
                 </Translator>
 
-                <Collapse title={t("Learn more")}>
-                  <Trans i18nKey="Coral Card - learn more">
-                    <p>
-                      ℹ️ Overview: Coral reef restoration is the intentional and
-                      active process of assisting the recovery and regeneration
-                      of coral reefs that have been damaged or degraded. It
-                      involves various techniques and interventions aimed at
-                      promoting the growth and survival of coral species,
-                      enhancing reef structure, and restoring ecosystem
-                      functionality. 7% of Belizean coral reefs are currently
-                      within HBPZs.
-                    </p>
-                    <p>🎯 Planning Objective: 20% of coral reefs in HBPZs</p>
-                    <p>
-                      🗺️ Source Data: Coral cover for 2021 from the Smart Coasts
-                      project, derived from the GEOBON project from CZMAI.
-                    </p>
-                    <p>
-                      📈 Report: The percentage of each feature type within this
-                      plan is calculated by finding the overlap of each feature
-                      type with the plan, summing its area, then dividing it by
-                      the total area of each feature type found within the
-                      selected nearshore planning area. If the plan includes
-                      multiple areas that overlap, the overlap is only counted
-                      once.
-                    </p>
-                  </Trans>
-                </Collapse>
+                {!props.printing && (
+                  <Collapse title={t("Learn more")}>
+                    <Trans i18nKey="Coral Card - learn more">
+                      <p>
+                        ℹ️ Overview: Coral reef restoration is the intentional
+                        and active process of assisting the recovery and
+                        regeneration of coral reefs that have been damaged or
+                        degraded. It involves various techniques and
+                        interventions aimed at promoting the growth and survival
+                        of coral species, enhancing reef structure, and
+                        restoring ecosystem functionality. 7% of Belizean coral
+                        reefs are currently within HBPZs.
+                      </p>
+                      <p>🎯 Planning Objective: 20% of coral reefs in HBPZs</p>
+                      <p>
+                        🗺️ Source Data: Coral cover for 2021 from the Smart
+                        Coasts project, derived from the GEOBON project from
+                        CZMAI.
+                      </p>
+                      <p>
+                        📈 Report: The percentage of each feature type within
+                        this plan is calculated by finding the overlap of each
+                        feature type with the plan, summing its area, then
+                        dividing it by the total area of each feature type found
+                        within the selected nearshore planning area. If the plan
+                        includes multiple areas that overlap, the overlap is
+                        only counted once.
+                      </p>
+                    </Trans>
+                  </Collapse>
+                )}
               </ToolbarCard>
             </ReportError>
           );

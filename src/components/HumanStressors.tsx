@@ -17,8 +17,9 @@ import {
   groupedSketchReport,
 } from "../util/ProtectionLevelOverlapReports";
 import { Download } from "@styled-icons/bootstrap/Download/Download";
+import { ReportProps } from "../util/ReportProp";
 
-export const HumanStressors: React.FunctionComponent<GeogProp> = (props) => {
+export const HumanStressors: React.FunctionComponent<ReportProps> = (props) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
 
@@ -73,36 +74,47 @@ export const HumanStressors: React.FunctionComponent<GeogProp> = (props) => {
 
                 {isCollection && (
                   <>
-                    <Collapse title={t("Show by Protection Level")}>
+                    <Collapse
+                      title={t("Show by Protection Level")}
+                      collapsed={!props.printing}
+                      key={String(props.printing) + "Protection"}
+                    >
                       {genAreaGroupLevelTable(data, precalcMetrics, mg, t)}
                     </Collapse>
-                    <Collapse title={t("Show by MPA")}>
+                    <Collapse
+                      title={t("Show by MPA")}
+                      collapsed={!props.printing}
+                      key={String(props.printing) + "MPA"}
+                    >
                       {genAreaSketchTable(data, precalcMetrics, mg, t)}
                     </Collapse>
                   </>
                 )}
               </Translator>
 
-              <Collapse title={t("Learn more")}>
-                <Trans i18nKey="Human Stressors Card - learn more">
-                  <p>
-                    ℹ️ Overview: Plans should consider how these areas of human
-                    use and human stress should be navigated in the ocean plan.
-                  </p>
-                  <p>
-                    🎯 Planning Objective: No specific planning objectives for
-                    human use areas.
-                  </p>
-                  <p>🗺️ Source Data: 2020</p>
-                  <p>
-                    📈 Report: The total area of the plan was calculated, along
-                    with the total area under high protection and total area
-                    under medium protection. Overlap was only counted once, and
-                    if zones of different protection levels overlap, only the
-                    highest protection level is counted.
-                  </p>
-                </Trans>
-              </Collapse>
+              {!props.printing && (
+                <Collapse title={t("Learn more")}>
+                  <Trans i18nKey="Human Stressors Card - learn more">
+                    <p>
+                      ℹ️ Overview: Plans should consider how these areas of
+                      human use and human stress should be navigated in the
+                      ocean plan.
+                    </p>
+                    <p>
+                      🎯 Planning Objective: No specific planning objectives for
+                      human use areas.
+                    </p>
+                    <p>🗺️ Source Data: 2020</p>
+                    <p>
+                      📈 Report: The total area of the plan was calculated,
+                      along with the total area under high protection and total
+                      area under medium protection. Overlap was only counted
+                      once, and if zones of different protection levels overlap,
+                      only the highest protection level is counted.
+                    </p>
+                  </Trans>
+                </Collapse>
+              )}
             </ToolbarCard>
           );
         }}

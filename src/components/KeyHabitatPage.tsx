@@ -2,16 +2,16 @@ import React from "react";
 import { Mangroves } from "./Mangroves";
 import { Seagrass } from "./Seagrass";
 import { Coral } from "./Coral";
-import { GeogProp } from "@seasketch/geoprocessing/client-core";
 import { LittoralForests } from "./LittoralForests";
+import { ReportProps } from "../util/ReportProp";
 
-const ReportPage: React.FunctionComponent<GeogProp> = (props) => {
+const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
   return (
     <>
-      <Coral geographyId={props.geographyId}/>
-      <Mangroves geographyId={props.geographyId}/>
-      <LittoralForests geographyId={props.geographyId}/>
-      <Seagrass geographyId={props.geographyId}/>
+      <Coral printing={props.printing} />
+      <Mangroves printing={props.printing} />
+      <LittoralForests printing={props.printing} />
+      <Seagrass printing={props.printing} />
     </>
   );
 };

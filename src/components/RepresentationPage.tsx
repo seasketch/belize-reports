@@ -1,13 +1,13 @@
 import React from "react";
 import { BathymetryCard } from "./BathymetryCard";
 import { Geomorphology } from "./Geomorphology";
-import { GeogProp } from "@seasketch/geoprocessing/client-core";
+import { ReportProps } from "../util/ReportProp";
 
-const ReportPage: React.FunctionComponent<GeogProp> = (props) => {
+const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
   return (
     <>
-      <BathymetryCard />
-      <Geomorphology geographyId={props.geographyId}/>
+      <BathymetryCard printing={props.printing} />
+      <Geomorphology printing={props.printing} />
     </>
   );
 };
