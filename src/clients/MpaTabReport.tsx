@@ -29,37 +29,42 @@ const MpaTabReport = () => {
   ];
   const [tab, setTab] = useState<string>(viabilityId);
 
-  // Adding support for printing reports
+  // Printing
   const printRef = useRef(null);
-  const promiseResolveRef = useRef<any>(null);
   const [isPrinting, setIsPrinting] = useState(false);
+  const [attributes] = useSketchProperties();
+  const originalAnimationDurations: string[] = [
+    ...document.querySelectorAll(".chart, .animated-scatter"),
+  ].map((el) => (el as HTMLElement).style.animationDuration);
 
   useEffect(() => {
-    if (isPrinting && promiseResolveRef.current) {
-      // Letting `react-to-print` know that the DOM updates are completed
-      promiseResolveRef.current();
+    // Remove animations for printing
+    if (isPrinting) {
+      [...document.querySelectorAll(".chart, .animated-scatter")].forEach(
+        (el) => ((el as HTMLElement).style.animationDuration = "0s")
+      );
+      handlePrint();
     }
-  }, [isPrinting]);
 
-  const [attributes] = useSketchProperties();
+    return () => {
+      [...document.querySelectorAll(".chart, .animated-scatter")].forEach(
+        (el, index) =>
+          ((el as HTMLElement).style.animationDuration =
+            originalAnimationDurations[index])
+      );
+    };
+  }, [isPrinting]);
 
   const handlePrint = useReactToPrint({
     content: () => printRef.current,
     documentTitle: attributes.name,
-    onBeforeGetContent: () => {
-      return new Promise((resolve) => {
-        promiseResolveRef.current = resolve;
-        setIsPrinting(true);
-      });
-    },
-    onAfterPrint: () => {
-      promiseResolveRef.current = null;
-      setIsPrinting(false);
-    },
+    onBeforeGetContent: () => {},
+    onAfterPrint: () => setIsPrinting(false),
   });
 
   return (
     <>
+      {/* Saving to PDF/Printing */}
       <Printer
         size={18}
         color="#999"
@@ -72,18 +77,39 @@ const MpaTabReport = () => {
         }}
         onMouseEnter={(e) => (e.currentTarget.style.color = "#666")}
         onMouseLeave={(e) => (e.currentTarget.style.color = "#999")}
-        onClick={() => handlePrint()}
+        onClick={() => {
+          setIsPrinting(true);
+        }}
       />
 
-      {!isPrinting && (
-        <div style={{ marginTop: 5 }}>
-          <SegmentControl
-            value={tab}
-            onClick={(segment) => setTab(segment)}
-            segments={segments}
-          />
+      {isPrinting && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            zIndex: 9999,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Card>
+            <div>Printing...</div>
+          </Card>
         </div>
       )}
+
+      <div style={{ marginTop: 5 }}>
+        <SegmentControl
+          value={tab}
+          onClick={(segment) => setTab(segment)}
+          segments={segments}
+        />
+      </div>
 
       <div
         ref={printRef}
