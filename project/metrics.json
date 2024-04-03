@@ -200,5 +200,281 @@
         "layerId": "3twa1FdjU"
       }
     ]
+  },
+  {
+    "metricId": "ousOverallDemographicOverlap",
+    "type": "countOverlap",
+    "classes": [
+      {
+        "classId": "ousPeopleCount_all",
+        "display": "Total",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      }
+    ]
+  },
+  {
+    "metricId": "ousSectorDemographicOverlap",
+    "type": "countOverlap",
+    "classes": [
+      {
+        "classId": "Tourism",
+        "display": "Tourism",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Fisheries & Aquaculture",
+        "display": "Fisheries & Aquaculture",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "General Use",
+        "display": "General Use",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Marine & Coastal Ecosystems",
+        "display": "Marine & Coastal Ecosystems",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Maritime Administration",
+        "display": "Maritime Administration",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Marine & Coastal Development",
+        "display": "Marine & Coastal Development",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Energy",
+        "display": "Energy",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      }
+    ]
+  },
+  {
+    "metricId": "ousCommunityDemographicOverlap",
+    "type": "countOverlap",
+    "classes": [
+      {
+        "classId": "barranco_village",
+        "display": "Barranco Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "belize_city",
+        "display": "Belize City",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "cattle_landing_village",
+        "display": "Cattle Landing Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "caye_caulker_village",
+        "display": "Caye Caulker Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "chunox_village",
+        "display": "Chunox Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "consejo_village",
+        "display": "Consejo Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "copper_bank_village",
+        "display": "Copper Bank Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "corozal_town",
+        "display": "Corozal Town",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "dangriga_town",
+        "display": "Dangriga Town",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "forest_home_village",
+        "display": "Forest Home Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "gales_point_village",
+        "display": "Gales Point Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "hopkins_village",
+        "display": "Hopkins Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "independence_village",
+        "display": "Independence Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "ladyville_village",
+        "display": "Ladyville Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "mango_creek_village",
+        "display": "Mango Creek Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "maya_beach_community",
+        "display": "Maya Beach Community",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "monkey_river_village",
+        "display": "Monkey River Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "mullins_river_village",
+        "display": "Mullins River Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "other",
+        "display": "Other",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "placencia_village",
+        "display": "Placencia Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "punta_gorda_town",
+        "display": "Punta Gorda Town",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "punta_negra_village",
+        "display": "Punta Negra Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "riversdale_village",
+        "display": "Riversdale Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "san_pedro_town",
+        "display": "San Pedro Town",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "sarteneja_village",
+        "display": "Sarteneja Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "seine_bight_village",
+        "display": "Seine Bight Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "sittee_river_village",
+        "display": "Sittee River Village",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "st_george_s_caye",
+        "display": "St George's Caye",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "unknown_community",
+        "display": "Unknown community",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      }
+    ]
+  },
+  {
+    "metricId": "ousGearDemographicOverlap",
+    "type": "countOverlap",
+    "classes": [
+      {
+        "classId": "Diving",
+        "display": "Diving",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Lines",
+        "display": "Lines",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Net",
+        "display": "Net",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Spears",
+        "display": "Spears",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      },
+      {
+        "classId": "Traps",
+        "display": "Traps",
+        "datasourceId": "ous_demographics.fgb",
+        "layerId": ""
+      }
+    ]
   }
 ]

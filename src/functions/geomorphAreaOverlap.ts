@@ -13,6 +13,7 @@ import {
   GeoprocessingHandler,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
+  overlapFeatures,
   overlapFeaturesGroupMetrics,
 } from "@seasketch/geoprocessing";
 import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
@@ -22,8 +23,6 @@ import {
   getMpaProtectionLevels,
   protectionLevels,
 } from "../util/getMpaProtectionLevel";
-import { spawn, Thread, Worker } from "threads";
-import { OverlapFeaturesWorker } from "../util/overlapFeaturesWorker";
 
 export async function geomorphAreaOverlap(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>
@@ -78,15 +77,11 @@ export async function geomorphAreaOverlap(
   const metrics: Metric[] = (
     await Promise.all(
       metricGroup.classes.map(async (curClass) => {
-        const worker = await spawn<OverlapFeaturesWorker>(
-          new Worker("./../util/overlapFeaturesWorker")
-        );
-        const overlapResult: Metric[] = await worker(
+        const overlapResult: Metric[] = await overlapFeatures(
           metricGroup.metricId,
           polysByBoundary[curClass.classId],
           sketch
         );
-        await Thread.terminate(worker);
 
         return overlapResult.map(
           (metric): Metric => ({
