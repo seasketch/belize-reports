@@ -411,12 +411,8 @@ export const OusDemographics: React.FunctionComponent<ReportProps> = (
                       📈 Report: Percentages are calculated by summing the
                       number of people that use the ocean within the boundaries
                       of this plan for each sector and dividing it by the total
-                      number of people that use the ocean within the sector.
-                    </p>
-                    <p>
-                      Due to the complex nature of this report and to ensure the
-                      timely return of reports, sketch shorelines have been
-                      simplified with a 0.00001 degree tolerance.{" "}
+                      number of people that use the ocean within the sector. The 
+                      same is done for commercial fishing gear types and communities.
                     </p>
                   </Trans>
                 </Collapse>
