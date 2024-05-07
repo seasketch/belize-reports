@@ -173,7 +173,7 @@ export const OusDemographics: React.FunctionComponent<ReportProps> = (
                   <>
                     This is a <b>draft</b> report. Further changes or
                     corrections may be made. Please report any issues. Survey
-                    results last updated: 3/25/2024
+                    results last updated: 5/7/2024
                   </>
                 }
               />
