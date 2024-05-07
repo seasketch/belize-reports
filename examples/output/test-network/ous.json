@@ -1,80 +1,238 @@
 {
   "metrics": [
     {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "energy",
       "sketchId": "20646",
       "groupId": "band-0",
-      "value": 785951,
+      "value": 0,
       "extra": {
         "sketchName": "high-protection-zone"
       }
     },
     {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
-      "sketchId": "20646",
-      "groupId": "HIGH_PROTECTION",
-      "value": 785951,
-      "extra": {
-        "sketchName": "high-protection-zone"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "energy",
       "sketchId": "20647",
       "groupId": "band-0",
-      "value": 243155,
+      "value": 0,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
     },
     {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
-      "sketchId": "20647",
-      "groupId": "MEDIUM_PROTECTION",
-      "value": 243155,
-      "extra": {
-        "sketchName": "medium-protection-zone"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "energy",
       "sketchId": "20648",
       "groupId": "band-0",
-      "value": 1029106,
+      "value": 0,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
       }
     },
     {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "20646",
+      "groupId": "band-0",
+      "value": 172353.275617,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "20647",
+      "groupId": "band-0",
+      "value": 387296.61436,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
       "sketchId": "20648",
-      "groupId": "HIGH_PROTECTION",
-      "value": 785951,
+      "groupId": "band-0",
+      "value": 559649.889977,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
       }
     },
     {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "20646",
+      "groupId": "band-0",
+      "value": 6822841.776872,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "20647",
+      "groupId": "band-0",
+      "value": 3407522.627435,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "general_use",
       "sketchId": "20648",
-      "groupId": "MEDIUM_PROTECTION",
-      "value": 243155,
+      "groupId": "band-0",
+      "value": 10230364.404307,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "20646",
+      "groupId": "band-0",
+      "value": 54603.660268,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "20647",
+      "groupId": "band-0",
+      "value": 70062.750174,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "20648",
+      "groupId": "band-0",
+      "value": 124666.410442,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "20646",
+      "groupId": "band-0",
+      "value": 21908050.160108,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "20647",
+      "groupId": "band-0",
+      "value": 18006.141173,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "20648",
+      "groupId": "band-0",
+      "value": 21926056.301281,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "20646",
+      "groupId": "band-0",
+      "value": 3916689.893269,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "20647",
+      "groupId": "band-0",
+      "value": 8220486.008423,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "20648",
+      "groupId": "band-0",
+      "value": 12137175.901692,
+      "extra": {
+        "sketchName": "test-network",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "20646",
+      "groupId": "band-0",
+      "value": 62193415.441869,
+      "extra": {
+        "sketchName": "high-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "20647",
+      "groupId": "band-0",
+      "value": 74669960.996241,
+      "extra": {
+        "sketchName": "medium-protection-zone"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "20648",
+      "groupId": "band-0",
+      "value": 136863376.438109,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

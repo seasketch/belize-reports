@@ -5,7 +5,7 @@
       "metricId": "coralValueOverlap",
       "classId": "coral",
       "sketchId": "20652",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 1229415,
       "extra": {
         "sketchName": "large-hpbz"

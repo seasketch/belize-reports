@@ -5,7 +5,7 @@
       "metricId": "coralValueOverlap",
       "classId": "coral",
       "sketchId": "23746",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 1095925,
       "extra": {
         "sketchName": "mpa-collection",
@@ -41,7 +41,7 @@
       "metricId": "coralValueOverlap",
       "classId": "coral",
       "sketchId": "23747",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 157506,
       "extra": {
         "sketchName": "coastal"
@@ -63,7 +63,7 @@
       "metricId": "coralValueOverlap",
       "classId": "coral",
       "sketchId": "23748",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 0,
       "extra": {
         "sketchName": "offshore"
@@ -85,7 +85,7 @@
       "metricId": "coralValueOverlap",
       "classId": "coral",
       "sketchId": "23749",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 938419,
       "extra": {
         "sketchName": "turneffe"
@@ -107,7 +107,7 @@
       "metricId": "coralValueOverlap",
       "classId": "coral",
       "sketchId": "23750",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 0,
       "extra": {
         "sketchName": "souther"

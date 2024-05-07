@@ -266,5 +266,89 @@
     "src": "data/src/Analytics/ecosystems/mangroves_and_littoral_forests_cropped.geojson",
     "propertiesToKeep": ["C2019"],
     "explodeMulti": true
+  },
+  {
+    "datasourceId": "energy",
+    "geo_type": "raster",
+    "formats": ["tif"],
+    "precalc": true,
+    "measurementType": "quantitative",
+    "band": 1,
+    "noDataValue": 0,
+    "created": "2024-05-07T22:56:17.547Z",
+    "lastUpdated": "2024-05-07T22:56:17.547Z",
+    "src": "data/src/Ocean Use Survey/heatmaps/rasters/energy.tif"
+  },
+  {
+    "datasourceId": "fisheries_aquaculture",
+    "geo_type": "raster",
+    "formats": ["tif"],
+    "precalc": true,
+    "measurementType": "quantitative",
+    "band": 1,
+    "noDataValue": 0,
+    "created": "2024-05-07T22:56:32.957Z",
+    "lastUpdated": "2024-05-07T22:56:32.957Z",
+    "src": "data/src/Ocean Use Survey/heatmaps/rasters/fisheries_aquaculture.tif"
+  },
+  {
+    "datasourceId": "general_use",
+    "geo_type": "raster",
+    "formats": ["tif"],
+    "precalc": true,
+    "measurementType": "quantitative",
+    "band": 1,
+    "noDataValue": 0,
+    "created": "2024-05-07T22:56:48.916Z",
+    "lastUpdated": "2024-05-07T22:56:48.916Z",
+    "src": "data/src/Ocean Use Survey/heatmaps/rasters/general_use.tif"
+  },
+  {
+    "datasourceId": "marine_coastal_development",
+    "geo_type": "raster",
+    "formats": ["tif"],
+    "precalc": true,
+    "measurementType": "quantitative",
+    "band": 1,
+    "noDataValue": 0,
+    "created": "2024-05-07T22:57:21.567Z",
+    "lastUpdated": "2024-05-07T22:57:21.567Z",
+    "src": "data/src/Ocean Use Survey/heatmaps/rasters/marine_coastal_development.tif"
+  },
+  {
+    "datasourceId": "marine_coastal_ecosystems",
+    "geo_type": "raster",
+    "formats": ["tif"],
+    "precalc": true,
+    "measurementType": "quantitative",
+    "band": 1,
+    "noDataValue": 0,
+    "created": "2024-05-07T22:57:34.892Z",
+    "lastUpdated": "2024-05-07T22:57:34.892Z",
+    "src": "data/src/Ocean Use Survey/heatmaps/rasters/marine_coastal_ecosystems.tif"
+  },
+  {
+    "datasourceId": "maritime_administration",
+    "geo_type": "raster",
+    "formats": ["tif"],
+    "precalc": true,
+    "measurementType": "quantitative",
+    "band": 1,
+    "noDataValue": 0,
+    "created": "2024-05-07T22:57:48.385Z",
+    "lastUpdated": "2024-05-07T22:57:48.385Z",
+    "src": "data/src/Ocean Use Survey/heatmaps/rasters/maritime_administration.tif"
+  },
+  {
+    "src": "data/src/Ocean Use Survey/heatmaps/rasters/tourism.tif",
+    "band": 1,
+    "geo_type": "raster",
+    "datasourceId": "tourism",
+    "formats": ["tif"],
+    "created": "2024-05-07T22:58:08.262Z",
+    "lastUpdated": "2024-05-07T22:58:08.262Z",
+    "noDataValue": 0,
+    "measurementType": "quantitative",
+    "precalc": true
   }
 ]

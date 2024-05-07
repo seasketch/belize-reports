@@ -5,7 +5,7 @@
       "metricId": "seagrassValueOverlap",
       "classId": "seagrass",
       "sketchId": "23569",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 19164,
       "extra": {
         "sketchName": "littoral-medium"

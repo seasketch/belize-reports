@@ -25,6 +25,7 @@
     "src/functions/seagrassValueOverlap.ts",
     "src/functions/coralValueOverlap.ts",
     "src/functions/geomorphAreaOverlap.ts",
-    "src/functions/ousDemographicOverlap.ts"
+    "src/functions/ousDemographicOverlap.ts",
+    "src/functions/ous.ts"
   ]
 }

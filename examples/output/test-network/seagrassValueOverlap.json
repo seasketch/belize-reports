@@ -5,7 +5,7 @@
       "metricId": "seagrassValueOverlap",
       "classId": "seagrass",
       "sketchId": "20646",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 104720,
       "extra": {
         "sketchName": "high-protection-zone"
@@ -27,7 +27,7 @@
       "metricId": "seagrassValueOverlap",
       "classId": "seagrass",
       "sketchId": "20647",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 113355,
       "extra": {
         "sketchName": "medium-protection-zone"
@@ -49,7 +49,7 @@
       "metricId": "seagrassValueOverlap",
       "classId": "seagrass",
       "sketchId": "20648",
-      "groupId": null,
+      "groupId": "band-0",
       "value": 218075,
       "extra": {
         "sketchName": "test-network",

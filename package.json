@@ -30,6 +30,7 @@
     "workspace:shell": "docker-compose -f data/docker-compose.yml  run --rm -v \"$(data/bin/readlink.sh data/src)\":/data/src -v \"$(data/bin/readlink.sh data/dist)\":/data/dist -v \"$(data/bin/readlink.sh data/bin)\":/data/bin workspace",
     "create:function": "geoprocessing create:function",
     "create:client": "geoprocessing create:client",
+    "create:report": "geoprocessing create:report",
     "start:client": "geoprocessing start:client",
     "synth": "geoprocessing synth",
     "bootstrap": "geoprocessing bootstrap",
@@ -64,7 +65,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
-    "@seasketch/geoprocessing": "6.1.3-experimental-rasterGroupMetrics.0",
+    "@seasketch/geoprocessing": "6.1.3-experimental-importDataCLI.11",
     "@turf/boolean-disjoint": "^6.5.0",
     "@turf/boolean-valid": "^6.5.0",
     "@types/request": "^2.48.8",

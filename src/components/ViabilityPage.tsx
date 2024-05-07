@@ -5,6 +5,7 @@ import { ProtectionCard } from "./ProtectionCard";
 import { HumanStressors } from "./HumanStressors";
 import { ReportProps } from "../util/ReportProp";
 import { OusDemographics } from "./OusDemographic";
+import { Ous } from "./Ous";
 
 const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
   return (
@@ -12,6 +13,7 @@ const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
       <ProtectionCard printing={props.printing} />
       <SizeCard printing={props.printing} />
       <HumanStressors printing={props.printing} />
+      <Ous />
       <OusDemographics />
       {!props.printing && <SketchAttributesCard autoHide />}
     </>

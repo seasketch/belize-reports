@@ -1,34 +1,78 @@
 {
   "metrics": [
     {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "energy",
       "sketchId": "23569",
       "groupId": "band-0",
-      "value": 47196,
-      "extra": {
-        "sketchName": "littoral-medium"
-      }
-    },
-    {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
-      "sketchId": "23569",
-      "groupId": "HIGH_PROTECTION",
       "value": 0,
       "extra": {
         "sketchName": "littoral-medium"
       }
     },
     {
-      "geographyId": null,
-      "metricId": "coralValueOverlap",
-      "classId": "coral",
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
       "sketchId": "23569",
-      "groupId": "MEDIUM_PROTECTION",
-      "value": 47196,
+      "groupId": "band-0",
+      "value": 68229.26196,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "23569",
+      "groupId": "band-0",
+      "value": 2029087.802847,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "23569",
+      "groupId": "band-0",
+      "value": 6286.953524,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "23569",
+      "groupId": "band-0",
+      "value": 1615.882009,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "23569",
+      "groupId": "band-0",
+      "value": 7625906.29248,
+      "extra": {
+        "sketchName": "littoral-medium"
+      }
+    },
+    {
+      "geographyId": "belize_ocean_space",
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "23569",
+      "groupId": "band-0",
+      "value": 48967834.723364,
       "extra": {
         "sketchName": "littoral-medium"
       }
