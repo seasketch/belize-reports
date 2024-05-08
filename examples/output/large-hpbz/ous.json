@@ -1,7 +1,7 @@
 {
   "metrics": [
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
       "metricId": "ous",
       "classId": "energy",
       "sketchId": "20652",
@@ -12,51 +12,161 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "fisheries_aquaculture",
       "sketchId": "20652",
       "groupId": "band-0",
-      "value": 919151.111549,
+      "value": 919150.666387,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 919150.666387,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "general_use",
       "sketchId": "20652",
       "groupId": "band-0",
-      "value": 5783685.591458,
+      "value": 5783734.45197,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 5783734.45197,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_development",
       "sketchId": "20652",
       "groupId": "band-0",
-      "value": 366016.328022,
+      "value": 366005.986865,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 366005.986865,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_ecosystems",
       "sketchId": "20652",
       "groupId": "band-0",
-      "value": 9866499.944917,
+      "value": 9866512.632718,
       "extra": {
         "sketchName": "large-hpbz"
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 9866512.632718,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "maritime_administration",
       "sketchId": "20652",
@@ -67,12 +177,56 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 25323063.724028,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "tourism",
       "sketchId": "20652",
       "groupId": "band-0",
       "value": 130822402.38518,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "20652",
+      "groupId": "HIGH_PROTECTION",
+      "value": 130822402.38518,
+      "extra": {
+        "sketchName": "large-hpbz"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "20652",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
       "extra": {
         "sketchName": "large-hpbz"
       }

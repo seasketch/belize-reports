@@ -9,10 +9,13 @@ import {
   splitSketchAntimeridian,
   rasterMetrics,
   isRasterDatasource,
+  overlapRasterGroupMetrics,
+  getCogFilename,
 } from "@seasketch/geoprocessing";
 import bbox from "@turf/bbox";
 import project from "../../project";
 import {
+  Georaster,
   Metric,
   ReportResult,
   rekeyMetrics,
@@ -21,6 +24,10 @@ import {
 } from "@seasketch/geoprocessing/client-core";
 import { clipToGeography } from "../util/clipToGeography";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
+import {
+  getMpaProtectionLevels,
+  protectionLevels,
+} from "../util/getMpaProtectionLevel";
 
 /**
  * ous: A geoprocessing function that calculates overlap metrics
@@ -29,61 +36,33 @@ import { loadCog } from "@seasketch/geoprocessing/dataproviders";
  * @returns Calculated metrics and a null sketch
  */
 export async function ous(
-  sketch:
-    | Sketch<Polygon | MultiPolygon>
-    | SketchCollection<Polygon | MultiPolygon>,
+  sketch: Sketch<Polygon> | SketchCollection<Polygon>,
   extraParams: DefaultExtraParams = {}
 ): Promise<ReportResult> {
-  // Use caller-provided geographyId if provided
-  const geographyId = getFirstFromParam("geographyIds", extraParams);
-
-  // Get geography features, falling back to geography assigned to default-boundary group
-  const curGeography = project.getGeographyById(geographyId, {
-    fallbackGroup: "default-boundary",
-  });
-
-  // Support sketches crossing antimeridian
-  const splitSketch = splitSketchAntimeridian(sketch);
-
-  // Clip to portion of sketch within current geography
-  const clippedSketch = await clipToGeography(splitSketch, curGeography);
-
-  // Get bounding box of sketch remainder
-  const sketchBox = clippedSketch.bbox || bbox(clippedSketch);
-
-  // Calculate overlap metrics for each class in metric group
   const metricGroup = project.getMetricGroup("ous");
+  const featuresByClass: Record<string, Georaster> = {};
+
   const metrics: Metric[] = (
     await Promise.all(
       metricGroup.classes.map(async (curClass) => {
+        // start raster load and move on in loop while awaiting finish
         if (!curClass.datasourceId)
-          throw new Error(`Expected datasourceId for ${curClass.classId}`);
-
-        const ds = project.getDatasourceById(curClass.datasourceId);
-        if (!isRasterDatasource(ds))
-          throw new Error(`Expected raster datasource for ${ds.datasourceId}`);
-
-        const url = project.getDatasourceUrl(ds);
-
-        // Start raster load and move on in loop while awaiting finish
+          throw new Error(`Expected datasourceId for ${curClass}`);
+        const url = `${project.dataBucketUrl()}${getCogFilename(
+          project.getInternalRasterDatasourceById(curClass.datasourceId)
+        )}`;
         const raster = await loadCog(url);
+        featuresByClass[curClass.classId] = raster;
 
-        // Start analysis when raster load finishes
+        // start analysis as soon as source load done
         const overlapResult = await rasterMetrics(raster, {
           metricId: metricGroup.metricId,
-          feature: clippedSketch,
-          ...(ds.measurementType === "quantitative" && { stats: ["sum"] }),
-          ...(ds.measurementType === "categorical" && {
-            categorical: true,
-            categoryMetricValues: [curClass.classId],
-          }),
+          feature: sketch,
         });
-
         return overlapResult.map(
           (metrics): Metric => ({
             ...metrics,
             classId: curClass.classId,
-            geographyId: curGeography.geographyId,
           })
         );
       })
@@ -94,9 +73,22 @@ export async function ous(
     []
   );
 
-  // Return a report result with metrics and a null sketch
+  // Calculate group metrics - from individual sketch metrics
+  const sketchCategoryMap = getMpaProtectionLevels(sketch);
+  const metricToGroup = (sketchMetric: Metric) =>
+    sketchCategoryMap[sketchMetric.sketchId!];
+
+  const groupMetrics = await overlapRasterGroupMetrics({
+    metricId: metricGroup.metricId,
+    groupIds: protectionLevels,
+    sketch,
+    metricToGroup,
+    metrics: metrics,
+    featuresByClass,
+  });
+
   return {
-    metrics: sortMetrics(rekeyMetrics(metrics)),
+    metrics: sortMetrics(rekeyMetrics([...metrics, ...groupMetrics])),
     sketch: toNullSketch(sketch, true),
   };
 }

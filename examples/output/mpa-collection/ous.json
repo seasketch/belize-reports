@@ -1,7 +1,7 @@
 {
   "metrics": [
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
       "metricId": "ous",
       "classId": "energy",
       "sketchId": "23746",
@@ -13,7 +13,31 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 16810646.307129,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "energy",
       "sketchId": "23747",
@@ -24,7 +48,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 16810646.307129,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "energy",
       "sketchId": "23748",
@@ -35,7 +70,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "energy",
       "sketchId": "23749",
@@ -46,7 +92,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "23749",
+      "groupId": "HIGH_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "energy",
       "sketchId": "23750",
@@ -57,7 +114,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "energy",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "fisheries_aquaculture",
       "sketchId": "23746",
@@ -69,7 +137,31 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 4768701.174016,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 256.046433,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "fisheries_aquaculture",
       "sketchId": "23747",
@@ -80,7 +172,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 4513083.681467,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "fisheries_aquaculture",
       "sketchId": "23748",
@@ -91,7 +194,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "fisheries_aquaculture",
       "sketchId": "23749",
@@ -102,7 +216,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "23749",
+      "groupId": "HIGH_PROTECTION",
+      "value": 255617.492549,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "fisheries_aquaculture",
       "sketchId": "23750",
@@ -113,7 +238,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "fisheries_aquaculture",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 256.046433,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "general_use",
       "sketchId": "23746",
@@ -125,7 +261,31 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 5942040486.132605,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 998436.054693,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "general_use",
       "sketchId": "23747",
@@ -136,7 +296,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 5940486059.984764,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "general_use",
       "sketchId": "23748",
@@ -147,7 +318,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "general_use",
       "sketchId": "23749",
@@ -158,7 +340,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "23749",
+      "groupId": "HIGH_PROTECTION",
+      "value": 1554426.143897,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "general_use",
       "sketchId": "23750",
@@ -169,7 +362,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "general_use",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 998436.054693,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_development",
       "sketchId": "23746",
@@ -181,7 +385,31 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 57454.999349,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 28150.510103,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_development",
       "sketchId": "23747",
@@ -192,7 +420,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 5996.461027,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_development",
       "sketchId": "23748",
@@ -203,7 +442,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_development",
       "sketchId": "23749",
@@ -214,7 +464,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "23749",
+      "groupId": "HIGH_PROTECTION",
+      "value": 51458.538322,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_development",
       "sketchId": "23750",
@@ -225,7 +486,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_development",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 28150.510103,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_ecosystems",
       "sketchId": "23746",
@@ -237,7 +509,31 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 1734657650.721452,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 7074948.133193,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_ecosystems",
       "sketchId": "23747",
@@ -248,7 +544,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 1730927017.769708,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_ecosystems",
       "sketchId": "23748",
@@ -259,7 +566,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 25530.346666,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_ecosystems",
       "sketchId": "23749",
@@ -270,7 +588,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "23749",
+      "groupId": "HIGH_PROTECTION",
+      "value": 3730632.952744,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "marine_coastal_ecosystems",
       "sketchId": "23750",
@@ -281,7 +610,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "marine_coastal_ecosystems",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 7049417.786527,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "maritime_administration",
       "sketchId": "23746",
@@ -293,7 +633,31 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 646259927.237186,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "maritime_administration",
       "sketchId": "23747",
@@ -304,7 +668,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 636407283.527849,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "maritime_administration",
       "sketchId": "23748",
@@ -315,7 +690,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "maritime_administration",
       "sketchId": "23749",
@@ -326,7 +712,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "23749",
+      "groupId": "HIGH_PROTECTION",
+      "value": 9852643.709337,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "maritime_administration",
       "sketchId": "23750",
@@ -337,7 +734,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "maritime_administration",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "tourism",
       "sketchId": "23746",
@@ -349,7 +757,31 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "23746",
+      "groupId": "HIGH_PROTECTION",
+      "value": 259490893.46829,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "23746",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 6423223.268208,
+      "extra": {
+        "sketchName": "mpa-collection",
+        "isCollection": true
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "tourism",
       "sketchId": "23747",
@@ -360,7 +792,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "23747",
+      "groupId": "HIGH_PROTECTION",
+      "value": 214722376.933146,
+      "extra": {
+        "sketchName": "coastal"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "tourism",
       "sketchId": "23748",
@@ -371,7 +814,18 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "23748",
+      "groupId": "MEDIUM_PROTECTION",
+      "value": 0,
+      "extra": {
+        "sketchName": "offshore"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "tourism",
       "sketchId": "23749",
@@ -382,11 +836,33 @@
       }
     },
     {
-      "geographyId": "belize_ocean_space",
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "23749",
+      "groupId": "HIGH_PROTECTION",
+      "value": 44768516.535143,
+      "extra": {
+        "sketchName": "turneffe"
+      }
+    },
+    {
+      "geographyId": null,
       "metricId": "ous",
       "classId": "tourism",
       "sketchId": "23750",
       "groupId": "band-0",
+      "value": 6423223.268208,
+      "extra": {
+        "sketchName": "souther"
+      }
+    },
+    {
+      "geographyId": null,
+      "metricId": "ous",
+      "classId": "tourism",
+      "sketchId": "23750",
+      "groupId": "MEDIUM_PROTECTION",
       "value": 6423223.268208,
       "extra": {
         "sketchName": "souther"

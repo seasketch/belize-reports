@@ -116,7 +116,7 @@
     "metricId": "area",
     "classId": "energy-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 34361910.183046
   },
   {
@@ -132,7 +132,7 @@
     "metricId": "area",
     "classId": "fisheries_aquaculture-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 15113230552.50892
   },
   {
@@ -140,7 +140,7 @@
     "metricId": "area",
     "classId": "general_use-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 23476547884.53305
   },
   {
@@ -188,7 +188,7 @@
     "metricId": "area",
     "classId": "marine_coastal_development-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 19339159405.787857
   },
   {
@@ -196,7 +196,7 @@
     "metricId": "area",
     "classId": "marine_coastal_ecosystems-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 32448976739.54371
   },
   {
@@ -220,7 +220,7 @@
     "metricId": "area",
     "classId": "maritime_administration-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 10185479983.366505
   },
   {
@@ -308,7 +308,7 @@
     "metricId": "area",
     "classId": "tourism-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 17501367670.063408
   },
   {
@@ -436,7 +436,7 @@
     "metricId": "count",
     "classId": "energy-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 299564
   },
   {
@@ -452,7 +452,7 @@
     "metricId": "count",
     "classId": "fisheries_aquaculture-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 2662376
   },
   {
@@ -460,7 +460,7 @@
     "metricId": "count",
     "classId": "general_use-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 2982882
   },
   {
@@ -508,7 +508,7 @@
     "metricId": "count",
     "classId": "marine_coastal_development-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 3060505
   },
   {
@@ -516,7 +516,7 @@
     "metricId": "count",
     "classId": "marine_coastal_ecosystems-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 3657616
   },
   {
@@ -540,7 +540,7 @@
     "metricId": "count",
     "classId": "maritime_administration-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 2054128
   },
   {
@@ -628,7 +628,7 @@
     "metricId": "count",
     "classId": "tourism-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 2354852
   },
   {
@@ -660,7 +660,7 @@
     "metricId": "sum",
     "classId": "energy-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 25609963.637817
   },
   {
@@ -668,7 +668,7 @@
     "metricId": "sum",
     "classId": "fisheries_aquaculture-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 11325518.448906
   },
   {
@@ -676,7 +676,7 @@
     "metricId": "sum",
     "classId": "general_use-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 9937327131.209171
   },
   {
@@ -684,7 +684,7 @@
     "metricId": "sum",
     "classId": "marine_coastal_development-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 525108951.292241
   },
   {
@@ -692,7 +692,7 @@
     "metricId": "sum",
     "classId": "marine_coastal_ecosystems-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 1922391928.333665
   },
   {
@@ -700,7 +700,7 @@
     "metricId": "sum",
     "classId": "maritime_administration-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 923393270.807225
   },
   {
@@ -716,7 +716,7 @@
     "metricId": "sum",
     "classId": "tourism-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 3972068021.258505
   },
   {
@@ -740,7 +740,7 @@
     "metricId": "valid",
     "classId": "energy-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 14729
   },
   {
@@ -748,7 +748,7 @@
     "metricId": "valid",
     "classId": "fisheries_aquaculture-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 1522176
   },
   {
@@ -756,7 +756,7 @@
     "metricId": "valid",
     "classId": "general_use-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 2403128
   },
   {
@@ -764,7 +764,7 @@
     "metricId": "valid",
     "classId": "marine_coastal_development-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 1966338
   },
   {
@@ -772,7 +772,7 @@
     "metricId": "valid",
     "classId": "marine_coastal_ecosystems-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 3518413
   },
   {
@@ -780,7 +780,7 @@
     "metricId": "valid",
     "classId": "maritime_administration-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 998612
   },
   {
@@ -796,7 +796,7 @@
     "metricId": "valid",
     "classId": "tourism-total",
     "sketchId": null,
-    "groupId": "band-0",
+    "groupId": null,
     "value": 1738938
   }
 ]

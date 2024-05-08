@@ -13,7 +13,7 @@ const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
       <ProtectionCard printing={props.printing} />
       <SizeCard printing={props.printing} />
       <HumanStressors printing={props.printing} />
-      <Ous />
+      <Ous printing={props.printing} />
       <OusDemographics />
       {!props.printing && <SketchAttributesCard autoHide />}
     </>

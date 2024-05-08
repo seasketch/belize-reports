@@ -482,46 +482,46 @@
     "type": "valueOverlap",
     "classes": [
       {
-        "classId": "tourism",
-        "display": "Tourism",
-        "datasourceId": "tourism",
-        "layerId": ""
+        "classId": "energy",
+        "display": "Energy",
+        "datasourceId": "energy",
+        "layerId": "VcGFLeyKU"
       },
       {
         "classId": "fisheries_aquaculture",
         "display": "Fisheries & Aquaculture",
         "datasourceId": "fisheries_aquaculture",
-        "layerId": ""
+        "layerId": "iC8F0FLdG"
       },
       {
         "classId": "general_use",
         "display": "General Use",
         "datasourceId": "general_use",
-        "layerId": ""
-      },
-      {
-        "classId": "marine_coastal_ecosystems",
-        "display": "Marine & Coastal Ecosystems",
-        "datasourceId": "marine_coastal_ecosystems",
-        "layerId": ""
-      },
-      {
-        "classId": "maritime_administration",
-        "display": "Maritime Administration",
-        "datasourceId": "maritime_administration",
-        "layerId": ""
+        "layerId": "pcuGfJ9gu"
       },
       {
         "classId": "marine_coastal_development",
         "display": "Marine & Coastal Development",
         "datasourceId": "marine_coastal_development",
-        "layerId": ""
+        "layerId": "rF6a1e99E"
       },
       {
-        "classId": "energy",
-        "display": "Energy",
-        "datasourceId": "energy",
-        "layerId": ""
+        "classId": "marine_coastal_ecosystems",
+        "display": "Marine & Coastal Ecosystems",
+        "datasourceId": "marine_coastal_ecosystems",
+        "layerId": "sYNx2N4tV"
+      },
+      {
+        "classId": "maritime_administration",
+        "display": "Maritime Administration",
+        "datasourceId": "maritime_administration",
+        "layerId": "BnOH_vZyq"
+      },
+      {
+        "classId": "tourism",
+        "display": "Tourism",
+        "datasourceId": "tourism",
+        "layerId": "TpyjYN4LY"
       }
     ]
   }
