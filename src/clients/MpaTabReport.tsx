@@ -4,7 +4,6 @@ import {
   ReportPage,
   useSketchProperties,
   Card,
-  VerticalSpacer,
   SketchAttributesCard,
 } from "@seasketch/geoprocessing/client-ui";
 import ViabilityPage from "../components/ViabilityPage";
@@ -15,6 +14,8 @@ import { Translator } from "../components/TranslatorAsync";
 import { Printer } from "@styled-icons/bootstrap";
 import { useReactToPrint } from "react-to-print";
 import { SketchProperties } from "@seasketch/geoprocessing/client-core";
+import { Settings } from "../util/Settings";
+import { Footer } from "../util/Footer";
 
 const MpaTabReport = () => {
   const { t } = useTranslation();
@@ -127,6 +128,10 @@ const MpaTabReport = () => {
           <KeyHabitatPage geographyId={geographyId} printing={isPrinting} />
         </ReportPage>
       </div>
+
+      <Footer>
+        <Settings />
+      </Footer>
     </>
   );
 };
