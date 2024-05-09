@@ -3,7 +3,6 @@ import {
   Collapse,
   ResultsCard,
   KeySection,
-  ClassTable,
   InfoStatus,
 } from "@seasketch/geoprocessing/client-ui";
 import {
@@ -11,13 +10,12 @@ import {
   ReportResultBase,
   toPercentMetric,
   percentWithEdge,
-  sortMetrics,
-  sortMetricsDisplayOrder,
 } from "@seasketch/geoprocessing/client-core";
 import totals from "../../data/bin/ousDemographicPrecalcTotals.json";
 import project from "../../project";
 import { Trans, useTranslation } from "react-i18next";
 import { ReportProps } from "../util/ReportProp";
+import { ClassTable } from "../util/ClassTable";
 const precalcTotals = totals as ReportResultBase;
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
@@ -341,6 +339,7 @@ export const OusDemographics: React.FunctionComponent<ReportProps> = (
                 <ClassTable
                   rows={municipalityMetrics}
                   metricGroup={communityMetricGroup}
+                  options={{ pagination: !props.printing }}
                   columnConfig={[
                     {
                       columnLabel: municipalityLabel,
@@ -411,8 +410,9 @@ export const OusDemographics: React.FunctionComponent<ReportProps> = (
                       📈 Report: Percentages are calculated by summing the
                       number of people that use the ocean within the boundaries
                       of this plan for each sector and dividing it by the total
-                      number of people that use the ocean within the sector. The 
-                      same is done for commercial fishing gear types and communities.
+                      number of people that use the ocean within the sector. The
+                      same is done for commercial fishing gear types and
+                      communities.
                     </p>
                   </Trans>
                 </Collapse>
