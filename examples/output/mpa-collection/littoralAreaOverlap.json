@@ -6,7 +6,7 @@
       "classId": "Littoral",
       "sketchId": "23746",
       "groupId": null,
-      "value": 1009719.91769,
+      "value": 1007464.254776,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -18,7 +18,7 @@
       "classId": "Littoral",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 1009719.91769,
+      "value": 1007464.254776,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -86,7 +86,7 @@
       "classId": "Littoral",
       "sketchId": "23749",
       "groupId": null,
-      "value": 1009719.91769,
+      "value": 1007464.254776,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -97,7 +97,7 @@
       "classId": "Littoral",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 1009719.91769,
+      "value": 1007464.254776,
       "extra": {
         "sketchName": "turneffe"
       }

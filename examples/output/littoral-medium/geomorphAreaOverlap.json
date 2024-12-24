@@ -105,7 +105,7 @@
       "classId": "escarpments",
       "sketchId": "23569",
       "groupId": null,
-      "value": 38728160.350814,
+      "value": 38641643.611121,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -127,7 +127,7 @@
       "classId": "escarpments",
       "sketchId": "23569",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 38728160.350814,
+      "value": 38641643.611121,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -204,7 +204,7 @@
       "classId": "shelf",
       "sketchId": "23569",
       "groupId": null,
-      "value": 93597435.503814,
+      "value": 93388472.737602,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -226,7 +226,7 @@
       "classId": "shelf",
       "sketchId": "23569",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 93597435.503814,
+      "value": 93388472.737602,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -303,7 +303,7 @@
       "classId": "slope",
       "sketchId": "23569",
       "groupId": null,
-      "value": 38407627.502577,
+      "value": 38321826.81696,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -325,7 +325,7 @@
       "classId": "slope",
       "sketchId": "23569",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 38407627.502577,
+      "value": 38321826.81696,
       "extra": {
         "sketchName": "littoral-medium"
       }

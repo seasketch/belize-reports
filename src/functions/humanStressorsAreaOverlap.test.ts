@@ -2,11 +2,12 @@
  * @jest-environment node
  * @group smoke
  */
-import { humanStressorsAreaOverlap } from "./humanStressorsAreaOverlap";
+import { humanStressorsAreaOverlap } from "./humanStressorsAreaOverlap.js";
 import {
   getExamplePolygonSketchAll,
   writeResultOutput,
 } from "@seasketch/geoprocessing/scripts/testing";
+import { describe, test, expect } from "vitest";
 
 describe("Basic smoke tests", () => {
   test("handler function is present", () => {
@@ -17,7 +18,11 @@ describe("Basic smoke tests", () => {
     for (const example of examples) {
       const result = await humanStressorsAreaOverlap(example);
       expect(result).toBeTruthy();
-      writeResultOutput(result, "humanStressorsAreaOverlap", example.properties.name);
+      writeResultOutput(
+        result,
+        "humanStressorsAreaOverlap",
+        example.properties.name,
+      );
     }
   }, 120000);
 });

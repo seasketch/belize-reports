@@ -29,17 +29,17 @@ import {
   isSketchCollection,
 } from "@seasketch/geoprocessing";
 import { Trans, useTranslation } from "react-i18next";
-import project from "../../project";
-import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize";
-import { groupColorMap } from "../util/getMpaProtectionLevel";
+import project from "../../project/projectClient.js";
+import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize.js";
+import { groupColorMap } from "../util/getMpaProtectionLevel.js";
 import {
   CollectionObjectiveStatus,
   collectionMsgs,
   genAreaGroupLevelTable,
   genAreaSketchTable,
-} from "../util/ProtectionLevelOverlapReports";
-import { Download } from "@styled-icons/bootstrap/Download/Download";
-import { ReportProps } from "../util/ReportProp";
+} from "../util/ProtectionLevelOverlapReports.js";
+import { ReportProps } from "../util/ReportProp.js";
+import { Download } from "@styled-icons/bootstrap";
 
 // Hard code total area of Belize ocean space
 const boundaryTotalMetrics: Metric[] = [
@@ -75,21 +75,21 @@ export const SizeCard: React.FunctionComponent<ReportProps> = (props) => {
           const areaMetric = firstMatchingMetric(
             data.metrics,
             (m) =>
-              m.sketchId === data.sketch.properties.id && m.groupId === null
+              m.sketchId === data.sketch.properties.id && m.groupId === null,
           );
 
           // Grab overall size precalc metric
           const totalAreaMetric = firstMatchingMetric(
             boundaryTotalMetrics,
-            (m) => m.groupId === null
+            (m) => m.groupId === null,
           );
 
           // Format area metrics for key section display
           const areaDisplay = roundLower(
-            squareMeterToKilometer(areaMetric.value)
+            squareMeterToKilometer(areaMetric.value),
           );
           const percDisplay = percentWithEdge(
-            areaMetric.value / totalAreaMetric.value
+            areaMetric.value / totalAreaMetric.value,
           );
           const areaUnitDisplay = t("km²");
           const mapLabel = t("Show Map Layer");
@@ -140,7 +140,7 @@ export const SizeCard: React.FunctionComponent<ReportProps> = (props) => {
                       data,
                       boundaryTotalMetrics,
                       objectiveIds,
-                      t
+                      t,
                     )
                   : sketchReport(data, boundaryTotalMetrics, objectiveIds, t)}
 
@@ -155,7 +155,7 @@ export const SizeCard: React.FunctionComponent<ReportProps> = (props) => {
                         data,
                         boundaryTotalMetrics,
                         mg,
-                        t
+                        t,
                       )}
                     </Collapse>
                     <Collapse
@@ -168,7 +168,7 @@ export const SizeCard: React.FunctionComponent<ReportProps> = (props) => {
                         boundaryTotalMetrics,
                         mg,
                         t,
-                        props.printing
+                        props.printing,
                       )}
                     </Collapse>
                   </>
@@ -196,17 +196,17 @@ const sketchReport = (
   data: ReportResult,
   precalcMetrics: Metric[],
   objectiveIds: string[],
-  t: any
+  t: any,
 ) => {
   // Get total planning area
   const totalArea = firstMatchingMetric(
     precalcMetrics,
-    (m) => m.groupId === null
+    (m) => m.groupId === null,
   ).value;
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION",
   );
 
   // Filter down grouped metrics to ones that count for each objective
@@ -224,7 +224,7 @@ const sketchReport = (
       const yesValues = yesAggs.map((yesAgg) => yesAgg.value / totalArea);
       return { ...acc, [objectiveId]: yesValues };
     },
-    {}
+    {},
   );
 
   return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
@@ -241,20 +241,20 @@ const collectionReport = (
   data: ReportResult,
   precalcMetrics: Metric[],
   objectiveIds: string[],
-  t: any
+  t: any,
 ) => {
   if (!isSketchCollection(data.sketch)) throw new Error("NullSketch");
   const mg = project.getMetricGroup("boundaryAreaOverlap", t);
 
   // Filter down to metrics which have groupIds
   const levelMetrics = data.metrics.filter(
-    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION"
+    (m) => m.groupId === "HIGH_PROTECTION" || m.groupId === "MEDIUM_PROTECTION",
   );
 
   const groupLevelAggs: GroupMetricAgg[] = flattenByGroupAllClass(
     data.sketch,
     levelMetrics,
-    precalcMetrics
+    precalcMetrics,
   );
 
   // Filter down grouped metrics to ones that count for each objective
@@ -272,7 +272,7 @@ const collectionReport = (
       const yesValues = yesAggs.map((yesAgg) => yesAgg.percValue);
       return { ...acc, [objectiveId]: yesValues };
     },
-    {}
+    {},
   );
 
   return <>{genObjectiveReport(objectiveIds, totalsByObjective, t)}</>;
@@ -284,7 +284,7 @@ const collectionReport = (
 const genObjectiveReport = (
   objectiveIds: string[],
   totalsByObjective: Record<string, number[]>,
-  t: any
+  t: any,
 ) => {
   // Coloring and styling for horizontal bars
   const groupColors = Object.values(groupColorMap);
@@ -302,7 +302,7 @@ const genObjectiveReport = (
         // Get total percentage within sketch
         const percSum = totalsByObjective[objectiveId].reduce(
           (sum, value) => sum + value,
-          0
+          0,
         );
 
         // Checks if the objective is met

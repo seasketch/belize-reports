@@ -42,7 +42,7 @@ const MpaTabReport = () => {
     // Remove animations for printing
     if (isPrinting) {
       [...document.querySelectorAll(".chart, .animated-scatter")].forEach(
-        (el) => ((el as HTMLElement).style.animationDuration = "0s")
+        (el) => ((el as HTMLElement).style.animationDuration = "0s"),
       );
       handlePrint();
     }
@@ -51,7 +51,7 @@ const MpaTabReport = () => {
       [...document.querySelectorAll(".chart, .animated-scatter")].forEach(
         (el, index) =>
           ((el as HTMLElement).style.animationDuration =
-            originalAnimationDurations[index])
+            originalAnimationDurations[index]),
       );
     };
   }, [isPrinting]);
@@ -144,7 +144,7 @@ const getPageMargins = () => {
  * Sketch attributes for printing
  */
 const SketchAttributes: React.FunctionComponent<SketchProperties> = (
-  attributes
+  attributes,
 ) => {
   const { t } = useTranslation();
   return (

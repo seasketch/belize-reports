@@ -16,14 +16,14 @@ import {
   overlapRasterGroupMetrics,
 } from "@seasketch/geoprocessing";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
-import project from "../../project";
+import project from "../../project/projectClient.js";
 import {
   getMpaProtectionLevels,
   protectionLevels,
-} from "../util/getMpaProtectionLevel";
+} from "../util/getMpaProtectionLevel.js";
 
 export async function seagrassValueOverlap(
-  sketch: Sketch<Polygon> | SketchCollection<Polygon>
+  sketch: Sketch<Polygon> | SketchCollection<Polygon>,
 ): Promise<ReportResult> {
   const metricGroup = project.getMetricGroup("seagrassValueOverlap");
   const featuresByClass: Record<string, Georaster> = {};
@@ -35,7 +35,7 @@ export async function seagrassValueOverlap(
         if (!curClass.datasourceId)
           throw new Error(`Expected datasourceId for ${curClass}`);
         const url = `${project.dataBucketUrl()}${getCogFilename(
-          project.getInternalRasterDatasourceById(curClass.datasourceId)
+          project.getInternalRasterDatasourceById(curClass.datasourceId),
         )}`;
         const raster = await loadCog(url);
         featuresByClass[curClass.classId] = raster;
@@ -49,14 +49,14 @@ export async function seagrassValueOverlap(
           (metrics): Metric => ({
             ...metrics,
             classId: curClass.classId,
-          })
+          }),
         );
-      })
+      }),
     )
   ).reduce(
     // merge
     (metricsSoFar, curClassMetrics) => [...metricsSoFar, ...curClassMetrics],
-    []
+    [],
   );
 
   // Calculate group metrics - from individual sketch metrics

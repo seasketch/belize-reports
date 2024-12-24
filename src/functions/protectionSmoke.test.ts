@@ -1,11 +1,12 @@
 /**
  * @group smoke
  */
-import { protection } from "./protection";
+import { protection } from "./protection.js";
 import {
   getExamplePolygonSketchAll,
   writeResultOutput,
 } from "@seasketch/geoprocessing/scripts/testing";
+import { describe, test, expect } from "vitest";
 
 describe("Basic smoke tests", () => {
   test("handler function is present", () => {

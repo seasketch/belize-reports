@@ -6,7 +6,8 @@ import {
   getExamplePolygonSketchAll,
   writeResultOutput,
 } from "@seasketch/geoprocessing/scripts/testing";
-import { ous } from "./ous";
+import { describe, test, expect } from "vitest";
+import { ous } from "./ous.js";
 
 describe("Basic smoke tests", () => {
   test("handler function is present", () => {

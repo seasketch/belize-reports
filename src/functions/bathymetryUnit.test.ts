@@ -3,7 +3,9 @@
  * @group unit
  */
 import { Feature, Polygon } from "@seasketch/geoprocessing";
-import { bathyStats } from "./bathymetry";
+import { bathyStats } from "./bathymetry.js";
+import { describe, it, expect } from "vitest";
+
 // @ts-ignore
 import parseGeoraster from "georaster";
 

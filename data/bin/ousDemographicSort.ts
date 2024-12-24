@@ -1,5 +1,5 @@
 import fs from "fs-extra";
-import { OusFeatureProperties } from "../../src/util/overlapOusDemographic";
+import { OusFeatureProperties } from "../../src/util/overlapOusDemographic.js";
 import { FeatureCollection, Polygon } from "@seasketch/geoprocessing";
 
 // Assumes already done:
@@ -7,14 +7,14 @@ import { FeatureCollection, Polygon } from "@seasketch/geoprocessing";
 // remove extraneous fields or those uniquely identifying people
 
 const shapeFc = fs.readJSONSync(
-  "../src/Data_Products/data-package/ous_demographics.geojson"
+  "../src/Data_Products/data-package/ous_demographics.geojson",
 ) as FeatureCollection<Polygon, OusFeatureProperties>;
 
 // sort by respondent_id (string)
 const sortedShapes = shapeFc.features.sort(
-  (a, b) => a.properties.resp_id - b.properties.resp_id
+  (a, b) => a.properties.resp_id - b.properties.resp_id,
 );
 fs.writeFileSync(
   "../src/Data_Products/data-package/ous_demographics_sorted.geojson",
-  JSON.stringify({ ...shapeFc, features: sortedShapes })
+  JSON.stringify({ ...shapeFc, features: sortedShapes }),
 );

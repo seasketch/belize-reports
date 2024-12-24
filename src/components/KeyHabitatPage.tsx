@@ -1,9 +1,9 @@
 import React from "react";
-import { Mangroves } from "./Mangroves";
-import { Seagrass } from "./Seagrass";
-import { Coral } from "./Coral";
-import { LittoralForests } from "./LittoralForests";
-import { ReportProps } from "../util/ReportProp";
+import { Mangroves } from "./Mangroves.js";
+import { Seagrass } from "./Seagrass.js";
+import { Coral } from "./Coral.js";
+import { LittoralForests } from "./LittoralForests.js";
+import { ReportProps } from "../util/ReportProp.js";
 
 const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
   return (

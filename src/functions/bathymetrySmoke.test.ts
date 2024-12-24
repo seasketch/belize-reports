@@ -2,11 +2,12 @@
  * @jest-environment node
  * @group smoke
  */
-import { bathymetry } from "./bathymetry";
+import { bathymetry } from "./bathymetry.js";
 import {
   getExamplePolygonSketchAll,
   writeResultOutput,
 } from "@seasketch/geoprocessing/scripts/testing";
+import { describe, it, expect } from "vitest";
 
 describe("bathymetry smoke tests", () => {
   it("has a handler function", () => {

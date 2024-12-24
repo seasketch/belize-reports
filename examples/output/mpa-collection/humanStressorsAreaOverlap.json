@@ -6,7 +6,7 @@
       "classId": "ag_runoff",
       "sketchId": "23746",
       "groupId": null,
-      "value": 221385988.437581,
+      "value": 220891423.403815,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -18,7 +18,7 @@
       "classId": "ag_runoff",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 221050231.92235,
+      "value": 220556416.951555,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -30,7 +30,7 @@
       "classId": "ag_runoff",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 335756.515232,
+      "value": 335006.45226,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -42,7 +42,7 @@
       "classId": "ag_runoff",
       "sketchId": "23747",
       "groupId": null,
-      "value": 221050231.92235,
+      "value": 220556416.951555,
       "extra": {
         "sketchName": "coastal"
       }
@@ -53,7 +53,7 @@
       "classId": "ag_runoff",
       "sketchId": "23747",
       "groupId": "HIGH_PROTECTION",
-      "value": 221050231.92235,
+      "value": 220556416.951555,
       "extra": {
         "sketchName": "coastal"
       }
@@ -108,7 +108,7 @@
       "classId": "ag_runoff",
       "sketchId": "23750",
       "groupId": null,
-      "value": 335756.515232,
+      "value": 335006.45226,
       "extra": {
         "sketchName": "souther"
       }
@@ -119,7 +119,7 @@
       "classId": "ag_runoff",
       "sketchId": "23750",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 335756.515232,
+      "value": 335006.45226,
       "extra": {
         "sketchName": "souther"
       }
@@ -130,7 +130,7 @@
       "classId": "coastal_dev",
       "sketchId": "23746",
       "groupId": null,
-      "value": 3401940.21244,
+      "value": 3394340.439741,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -142,7 +142,7 @@
       "classId": "coastal_dev",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 3401940.21244,
+      "value": 3394340.439741,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -166,7 +166,7 @@
       "classId": "coastal_dev",
       "sketchId": "23747",
       "groupId": null,
-      "value": 3352145.267211,
+      "value": 3344656.733886,
       "extra": {
         "sketchName": "coastal"
       }
@@ -177,7 +177,7 @@
       "classId": "coastal_dev",
       "sketchId": "23747",
       "groupId": "HIGH_PROTECTION",
-      "value": 3352145.267211,
+      "value": 3344656.733886,
       "extra": {
         "sketchName": "coastal"
       }
@@ -210,7 +210,7 @@
       "classId": "coastal_dev",
       "sketchId": "23749",
       "groupId": null,
-      "value": 49794.945229,
+      "value": 49683.705855,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -221,7 +221,7 @@
       "classId": "coastal_dev",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 49794.945229,
+      "value": 49683.705855,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -254,7 +254,7 @@
       "classId": "marine_dredging",
       "sketchId": "23746",
       "groupId": null,
-      "value": 169619571.312897,
+      "value": 169240649.821002,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -266,7 +266,7 @@
       "classId": "marine_dredging",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 169619571.312897,
+      "value": 169240649.821002,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -290,7 +290,7 @@
       "classId": "marine_dredging",
       "sketchId": "23747",
       "groupId": null,
-      "value": 129466664.893271,
+      "value": 129177442.951297,
       "extra": {
         "sketchName": "coastal"
       }
@@ -301,7 +301,7 @@
       "classId": "marine_dredging",
       "sketchId": "23747",
       "groupId": "HIGH_PROTECTION",
-      "value": 129466664.893271,
+      "value": 129177442.951297,
       "extra": {
         "sketchName": "coastal"
       }
@@ -334,7 +334,7 @@
       "classId": "marine_dredging",
       "sketchId": "23749",
       "groupId": null,
-      "value": 40152906.419626,
+      "value": 40063206.869705,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -345,7 +345,7 @@
       "classId": "marine_dredging",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 40152906.419626,
+      "value": 40063206.869705,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -378,7 +378,7 @@
       "classId": "marine_trans",
       "sketchId": "23746",
       "groupId": null,
-      "value": 692500868.966557,
+      "value": 690953857.242088,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -390,7 +390,7 @@
       "classId": "marine_trans",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 586508540.295662,
+      "value": 585198310.04041,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -402,7 +402,7 @@
       "classId": "marine_trans",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 105992328.670894,
+      "value": 105755547.201678,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -414,7 +414,7 @@
       "classId": "marine_trans",
       "sketchId": "23747",
       "groupId": null,
-      "value": 413267053.114541,
+      "value": 412343835.526886,
       "extra": {
         "sketchName": "coastal"
       }
@@ -425,7 +425,7 @@
       "classId": "marine_trans",
       "sketchId": "23747",
       "groupId": "HIGH_PROTECTION",
-      "value": 413267053.114541,
+      "value": 412343835.526886,
       "extra": {
         "sketchName": "coastal"
       }
@@ -458,7 +458,7 @@
       "classId": "marine_trans",
       "sketchId": "23749",
       "groupId": null,
-      "value": 173241487.181121,
+      "value": 172854474.513523,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -469,7 +469,7 @@
       "classId": "marine_trans",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 173241487.181121,
+      "value": 172854474.513523,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -480,7 +480,7 @@
       "classId": "marine_trans",
       "sketchId": "23750",
       "groupId": null,
-      "value": 105992328.670894,
+      "value": 105755547.201678,
       "extra": {
         "sketchName": "souther"
       }
@@ -491,7 +491,7 @@
       "classId": "marine_trans",
       "sketchId": "23750",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 105992328.670894,
+      "value": 105755547.201678,
       "extra": {
         "sketchName": "souther"
       }

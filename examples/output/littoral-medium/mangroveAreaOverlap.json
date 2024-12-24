@@ -39,7 +39,7 @@
       "classId": "mangrove_priority",
       "sketchId": "23569",
       "groupId": null,
-      "value": 12623798.208516,
+      "value": 12595600.083873,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -61,7 +61,7 @@
       "classId": "mangrove_priority",
       "sketchId": "23569",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 12623798.208516,
+      "value": 12595600.083873,
       "extra": {
         "sketchName": "littoral-medium"
       }

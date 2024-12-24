@@ -38,7 +38,7 @@ interface AreaSketchTableProps {
 }
 
 export const AreaSketchTableStyled = styled(
-  ReportTableStyled
+  ReportTableStyled,
 )<AreaSketchTableProps>`
   & {
     width: 100%;

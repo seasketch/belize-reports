@@ -7,32 +7,30 @@ import {
   toNullSketch,
   rekeyMetrics,
   genFeatureCollection,
-  getFlatGeobufPath,
   MultiPolygon,
+  getFeaturesForSketchBBoxes,
 } from "@seasketch/geoprocessing";
 import {
   OusFeature,
   OusFeatureCollection,
   overlapOusDemographic,
-} from "../util/overlapOusDemographic";
-import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
+} from "../util/overlapOusDemographic.js";
 import { sortMetrics } from "@seasketch/geoprocessing/client-core";
-import project from "../../project";
+import project from "../../project/projectClient.js";
 
 /** Calculate sketch area overlap inside and outside of multiple planning area boundaries */
 export async function ousDemographicOverlap(
   sketch:
     | Sketch<Polygon | MultiPolygon>
-    | SketchCollection<Polygon | MultiPolygon>
+    | SketchCollection<Polygon | MultiPolygon>,
 ): Promise<ReportResult> {
-  const sh = await fgbFetchAll<OusFeature>(
-    getFlatGeobufPath(project.dataBucketUrl(), "ous_demographics")
-  );
+  const url = `${project.dataBucketUrl()}/ous_demographics.fgb`;
+  const sh = await getFeaturesForSketchBBoxes(sketch, url);
 
   const metrics = (
     await overlapOusDemographic(
-      genFeatureCollection(sh) as OusFeatureCollection,
-      sketch
+      genFeatureCollection(sh as OusFeature[]) as OusFeatureCollection,
+      sketch,
     )
   ).metrics;
 

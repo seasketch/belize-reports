@@ -6,7 +6,7 @@
       "classId": "abyss",
       "sketchId": "23746",
       "groupId": null,
-      "value": 3797501439.957221,
+      "value": 3789017692.852902,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -30,7 +30,7 @@
       "classId": "abyss",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 3797501439.957221,
+      "value": 3789017692.852902,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -64,7 +64,7 @@
       "classId": "abyss",
       "sketchId": "23748",
       "groupId": null,
-      "value": 2155891573.552659,
+      "value": 2151075421.471882,
       "extra": {
         "sketchName": "offshore"
       }
@@ -75,7 +75,7 @@
       "classId": "abyss",
       "sketchId": "23748",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 2155891573.552659,
+      "value": 2151075421.471882,
       "extra": {
         "sketchName": "offshore"
       }
@@ -108,7 +108,7 @@
       "classId": "abyss",
       "sketchId": "23750",
       "groupId": null,
-      "value": 1641609866.404562,
+      "value": 1637942271.38102,
       "extra": {
         "sketchName": "souther"
       }
@@ -119,7 +119,7 @@
       "classId": "abyss",
       "sketchId": "23750",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1641609866.404562,
+      "value": 1637942271.38102,
       "extra": {
         "sketchName": "souther"
       }
@@ -130,7 +130,7 @@
       "classId": "basins",
       "sketchId": "23746",
       "groupId": null,
-      "value": 707651856.893238,
+      "value": 706070998.651179,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -142,7 +142,7 @@
       "classId": "basins",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 87033095.604718,
+      "value": 86838668.097495,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -154,7 +154,7 @@
       "classId": "basins",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 620618761.28852,
+      "value": 619232330.553684,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -166,7 +166,7 @@
       "classId": "basins",
       "sketchId": "23747",
       "groupId": null,
-      "value": 32981003.322002,
+      "value": 32907325.438696,
       "extra": {
         "sketchName": "coastal"
       }
@@ -177,7 +177,7 @@
       "classId": "basins",
       "sketchId": "23747",
       "groupId": "HIGH_PROTECTION",
-      "value": 32981003.322002,
+      "value": 32907325.438696,
       "extra": {
         "sketchName": "coastal"
       }
@@ -188,7 +188,7 @@
       "classId": "basins",
       "sketchId": "23748",
       "groupId": null,
-      "value": 620618761.28852,
+      "value": 619232330.553684,
       "extra": {
         "sketchName": "offshore"
       }
@@ -199,7 +199,7 @@
       "classId": "basins",
       "sketchId": "23748",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 620618761.28852,
+      "value": 619232330.553684,
       "extra": {
         "sketchName": "offshore"
       }
@@ -210,7 +210,7 @@
       "classId": "basins",
       "sketchId": "23749",
       "groupId": null,
-      "value": 54052092.282716,
+      "value": 53931342.658798,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -221,7 +221,7 @@
       "classId": "basins",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 54052092.282716,
+      "value": 53931342.658798,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -254,7 +254,7 @@
       "classId": "canyons",
       "sketchId": "23746",
       "groupId": null,
-      "value": 202584276.932041,
+      "value": 202131713.965145,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -266,7 +266,7 @@
       "classId": "canyons",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 118240322.373456,
+      "value": 117976179.509495,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -278,7 +278,7 @@
       "classId": "canyons",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 84343954.558585,
+      "value": 84155534.45565,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -312,7 +312,7 @@
       "classId": "canyons",
       "sketchId": "23748",
       "groupId": null,
-      "value": 20604387.591377,
+      "value": 20558358.437871,
       "extra": {
         "sketchName": "offshore"
       }
@@ -323,7 +323,7 @@
       "classId": "canyons",
       "sketchId": "23748",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 20604387.591377,
+      "value": 20558358.437871,
       "extra": {
         "sketchName": "offshore"
       }
@@ -334,7 +334,7 @@
       "classId": "canyons",
       "sketchId": "23749",
       "groupId": null,
-      "value": 118240322.373456,
+      "value": 117976179.509495,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -345,7 +345,7 @@
       "classId": "canyons",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 118240322.373456,
+      "value": 117976179.509495,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -356,7 +356,7 @@
       "classId": "canyons",
       "sketchId": "23750",
       "groupId": null,
-      "value": 63739566.967208,
+      "value": 63597176.017779,
       "extra": {
         "sketchName": "souther"
       }
@@ -367,7 +367,7 @@
       "classId": "canyons",
       "sketchId": "23750",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 63739566.967208,
+      "value": 63597176.017779,
       "extra": {
         "sketchName": "souther"
       }
@@ -378,7 +378,7 @@
       "classId": "escarpments",
       "sketchId": "23746",
       "groupId": null,
-      "value": 667619166.308895,
+      "value": 666127739.060683,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -390,7 +390,7 @@
       "classId": "escarpments",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 169845896.054033,
+      "value": 169466468.964226,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -402,7 +402,7 @@
       "classId": "escarpments",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 497773270.254863,
+      "value": 496661270.096458,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -436,7 +436,7 @@
       "classId": "escarpments",
       "sketchId": "23748",
       "groupId": null,
-      "value": 374615264.256283,
+      "value": 373778392.816823,
       "extra": {
         "sketchName": "offshore"
       }
@@ -447,7 +447,7 @@
       "classId": "escarpments",
       "sketchId": "23748",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 374615264.256283,
+      "value": 373778392.816823,
       "extra": {
         "sketchName": "offshore"
       }
@@ -458,7 +458,7 @@
       "classId": "escarpments",
       "sketchId": "23749",
       "groupId": null,
-      "value": 169845896.054033,
+      "value": 169466468.964226,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -469,7 +469,7 @@
       "classId": "escarpments",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 169845896.054033,
+      "value": 169466468.964226,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -480,7 +480,7 @@
       "classId": "escarpments",
       "sketchId": "23750",
       "groupId": null,
-      "value": 123158005.99858,
+      "value": 122882877.279634,
       "extra": {
         "sketchName": "souther"
       }
@@ -491,7 +491,7 @@
       "classId": "escarpments",
       "sketchId": "23750",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 123158005.99858,
+      "value": 122882877.279634,
       "extra": {
         "sketchName": "souther"
       }
@@ -626,7 +626,7 @@
       "classId": "rises",
       "sketchId": "23746",
       "groupId": null,
-      "value": 3797415205.024905,
+      "value": 3788931972.674236,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -650,7 +650,7 @@
       "classId": "rises",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 3797415205.024905,
+      "value": 3788931972.674236,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -684,7 +684,7 @@
       "classId": "rises",
       "sketchId": "23748",
       "groupId": null,
-      "value": 2155907256.916442,
+      "value": 2151091069.799825,
       "extra": {
         "sketchName": "offshore"
       }
@@ -695,7 +695,7 @@
       "classId": "rises",
       "sketchId": "23748",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 2155907256.916442,
+      "value": 2151091069.799825,
       "extra": {
         "sketchName": "offshore"
       }
@@ -728,7 +728,7 @@
       "classId": "rises",
       "sketchId": "23750",
       "groupId": null,
-      "value": 1641507948.108464,
+      "value": 1637840902.874411,
       "extra": {
         "sketchName": "souther"
       }
@@ -739,7 +739,7 @@
       "classId": "rises",
       "sketchId": "23750",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1641507948.108464,
+      "value": 1637840902.874411,
       "extra": {
         "sketchName": "souther"
       }
@@ -750,7 +750,7 @@
       "classId": "shelf",
       "sketchId": "23746",
       "groupId": null,
-      "value": 1139249944.314191,
+      "value": 1136720244.423545,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -762,7 +762,7 @@
       "classId": "shelf",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 1139249944.314191,
+      "value": 1136720244.423545,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -786,7 +786,7 @@
       "classId": "shelf",
       "sketchId": "23747",
       "groupId": null,
-      "value": 553577919.29675,
+      "value": 552355857.449901,
       "extra": {
         "sketchName": "coastal"
       }
@@ -797,7 +797,7 @@
       "classId": "shelf",
       "sketchId": "23747",
       "groupId": "HIGH_PROTECTION",
-      "value": 553577919.29675,
+      "value": 552355857.449901,
       "extra": {
         "sketchName": "coastal"
       }
@@ -830,7 +830,7 @@
       "classId": "shelf",
       "sketchId": "23749",
       "groupId": null,
-      "value": 585672025.017441,
+      "value": 584364386.973643,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -841,7 +841,7 @@
       "classId": "shelf",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 585672025.017441,
+      "value": 584364386.973643,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -874,7 +874,7 @@
       "classId": "shelf_valleys",
       "sketchId": "23746",
       "groupId": null,
-      "value": 66846190.812417,
+      "value": 66696859.823367,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -886,7 +886,7 @@
       "classId": "shelf_valleys",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 66846190.812417,
+      "value": 66696859.823367,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -954,7 +954,7 @@
       "classId": "shelf_valleys",
       "sketchId": "23749",
       "groupId": null,
-      "value": 66846190.812417,
+      "value": 66696859.823367,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -965,7 +965,7 @@
       "classId": "shelf_valleys",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 66846190.812417,
+      "value": 66696859.823367,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -998,7 +998,7 @@
       "classId": "sills",
       "sketchId": "23746",
       "groupId": null,
-      "value": 76204845.265373,
+      "value": 76034607.518431,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -1022,7 +1022,7 @@
       "classId": "sills",
       "sketchId": "23746",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 76204845.265373,
+      "value": 76034607.518431,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -1056,7 +1056,7 @@
       "classId": "sills",
       "sketchId": "23748",
       "groupId": null,
-      "value": 76204845.265373,
+      "value": 76034607.518431,
       "extra": {
         "sketchName": "offshore"
       }
@@ -1067,7 +1067,7 @@
       "classId": "sills",
       "sketchId": "23748",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 76204845.265373,
+      "value": 76034607.518431,
       "extra": {
         "sketchName": "offshore"
       }
@@ -1122,7 +1122,7 @@
       "classId": "slope",
       "sketchId": "23746",
       "groupId": null,
-      "value": 233516505.195543,
+      "value": 232994841.204581,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -1134,7 +1134,7 @@
       "classId": "slope",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 233516505.195543,
+      "value": 232994841.204581,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -1202,7 +1202,7 @@
       "classId": "slope",
       "sketchId": "23749",
       "groupId": null,
-      "value": 233516505.195543,
+      "value": 232994841.204581,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -1213,7 +1213,7 @@
       "classId": "slope",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 233516505.195543,
+      "value": 232994841.204581,
       "extra": {
         "sketchName": "turneffe"
       }

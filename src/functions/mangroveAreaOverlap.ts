@@ -18,14 +18,14 @@ import {
 } from "@seasketch/geoprocessing";
 import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
-import project from "../../project";
+import project from "../../project/projectClient.js";
 import {
   getMpaProtectionLevels,
   protectionLevels,
-} from "../util/getMpaProtectionLevel";
+} from "../util/getMpaProtectionLevel.js";
 
 export async function mangroveAreaOverlap(
-  sketch: Sketch<Polygon> | SketchCollection<Polygon>
+  sketch: Sketch<Polygon> | SketchCollection<Polygon>,
 ): Promise<ReportResult> {
   const box = sketch.bbox || bbox(sketch);
   const metricGroup = project.getMetricGroup("mangroveAreaOverlap");
@@ -66,7 +66,7 @@ export async function mangroveAreaOverlap(
           return finalFeatures;
         }
         return [];
-      })
+      }),
     )
   ).reduce<Record<string, Feature<Polygon>[]>>((acc, polys, classIndex) => {
     return {
@@ -81,21 +81,21 @@ export async function mangroveAreaOverlap(
         const overlapResult = await overlapFeatures(
           metricGroup.metricId,
           polysByBoundary[curClass.classId],
-          sketch
+          sketch,
         );
 
         return overlapResult.map(
           (metric): Metric => ({
             ...metric,
             classId: curClass.classId,
-          })
+          }),
         );
-      })
+      }),
     )
   ).reduce(
     // merge
     (metricsSoFar, curClassMetrics) => [...metricsSoFar, ...curClassMetrics],
-    []
+    [],
   );
 
   // Calculate group metrics - from individual sketch metrics

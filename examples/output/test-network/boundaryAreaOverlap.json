@@ -6,7 +6,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "20646",
       "groupId": null,
-      "value": 1152633752.15264,
+      "value": 1150058826.9977787,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -17,7 +17,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 1152633752.15264,
+      "value": 1150058826.9977787,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -28,7 +28,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "20647",
       "groupId": null,
-      "value": 1479358749.2068255,
+      "value": 1476053937.032696,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -39,7 +39,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1479358749.2068255,
+      "value": 1476053937.032696,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -50,7 +50,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "20648",
       "groupId": null,
-      "value": 2631992501.3594656,
+      "value": 2626112764.0304747,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -62,7 +62,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 1152633752.15264,
+      "value": 1150058826.9977787,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -74,7 +74,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1479358749.2068255,
+      "value": 1476053937.032696,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

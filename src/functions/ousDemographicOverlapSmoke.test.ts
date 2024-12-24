@@ -2,11 +2,12 @@
  * @jest-environment node
  * @group smoke
  */
-import handler from "./ousDemographicOverlap";
+import handler from "./ousDemographicOverlap.js";
 import {
   getExamplePolygonSketchAll,
   writeResultOutput,
 } from "@seasketch/geoprocessing/scripts/testing";
+import { describe, test, expect } from "vitest";
 
 describe("Basic smoke tests", () => {
   test("handler function is present", () => {
@@ -21,8 +22,8 @@ describe("Basic smoke tests", () => {
       writeResultOutput(
         result,
         "ousDemographicOverlap",
-        example.properties.name
+        example.properties.name,
       );
     }
-  }, 100000);
+  }, 500000);
 });

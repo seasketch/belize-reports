@@ -6,7 +6,7 @@
       "classId": "coral",
       "sketchId": "23746",
       "groupId": "band-0",
-      "value": 1095925,
+      "value": 1095729,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -18,7 +18,7 @@
       "classId": "coral",
       "sketchId": "23746",
       "groupId": "HIGH_PROTECTION",
-      "value": 1095925,
+      "value": 1095729,
       "extra": {
         "sketchName": "mpa-collection",
         "isCollection": true
@@ -42,7 +42,7 @@
       "classId": "coral",
       "sketchId": "23747",
       "groupId": "band-0",
-      "value": 157506,
+      "value": 157337,
       "extra": {
         "sketchName": "coastal"
       }
@@ -53,7 +53,7 @@
       "classId": "coral",
       "sketchId": "23747",
       "groupId": "HIGH_PROTECTION",
-      "value": 157506,
+      "value": 157337,
       "extra": {
         "sketchName": "coastal"
       }
@@ -86,7 +86,7 @@
       "classId": "coral",
       "sketchId": "23749",
       "groupId": "band-0",
-      "value": 938419,
+      "value": 938392,
       "extra": {
         "sketchName": "turneffe"
       }
@@ -97,7 +97,7 @@
       "classId": "coral",
       "sketchId": "23749",
       "groupId": "HIGH_PROTECTION",
-      "value": 938419,
+      "value": 938392,
       "extra": {
         "sketchName": "turneffe"
       }

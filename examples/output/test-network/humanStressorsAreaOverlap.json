@@ -6,7 +6,7 @@
       "classId": "ag_runoff",
       "sketchId": "20646",
       "groupId": null,
-      "value": 265733648.902582,
+      "value": 265140013.451789,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -17,7 +17,7 @@
       "classId": "ag_runoff",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 265733648.902582,
+      "value": 265140013.451789,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -50,7 +50,7 @@
       "classId": "ag_runoff",
       "sketchId": "20648",
       "groupId": null,
-      "value": 265733648.902582,
+      "value": 265140013.451789,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -62,7 +62,7 @@
       "classId": "ag_runoff",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 265733648.902582,
+      "value": 265140013.451789,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -86,7 +86,7 @@
       "classId": "coastal_dev",
       "sketchId": "20646",
       "groupId": null,
-      "value": 24485.204943,
+      "value": 24430.506241,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -97,7 +97,7 @@
       "classId": "coastal_dev",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 24485.204943,
+      "value": 24430.506241,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -130,7 +130,7 @@
       "classId": "coastal_dev",
       "sketchId": "20648",
       "groupId": null,
-      "value": 24485.204943,
+      "value": 24430.506241,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -142,7 +142,7 @@
       "classId": "coastal_dev",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 24485.204943,
+      "value": 24430.506241,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -166,7 +166,7 @@
       "classId": "marine_dredging",
       "sketchId": "20646",
       "groupId": null,
-      "value": 62833196.68504,
+      "value": 62692830.520685,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -177,7 +177,7 @@
       "classId": "marine_dredging",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 62833196.68504,
+      "value": 62692830.520685,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -210,7 +210,7 @@
       "classId": "marine_dredging",
       "sketchId": "20648",
       "groupId": null,
-      "value": 62833196.68504,
+      "value": 62692830.520685,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -222,7 +222,7 @@
       "classId": "marine_dredging",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 62833196.68504,
+      "value": 62692830.520685,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -246,7 +246,7 @@
       "classId": "marine_trans",
       "sketchId": "20646",
       "groupId": null,
-      "value": 335893252.112565,
+      "value": 335142883.678031,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -257,7 +257,7 @@
       "classId": "marine_trans",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 335893252.112565,
+      "value": 335142883.678031,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -268,7 +268,7 @@
       "classId": "marine_trans",
       "sketchId": "20647",
       "groupId": null,
-      "value": 288874636.499477,
+      "value": 288229305.259831,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -279,7 +279,7 @@
       "classId": "marine_trans",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 288874636.499477,
+      "value": 288229305.259831,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -290,7 +290,7 @@
       "classId": "marine_trans",
       "sketchId": "20648",
       "groupId": null,
-      "value": 624767888.612042,
+      "value": 623372188.937862,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -302,7 +302,7 @@
       "classId": "marine_trans",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 335893252.112565,
+      "value": 335142883.678031,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -314,7 +314,7 @@
       "classId": "marine_trans",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 288874636.499477,
+      "value": 288229305.259831,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

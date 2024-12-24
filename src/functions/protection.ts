@@ -11,10 +11,10 @@ import {
   getUserAttribute,
 } from "@seasketch/geoprocessing/client-core";
 import { GeoprocessingHandler } from "@seasketch/geoprocessing";
-import project from "../../project";
+import project from "../../project/projectClient.js";
 
 export async function protection(
-  sketch: Sketch<Polygon> | SketchCollection<Polygon>
+  sketch: Sketch<Polygon> | SketchCollection<Polygon>,
 ): Promise<ReportResult> {
   const mg = project.getMetricGroup("protectionCountOverlap");
   const sketchFeatures = getSketchFeatures(sketch);
@@ -24,7 +24,7 @@ export async function protection(
       const designation = getUserAttribute(
         sketch.properties,
         "designation",
-        ""
+        "",
       );
       if (!designation)
         throw new Error("Malformed sketch, no designation level");
@@ -32,7 +32,7 @@ export async function protection(
       levels[designation] = 1 + (levels[designation] || 0);
       return levels;
     },
-    {}
+    {},
   );
 
   const metrics = Object.keys(protectionLevels).map((level) => {

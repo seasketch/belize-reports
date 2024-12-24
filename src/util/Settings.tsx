@@ -66,7 +66,7 @@ async function fetchDatasourcesLastModified() {
       } catch (error) {
         console.log(`Error fetching ${ds.datasourceId} modification date`);
       }
-    })
+    }),
   );
 
   return modDates;

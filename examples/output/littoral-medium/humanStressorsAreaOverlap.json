@@ -105,7 +105,7 @@
       "classId": "marine_trans",
       "sketchId": "23569",
       "groupId": null,
-      "value": 27695520.990733,
+      "value": 27633650.606018,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -127,7 +127,7 @@
       "classId": "marine_trans",
       "sketchId": "23569",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 27695520.990733,
+      "value": 27633650.606018,
       "extra": {
         "sketchName": "littoral-medium"
       }

@@ -7,18 +7,18 @@ import {
   ToolbarCard,
   DataDownload,
 } from "@seasketch/geoprocessing/client-ui";
-import { ReportResult, GeogProp } from "@seasketch/geoprocessing/client-core";
-import { Download } from "@styled-icons/bootstrap/Download/Download";
-import project from "../../project";
-import Translator from "./TranslatorAsync";
+import { ReportResult } from "@seasketch/geoprocessing/client-core";
+import project from "../../project/projectClient.js";
+import Translator from "./TranslatorAsync.js";
 import { Trans, useTranslation } from "react-i18next";
 import {
   genAreaGroupLevelTable,
   genAreaSketchTable,
   groupedCollectionReport,
   groupedSketchReport,
-} from "../util/ProtectionLevelOverlapReports";
-import { ReportProps } from "../util/ReportProp";
+} from "../util/ProtectionLevelOverlapReports.js";
+import { ReportProps } from "../util/ReportProp.js";
+import { Download } from "@styled-icons/bootstrap";
 
 const Number = new Intl.NumberFormat("en", { style: "decimal" });
 
@@ -34,7 +34,7 @@ export const Geomorphology: React.FunctionComponent<ReportProps> = (props) => {
   const precalcMetrics = project.getPrecalcMetrics(
     mg,
     "area",
-    curGeography.geographyId
+    curGeography.geographyId,
   );
 
   return (
@@ -92,7 +92,7 @@ export const Geomorphology: React.FunctionComponent<ReportProps> = (props) => {
                           precalcMetrics,
                           mg,
                           t,
-                          props.printing
+                          props.printing,
                         )}
                       </Collapse>
                       <Collapse
@@ -105,7 +105,7 @@ export const Geomorphology: React.FunctionComponent<ReportProps> = (props) => {
                           precalcMetrics,
                           mg,
                           t,
-                          props.printing
+                          props.printing,
                         )}
                       </Collapse>
                     </>

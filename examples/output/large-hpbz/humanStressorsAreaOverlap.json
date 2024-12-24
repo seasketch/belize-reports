@@ -6,7 +6,7 @@
       "classId": "ag_runoff",
       "sketchId": "20652",
       "groupId": null,
-      "value": 96420795.65678,
+      "value": 96205396.505296,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -17,7 +17,7 @@
       "classId": "ag_runoff",
       "sketchId": "20652",
       "groupId": "HIGH_PROTECTION",
-      "value": 96420795.65678,
+      "value": 96205396.505296,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -39,7 +39,7 @@
       "classId": "coastal_dev",
       "sketchId": "20652",
       "groupId": null,
-      "value": 6695.963173,
+      "value": 6681.004732,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -50,7 +50,7 @@
       "classId": "coastal_dev",
       "sketchId": "20652",
       "groupId": "HIGH_PROTECTION",
-      "value": 6695.963173,
+      "value": 6681.004732,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -72,7 +72,7 @@
       "classId": "marine_dredging",
       "sketchId": "20652",
       "groupId": null,
-      "value": 30808504.046273,
+      "value": 30739679.415805,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -83,7 +83,7 @@
       "classId": "marine_dredging",
       "sketchId": "20652",
       "groupId": "HIGH_PROTECTION",
-      "value": 30808504.046273,
+      "value": 30739679.415805,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -105,7 +105,7 @@
       "classId": "marine_trans",
       "sketchId": "20652",
       "groupId": null,
-      "value": 1381308213.782768,
+      "value": 1378222441.515989,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -116,7 +116,7 @@
       "classId": "marine_trans",
       "sketchId": "20652",
       "groupId": "HIGH_PROTECTION",
-      "value": 1381308213.782768,
+      "value": 1378222441.515989,
       "extra": {
         "sketchName": "large-hpbz"
       }

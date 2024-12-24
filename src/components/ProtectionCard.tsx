@@ -20,14 +20,13 @@ import {
   toNullSketchArray,
   getUserAttribute,
 } from "@seasketch/geoprocessing/client-core";
-import styled from "styled-components";
-import project from "../../project";
+import { styled } from "styled-components";
 import { Trans, useTranslation } from "react-i18next";
 import {
   groupDisplayMapPl,
   groupDisplayMapSg,
-} from "../util/getMpaProtectionLevel";
-import { ReportProps } from "../util/ReportProp";
+} from "../util/getMpaProtectionLevel.js";
+import { ReportProps } from "../util/ReportProp.js";
 
 // Table styling for Show by MPA table
 export const SmallReportTableStyled = styled(ReportTableStyled)`
@@ -68,7 +67,7 @@ export const ProtectionCard: React.FunctionComponent<ReportProps> = (props) => {
                   data.sketch,
                   data.metrics,
                   t,
-                  props.printing
+                  props.printing,
                 )
               : sketchReport(data.metrics, t, props.printing)}
           </ReportError>
@@ -88,7 +87,7 @@ const sketchReport = (metrics: Metric[], t: any, printing: boolean = false) => {
   // Should only have only a single metric
   if (metrics.length !== 1)
     throw new Error(
-      "In single sketch protection report, and getting !=1 metric"
+      "In single sketch protection report, and getting !=1 metric",
     );
 
   return (
@@ -130,7 +129,7 @@ const sketchCollectionReport = (
   sketch: NullSketchCollection | NullSketch,
   metrics: Metric[],
   t: any,
-  printing: boolean = false
+  printing: boolean = false,
 ) => {
   const sketches = toNullSketchArray(sketch);
   const columns: Column<Metric>[] = [
@@ -175,7 +174,7 @@ const sketchCollectionReport = (
 const genMpaSketchTable = (
   sketches: NullSketch[],
   t: any,
-  printing?: boolean
+  printing?: boolean,
 ) => {
   const columns: Column<NullSketch>[] = [
     {
@@ -192,7 +191,7 @@ const genMpaSketchTable = (
           {t(
             groupDisplayMapSg[
               getUserAttribute(row.properties, "designation", "")
-            ]
+            ],
           )}
         </GroupPill>
       ),
@@ -205,7 +204,7 @@ const genMpaSketchTable = (
         className="styled"
         columns={columns}
         data={sketches.sort((a, b) =>
-          a.properties.name.localeCompare(b.properties.name)
+          a.properties.name.localeCompare(b.properties.name),
         )}
         manualPagination={printing}
       />

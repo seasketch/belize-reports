@@ -14,11 +14,11 @@ import {
   genSketchTable,
   groupedCollectionReport,
   groupedSketchReport,
-} from "../util/ProtectionLevelOverlapReports";
-import project from "../../project";
-import Translator from "./TranslatorAsync";
-import { Download } from "@styled-icons/bootstrap/Download/Download";
-import { ReportProps } from "../util/ReportProp";
+} from "../util/ProtectionLevelOverlapReports.js";
+import project from "../../project/projectClient.js";
+import Translator from "./TranslatorAsync.js";
+import { ReportProps } from "../util/ReportProp.js";
+import { Download } from "@styled-icons/bootstrap";
 
 /**
  * @param props - geographyId & printing
@@ -36,7 +36,7 @@ export const Ous: React.FunctionComponent<ReportProps> = (props) => {
   const precalcMetrics = project.getPrecalcMetrics(
     mg,
     "sum",
-    curGeography.geographyId
+    curGeography.geographyId,
   );
 
   // Labels
@@ -96,7 +96,7 @@ export const Ous: React.FunctionComponent<ReportProps> = (props) => {
                           data,
                           precalcMetrics,
                           mg,
-                          props.printing
+                          props.printing,
                         )}
                       </Collapse>
                     </>

@@ -1,9 +1,8 @@
-import { expose } from "threads/worker";
 import {
   OusFeatureCollection,
   ClassCountStats,
   OusStats,
-} from "./overlapOusDemographic";
+} from "./overlapOusDemographic.js";
 import { featureCollection } from "@turf/helpers";
 import intersect from "@turf/intersect";
 import {
@@ -29,19 +28,19 @@ import {
   - Gear - one or more per shape (list where each element separated by comma), 
   answered by respondent per shape, particular for fisheries
  */
-async function overlapOusDemographicWorker(
+export async function overlapOusDemographicWorker(
   /** ous shape polygons */
   shapes: OusFeatureCollection,
   /** optionally calculate stats for OUS shapes that overlap with sketch  */
   sketch?:
     | Sketch<Polygon | MultiPolygon>
-    | SketchCollection<Polygon | MultiPolygon>
+    | SketchCollection<Polygon | MultiPolygon>,
 ) {
   // Combine into multipolygon
   const combinedSketch = (() => {
     if (sketch) {
       const sketches = toSketchArray(
-        sketch as Sketch<Polygon> | SketchCollection<Polygon>
+        sketch as Sketch<Polygon> | SketchCollection<Polygon>,
       );
       const sketchColl = featureCollection(sketches);
       return sketch ? clip(sketchColl, "union") : null;
@@ -71,7 +70,7 @@ async function overlapOusDemographicWorker(
       let isOverlapping: boolean;
       try {
         isOverlapping = combinedSketch
-          ? !!intersect(shape, combinedSketch)
+          ? !!intersect(featureCollection([shape, combinedSketch]))
           : false;
         if (sketch && !isOverlapping) return statsSoFar;
       } catch {
@@ -176,7 +175,7 @@ async function overlapOusDemographicWorker(
       bySector: {},
       byCommunity: {},
       byGear: {},
-    }
+    },
   );
 
   // calculate sketch % overlap - divide sketch counts by total counts
@@ -210,17 +209,13 @@ async function overlapOusDemographicWorker(
   };
 }
 
-export type OverlapOusDemographicWorker = typeof overlapOusDemographicWorker;
-
-expose(overlapOusDemographicWorker);
-
 /** Generate metrics from OUS class stats */
 function genOusClassMetrics<G extends Polygon | MultiPolygon>(
   classStats: ClassCountStats,
   /** optionally calculate stats for OUS shapes that overlap with sketch  */
   sketch?:
     | Sketch<Polygon | MultiPolygon>
-    | SketchCollection<Polygon | MultiPolygon>
+    | SketchCollection<Polygon | MultiPolygon>,
 ): Metric[] {
   return Object.keys(classStats)
     .map((curClass) => [

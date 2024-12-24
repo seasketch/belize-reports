@@ -28,7 +28,7 @@
       "classId": "abyss",
       "sketchId": "20647",
       "groupId": null,
-      "value": 63516637.022942,
+      "value": 63374744.087638,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -39,7 +39,7 @@
       "classId": "abyss",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 63516637.022942,
+      "value": 63374744.087638,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -50,7 +50,7 @@
       "classId": "abyss",
       "sketchId": "20648",
       "groupId": null,
-      "value": 63516637.022942,
+      "value": 63374744.087638,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -74,7 +74,7 @@
       "classId": "abyss",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 63516637.022942,
+      "value": 63374744.087638,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -86,7 +86,7 @@
       "classId": "basins",
       "sketchId": "20646",
       "groupId": null,
-      "value": 99197186.009834,
+      "value": 98975584.543595,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -97,7 +97,7 @@
       "classId": "basins",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 99197186.009834,
+      "value": 98975584.543595,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -130,7 +130,7 @@
       "classId": "basins",
       "sketchId": "20648",
       "groupId": null,
-      "value": 99197186.009834,
+      "value": 98975584.543595,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -142,7 +142,7 @@
       "classId": "basins",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 99197186.009834,
+      "value": 98975584.543595,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -188,7 +188,7 @@
       "classId": "canyons",
       "sketchId": "20647",
       "groupId": null,
-      "value": 90050674.552683,
+      "value": 89849505.927616,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -199,7 +199,7 @@
       "classId": "canyons",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 90050674.552683,
+      "value": 89849505.927616,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -210,7 +210,7 @@
       "classId": "canyons",
       "sketchId": "20648",
       "groupId": null,
-      "value": 90050674.552683,
+      "value": 89849505.927616,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -234,7 +234,7 @@
       "classId": "canyons",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 90050674.552683,
+      "value": 89849505.927616,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -246,7 +246,7 @@
       "classId": "escarpments",
       "sketchId": "20646",
       "groupId": null,
-      "value": 111829202.645004,
+      "value": 111579381.896305,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -257,7 +257,7 @@
       "classId": "escarpments",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 111829202.645004,
+      "value": 111579381.896305,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -268,7 +268,7 @@
       "classId": "escarpments",
       "sketchId": "20647",
       "groupId": null,
-      "value": 823773641.113712,
+      "value": 821933372.714091,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -279,7 +279,7 @@
       "classId": "escarpments",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 823773641.113712,
+      "value": 821933372.714091,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -290,7 +290,7 @@
       "classId": "escarpments",
       "sketchId": "20648",
       "groupId": null,
-      "value": 935602843.758717,
+      "value": 933512754.610397,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -302,7 +302,7 @@
       "classId": "escarpments",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 111829202.645004,
+      "value": 111579381.896305,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -314,7 +314,7 @@
       "classId": "escarpments",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 823773641.113712,
+      "value": 821933372.714091,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -428,7 +428,7 @@
       "classId": "rises",
       "sketchId": "20647",
       "groupId": null,
-      "value": 63519775.758807,
+      "value": 63377875.811732,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -439,7 +439,7 @@
       "classId": "rises",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 63519775.758807,
+      "value": 63377875.811732,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -450,7 +450,7 @@
       "classId": "rises",
       "sketchId": "20648",
       "groupId": null,
-      "value": 63519775.758807,
+      "value": 63377875.811732,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -474,7 +474,7 @@
       "classId": "rises",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 63519775.758807,
+      "value": 63377875.811732,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -486,7 +486,7 @@
       "classId": "shelf",
       "sketchId": "20646",
       "groupId": null,
-      "value": 617231862.285076,
+      "value": 615852949.332891,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -497,7 +497,7 @@
       "classId": "shelf",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 617231862.285076,
+      "value": 615852949.332891,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -508,7 +508,7 @@
       "classId": "shelf",
       "sketchId": "20647",
       "groupId": null,
-      "value": 350978068.225247,
+      "value": 350194001.079039,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -519,7 +519,7 @@
       "classId": "shelf",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 350978068.225247,
+      "value": 350194001.079039,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -530,7 +530,7 @@
       "classId": "shelf",
       "sketchId": "20648",
       "groupId": null,
-      "value": 968209930.510322,
+      "value": 966046950.41193,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -542,7 +542,7 @@
       "classId": "shelf",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 617231862.285076,
+      "value": 615852949.332891,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -554,7 +554,7 @@
       "classId": "shelf",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 350978068.225247,
+      "value": 350194001.079039,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -726,7 +726,7 @@
       "classId": "slope",
       "sketchId": "20646",
       "groupId": null,
-      "value": 531791198.196951,
+      "value": 530603203.718393,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -737,7 +737,7 @@
       "classId": "slope",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 531791198.196951,
+      "value": 530603203.718393,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -748,7 +748,7 @@
       "classId": "slope",
       "sketchId": "20647",
       "groupId": null,
-      "value": 1057782343.253455,
+      "value": 1055419311.319962,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -759,7 +759,7 @@
       "classId": "slope",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1057782343.253455,
+      "value": 1055419311.319962,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -770,7 +770,7 @@
       "classId": "slope",
       "sketchId": "20648",
       "groupId": null,
-      "value": 1589573541.450406,
+      "value": 1586022515.038356,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -782,7 +782,7 @@
       "classId": "slope",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 531791198.196951,
+      "value": 530603203.718393,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -794,7 +794,7 @@
       "classId": "slope",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 1057782343.253455,
+      "value": 1055419311.319962,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

@@ -28,7 +28,7 @@ async function main() {
   fs.writeFile(DEST_PATH, JSON.stringify(result, null, 2), (err) =>
     err
       ? console.error("Error", err)
-      : console.info(`Successfully wrote ${DEST_PATH}`)
+      : console.info(`Successfully wrote ${DEST_PATH}`),
   );
 
   // New for Azores: moves the below code from config into precalc so full metrics are created
@@ -53,7 +53,7 @@ async function main() {
   console.log(JSON.stringify(ousOverallDemographicOverlap));
 
   const ousSectorClasses: DataClass[] = Object.keys(
-    overlapResult.stats.bySector
+    overlapResult.stats.bySector,
   ).map(nameToClass);
 
   const ousSectorDemographicDataGroup = {
@@ -68,7 +68,7 @@ async function main() {
   console.log(JSON.stringify(ousSectorDemographicOverlap));
 
   const ousCommunityClasses: DataClass[] = Object.keys(
-    overlapResult.stats.byCommunity
+    overlapResult.stats.byCommunity,
   )
     .sort((a, b) => a.localeCompare(b))
     .map((name) => ({

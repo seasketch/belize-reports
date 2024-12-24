@@ -6,7 +6,7 @@
 # 2. Run this script to publish fgb to aws:
 #    ./2-ousDemographicPublish.sh
 # 3. Run this script to precalculate demographics data overlap:
-#    npx ts-node 3-ousDemographicPrecalc.ts
+#    npx tsx 3-ousDemographicPrecalc.ts
 
 # Pares down OUS demographic data (copied from Data Products) to what reports need
 # and saves into data/dist/ous_demographics.json for use in precalc 
@@ -22,7 +22,7 @@ rm ../dist/ous_demographics.json
 rm ../dist/ous_demographics.fgb
 
 # Sort by respondent_id (for faster processing at runtime)
-npx ts-node ousDemographicSort.ts
+npx tsx ousDemographicSort.ts
 
 # Create json file for direct import by precalc
 cp ../src/Data_Products/data-package/ous_demographics_sorted.geojson ../dist/ous_demographics.json

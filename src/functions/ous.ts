@@ -2,18 +2,13 @@ import {
   Sketch,
   SketchCollection,
   Polygon,
-  MultiPolygon,
   GeoprocessingHandler,
-  getFirstFromParam,
   DefaultExtraParams,
-  splitSketchAntimeridian,
   rasterMetrics,
-  isRasterDatasource,
   overlapRasterGroupMetrics,
   getCogFilename,
 } from "@seasketch/geoprocessing";
-import bbox from "@turf/bbox";
-import project from "../../project";
+import project from "../../project/projectClient.js";
 import {
   Georaster,
   Metric,
@@ -22,12 +17,11 @@ import {
   sortMetrics,
   toNullSketch,
 } from "@seasketch/geoprocessing/client-core";
-import { clipToGeography } from "../util/clipToGeography";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
 import {
   getMpaProtectionLevels,
   protectionLevels,
-} from "../util/getMpaProtectionLevel";
+} from "../util/getMpaProtectionLevel.js";
 
 /**
  * ous: A geoprocessing function that calculates overlap metrics
@@ -37,7 +31,7 @@ import {
  */
 export async function ous(
   sketch: Sketch<Polygon> | SketchCollection<Polygon>,
-  extraParams: DefaultExtraParams = {}
+  extraParams: DefaultExtraParams = {},
 ): Promise<ReportResult> {
   const metricGroup = project.getMetricGroup("ous");
   const featuresByClass: Record<string, Georaster> = {};
@@ -49,7 +43,7 @@ export async function ous(
         if (!curClass.datasourceId)
           throw new Error(`Expected datasourceId for ${curClass}`);
         const url = `${project.dataBucketUrl()}${getCogFilename(
-          project.getInternalRasterDatasourceById(curClass.datasourceId)
+          project.getInternalRasterDatasourceById(curClass.datasourceId),
         )}`;
         const raster = await loadCog(url);
         featuresByClass[curClass.classId] = raster;
@@ -63,14 +57,14 @@ export async function ous(
           (metrics): Metric => ({
             ...metrics,
             classId: curClass.classId,
-          })
+          }),
         );
-      })
+      }),
     )
   ).reduce(
     // merge
     (metricsSoFar, curClassMetrics) => [...metricsSoFar, ...curClassMetrics],
-    []
+    [],
   );
 
   // Calculate group metrics - from individual sketch metrics

@@ -1,6 +1,4 @@
-const { performance } = require("perf_hooks");
-import { spawn, Thread, Worker, FunctionThread } from "threads";
-import { OverlapOusDemographicWorker } from "./overlapOusDemographicWorker";
+import { overlapOusDemographicWorker } from "./overlapOusDemographicWorker.js";
 import {
   Feature,
   Polygon,
@@ -66,11 +64,11 @@ export async function overlapOusDemographic(
   /** optionally calculate stats for OUS shapes that overlap with sketch  */
   sketch?:
     | Sketch<Polygon | MultiPolygon>
-    | SketchCollection<Polygon | MultiPolygon>
+    | SketchCollection<Polygon | MultiPolygon>,
 ) {
   // Sort by respondent_id
   const sortedShapes = shapes.features.sort(
-    (a, b) => a.properties.resp_id - b.properties.resp_id
+    (a, b) => a.properties.resp_id - b.properties.resp_id,
   );
 
   // Divide shapes into 6 groups (# lambda cores) to be run in
@@ -107,31 +105,17 @@ export async function overlapOusDemographic(
     }
   }
 
-  // Used to terminate workers after return
-  const workers: FunctionThread[] = [];
-
   // Start workers
-  const promises: Promise<OusReportResult>[] = workerShapes.map(
-    async (shapes) => {
-      const worker = await spawn<OverlapOusDemographicWorker>(
-        new Worker("./overlapOusDemographicWorker")
-      );
-      workers.push(worker);
-      return worker(shapes, sketch);
-    }
+  const results: OusReportResult[] = await Promise.all(
+    workerShapes.map(async (shapes) => {
+      const worker = overlapOusDemographicWorker(shapes, sketch);
+      return worker;
+    }),
   );
-
-  // Await results
-  const results: OusReportResult[] = await Promise.all(promises);
-
-  // Terminate workers
-  workers.forEach(async (worker) => {
-    await Thread.terminate(worker);
-  });
 
   // Combine metrics from worker threads
   const firstResult: OusReportResult = JSON.parse(
-    JSON.stringify(results.shift()) // pops first result to use as base
+    JSON.stringify(results.shift()), // pops first result to use as base
   );
 
   const finalResult = results.reduce((finalResult, result) => {
@@ -192,7 +176,7 @@ export async function overlapOusDemographic(
         (finalMetric) =>
           finalMetric.metricId === metric.metricId &&
           finalMetric.classId === metric.classId &&
-          finalMetric.sketchId === metric.sketchId
+          finalMetric.sketchId === metric.sketchId,
       );
       if (index === -1) {
         finalResult.metrics.push(JSON.parse(JSON.stringify(metric)));

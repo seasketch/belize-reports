@@ -8,12 +8,3 @@ export interface LangDetails {
   /** is language direction right-to-left */
   rtl?: boolean;
 }
-
-const languages: LangDetails[] = [
-  { name: "English", localName: "English", code: "EN" },
-  ...[
-    { name: "Spanish", localName: "Español", code: "es" },
-  ].sort((a, b) => a.name.localeCompare(b.name)),
-];
-
-export default languages;

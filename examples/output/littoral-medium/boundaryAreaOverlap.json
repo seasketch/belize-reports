@@ -6,7 +6,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "23569",
       "groupId": null,
-      "value": 134518294.17297512,
+      "value": 134217787.1482544,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -28,7 +28,7 @@
       "classId": "belize_ocean_space",
       "sketchId": "23569",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 134518294.17297512,
+      "value": 134217787.1482544,
       "extra": {
         "sketchName": "littoral-medium"
       }

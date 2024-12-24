@@ -6,7 +6,7 @@
       "classId": "Mangrove",
       "sketchId": "20646",
       "groupId": null,
-      "value": 5007699.891593,
+      "value": 4996512.944829,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -17,7 +17,7 @@
       "classId": "Mangrove",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 5007699.891593,
+      "value": 4996512.944829,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -28,7 +28,7 @@
       "classId": "Mangrove",
       "sketchId": "20647",
       "groupId": null,
-      "value": 3090075.331918,
+      "value": 3083172.260853,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -39,7 +39,7 @@
       "classId": "Mangrove",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 3090075.331918,
+      "value": 3083172.260853,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -50,7 +50,7 @@
       "classId": "Mangrove",
       "sketchId": "20648",
       "groupId": null,
-      "value": 8097775.223512,
+      "value": 8079685.205681,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -62,7 +62,7 @@
       "classId": "Mangrove",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 5007699.891593,
+      "value": 4996512.944829,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -74,7 +74,7 @@
       "classId": "Mangrove",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 3090075.331918,
+      "value": 3083172.260853,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -86,7 +86,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20646",
       "groupId": null,
-      "value": 5705443.932953,
+      "value": 5692698.261504,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -97,7 +97,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 5705443.932953,
+      "value": 5692698.261504,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -108,7 +108,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20647",
       "groupId": null,
-      "value": 51838496.214995,
+      "value": 51722691.212749,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -119,7 +119,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20647",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 51838496.214995,
+      "value": 51722691.212749,
       "extra": {
         "sketchName": "medium-protection-zone"
       }
@@ -130,7 +130,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20648",
       "groupId": null,
-      "value": 57543940.147947,
+      "value": 57415389.474254,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -142,7 +142,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 5705443.932953,
+      "value": 5692698.261504,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -154,7 +154,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20648",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 51838496.214995,
+      "value": 51722691.212749,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -166,7 +166,7 @@
       "classId": "Non-mangrove",
       "sketchId": "20646",
       "groupId": null,
-      "value": 241757.138075,
+      "value": 241217.064929,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -177,7 +177,7 @@
       "classId": "Non-mangrove",
       "sketchId": "20646",
       "groupId": "HIGH_PROTECTION",
-      "value": 241757.138075,
+      "value": 241217.064929,
       "extra": {
         "sketchName": "high-protection-zone"
       }
@@ -210,7 +210,7 @@
       "classId": "Non-mangrove",
       "sketchId": "20648",
       "groupId": null,
-      "value": 241757.138075,
+      "value": 241217.064929,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true
@@ -222,7 +222,7 @@
       "classId": "Non-mangrove",
       "sketchId": "20648",
       "groupId": "HIGH_PROTECTION",
-      "value": 241757.138075,
+      "value": 241217.064929,
       "extra": {
         "sketchName": "test-network",
         "isCollection": true

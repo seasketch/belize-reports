@@ -18,14 +18,14 @@ import {
 } from "@seasketch/geoprocessing";
 import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
 import bbox from "@turf/bbox";
-import project from "../../project";
+import project from "../../project/projectClient.js";
 import {
   getMpaProtectionLevels,
   protectionLevels,
-} from "../util/getMpaProtectionLevel";
+} from "../util/getMpaProtectionLevel.js";
 
 export async function geomorphAreaOverlap(
-  sketch: Sketch<Polygon> | SketchCollection<Polygon>
+  sketch: Sketch<Polygon> | SketchCollection<Polygon>,
 ): Promise<ReportResult> {
   const box = sketch.bbox || bbox(sketch);
   const metricGroup = project.getMetricGroup("geomorphAreaOverlap");
@@ -65,7 +65,7 @@ export async function geomorphAreaOverlap(
           return finalFeatures;
         }
         return [];
-      })
+      }),
     )
   ).reduce<Record<string, Feature<Polygon>[]>>((acc, polys, classIndex) => {
     return {
@@ -80,21 +80,21 @@ export async function geomorphAreaOverlap(
         const overlapResult: Metric[] = await overlapFeatures(
           metricGroup.metricId,
           polysByBoundary[curClass.classId],
-          sketch
+          sketch,
         );
 
         return overlapResult.map(
           (metric): Metric => ({
             ...metric,
             classId: curClass.classId,
-          })
+          }),
         );
-      })
+      }),
     )
   ).reduce(
     // merge
     (metricsSoFar, curClassMetrics) => [...metricsSoFar, ...curClassMetrics],
-    []
+    [],
   );
 
   // Calculate group metrics - from individual sketch metrics

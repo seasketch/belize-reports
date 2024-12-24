@@ -32,7 +32,7 @@ import simplify from "@turf/simplify";
 export async function clipToGeography<G extends Polygon | MultiPolygon>(
   sketch: Sketch<G> | SketchCollection<G>,
   geography: Geography,
-  options?: { tolerance?: number; highQuality?: boolean }
+  options?: { tolerance?: number; highQuality?: boolean },
 ): Promise<Sketch<G> | SketchCollection<G>> {
   if (!geography) {
     if (options) return simplify(sketch, options);
@@ -48,7 +48,7 @@ export async function clipToGeography<G extends Polygon | MultiPolygon>(
     project.getDatasourceUrl(ds),
     {
       bbox: box,
-    }
+    },
   );
 
   let finalSketches: Sketch<G>[] = [];
@@ -57,7 +57,7 @@ export async function clipToGeography<G extends Polygon | MultiPolygon>(
     console.log(
       sketch.properties.name,
       "has no overlap with geography",
-      geography.geographyId
+      geography.geographyId,
     );
 
     finalSketches = zeroSketchArray(toSketchArray(sketch));
@@ -78,11 +78,11 @@ export async function clipToGeography<G extends Polygon | MultiPolygon>(
       const intersection = clipMultiMerge(
         sketch,
         featureCollection(geogFeatures),
-        "intersection"
+        "intersection",
       ) as Feature<G>;
       if (!intersection)
         console.log(
-          `Sketch ${sketch.id} does not intersect with geography ${geography.geographyId}`
+          `Sketch ${sketch.id} does not intersect with geography ${geography.geographyId}`,
         );
       if (intersection) {
         if (options) {

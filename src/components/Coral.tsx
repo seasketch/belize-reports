@@ -8,18 +8,18 @@ import {
   ReportError,
   DataDownload,
 } from "@seasketch/geoprocessing/client-ui";
-import { ReportResult, GeogProp } from "@seasketch/geoprocessing/client-core";
-import project from "../../project";
-import Translator from "./TranslatorAsync";
+import { ReportResult } from "@seasketch/geoprocessing/client-core";
+import project from "../../project/projectClient.js";
+import Translator from "./TranslatorAsync.js";
 import { Trans, useTranslation } from "react-i18next";
 import {
   genAreaGroupLevelTable,
   genAreaSketchTable,
   groupedCollectionReport,
   groupedSketchReport,
-} from "../util/ProtectionLevelOverlapReports";
-import { Download } from "@styled-icons/bootstrap/Download/Download";
-import { ReportProps } from "../util/ReportProp";
+} from "../util/ProtectionLevelOverlapReports.js";
+import { ReportProps } from "../util/ReportProp.js";
+import { Download } from "@styled-icons/bootstrap";
 
 export const Coral: React.FunctionComponent<ReportProps> = (props) => {
   const [{ isCollection }] = useSketchProperties();
@@ -33,7 +33,7 @@ export const Coral: React.FunctionComponent<ReportProps> = (props) => {
   const precalcMetrics = project.getPrecalcMetrics(
     mg,
     "sum",
-    curGeography.geographyId
+    curGeography.geographyId,
   );
 
   const mapLabel = t("Map");
@@ -103,7 +103,7 @@ export const Coral: React.FunctionComponent<ReportProps> = (props) => {
                           precalcMetrics,
                           mg,
                           t,
-                          props.printing
+                          props.printing,
                         )}
                       </Collapse>
                     </>

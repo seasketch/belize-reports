@@ -6,7 +6,7 @@
       "classId": "Mangrove",
       "sketchId": "20652",
       "groupId": null,
-      "value": 7839884.595473,
+      "value": 7822370.696837,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -17,7 +17,7 @@
       "classId": "Mangrove",
       "sketchId": "20652",
       "groupId": "HIGH_PROTECTION",
-      "value": 7839884.595473,
+      "value": 7822370.696837,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -39,7 +39,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20652",
       "groupId": null,
-      "value": 71612374.13875,
+      "value": 71452395.299309,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -50,7 +50,7 @@
       "classId": "mangrove_priority",
       "sketchId": "20652",
       "groupId": "HIGH_PROTECTION",
-      "value": 71612374.13875,
+      "value": 71452395.299309,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -72,7 +72,7 @@
       "classId": "Non-mangrove",
       "sketchId": "20652",
       "groupId": null,
-      "value": 13607.675706,
+      "value": 13577.276851,
       "extra": {
         "sketchName": "large-hpbz"
       }
@@ -83,7 +83,7 @@
       "classId": "Non-mangrove",
       "sketchId": "20652",
       "groupId": "HIGH_PROTECTION",
-      "value": 13607.675706,
+      "value": 13577.276851,
       "extra": {
         "sketchName": "large-hpbz"
       }

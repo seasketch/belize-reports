@@ -1,11 +1,11 @@
 import React from "react";
-import { SizeCard } from "./SizeCard";
+import { SizeCard } from "./SizeCard.js";
 import { SketchAttributesCard } from "@seasketch/geoprocessing/client-ui";
-import { ProtectionCard } from "./ProtectionCard";
-import { HumanStressors } from "./HumanStressors";
-import { ReportProps } from "../util/ReportProp";
-import { OusDemographics } from "./OusDemographic";
-import { Ous } from "./Ous";
+import { ProtectionCard } from "./ProtectionCard.js";
+import { HumanStressors } from "./HumanStressors.js";
+import { ReportProps } from "../util/ReportProp.js";
+import { OusDemographics } from "./OusDemographic.js";
+import { Ous } from "./Ous.js";
 
 const ReportPage: React.FunctionComponent<ReportProps> = (props) => {
   return (

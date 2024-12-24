@@ -6,7 +6,7 @@
       "classId": "Littoral",
       "sketchId": "23569",
       "groupId": null,
-      "value": 2845500.937215,
+      "value": 2839144.232903,
       "extra": {
         "sketchName": "littoral-medium"
       }
@@ -28,7 +28,7 @@
       "classId": "Littoral",
       "sketchId": "23569",
       "groupId": "MEDIUM_PROTECTION",
-      "value": 2845500.937215,
+      "value": 2839144.232903,
       "extra": {
         "sketchName": "littoral-medium"
       }

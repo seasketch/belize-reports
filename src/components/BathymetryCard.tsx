@@ -8,11 +8,11 @@ import {
   DataDownload,
   VerticalSpacer,
 } from "@seasketch/geoprocessing/client-ui";
-import { BathymetryResults } from "../functions/bathymetry";
+import { BathymetryResults } from "../functions/bathymetry.js";
 import { Trans, useTranslation } from "react-i18next";
-import project from "../../project";
-import { Download } from "@styled-icons/bootstrap/Download/Download";
-import { ReportProps } from "../util/ReportProp";
+import project from "../../project/projectClient.js";
+import { ReportProps } from "../util/ReportProp.js";
+import { Download } from "@styled-icons/bootstrap";
 
 const formatDepth = (val: number) => {
   if (!val) return "0m";

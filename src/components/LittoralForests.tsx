@@ -9,20 +9,20 @@ import {
   DataDownload,
 } from "@seasketch/geoprocessing/client-ui";
 import { ReportResult } from "@seasketch/geoprocessing/client-core";
-import project from "../../project";
-import Translator from "./TranslatorAsync";
+import project from "../../project/projectClient.js";
+import Translator from "./TranslatorAsync.js";
 import { Trans, useTranslation } from "react-i18next";
 import {
   genAreaGroupLevelTable,
   genAreaSketchTable,
   groupedCollectionReport,
   groupedSketchReport,
-} from "../util/ProtectionLevelOverlapReports";
-import { Download } from "@styled-icons/bootstrap/Download/Download";
-import { ReportProps } from "../util/ReportProp";
+} from "../util/ProtectionLevelOverlapReports.js";
+import { ReportProps } from "../util/ReportProp.js";
+import { Download } from "@styled-icons/bootstrap";
 
 export const LittoralForests: React.FunctionComponent<ReportProps> = (
-  props
+  props,
 ) => {
   const [{ isCollection }] = useSketchProperties();
   const { t } = useTranslation();
@@ -35,7 +35,7 @@ export const LittoralForests: React.FunctionComponent<ReportProps> = (
   const precalcMetrics = project.getPrecalcMetrics(
     mg,
     "area",
-    curGeography.geographyId
+    curGeography.geographyId,
   );
 
   const mapLabel = t("Map");
@@ -102,7 +102,7 @@ export const LittoralForests: React.FunctionComponent<ReportProps> = (
                           precalcMetrics,
                           mg,
                           t,
-                          props.printing
+                          props.printing,
                         )}
                       </Collapse>
                     </>
