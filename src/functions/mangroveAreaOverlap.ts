@@ -11,13 +11,13 @@ import {
 } from "@seasketch/geoprocessing/client-core";
 import {
   GeoprocessingHandler,
-  overlapFeatures,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
   overlapFeaturesGroupMetrics,
+  getDatasourceFeatures,
+  overlapPolygonArea,
 } from "@seasketch/geoprocessing";
-import { fgbFetchAll } from "@seasketch/geoprocessing/dataproviders";
-import bbox from "@turf/bbox";
+import { bbox } from "@turf/turf";
 import project from "../../project/projectClient.js";
 import {
   getMpaProtectionLevels,
@@ -30,7 +30,6 @@ export async function mangroveAreaOverlap(
   const box = sketch.bbox || bbox(sketch);
   const metricGroup = project.getMetricGroup("mangroveAreaOverlap");
 
-  let cachedFeatures: Record<string, Feature<Polygon>[]> = {};
   const featuresByClass: Record<string, Feature<Polygon>[]> = {};
 
   const polysByBoundary = (
@@ -44,22 +43,21 @@ export async function mangroveAreaOverlap(
           const url = `${project.dataBucketUrl()}${getFlatGeobufFilename(ds)}`;
 
           // Fetch features overlapping with sketch, pull from cache if already fetched
-          const dsFeatures =
-            cachedFeatures[curClass.datasourceId] ||
-            (await fgbFetchAll<Feature<Polygon>>(url, box));
-          cachedFeatures[curClass.datasourceId] = dsFeatures;
+          const features = await getDatasourceFeatures<Polygon>(ds, url, {
+            sketch,
+          });
 
           // If this is a sub-class, filter by class name, exclude null geometry too
           // ToDo: should do deeper match to classKey
           const finalFeatures =
             curClass.classKey && curClass.classId !== `${ds.datasourceId}_all`
-              ? dsFeatures.filter((feat) => {
+              ? features.filter((feat) => {
                   return (
                     feat.geometry &&
                     feat.properties![ds.classKeys[0]] === curClass.classId
                   );
                 }, [])
-              : dsFeatures;
+              : features;
 
           featuresByClass[curClass.classId] = finalFeatures;
 
@@ -78,7 +76,7 @@ export async function mangroveAreaOverlap(
   const metrics: Metric[] = (
     await Promise.all(
       metricGroup.classes.map(async (curClass) => {
-        const overlapResult = await overlapFeatures(
+        const overlapResult = await overlapPolygonArea(
           metricGroup.metricId,
           polysByBoundary[curClass.classId],
           sketch,

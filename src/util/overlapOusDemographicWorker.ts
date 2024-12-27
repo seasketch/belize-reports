@@ -3,8 +3,7 @@ import {
   ClassCountStats,
   OusStats,
 } from "./overlapOusDemographic.js";
-import { featureCollection } from "@turf/helpers";
-import intersect from "@turf/intersect";
+import { featureCollection, intersect } from "@turf/turf";
 import {
   clip,
   createMetric,
