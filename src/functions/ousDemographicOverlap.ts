@@ -1,13 +1,15 @@
 import {
   Sketch,
-  GeoprocessingHandler,
   Polygon,
   ReportResult,
   SketchCollection,
   toNullSketch,
   rekeyMetrics,
-  genFeatureCollection,
   MultiPolygon,
+} from "@seasketch/geoprocessing/client-core";
+import {
+  GeoprocessingHandler,
+  genFeatureCollection,
   getFeaturesForSketchBBoxes,
 } from "@seasketch/geoprocessing";
 import {

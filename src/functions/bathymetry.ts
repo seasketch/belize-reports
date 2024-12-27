@@ -2,14 +2,16 @@ import {
   Sketch,
   SketchCollection,
   Feature,
-  GeoprocessingHandler,
   Polygon,
   toSketchArray,
   getCogFilename,
+} from "@seasketch/geoprocessing/client-core";
+import {
+  GeoprocessingHandler,
   toRasterProjection,
 } from "@seasketch/geoprocessing";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
-import bbox from "@turf/turf";
+import { bbox } from "@turf/turf";
 import { min, max, mean } from "simple-statistics";
 import project from "../../project/projectClient.js";
 

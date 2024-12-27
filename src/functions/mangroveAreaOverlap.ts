@@ -8,11 +8,11 @@ import {
   toNullSketch,
   rekeyMetrics,
   sortMetrics,
+  getFlatGeobufFilename,
+  isInternalVectorDatasource,
 } from "@seasketch/geoprocessing/client-core";
 import {
   GeoprocessingHandler,
-  getFlatGeobufFilename,
-  isInternalVectorDatasource,
   overlapFeaturesGroupMetrics,
   getDatasourceFeatures,
   overlapPolygonArea,

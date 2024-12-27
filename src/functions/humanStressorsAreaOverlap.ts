@@ -8,14 +8,14 @@ import {
   toNullSketch,
   rekeyMetrics,
   sortMetrics,
-} from "@seasketch/geoprocessing/client-core";
-import {
-  GeoprocessingHandler,
   getFlatGeobufFilename,
   isInternalVectorDatasource,
+} from "@seasketch/geoprocessing/client-core";
+import {
   overlapFeaturesGroupMetrics,
   getDatasourceFeatures,
   overlapPolygonArea,
+  GeoprocessingHandler,
 } from "@seasketch/geoprocessing";
 import { bbox } from "@turf/turf";
 import project from "../../project/projectClient.js";

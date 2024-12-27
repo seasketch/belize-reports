@@ -2,11 +2,12 @@
 import React from "react";
 import {
   Metric,
-  MetricGroup,
   Objective,
+  MetricGroup,
   keyBy,
   nestMetrics,
   percentWithEdge,
+  getMetricGroupObjectiveId,
   valueFormatter,
 } from "@seasketch/geoprocessing/client-core";
 import {
@@ -19,11 +20,8 @@ import {
 } from "@seasketch/geoprocessing/client-ui";
 import { useTranslation } from "react-i18next";
 import { CheckCircleFill, InfoCircleFill } from "@styled-icons/bootstrap";
-import {
-  getMetricGroupObjectiveId,
-  getObjectiveById,
-} from "@seasketch/geoprocessing";
-import { HorizontalStackedBar } from "./HorizontalStackedBar";
+import { getObjectiveById } from "@seasketch/geoprocessing";
+import { HorizontalStackedBar } from "./HorizontalStackedBar.js";
 
 export interface ClassTableProps {
   /** Table row objects, each expected to have a classId and value. */

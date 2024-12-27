@@ -8,7 +8,7 @@ import {
   Nullable,
   Sketch,
   SketchCollection,
-} from "@seasketch/geoprocessing";
+} from "@seasketch/geoprocessing/client-core";
 
 export interface OusFeatureProperties {
   resp_id: number;

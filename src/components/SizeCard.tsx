@@ -23,11 +23,9 @@ import {
   OBJECTIVE_NO,
   OBJECTIVE_YES,
   flattenByGroupAllClass,
-} from "@seasketch/geoprocessing/client-core";
-import {
   getMetricGroupObjectiveIds,
   isSketchCollection,
-} from "@seasketch/geoprocessing";
+} from "@seasketch/geoprocessing/client-core";
 import { Trans, useTranslation } from "react-i18next";
 import project from "../../project/projectClient.js";
 import { Label, WatersBackgroundBelize } from "./WatersBackgroundBelize.js";

@@ -2,7 +2,7 @@
  * @jest-environment node
  * @group unit
  */
-import { Feature, Polygon } from "@seasketch/geoprocessing";
+import { Feature, Polygon } from "@seasketch/geoprocessing/client-core";
 import { bathyStats } from "./bathymetry.js";
 import { describe, it, expect } from "vitest";
 

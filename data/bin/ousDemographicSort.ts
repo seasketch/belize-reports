@@ -1,6 +1,9 @@
 import fs from "fs-extra";
 import { OusFeatureProperties } from "../../src/util/overlapOusDemographic.js";
-import { FeatureCollection, Polygon } from "@seasketch/geoprocessing";
+import {
+  FeatureCollection,
+  Polygon,
+} from "@seasketch/geoprocessing/client-core";
 
 // Assumes already done:
 // join spatial and tabular data

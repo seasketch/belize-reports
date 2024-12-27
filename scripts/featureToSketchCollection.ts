@@ -3,7 +3,7 @@ import {
   FeatureCollection,
   Polygon,
   featureToSketchCollection,
-} from "@seasketch/geoprocessing";
+} from "@seasketch/geoprocessing/client-core";
 import fs from "fs-extra";
 import { pathToFileURL } from "node:url";
 

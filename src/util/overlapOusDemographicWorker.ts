@@ -5,7 +5,6 @@ import {
 } from "./overlapOusDemographic.js";
 import { featureCollection, intersect } from "@turf/turf";
 import {
-  clip,
   createMetric,
   Polygon,
   Metric,
@@ -13,7 +12,8 @@ import {
   Sketch,
   SketchCollection,
   toSketchArray,
-} from "@seasketch/geoprocessing";
+} from "@seasketch/geoprocessing/client-core";
+import { clip } from "@seasketch/geoprocessing";
 
 /**
   Calculates demographics of ocean use within a sketch. This function is specific to the 

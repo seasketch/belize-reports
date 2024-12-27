@@ -8,12 +8,12 @@ import {
   rekeyMetrics,
   sortMetrics,
   Georaster,
+  getCogFilename,
 } from "@seasketch/geoprocessing/client-core";
 import {
-  GeoprocessingHandler,
-  getCogFilename,
   rasterMetrics,
   overlapRasterGroupMetrics,
+  GeoprocessingHandler,
 } from "@seasketch/geoprocessing";
 import { loadCog } from "@seasketch/geoprocessing/dataproviders";
 import project from "../../project/projectClient.js";

@@ -2298,7 +2298,7 @@
   ]
 },
         projectUrl: "https://example.com/project",
-        geometryUri: 'https://localhost/2278ee1f-6e74-42e6-8615-edc4bcbc6794',
+        geometryUri: 'https://localhost/31a78cb1-d898-4ef5-b447-b1735fa85091',
         visibleLayers: [],
         language: "en"
       });

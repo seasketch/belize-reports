@@ -2,14 +2,14 @@ import fs from "fs-extra";
 import {
   overlapOusDemographic,
   OusFeatureCollection,
-} from "../../src/util/overlapOusDemographic";
+} from "../../src/util/overlapOusDemographic.js";
 import {
   ReportResultBase,
   rekeyMetrics,
   DataClass,
   sortMetrics,
-} from "@seasketch/geoprocessing";
-import ousShapes from "../dist/ous_demographics.json";
+} from "@seasketch/geoprocessing/client-core";
+import ousShapes from "../dist/ous_demographics.json" assert { type: "json" };
 import { MetricGroup } from "@seasketch/geoprocessing/client-core";
 
 const shapes = ousShapes as OusFeatureCollection;
